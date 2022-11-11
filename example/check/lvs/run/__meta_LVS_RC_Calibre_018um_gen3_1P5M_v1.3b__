@@ -1,6 +1,0 @@
-DRC ICSTATION YES
-
-LAYOUT CASE YES
-SOURCE CASE YES
-
-INCLUDE "/js1/baixf/teaching/PCD2021/example/check/lvs/LVS_RC_Calibre_018um_gen3_1P5M_v1.3b"

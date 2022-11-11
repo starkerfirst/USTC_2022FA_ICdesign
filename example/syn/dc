@@ -1,2 +1,0 @@
-#!/bin/sh
-dc_shell-t -topo -f ./script/dc.tcl -no_log | tee ./log/dc.`date +%m_%d_%H_%M`.log

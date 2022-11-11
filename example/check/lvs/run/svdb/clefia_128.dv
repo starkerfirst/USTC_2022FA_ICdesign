@@ -1,6 +1,0 @@
-# CALIBRE-LVS DISCREPANCY VIEWER TCL FILE 
-# FILE: svdb/clefia_128.dv
-dv_start matched
-dv_cell {clefia_128} {clefia_128} matched
-dv_obj_count -transformed_nets {18317 18317} -transformed_inst {30812 30812} -transformed_port {390 390}
-dv_end

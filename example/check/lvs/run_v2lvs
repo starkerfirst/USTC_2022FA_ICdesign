@@ -1,2 +1,0 @@
-v2lvs -a \<\> -s0 VSS -s1 VDD -addpin VDD -addpin VSS -lsp tcb018gbwp7t_270a.spi -o clefia_128.source.sp -v clefia_128.output.pg.lvs.v
-

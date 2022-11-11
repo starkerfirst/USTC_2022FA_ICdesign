@@ -1,9 +1,0 @@
-# Automagically generated file: Please do not edit!
-lvs_LvsOutFile RUNDIR /js1/baixf/teaching/PCD2021/example/check/lvs/run
-lvs_LvsfVersion 2
-lvs_LvsInputSummary {0 0 0}
-lvs_LvsComparisonSummary {3 2 0 0}
-lvs_LvsOutFile LVS_REPORT clefia_128.lvs.report
-lvs_LvsOutFile SOURCE_NETLIST _source.net_
-lvs_LvsOutFile RULES_FILE /js1/baixf/teaching/PCD2021/example/check/lvs/run/_LVS_RC_Calibre_018um_gen3_1P5M_v1.3b_
-lvs_LvsRunTimes 1641092130 1641092133

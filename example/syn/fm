@@ -1,2 +1,0 @@
-#!/bin/sh
-fm_shell -f ./script/fm.tcl | tee ./log/fm.`date +%m_%d_%H_%M`.log
