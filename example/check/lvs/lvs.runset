@@ -1,0 +1,21 @@
+*lvsRulesFile: /js1/baixf/teaching/PCD2021/example/check/lvs/LVS_RC_Calibre_018um_gen3_1P5M_v1.3b
+*lvsRunDir: /js1/baixf/teaching/PCD2021/example/check/lvs/run
+*lvsLayoutPaths: clefia_128.calibre.db
+*lvsLayoutPrimary: clefia_128
+*lvsLayoutLibrary: clefia
+*lvsLayoutView: layout
+*lvsLayoutGetFromViewer: 1
+*lvsSourcePath: /js1/baixf/teaching/PCD2021/example/check/lvs/clefia_128.source.sp /js1/baixf/teaching/PCD2021/example/check/lvs/source.added /js1/baixf/teaching/PCD2021/example/check/lvs/tcb018gbwp7t_270a.spi
+*lvsSourcePrimary: clefia_128
+*lvsSourceLibrary: clefia
+*lvsSpiceFile: clefia_128.sp
+*lvsERCDatabase: clefia_128.erc.results
+*lvsERCSummaryFile: clefia_128.erc.summary
+*lvsIncludeSVRFCmds: 1
+*lvsSVRFCmds: {LAYOUT CASE YES} {SOURCE CASE YES} {}
+*lvsReportFile: clefia_128.lvs.report
+*lvsMaskDBFile: clefia_128.maskdb
+*cmnShowOptions: 1
+*cmnFDILayoutLibrary: clefia
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: clefia_128.def

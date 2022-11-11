@@ -1,0 +1,82 @@
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Sun Jan  2 02:55:59 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     64
+    Feedthrough (LINT-29)                                          64
+
+Cells                                                               1
+    Cells do not drive (LINT-1)                                     1
+--------------------------------------------------------------------------------
+
+Warning: In design 'clefia_128', cell 'C1780' does not drive any nets. (LINT-1)
+Warning: In design 'clefia_round', input port 'rin[127]' is connected directly to output port 'rout[31]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[126]' is connected directly to output port 'rout[30]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[125]' is connected directly to output port 'rout[29]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[124]' is connected directly to output port 'rout[28]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[123]' is connected directly to output port 'rout[27]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[122]' is connected directly to output port 'rout[26]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[121]' is connected directly to output port 'rout[25]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[120]' is connected directly to output port 'rout[24]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[119]' is connected directly to output port 'rout[23]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[118]' is connected directly to output port 'rout[22]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[117]' is connected directly to output port 'rout[21]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[116]' is connected directly to output port 'rout[20]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[115]' is connected directly to output port 'rout[19]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[114]' is connected directly to output port 'rout[18]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[113]' is connected directly to output port 'rout[17]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[112]' is connected directly to output port 'rout[16]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[111]' is connected directly to output port 'rout[15]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[110]' is connected directly to output port 'rout[14]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[109]' is connected directly to output port 'rout[13]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[108]' is connected directly to output port 'rout[12]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[107]' is connected directly to output port 'rout[11]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[106]' is connected directly to output port 'rout[10]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[105]' is connected directly to output port 'rout[9]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[104]' is connected directly to output port 'rout[8]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[103]' is connected directly to output port 'rout[7]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[102]' is connected directly to output port 'rout[6]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[101]' is connected directly to output port 'rout[5]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[100]' is connected directly to output port 'rout[4]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[99]' is connected directly to output port 'rout[3]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[98]' is connected directly to output port 'rout[2]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[97]' is connected directly to output port 'rout[1]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[96]' is connected directly to output port 'rout[0]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[63]' is connected directly to output port 'rout[95]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[62]' is connected directly to output port 'rout[94]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[61]' is connected directly to output port 'rout[93]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[60]' is connected directly to output port 'rout[92]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[59]' is connected directly to output port 'rout[91]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[58]' is connected directly to output port 'rout[90]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[57]' is connected directly to output port 'rout[89]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[56]' is connected directly to output port 'rout[88]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[55]' is connected directly to output port 'rout[87]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[54]' is connected directly to output port 'rout[86]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[53]' is connected directly to output port 'rout[85]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[52]' is connected directly to output port 'rout[84]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[51]' is connected directly to output port 'rout[83]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[50]' is connected directly to output port 'rout[82]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[49]' is connected directly to output port 'rout[81]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[48]' is connected directly to output port 'rout[80]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[47]' is connected directly to output port 'rout[79]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[46]' is connected directly to output port 'rout[78]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[45]' is connected directly to output port 'rout[77]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[44]' is connected directly to output port 'rout[76]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[43]' is connected directly to output port 'rout[75]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[42]' is connected directly to output port 'rout[74]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[41]' is connected directly to output port 'rout[73]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[40]' is connected directly to output port 'rout[72]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[39]' is connected directly to output port 'rout[71]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[38]' is connected directly to output port 'rout[70]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[37]' is connected directly to output port 'rout[69]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[36]' is connected directly to output port 'rout[68]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[35]' is connected directly to output port 'rout[67]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[34]' is connected directly to output port 'rout[66]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[33]' is connected directly to output port 'rout[65]'. (LINT-29)
+Warning: In design 'clefia_round', input port 'rin[32]' is connected directly to output port 'rout[64]'. (LINT-29)
+1

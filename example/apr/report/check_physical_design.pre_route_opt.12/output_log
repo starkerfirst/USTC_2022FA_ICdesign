@@ -1,0 +1,354 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /js1/baixf/teaching/PCD2021/example/apr/tech/tluplus/t018lo_1p4m_typical.tluplus
+ min_tlu+: /js1/baixf/teaching/PCD2021/example/apr/tech/tluplus/t018lo_1p4m_typical.tluplus
+ mapping_file: /js1/baixf/teaching/PCD2021/example/apr/tech/tluplus/star.map_4M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: clefia_128_APR
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+20.000 20.000 469.120 466.880
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+No ignored layers specified.
+
+Min_routing_layer: METAL1
+Max_routing_layer: METAL4
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : clefia_128
+Version: L-2016.03-SP5-3
+Date   : Sat Jan  1 23:12:48 2022
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : clefia_128
+Version: L-2016.03-SP5-3
+Date   : Sat Jan  1 23:12:48 2022
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL1             Y         0.680          868       0.560           
+METAL2             Y         0.680          868       0.560           
+METAL2             X         0.680          872       0.560           
+METAL1             X         0.680          872       0.560           
+METAL3             X         0.680          872       0.560           
+METAL3             Y         0.680          868       0.560           
+METAL2             Y         0.680          868       0.560           
+METAL4             Y         0.680          868       0.560           
+METAL4             X         0.480          543       0.900           
+METAL3             X         0.480          543       0.900           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: ::check_database 
+************************************************************
+CHECK_DATABASE RESULTS FOR CELL : route_opt_icc.CEL
+************************************************************
+MWUHIER: Checking for hierarchical internal netlist and flat internal netlist consistency ... 
+MWUHIER: Done with checking hierarchical internal netlist and flat internal netlist consistency. 
+Information: MWUHIER: Number of errors = 0 (MW-348)
+End PG consistent checking.. PG_Pass
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+
+Start UPF checking.
+No UPF infomation. Finish UPF checking.
+1
+End CPD check: ::check_database
+Start CPD check: report_taint -dump_errors 
+1
+End CPD check: report_taint -dump_errors
+Start CPD check: GetNonClockIdealNets 
+
+End CPD check: GetNonClockIdealNets
+Start CPD check: check_for_HFN_ideal 
+
+End CPD check: check_for_HFN_ideal
+Start CPD check: check_block_abstraction -stage pre_route_opt 
+Information: No blocks with abstraction information found
+1
+End CPD check: check_block_abstraction -stage pre_route_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : clefia_128
+  Version: L-2016.03-SP5-3
+  Date   : Sat Jan  1 23:12:49 2022
+****************************************
+Std cell utilization: 57.85%  (45639/(91428-12540))
+(Non-fixed + Fixed)
+Std cell utilization: 59.80%  (45047/(91428-16096))
+(Non-fixed only)
+Chip area:            91428    sites, bbox (20.00 20.00 469.12 466.88) um
+Std cell area:        45639    sites, (non-fixed:45047  fixed:592)
+                      6101     cells, (non-fixed:5837   fixed:264)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  12540    sites, (excluding fixed std cells)
+                      16096    sites, (include fixed std cells & chimney area)
+                      15048    sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       213 
+Avg. std cell width:  5.92 um 
+Site array:           unit     (width: 0.56 um, height: 3.92 um, rows: 114)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : clefia_128
+  Version: L-2016.03-SP5-3
+  Date   : Sat Jan  1 23:12:49 2022
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete    0.00        0.00        via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 0 (0.00%)
+Number of regions with placement utilization 0.125 - 0.25 is 1 (0.19%)
+Number of regions with placement utilization 0.25 - 0.375 is 18 (3.40%)
+Number of regions with placement utilization 0.375 - 0.5 is 70 (13.23%)
+Number of regions with placement utilization 0.5 - 0.625 is 182 (34.40%)
+Number of regions with placement utilization 0.625 - 0.75 is 167 (31.57%)
+Number of regions with placement utilization 0.75 - 0.875 is 79 (14.93%)
+Number of regions with placement utilization 0.875 - 1 is 12 (2.27%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: check_legality_violation 
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+  Loading design 'clefia_128'
+
+
+Information: The design has 1482 physical cells. (PSYN-105)
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 4 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 114 horizontal rows
+    3072 pre-routes for placement blockage/checking
+    3187 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2600 pre-routes used for checking; 1265 redundant shapes removed
+[end initializing data for legality checker]
+Warning: Die area is not integer multiples of min site height (3920), object's width and height(489120,486880). (PSYN-523)
+Warning: Die area is not integer multiples of min site width (560), object's width and height(489120,486880). (PSYN-523)
+
+**************************************************** 
+Check_legality: Report for Fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+**************************************************** 
+(fixed placement) Cells Not on Row            : 0
+(fixed placement) Cell Overlaps               : 0
+(fixed placement) Cells overlapping blockages : 1254
+(fixed placement) Orientation Violations      : 0
+(fixed placement) Site Violations             : 0
+(fixed placement) Power Strap Violations      : 0
+****************************************************** 
+
+****************************************************** 
+Check_legality: Report for Non-fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+****************************************************** 
+Number of Cells Not on Row            : 0
+Number of Cell Overlaps               : 0
+Number of Cells overlapping blockages : 0
+Number of Orientation Violations      : 0
+Number of Site Violations             : 0
+Number of Power Strap Violations      : 0
+******************************************** 
+
+  Total moveable cell area: 98887.2
+  Total fixed cell area: 1299.6
+  Total physical cell area: 100186.7
+  Core area: (20000 20000 469120 466880)
+1
+
+
+End CPD check: check_legality_violation
+Start CPD check: cpd_check_tie_connection 
+0
+End CPD check: cpd_check_tie_connection
+Start CPD check: cpd_check_cells_restrictions 
+0
+End CPD check: cpd_check_cells_restrictions
+Start CPD check: check_unplaced_cells 
+1
+End CPD check: check_unplaced_cells
+Start CPD check: check_zrt_routability 
+Information: Creating error view route_opt_icc.err. (ZRT-516)
+Found antenna rule mode 1, diode mode 4:
+	metal ratio 0, cut ratio 20,metal gate diffusion length based ratio 0 cut gate length based ratio 0	metal pratio 0, cut pratio 0, metal gate diffusion length based pratio 0, cut gate diffusion length based pratio 0	metal nratio 0, cut nratio 0, metal nratio 0, cut nratio 0
+	layer VIA12: max ratio 20 max pratio 2.14748e+09 max nratio 2.14748e+09	layer VIA12: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 83.33 75}
+	layer VIA23: max ratio 20 max pratio 2.14748e+09 max nratio 2.14748e+09	layer VIA23: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 83.33 75}
+	layer VIA34: max ratio 20 max pratio 2.14748e+09 max nratio 2.14748e+09	layer VIA34: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 83.33 75}
+Found antenna rule mode 4, diode mode 4:
+	metal ratio 400, cut ratio 0,metal gate diffusion length based ratio 0 cut gate length based ratio 0	metal pratio 0, cut pratio 0, metal gate diffusion length based pratio 0, cut gate diffusion length based pratio 0	metal nratio 0, cut nratio 0, metal nratio 0, cut nratio 0
+	layer METAL4: max ratio 400 max pratio 2.14748e+09 max nratio 2.14748e+09	layer METAL4: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 8000 30000}
+	layer METAL3: max ratio 400 max pratio 2.14748e+09 max nratio 2.14748e+09	layer METAL3: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 400 2200}
+	layer METAL2: max ratio 400 max pratio 2.14748e+09 max nratio 2.14748e+09	layer METAL2: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 400 2200}
+	layer METAL1: max ratio 400 max pratio 2.14748e+09 max nratio 2.14748e+09	layer METAL1: max gate length based ratio 0 max gate length based pratio 0 max gate length based nratio 0, diode ratio {0.203 0 400 2200}
+Cell Min-Routing-Layer = METAL1
+Cell Max-Routing-Layer = METAL4
+Information: Multiple default contact VIA12H found for layer VIA12. (ZRT-021)
+Information: Multiple default contact VIA12V found for layer VIA12. (ZRT-021)
+Warning: Ignore 2 top cell ports with no pins. (ZRT-027)
+Via on layer (VIA34) needs more than one tracks
+Warning: Layer METAL3 pitch 0.560 may be too small: wire/via-down 0.560, wire/via-up 0.610. (ZRT-026)
+Via on layer (VIA34) needs more than one tracks
+Warning: Layer METAL4 pitch 0.900 may be too small: wire/via-down 0.950, wire/via-up 0.900. (ZRT-026)
+Transition layer name: METAL3(2)
+Warning: Standard cell pin ANTENNABWP7T/I has no valid via regions. (ZRT-044)
+Printing options for 'set_route_zrt_common_options'
+-post_detail_route_redundant_via_insertion              :	 medium              
+
+Printing options for 'set_route_zrt_detail_options'
+-antenna                                                :	 true                
+
+
+============================================
+==  Check for overlap of standard cells   ==
+============================================
+
+>>>>>> No overlap of standard cells found
+
+============================================
+==     Check for min-grid violations      ==
+============================================
+
+>>>>>> No min-grid violations found
+
+
+============================================
+==    Check for out-of-boundary ports     ==
+============================================
+
+>>>>>> No out-of-boundary error found
+
+============================================
+==        Check for blocked ports         ==
+============================================
+
+>>>>>> Port blocked by layer constraints - min/max and freeze layer settings
+
+>>>>>> Port blocked by check port access
+
+>>>>>> No blocked port found
+
+>>>>>> Net blocked by layer constraints - min/max and freeze layer settings
+
+>>>>>> No blocked net found
+
+End of check_zrt_routability
+1
+End CPD check: check_zrt_routability

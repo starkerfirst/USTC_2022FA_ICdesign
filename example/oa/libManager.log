@@ -1,0 +1,932 @@
+\o Program:		@(#)$CDS: libManager version 6.1.7 - CAT35 10/18/2015 00:06 (sjfnl678) $
+\o Sub version:		sub-version  p009 
+\o Arguments:		-unmapped -mpssession virtuoso22226 -mpshost mgt 
+\o Working Directory:	mgt:/js1/baixf/teaching/PCD2021/example/oa
+\o 64-bit offsets
+\o Qt version: 		4.8.5
+\o changeWorkingDir("/js1/baixf/teaching/PCD2021/example/oa") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\o Log file is "/js1/baixf/teaching/PCD2021/example/oa/libManager.log".
+\o Opening libManager window.
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\a nrSetCurrentWindow(cdsLibManager)
+\o Library Manager customization server connected.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrResizeWindow(cdsLibManager list(8 31 1440 877))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->libListBox->value = "clefia"
+\a cdsLibManager->libLineEdit->value = "clefia"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 40 12 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libListBox->value = "clefia"
+\a cdsLibManager->libLineEdit->value = "clefia"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->libListBox->value = "tcb018gbwp7t"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "tcb018gbwp7t"
+\a cdsLibManager->cellListBox->value = "ANTENNABWP7T"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "ANTENNABWP7T"
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libListBox->value = "tcb018gbwp7t"
+\a cdsLibManager->libLineEdit->value = "tcb018gbwp7t"
+\a cdsLibManager->cellListBox->value = "ANTENNABWP7T"
+\a cdsLibManager->cellLineEdit->value = "ANTENNABWP7T"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->libListBox->value = "clefia"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 35 57 2 "clefia")
+\a cdsLibManager->libLineEdit->value = "clefia"
+\a cdsLibManager->editDeleteButton->value = t
+\a deleteForm->deleteBothRadioButton->value = t
+\a deleteForm->deleteFilterEdit->value = "*"
+\a deleteForm->notDeleteFilterEdit->value = "*"
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrResizeWindow(deleteForm list(637 279 627 425))
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 420 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(812 425 277 133))
+\o Batching session updates...
+\o Deleted library 'clefia'.
+\o Delete of library "clefia" succeeded.
+\o Deletion of library done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libLineEdit->value = ""
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->libListBox->value = "tcb018gbwp7t"
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 24 8 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 51 56 2 "clefia_128")
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a nrSetCurrentWindow(deleteForm)
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 458 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia_128".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(812 425 277 133))
+\o Deleted library 'clefia_128'.
+\o Delete of library "clefia_128" succeeded.
+\o Deletion of library done.
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 39 5 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a _lmgrCloseIconify("cdsLibManager" 1)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\o MPS service: map window
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 46 60 2 "clefia_128")
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 458 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia_128".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(812 425 277 133))
+\o Deleted library 'clefia_128'.
+\o Delete of library "clefia_128" succeeded.
+\o Deletion of library done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libLineEdit->value = ""
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 18 6 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 48 58 2 "clefia_128")
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 458 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia_128".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(812 425 277 133))
+\o Deleted library 'clefia_128'.
+\o Delete of library "clefia_128" succeeded.
+\o Deletion of library done.
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 41 8 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 52 63 2 "clefia_128")
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 458 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia_128".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(812 425 277 133))
+\o Deleted library 'clefia_128'.
+\o Delete of library "clefia_128" succeeded.
+\o Deletion of library done.
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\o DB was auto refreshed.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellListBox->value = "chip_finish_icc"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellListBox->value = "metal_fill_icc"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "metal_fill_icc"
+\a lmgrLogShowPopup("mainListPopup2" 52 6 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1057))
+\a nrResizeWindow(cdsLibManager list(0 23 1440 877))
+\a nrResizeWindow(cdsLibManager list(0 23 1440 837))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a lmgrLogShowPopup("mainListPopup0" 53 62 2 "clefia_128")
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(767 337 458 334))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "clefia_128".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(572 335 277 133))
+\o Deleted library 'clefia_128'.
+\o Delete of library "clefia_128" succeeded.
+\o Deletion of library done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a cdsLibManager->libLineEdit->value = ""
+\a nrResizeWindow(cdsLibManager list(0 0 1440 837))
+\w Warning: LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 1 redefines
+\w LIB basic from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE basic
+\w before DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE basic
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 2 redefines
+\w LIB analogLib from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE analogLib
+\w before DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE analogLib
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\w Warning: LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib Line 3 redefines
+\w LIB tsmc18 from File /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w Insert UNDEFINE tsmc18
+\w before DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/cds.lib
+\w Or remove or comment out DEFINE tsmc18
+\w     in /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CMSP018K3_1_0A/MIM_2.0fF_1P5M_3X1U_40K_UTM/cds.lib
+\w to suppress this warning message.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1440 837))
+\a cdsLibManager->libListBox->value = "clefia_128"
+\a cdsLibManager->libLineEdit->value = "clefia_128"
+\a cdsLibManager->cellListBox->value = "clefia_128"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = "clefia_128"
+\a lmgrLogShowPopup("mainListPopup2" 48 13 2 "layout")
+\a cdsLibManager->FileOpenButton->value = t
+\o MPS request: edit design
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1440 877))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1057))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrResizeWindow(cdsLibManager list(0 0 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1440 837))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 0 1440 837))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 23 1440 837))
+\a nrResizeWindow(cdsLibManager list(0 23 1440 877))
+\a nrResizeWindow(cdsLibManager list(0 23 1440 837))
+\a nrResizeWindow(cdsLibManager list(0 23 1440 877))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1057))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1057))
+\a nrResizeWindow(cdsLibManager list(0 23 1920 1017))
+\a nrSetCurrentWindow(cdsLibManager)
+\o MPS service: shutdown
+\o libManager is exiting.
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a exit(0)

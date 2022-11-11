@@ -1,0 +1,14 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 6.1.6 - CAT33 02/20/2013 14:27 (sjfnl893) $
+\o Sub version:		sub-version  p011 
+\o Arguments:		-cdslib /js1/baixf/teaching/PCD2021/example/oa/cds.lib -mpssession virtuoso479 -mpshost mgt 
+\o Working Directory:	mgt:/js1/baixf/teaching/PCD2021/example/oa
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.7.2
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "tcb018gbwp7t"
+\a nrResizeWindow(cdsLibEditor list(190 213 500 400))
+\a nrSetCurrentWindow(cdsLibEditor)
+\a cdsLibEditor->fileExitButton->value = t
+\a nrSetWindowVisibility(cdsLibEditor "hide")
+\a exit(0)

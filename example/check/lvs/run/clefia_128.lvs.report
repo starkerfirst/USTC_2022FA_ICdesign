@@ -1,0 +1,875 @@
+
+
+
+                  ##################################################
+                  ##                                              ##
+                  ##         C A L I B R E    S Y S T E M         ##
+                  ##                                              ##
+                  ##             L V S   R E P O R T              ##
+                  ##                                              ##
+                  ##################################################
+
+
+
+REPORT FILE NAME:         clefia_128.lvs.report
+LAYOUT NAME:              /js1/baixf/teaching/PCD2021/example/check/lvs/run/clefia_128.sp ('clefia_128')
+SOURCE NAME:              _source.net_ ('clefia_128')
+RULE FILE:                /js1/baixf/teaching/PCD2021/example/check/lvs/run/_LVS_RC_Calibre_018um_gen3_1P5M_v1.3b_
+CREATION TIME:            Sun Jan  2 10:55:32 2022
+CURRENT DIRECTORY:        /js1/baixf/teaching/PCD2021/example/check/lvs/run
+USER NAME:                baixf
+CALIBRE VERSION:          v2013.2_18.13    Thu May 16 13:39:43 PDT 2013
+
+
+
+                               OVERALL COMPARISON RESULTS
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+  Warning:  Unbalanced smashed mosfets were matched.
+  Warning:  Ambiguity points were found and resolved arbitrarily.
+
+
+**************************************************************************************************************
+                                      CELL  SUMMARY
+**************************************************************************************************************
+
+  Result         Layout                        Source
+  -----------    -----------                   --------------
+  CORRECT        clefia_128                    clefia_128
+
+
+
+**************************************************************************************************************
+                                      LVS PARAMETERS
+**************************************************************************************************************
+
+
+o LVS Setup:
+
+   // LVS COMPONENT TYPE PROPERTY
+   // LVS COMPONENT SUBTYPE PROPERTY
+   // LVS PIN NAME PROPERTY
+   LVS POWER NAME                         "AVD33B" "AVD33G" "AVD33R" "AVDD" "AVDDB" "AVDDBG" "AVDDG" "AVDDR" "AVDWELL" "DVDD"
+                                          "TAVD33" "TAVD33PST" "TAVDD" "TAVDDPST" "VD33" "VD33APST" "VD33PST" "VD33REF" "VDD"
+                                          "VDD5V" "VDDESD" "VDDG" "VDDM" "VDDPST" "VDDSA" "VDWELL"
+   LVS GROUND NAME                        "AGND" "AVS33B" "AVS33G" "AVS33R" "AVSS" "AVSSB" "AVSSBG" "AVSSG" "AVSSR" "AVSSUB" "DVSS"
+                                          "GND" "TACVSS" "TAVSS" "TAVSSPST" "VS33APST" "VSS" "VSSAPST" "VSSESD" "VSSG" "VSSM"
+                                          "VSSPST" "VSSREF" "VSSUB"
+   LVS CELL SUPPLY                        NO
+   LVS RECOGNIZE GATES                    ALL
+   LVS IGNORE PORTS                       NO
+   LVS CHECK PORT NAMES                   YES
+   LVS IGNORE TRIVIAL NAMED PORTS         NO
+   LVS BUILTIN DEVICE PIN SWAP            YES
+   LVS ALL CAPACITOR PINS SWAPPABLE       YES
+   LVS DISCARD PINS BY DEVICE             NO
+   LVS SOFT SUBSTRATE PINS                NO
+   LVS INJECT LOGIC                       YES
+   LVS EXPAND UNBALANCED CELLS            YES
+   LVS FLATTEN INSIDE CELL                NO
+   LVS EXPAND SEED PROMOTIONS             NO
+   LVS PRESERVE PARAMETERIZED CELLS       NO
+   LVS GLOBALS ARE PORTS                  YES
+   LVS REVERSE WL                         NO
+   LVS SPICE PREFER PINS                  YES
+   LVS SPICE SLASH IS SPACE               YES
+   LVS SPICE ALLOW FLOATING PINS          YES
+   // LVS SPICE ALLOW INLINE PARAMETERS     
+   LVS SPICE ALLOW UNQUOTED STRINGS       NO
+   LVS SPICE CONDITIONAL LDD              NO
+   LVS SPICE CULL PRIMITIVE SUBCIRCUITS   NO
+   LVS SPICE IMPLIED MOS AREA             NO
+   // LVS SPICE MULTIPLIER NAME
+   LVS SPICE OVERRIDE GLOBALS             NO
+   LVS SPICE REDEFINE PARAM               NO
+   LVS SPICE REPLICATE DEVICES            NO
+   LVS SPICE SCALE X PARAMETERS           NO
+   LVS SPICE STRICT WL                    NO
+   // LVS SPICE OPTION
+   LVS STRICT SUBTYPES                    NO
+   LVS EXACT SUBTYPES                     NO
+   LAYOUT CASE                            YES
+   SOURCE CASE                            YES
+   LVS COMPARE CASE                       NO
+   LVS DOWNCASE DEVICE                    NO
+   LVS REPORT MAXIMUM                     50
+   LVS PROPERTY RESOLUTION MAXIMUM        65536
+   // LVS SIGNATURE MAXIMUM
+   // LVS FILTER UNUSED OPTION
+   // LVS REPORT OPTION
+   LVS REPORT UNITS                       YES
+   // LVS NON USER NAME PORT
+   // LVS NON USER NAME NET
+   // LVS NON USER NAME INSTANCE
+
+   // Device Type Map
+
+   LVS DEVICE TYPE                        LDDNMOS "na20_g5a_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "na20_g5a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "na29_g5a_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "na29_g5a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "na6_g5a_nbl_v2_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nda29_g3a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nda45_g3b_nbl_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld12_g5a_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld12_g5a_iso_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld16_g5a_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld16_g5a_iso_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld20_g5a_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld20_g5a_iso_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld24_g5a_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld24_g5a_iso_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld24_g5a_iso_switch_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld24_g5a_switch_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld36_g5b_nbl_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld45_g5b_nbl_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld5_g5a_iso_switch_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld6_g5a_de_iso_v2_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld6_g5a_de_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld6_g5a_sa_iso_v2_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld6_g5a_sa_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld9_g5a_iso_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDNMOS "nld9_g5a_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa12_g5a_nbl_slit_v2_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa12_g5a_nbl_v2_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa16_g5a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa16_g5a_nbl_slit_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa20_g5a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa20_g5a_nbl_slit_cfp_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa29_g5a_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa36_g5b_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa45_g5b_nbl_cfp_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa6_g5a_de_nbl_v2_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa6_g5a_sa_nbl_v2_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa9_g5a_nbl_mac" [ D=D G=G S=S ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pa9_g5a_nbl_slit_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        DIODE "pbshnnbl_dio_shp_ga_3t" [ POS=PLUS NEG=MINUS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        LDDPMOS "pch5_as_switch_mac" [ D=D G=G S=BS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        DIODE "pddshnnbl_dio_shp_ga_3t" [ POS=PLUS NEG=MINUS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        DIODE "shpnblshn_dio_shp_gb_3t" [ POS=PLUS NEG=MINUS ]  SOURCE LAYOUT
+   LVS DEVICE TYPE                        RESISTOR "rnod_m" "rnodrpo_m" "rnodrpo_pure5v" "rnodrpo_pure5v_m" "rnodw_m" "rnpo1_dis"
+                                                   "rnpo1rpo_dis" "rnpo1rpo_pure5v" "rnpo1rpo_pure5v_dis" "rnpo1w_dis" "rnwod_m"
+                                                   "rnwod_pure5v" "rnwod_pure5v_m" "rnwsti_m" "rnwsti_pure5v" "rnwsti_pure5v_m"
+                                                   "rpod_m" "rpodrpo_m" "rpodrpo_pure5v" "rpodrpo_pure5v_m" "rpodw_m" "rppo1_dis"
+                                                   "rppo1rpo_dis" "rppo1rpo_pure5v" "rppo1rpo_pure5v_dis" "rppo1rpo_serp"
+                                                   "rppo1rpo_serp_dis" "rppo1w_dis" "rppolyhri1k" "rppolyhri1k_dis" "rppolyhri3d3k"
+                                                   "rppolyhri3d3k_dis" "rppolyhri3d3k_serp" "rppolyhri3d3k_serp_dis"
+                                                   [ POS=PLUS NEG=MINUS ]  SOURCE LAYOUT
+
+   // Reduction
+
+   LVS REDUCE SERIES MOS                  NO
+   LVS REDUCE PARALLEL MOS                YES
+   LVS REDUCE SEMI SERIES MOS             NO
+   LVS REDUCE SPLIT GATES                 YES
+   LVS REDUCE PARALLEL BIPOLAR            YES
+   LVS REDUCE SERIES CAPACITORS           YES
+   LVS REDUCE PARALLEL CAPACITORS         YES
+   LVS REDUCE SERIES RESISTORS            YES
+   LVS REDUCE PARALLEL RESISTORS          YES
+   LVS REDUCE PARALLEL DIODES             YES
+
+   LVS REDUCE  pbshnnbl_dio_shp_ga_3t  PARALLEL
+   LVS REDUCE  pddshnnbl_dio_shp_ga_3t  PARALLEL
+   LVS REDUCE  rnod_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnod_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnodrpo_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnodrpo_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnodrpo_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rnodrpo_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rnodrpo_pure5v_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnodrpo_pure5v_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnodw_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnodw_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnpo1_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnpo1_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnpo1rpo_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnpo1rpo_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnpo1rpo_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rnpo1rpo_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rnpo1rpo_pure5v_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnpo1rpo_pure5v_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnpo1w_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnpo1w_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnwod_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnwod_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnwod_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rnwod_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rnwod_pure5v_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnwod_pure5v_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnwsti_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnwsti_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rnwsti_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rnwsti_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rnwsti_pure5v_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rnwsti_pure5v_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rpod_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rpod_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rpodrpo_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rpodrpo_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rpodrpo_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rpodrpo_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rpodrpo_pure5v_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rpodrpo_pure5v_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rpodw_m  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rpodw_m  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppo1_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppo1_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppo1rpo_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppo1rpo_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppo1rpo_pure5v  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rppo1rpo_pure5v  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rppo1rpo_pure5v_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppo1rpo_pure5v_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppo1rpo_serp  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rppo1rpo_serp  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rppo1rpo_serp_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppo1rpo_serp_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppo1w_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppo1w_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppolyhri1k  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rppolyhri1k  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rppolyhri1k_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppolyhri1k_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppolyhri3d3k  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rppolyhri3d3k  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rppolyhri3d3k_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppolyhri3d3k_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  rppolyhri3d3k_serp  PARALLEL [ TOLERANCE l 0 ]
+   LVS REDUCE  rppolyhri3d3k_serp  SERIES PLUS MINUS [ TOLERANCE w 0 ]
+   LVS REDUCE  rppolyhri3d3k_serp_dis  PARALLEL [ TOLERANCE lr 0 ]
+   LVS REDUCE  rppolyhri3d3k_serp_dis  SERIES PLUS MINUS [ TOLERANCE wr 0 ]
+   LVS REDUCE  shpnblshn_dio_shp_gb_3t  PARALLEL
+   LVS REDUCTION PRIORITY                 PARALLEL
+   
+   LVS SHORT EQUIVALENT NODES             NO
+
+   // Filter
+
+   LVS FILTER  D(ppnddshp_dio_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_36_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_gb_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_gb_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_gb_mv_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_hv_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_hv_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_mv_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_mv_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_hv_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_hv_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_mv_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshpnblshn_dio_mv_iso_ac)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_29_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_45_iso)  OPEN LAYOUT
+   LVS FILTER  D(ppshnnblpsubshp_dio_9_iso)  OPEN LAYOUT
+
+   // Trace Property
+
+   TRACE PROPERTY  mn(n)  l l 0
+   TRACE PROPERTY  mn(n)  w w 0
+   TRACE PROPERTY  mn(nd)  l l 0
+   TRACE PROPERTY  mn(nd)  w w 0
+   TRACE PROPERTY  mn(nanch5_biso)  l l 0
+   TRACE PROPERTY  mn(nanch5_biso)  w w 0
+   TRACE PROPERTY  mn(nanch5_biso_wo)  l l 0
+   TRACE PROPERTY  mn(nanch5_biso_wo)  w w 0
+   TRACE PROPERTY  mn(nanch_biso)  l l 0
+   TRACE PROPERTY  mn(nanch_biso)  w w 0
+   TRACE PROPERTY  mn(nch5_lvt_dd)  l l 0
+   TRACE PROPERTY  mn(nch5_lvt_dd)  w w 0
+   TRACE PROPERTY  mn(nch_5_fgd_mac)  l l 0
+   TRACE PROPERTY  mn(nch_5_fgd_mac)  w w 0
+   TRACE PROPERTY  mn(nch_5_ngd_mac)  l l 0
+   TRACE PROPERTY  mn(nch_5_ngd_mac)  w w 0
+   TRACE PROPERTY  mn(nch_dep5)  l l 0
+   TRACE PROPERTY  mn(nch_dep5)  w w 0
+   TRACE PROPERTY  mp(p)  l l 0
+   TRACE PROPERTY  mp(p)  w w 0
+   TRACE PROPERTY  mp(pd)  l l 0
+   TRACE PROPERTY  mp(pd)  w w 0
+   TRACE PROPERTY  mp(pch5_lvt_dd)  l l 0
+   TRACE PROPERTY  mp(pch5_lvt_dd)  w w 0
+   TRACE PROPERTY  q(pnp10_5_poly)  a a 0
+   TRACE PROPERTY  q(pnp10_5_rpo)  a a 0
+   TRACE PROPERTY  q(pnp10_rpo)  a a 0
+   TRACE PROPERTY  q(pnp2_5_poly)  a a 0
+   TRACE PROPERTY  q(pnp2_rpo)  a a 0
+   TRACE PROPERTY  q(pnp5_5_poly)  a a 0
+   TRACE PROPERTY  q(pnp5_rpo)  a a 0
+   TRACE PROPERTY  d(d1)  a a 0
+   TRACE PROPERTY  d(d2)  a a 0
+   TRACE PROPERTY  d(d3)  a a 0
+   TRACE PROPERTY  d(dn)  a a 0
+   TRACE PROPERTY  d(dp)  a a 0
+   TRACE PROPERTY  d(dw)  a a 0
+   TRACE PROPERTY  d(nhvpw_dio_v2_gb)  a a 0
+   TRACE PROPERTY  d(npdd_dio_v2_ga)  a a 0
+   TRACE PROPERTY  d(shnnblpsubshp_dio_ga)  a a 0
+   TRACE PROPERTY  d(shnnblpsubshp_dio_gb)  a a 0
+   TRACE PROPERTY  d(shnpsubshp_dio_ga)  a a 0
+   TRACE PROPERTY  r(m1)  r r 0
+   TRACE PROPERTY  r(m2)  r r 0
+   TRACE PROPERTY  r(m3)  r r 0
+   TRACE PROPERTY  r(nd)  r r 0
+   TRACE PROPERTY  r(ni)  r r 0
+   TRACE PROPERTY  r(nr)  r r 0
+   TRACE PROPERTY  r(ns)  r r 0
+   TRACE PROPERTY  r(pd)  r r 0
+   TRACE PROPERTY  r(pi)  r r 0
+   TRACE PROPERTY  r(pr)  r r 0
+   TRACE PROPERTY  r(ps)  r r 0
+   TRACE PROPERTY  r(wo)  r r 0
+   TRACE PROPERTY  r(wr)  r r 0
+   TRACE PROPERTY  r(m4)  r r 0
+   TRACE PROPERTY  r(mt)  r r 0
+   TRACE PROPERTY  crtmom  nv nv 0
+   TRACE PROPERTY  crtmom  nh nh 0
+   TRACE PROPERTY  crtmom  s s 0
+   TRACE PROPERTY  crtmom  w w 0
+   TRACE PROPERTY  crtmom  stm stm 0
+   TRACE PROPERTY  crtmom  spm spm 0
+   TRACE PROPERTY  cfmom  nr nr 0
+   TRACE PROPERTY  cfmom  s s 0
+   TRACE PROPERTY  cfmom  w w 0
+   TRACE PROPERTY  cfmom  lr lr 0
+   TRACE PROPERTY  cfmom  stm stm 0
+   TRACE PROPERTY  cfmom  spm spm 0
+   TRACE PROPERTY  cfmom_mx  nr nr 0
+   TRACE PROPERTY  cfmom_mx  s s 0
+   TRACE PROPERTY  cfmom_mx  w w 0
+   TRACE PROPERTY  cfmom_mx  lr lr 0
+   TRACE PROPERTY  cfmom_mx  stm stm 0
+   TRACE PROPERTY  cfmom_mx  spm spm 0
+   TRACE PROPERTY  mimcap_1p0_sin  lt lt 0
+   TRACE PROPERTY  mimcap_1p0_sin  wt wt 0
+   TRACE PROPERTY  mimcap_1p0_sin_3t  lt lt 0
+   TRACE PROPERTY  mimcap_1p0_sin_3t  wt wt 0
+   TRACE PROPERTY  mimcap_1p0_sin_3t  lay lay 0
+   TRACE PROPERTY  mimcap_2p0_sin  lt lt 0
+   TRACE PROPERTY  mimcap_2p0_sin  wt wt 0
+   TRACE PROPERTY  mimcap_2p0_sin_3t  lt lt 0
+   TRACE PROPERTY  mimcap_2p0_sin_3t  wt wt 0
+   TRACE PROPERTY  mimcap_2p0_sin_3t  lay lay 0
+   TRACE PROPERTY  na20_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  na20_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  na20_g5a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  na20_g5a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  na29_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  na29_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  na29_g5a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  na29_g5a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  na6_g5a_nbl_v2_mac  l l 0
+   TRACE PROPERTY  na6_g5a_nbl_v2_mac  w w 0
+   TRACE PROPERTY  nch_hv5_5vnw_ac  l l 0
+   TRACE PROPERTY  nch_hv5_5vnw_ac  w w 0
+   TRACE PROPERTY  nda29_g3a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  nda29_g3a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  nda45_g3b_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  nda45_g3b_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  ndio_sbd_mac  nf nf 0
+   TRACE PROPERTY  ndio_sbd_mac  w w 0
+   TRACE PROPERTY  ndio_sbd_mac  l l 0
+   TRACE PROPERTY  nld12_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  nld12_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  nld12_g5a_iso_cfp_mac  l l 0
+   TRACE PROPERTY  nld12_g5a_iso_cfp_mac  w w 0
+   TRACE PROPERTY  nld16_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  nld16_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  nld16_g5a_iso_cfp_mac  l l 0
+   TRACE PROPERTY  nld16_g5a_iso_cfp_mac  w w 0
+   TRACE PROPERTY  nld20_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  nld20_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  nld20_g5a_iso_cfp_mac  l l 0
+   TRACE PROPERTY  nld20_g5a_iso_cfp_mac  w w 0
+   TRACE PROPERTY  nld24_g5a_cfp_mac  w w 0
+   TRACE PROPERTY  nld24_g5a_cfp_mac  l l 0
+   TRACE PROPERTY  nld24_g5a_iso_cfp_mac  l l 0
+   TRACE PROPERTY  nld24_g5a_iso_cfp_mac  w w 0
+   TRACE PROPERTY  nld24_g5a_iso_switch_cfp_mac  l l 0
+   TRACE PROPERTY  nld24_g5a_iso_switch_cfp_mac  w w 0
+   TRACE PROPERTY  nld24_g5a_switch_cfp_mac  w w 0
+   TRACE PROPERTY  nld24_g5a_switch_cfp_mac  l l 0
+   TRACE PROPERTY  nld36_g5b_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  nld36_g5b_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  nld45_g5b_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  nld45_g5b_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  nld5_g5a_iso_switch_mac  l l 0
+   TRACE PROPERTY  nld5_g5a_iso_switch_mac  w w 0
+   TRACE PROPERTY  nld6_g5a_de_iso_v2_mac  l l 0
+   TRACE PROPERTY  nld6_g5a_de_iso_v2_mac  w w 0
+   TRACE PROPERTY  nld6_g5a_de_mac  w w 0
+   TRACE PROPERTY  nld6_g5a_de_mac  l l 0
+   TRACE PROPERTY  nld6_g5a_sa_iso_v2_mac  l l 0
+   TRACE PROPERTY  nld6_g5a_sa_iso_v2_mac  w w 0
+   TRACE PROPERTY  nld6_g5a_sa_mac  w w 0
+   TRACE PROPERTY  nld6_g5a_sa_mac  l l 0
+   TRACE PROPERTY  nld9_g5a_iso_mac  l l 0
+   TRACE PROPERTY  nld9_g5a_iso_mac  w w 0
+   TRACE PROPERTY  nld9_g5a_mac  w w 0
+   TRACE PROPERTY  nld9_g5a_mac  l l 0
+   TRACE PROPERTY  nmoscap  lr lr 0
+   TRACE PROPERTY  nmoscap  wr wr 0
+   TRACE PROPERTY  nmoscap  mr mr 0
+   TRACE PROPERTY  nmoscap_5  lr lr 0
+   TRACE PROPERTY  nmoscap_5  wr wr 0
+   TRACE PROPERTY  nmoscap_5  mr mr 0
+   TRACE PROPERTY  nmoscap_5_mis  lr lr 0
+   TRACE PROPERTY  nmoscap_5_mis  wr wr 0
+   TRACE PROPERTY  nmoscap_5_mis  mr mr 0
+   TRACE PROPERTY  pa12_g5a_nbl_slit_v2_mac  w w 0
+   TRACE PROPERTY  pa12_g5a_nbl_slit_v2_mac  l l 0
+   TRACE PROPERTY  pa12_g5a_nbl_v2_mac  l l 0
+   TRACE PROPERTY  pa12_g5a_nbl_v2_mac  w w 0
+   TRACE PROPERTY  pa16_g5a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  pa16_g5a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  pa16_g5a_nbl_slit_cfp_mac  w w 0
+   TRACE PROPERTY  pa16_g5a_nbl_slit_cfp_mac  l l 0
+   TRACE PROPERTY  pa20_g5a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  pa20_g5a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  pa20_g5a_nbl_slit_cfp_mac  w w 0
+   TRACE PROPERTY  pa20_g5a_nbl_slit_cfp_mac  l l 0
+   TRACE PROPERTY  pa29_g5a_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  pa29_g5a_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  pa36_g5b_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  pa36_g5b_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  pa45_g5b_nbl_cfp_mac  l l 0
+   TRACE PROPERTY  pa45_g5b_nbl_cfp_mac  w w 0
+   TRACE PROPERTY  pa6_g5a_de_nbl_v2_mac  l l 0
+   TRACE PROPERTY  pa6_g5a_de_nbl_v2_mac  w w 0
+   TRACE PROPERTY  pa6_g5a_sa_nbl_v2_mac  l l 0
+   TRACE PROPERTY  pa6_g5a_sa_nbl_v2_mac  w w 0
+   TRACE PROPERTY  pa9_g5a_nbl_mac  l l 0
+   TRACE PROPERTY  pa9_g5a_nbl_mac  w w 0
+   TRACE PROPERTY  pa9_g5a_nbl_slit_mac  w w 0
+   TRACE PROPERTY  pa9_g5a_nbl_slit_mac  l l 0
+   TRACE PROPERTY  pbhvnwshnnbl_esd_dio_shp_gb_3t  l l 0
+   TRACE PROPERTY  pbshnnbl_dio_shp_ga_3t  area area 0
+   TRACE PROPERTY  pch5_as_switch_mac  w w 0
+   TRACE PROPERTY  pch5_as_switch_mac  l l 0
+   TRACE PROPERTY  pddshnnbl_dio_shp_ga_3t  area area 0
+   TRACE PROPERTY  pdio_esd_ga_12_pdd_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_12_v4_3t  multi multi 0
+   TRACE PROPERTY  pdio_esd_ga_12_v4_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_16_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_20_pdd_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_20_v3_3t  multi multi 0
+   TRACE PROPERTY  pdio_esd_ga_20_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_24_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_29_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_6_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_ga_9_v3_3t  l l 0
+   TRACE PROPERTY  pdio_esd_gb_36_3t  l l 0
+   TRACE PROPERTY  pdio_esd_gb_45_cit_v3_3t  l l 0
+   TRACE PROPERTY  q(pnp10_5_poly_mis)  a a 0
+   TRACE PROPERTY  q(pnp10_5_rpo_mis)  a a 0
+   TRACE PROPERTY  q(pnp10_rpo_mis)  a a 0
+   TRACE PROPERTY  q(pnp2_5_poly_mis)  a a 0
+   TRACE PROPERTY  q(pnp2_rpo_mis)  a a 0
+   TRACE PROPERTY  q(pnp5_5_poly_mis)  a a 0
+   TRACE PROPERTY  q(pnp5_rpo_mis)  a a 0
+   TRACE PROPERTY  rnod_m  lr lr 0
+   TRACE PROPERTY  rnod_m  wr wr 0
+   TRACE PROPERTY  rnodrpo_m  lr lr 0
+   TRACE PROPERTY  rnodrpo_m  wr wr 0
+   TRACE PROPERTY  rnodrpo_pure5v  l l 0
+   TRACE PROPERTY  rnodrpo_pure5v  w w 0
+   TRACE PROPERTY  rnodrpo_pure5v_m  lr lr 0
+   TRACE PROPERTY  rnodrpo_pure5v_m  wr wr 0
+   TRACE PROPERTY  rnodw_m  lr lr 0
+   TRACE PROPERTY  rnodw_m  wr wr 0
+   TRACE PROPERTY  rnpo1_dis  lr lr 0
+   TRACE PROPERTY  rnpo1_dis  wr wr 0
+   TRACE PROPERTY  rnpo1rpo_dis  lr lr 0
+   TRACE PROPERTY  rnpo1rpo_dis  wr wr 0
+   TRACE PROPERTY  rnpo1rpo_pure5v  l l 0
+   TRACE PROPERTY  rnpo1rpo_pure5v  w w 0
+   TRACE PROPERTY  rnpo1rpo_pure5v_dis  lr lr 0
+   TRACE PROPERTY  rnpo1rpo_pure5v_dis  wr wr 0
+   TRACE PROPERTY  rnpo1w_dis  lr lr 0
+   TRACE PROPERTY  rnpo1w_dis  wr wr 0
+   TRACE PROPERTY  rnwod_m  lr lr 0
+   TRACE PROPERTY  rnwod_m  wr wr 0
+   TRACE PROPERTY  rnwod_pure5v  l l 0
+   TRACE PROPERTY  rnwod_pure5v  w w 0
+   TRACE PROPERTY  rnwod_pure5v_m  lr lr 0
+   TRACE PROPERTY  rnwod_pure5v_m  wr wr 0
+   TRACE PROPERTY  rnwsti_m  lr lr 0
+   TRACE PROPERTY  rnwsti_m  wr wr 0
+   TRACE PROPERTY  rnwsti_pure5v  l l 0
+   TRACE PROPERTY  rnwsti_pure5v  w w 0
+   TRACE PROPERTY  rnwsti_pure5v_m  lr lr 0
+   TRACE PROPERTY  rnwsti_pure5v_m  wr wr 0
+   TRACE PROPERTY  rpod_m  lr lr 0
+   TRACE PROPERTY  rpod_m  wr wr 0
+   TRACE PROPERTY  rpodrpo_m  lr lr 0
+   TRACE PROPERTY  rpodrpo_m  wr wr 0
+   TRACE PROPERTY  rpodrpo_pure5v  l l 0
+   TRACE PROPERTY  rpodrpo_pure5v  w w 0
+   TRACE PROPERTY  rpodrpo_pure5v_m  lr lr 0
+   TRACE PROPERTY  rpodrpo_pure5v_m  wr wr 0
+   TRACE PROPERTY  rpodw_m  lr lr 0
+   TRACE PROPERTY  rpodw_m  wr wr 0
+   TRACE PROPERTY  rppo1_dis  lr lr 0
+   TRACE PROPERTY  rppo1_dis  wr wr 0
+   TRACE PROPERTY  rppo1rpo_dis  lr lr 0
+   TRACE PROPERTY  rppo1rpo_dis  wr wr 0
+   TRACE PROPERTY  rppo1rpo_pure5v  l l 0
+   TRACE PROPERTY  rppo1rpo_pure5v  w w 0
+   TRACE PROPERTY  rppo1rpo_pure5v_dis  lr lr 0
+   TRACE PROPERTY  rppo1rpo_pure5v_dis  wr wr 0
+   TRACE PROPERTY  rppo1rpo_serp  w w 0
+   TRACE PROPERTY  rppo1rpo_serp  l l 0
+   TRACE PROPERTY  rppo1rpo_serp_dis  wr wr 0
+   TRACE PROPERTY  rppo1rpo_serp_dis  lr lr 0
+   TRACE PROPERTY  rppo1w_dis  lr lr 0
+   TRACE PROPERTY  rppo1w_dis  wr wr 0
+   TRACE PROPERTY  rppolyhri1k  l l 0
+   TRACE PROPERTY  rppolyhri1k  w w 0
+   TRACE PROPERTY  rppolyhri1k_dis  lr lr 0
+   TRACE PROPERTY  rppolyhri1k_dis  wr wr 0
+   TRACE PROPERTY  rppolyhri3d3k  l l 0
+   TRACE PROPERTY  rppolyhri3d3k  w w 0
+   TRACE PROPERTY  rppolyhri3d3k_dis  lr lr 0
+   TRACE PROPERTY  rppolyhri3d3k_dis  wr wr 0
+   TRACE PROPERTY  rppolyhri3d3k_serp  w w 0
+   TRACE PROPERTY  rppolyhri3d3k_serp  l l 0
+   TRACE PROPERTY  rppolyhri3d3k_serp_dis  wr wr 0
+   TRACE PROPERTY  rppolyhri3d3k_serp_dis  lr lr 0
+   TRACE PROPERTY  shpnblshn_dio_shp_gb_3t  area area 0
+   TRACE PROPERTY  shpshnnbl_esd_dio_shp_ga_3t  l l 0
+   TRACE PROPERTY  zd_dio_ga_nbl_v2_4t  w w 0
+
+
+
+                   CELL COMPARISON RESULTS ( TOP LEVEL )
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+  Warning:  Unbalanced smashed mosfets were matched.
+  Warning:  Ambiguity points were found and resolved arbitrarily.
+
+LAYOUT CELL NAME:         clefia_128
+SOURCE CELL NAME:         clefia_128
+
+--------------------------------------------------------------------------------------------------------------
+
+INITIAL NUMBERS OF OBJECTS
+--------------------------
+
+                Layout    Source         Component Type
+                ------    ------         --------------
+ Ports:            390       390
+
+ Nets:           31746     31801    *
+
+ Instances:      36293     31020    *    MN (4 pins)
+                 37785     32153    *    MP (4 pins)
+                   275       275         D (2 pins)
+                ------    ------
+ Total Inst:     74353     63448
+
+
+NUMBERS OF OBJECTS AFTER TRANSFORMATION
+---------------------------------------
+
+                Layout    Source         Component Type
+                ------    ------         --------------
+ Ports:            390       390
+
+ Nets:           18317     18317
+
+ Instances:       8566      8566         MN (4 pins)
+                  8495      8495         MP (4 pins)
+                   272       272         D (2 pins)
+                   162       162         SPDW_2_1 (4 pins)
+                   188       188         SPDW_2_1_1 (5 pins)
+                    42        42         SPDW_2_2 (5 pins)
+                     9         9         SPDW_2_2_1 (6 pins)
+                    83        83         SPDW_2_2_2 (7 pins)
+                    92        92         SPDW_3_1 (5 pins)
+                   460       460         SPUP_2_1 (4 pins)
+                   170       170         SPUP_2_1_1 (5 pins)
+                   200       200         SPUP_2_2 (5 pins)
+                    58        58         SPUP_2_2_1 (6 pins)
+                   109       109         SPUP_2_2_2 (7 pins)
+                    77        77         SPUP_3_1 (5 pins)
+                     9         9         SPUP_3_2 (6 pins)
+                   522       522         _invb (6 pins)
+                  3634      3634         _invv (4 pins)
+                   625       625         _invx2v (4 pins)
+                    99        99         _invx3v (4 pins)
+                    27        27         _invx4v (4 pins)
+                     3         3         _invx5v (4 pins)
+                    11        11         _invx6v (4 pins)
+                     1         1         _invx7v (4 pins)
+                  1023      1023         _nand2v (5 pins)
+                   117       117         _nand3v (6 pins)
+                   401       401         _nand4v (7 pins)
+                   666       666         _nor2v (5 pins)
+                    76        76         _nor3v (6 pins)
+                   385       385         _nor4v (7 pins)
+                   170       170         _pdw2v (4 pins)
+                   188       188         _pup2v (4 pins)
+                  1965      1965         _sdw2v (4 pins)
+                   347       347         _smn3v (5 pins)
+                  1445      1445         _sup2v (4 pins)
+                    92        92         _sup3v (5 pins)
+                     2         2         _xnor2v (5 pins)
+                     1         1         _xor2v (5 pins)
+                    11        11         _xr2v (5 pins)
+                     9         9         _xra2v (5 pins)
+                ------    ------
+ Total Inst:     30812     30812
+
+
+       * = Number of objects in layout different from number in source.
+
+
+
+**************************************************************************************************************
+                               INFORMATION AND WARNINGS
+**************************************************************************************************************
+
+
+                  Matched    Matched    Unmatched    Unmatched    Component
+                   Layout     Source       Layout       Source    Type
+                  -------    -------    ---------    ---------    ---------
+   Ports:             390        390            0            0
+
+   Nets:            18317      18317            0            0
+
+   Instances:        8566       8566            0            0    MN(n)
+                     8495       8495            0            0    MP(p)
+                      272        272            0            0    D(dn)
+                      162        162            0            0    SPDW_2_1
+                      188        188            0            0    SPDW_2_1_1
+                       42         42            0            0    SPDW_2_2
+                        9          9            0            0    SPDW_2_2_1
+                       83         83            0            0    SPDW_2_2_2
+                       92         92            0            0    SPDW_3_1
+                      460        460            0            0    SPUP_2_1
+                      170        170            0            0    SPUP_2_1_1
+                      200        200            0            0    SPUP_2_2
+                       58         58            0            0    SPUP_2_2_1
+                      109        109            0            0    SPUP_2_2_2
+                       77         77            0            0    SPUP_3_1
+                        9          9            0            0    SPUP_3_2
+                      522        522            0            0    _invb
+                     3634       3634            0            0    _invv
+                      625        625            0            0    _invx2v
+                       99         99            0            0    _invx3v
+                       27         27            0            0    _invx4v
+                        3          3            0            0    _invx5v
+                       11         11            0            0    _invx6v
+                        1          1            0            0    _invx7v
+                     1023       1023            0            0    _nand2v
+                      117        117            0            0    _nand3v
+                      401        401            0            0    _nand4v
+                      666        666            0            0    _nor2v
+                       76         76            0            0    _nor3v
+                      385        385            0            0    _nor4v
+                      170        170            0            0    _pdw2v
+                      188        188            0            0    _pup2v
+                     1965       1965            0            0    _sdw2v
+                      347        347            0            0    _smn3v
+                     1445       1445            0            0    _sup2v
+                       92         92            0            0    _sup3v
+                        2          2            0            0    _xnor2v
+                        1          1            0            0    _xor2v
+                       11         11            0            0    _xr2v
+                        9          9            0            0    _xra2v
+                  -------    -------    ---------    ---------
+   Total Inst:      30812      30812            0            0
+
+
+o Statistics:
+
+   25827 layout mos transistors were reduced to 10355.  1386 connecting nets were deleted.
+     13192 mos transistors were deleted by parallel reduction.
+     2280 mos transistors and 1386 connecting nets were deleted by split-gate reduction.
+   8239 source mos transistors were reduced to 3672.  1386 connecting nets were deleted.
+     2287 mos transistors were deleted by parallel reduction.
+     2280 mos transistors and 1386 connecting nets were deleted by split-gate reduction.
+
+   5 parallel layout diodes were reduced to 2.
+   5 parallel source diodes were reduced to 2.
+
+   55 source nets had all their pins removed and were deleted.
+
+   280 nets were matched arbitrarily.
+
+
+o Initial Correspondence Points:
+
+   Ports:        VDD VSS clk p<69> p<72> p<67> k<110> reset_n p<27> p<24> p<22> p<28> p<53>
+                 p<25> k<124> k<60> p<57> k<28> p<59> k<104> p<33> p<26> p<46> p<39> k<102>
+                 k<88> p<4> k<103> k<94> done k<100> p<2> p<19> k<101> k<66> k<58> k<45> k<41>
+                 k<59> k<46> k<52> k<36> k<25> k<33> k<21> k<23> k<7> k<27> k<14> k<35>
+
+
+o Ambiguity Resolution Points:
+
+      (Each one of the following objects belongs to a group of indistinguishable objects.
+       The listed objects were matched arbitrarily by the Ambiguity Resolution feature of LVS.
+       Arbitrary matching may be prevented by assigning names to these objects or to adjacent nets).
+
+       Layout                                                    Source
+       ------                                                    ------
+
+                                     Nets
+                                     ----
+
+       X3/X1307/3                                                Xxofiller_DCAP32BWP7T_44/net12
+       X8/X705/3                                                 Xxofiller_DCAP32BWP7T_45/net12
+       X3/X1306/3                                                Xxofiller_DCAP32BWP7T_12/net12
+       X8/X706/3                                                 Xxofiller_DCAP32BWP7T_43/net12
+       X8/X707/3                                                 Xxofiller_DCAP32BWP7T_11/net12
+       X1/X1277/3                                                Xxofiller_DCAP32BWP7T_10/net12
+       X0/X1468/3                                                Xxofiller_DCAP32BWP7T_39/net12
+       X0/X1467/3                                                Xxofiller_DCAP32BWP7T_9/net12
+       X8/X708/3                                                 Xxofiller_DCAP32BWP7T_8/net12
+       X1/X1278/3                                                Xxofiller_DCAP32BWP7T_37/net12
+       X6/X1430/3                                                Xxofiller_DCAP32BWP7T_7/net12
+       X6/X1431/3                                                Xxofiller_DCAP32BWP7T_5/net12
+       X6/X1432/3                                                Xxofiller_DCAP32BWP7T_36/net12
+       X6/X1433/3                                                Xxofiller_DCAP32BWP7T_33/net12
+       X6/X1434/3                                                Xxofiller_DCAP32BWP7T_29/net12
+       X6/X1435/3                                                Xxofiller_DCAP32BWP7T_25/net12
+       X2/X1433/3                                                Xxofiller_DCAP32BWP7T_21/net12
+       X2/X1435/3                                                Xxofiller_DCAP32BWP7T_20/net12
+       X7/X1282/3                                                Xxofiller_DCAP32BWP7T_19/net12
+       X2/X1434/3                                                Xxofiller_DCAP32BWP7T_18/net12
+       X7/X1279/3                                                Xxofiller_DCAP32BWP7T_17/net12
+       X7/X1280/3                                                Xxofiller_DCAP32BWP7T_3/net12
+       X5/X831/3                                                 Xxofiller_DCAP32BWP7T_2/net12
+       X5/X832/3                                                 Xxofiller_DCAP32BWP7T_1/net12
+       X0/X1396/3                                                Xxofiller_DCAP16BWP7T_469/net8
+       X0/X1395/3                                                Xxofiller_DCAP16BWP7T_470/net8
+       X0/X1394/3                                                Xxofiller_DCAP16BWP7T_282/net8
+       X0/X1393/3                                                Xxofiller_DCAP16BWP7T_281/net8
+       X0/X1392/3                                                Xxofiller_DCAP16BWP7T_275/net8
+       X0/X1411/3                                                Xxofiller_DCAP16BWP7T_274/net8
+       X0/X1391/3                                                Xxofiller_DCAP16BWP7T_270/net8
+       X0/X1390/3                                                Xxofiller_DCAP16BWP7T_304/net8
+       X0/X1389/3                                                Xxofiller_DCAP16BWP7T_463/net8
+       X0/X1388/3                                                Xxofiller_DCAP16BWP7T_302/net8
+       X0/X1387/3                                                Xxofiller_DCAP16BWP7T_299/net8
+       X5/X785/3                                                 Xxofiller_DCAP16BWP7T_464/net8
+       X8/X666/3                                                 Xxofiller_DCAP16BWP7T_296/net8
+       X8/X665/3                                                 Xxofiller_DCAP16BWP7T_295/net8
+       X0/X1416/3                                                Xxofiller_DCAP16BWP7T_292/net8
+       X0/X1417/3                                                Xxofiller_DCAP16BWP7T_288/net8
+       X0/X1397/3                                                Xxofiller_DCAP16BWP7T_465/net8
+       X0/X1398/3                                                Xxofiller_DCAP16BWP7T_287/net8
+       X8/X669/3                                                 Xxofiller_DCAP16BWP7T_286/net8
+       X5/X782/3                                                 Xxofiller_DCAP16BWP7T_467/net8
+       X0/X1409/3                                                Xxofiller_DCAP16BWP7T_284/net8
+       X5/X783/3                                                 Xxofiller_DCAP16BWP7T_269/net8
+       X8/X668/3                                                 Xxofiller_DCAP16BWP7T_268/net8
+       X5/X784/3                                                 Xxofiller_DCAP16BWP7T_224/net8
+       X0/X1401/3                                                Xxofiller_DCAP16BWP7T_223/net8
+       X0/X1410/3                                                Xxofiller_DCAP16BWP7T_217/net8
+
+
+
+o Matched Mosfets Which Have Been Unequally Reduced:
+
+       X4/X931/M12(49.520,224.185)                               Xu_clefia_round/XU913/MI5_0
+       X4/X931/M15(51.680,224.185)                               Xu_clefia_round/XU913/MI5_1
+       X4/X931/M14(50.960,224.185)                               ** missing smashed mosfet ** 
+       X4/X931/M13(50.240,224.185)                               ** missing smashed mosfet ** 
+
+       X4/X931/M8(46.640,224.185)                                Xu_clefia_round/XU913/MI43_0
+       X4/X931/M11(48.800,224.185)                               Xu_clefia_round/XU913/MI43_1
+       X4/X931/M10(48.080,224.185)                               ** missing smashed mosfet ** 
+       X4/X931/M9(47.360,224.185)                                ** missing smashed mosfet ** 
+
+       X4/X931/M4(43.100,224.185)                                Xu_clefia_round/XU913/MI45_0
+       X4/X931/M7(45.260,224.185)                                Xu_clefia_round/XU913/MI45_1
+       X4/X931/M6(44.540,224.185)                                ** missing smashed mosfet ** 
+       X4/X931/M5(43.820,224.185)                                ** missing smashed mosfet ** 
+
+       X4/X931/M0(40.220,224.185)                                Xu_clefia_round/XU913/MI44_0
+       X4/X931/M3(42.380,224.185)                                Xu_clefia_round/XU913/MI44_1
+       X4/X931/M2(41.660,224.185)                                ** missing smashed mosfet ** 
+       X4/X931/M1(40.940,224.185)                                ** missing smashed mosfet ** 
+
+       X6/M8(88.425,122.265)                                     Xu_clefia_round/Xx_sbox03/XU48/MU8_0-M_u4
+       ** missing smashed mosfet **                              Xu_clefia_round/Xx_sbox03/XU48/MU8_1-M_u4
+
+       X6/M7(87.705,122.265)                                     Xu_clefia_round/Xx_sbox03/XU48/MU8_0-M_u3
+       ** missing smashed mosfet **                              Xu_clefia_round/Xx_sbox03/XU48/MU8_1-M_u3
+
+       X6/M6(86.905,122.265)                                     Xu_clefia_round/Xx_sbox03/XU48/MU8_0-M_u5
+       ** missing smashed mosfet **                              Xu_clefia_round/Xx_sbox03/XU48/MU8_1-M_u5
+
+       X6/M5(86.185,122.265)                                     Xu_clefia_round/Xx_sbox03/XU48/MU8_0-M_u8
+       ** missing smashed mosfet **                              Xu_clefia_round/Xx_sbox03/XU48/MU8_1-M_u8
+
+       X6/X1618/M12(54.560,161.465)                              Xu_clefia_round/XU536/MI5_0
+       X6/X1618/M15(56.720,161.465)                              Xu_clefia_round/XU536/MI5_1
+       X6/X1618/M14(56.000,161.465)                              ** missing smashed mosfet ** 
+       X6/X1618/M13(55.280,161.465)                              ** missing smashed mosfet ** 
+
+       X6/X1618/M8(51.680,161.465)                               Xu_clefia_round/XU536/MI43_0
+       X6/X1618/M11(53.840,161.465)                              Xu_clefia_round/XU536/MI43_1
+       X6/X1618/M10(53.120,161.465)                              ** missing smashed mosfet ** 
+       X6/X1618/M9(52.400,161.465)                               ** missing smashed mosfet ** 
+
+       X6/X1618/M4(48.140,161.465)                               Xu_clefia_round/XU536/MI45_0
+       X6/X1618/M7(50.300,161.465)                               Xu_clefia_round/XU536/MI45_1
+       X6/X1618/M6(49.580,161.465)                               ** missing smashed mosfet ** 
+       X6/X1618/M5(48.860,161.465)                               ** missing smashed mosfet ** 
+
+       X6/X1618/M0(45.260,161.465)                               Xu_clefia_round/XU536/MI44_0
+       X6/X1618/M3(47.420,161.465)                               Xu_clefia_round/XU536/MI44_1
+       X6/X1618/M2(46.700,161.465)                               ** missing smashed mosfet ** 
+       X6/X1618/M1(45.980,161.465)                               ** missing smashed mosfet ** 
+
+       X8/X802/M12(229.040,27.495)                               Xu_clefia_round/XU1445/MI5_0
+       X8/X802/M15(226.880,27.495)                               Xu_clefia_round/XU1445/MI5_1
+       X8/X802/M14(227.600,27.495)                               ** missing smashed mosfet ** 
+       X8/X802/M13(228.320,27.495)                               ** missing smashed mosfet ** 
+
+       X8/X802/M8(231.920,27.495)                                Xu_clefia_round/XU1445/MI43_0
+       X8/X802/M11(229.760,27.495)                               Xu_clefia_round/XU1445/MI43_1
+       X8/X802/M10(230.480,27.495)                               ** missing smashed mosfet ** 
+       X8/X802/M9(231.200,27.495)                                ** missing smashed mosfet ** 
+
+       X8/X802/M4(235.460,27.495)                                Xu_clefia_round/XU1445/MI45_0
+       X8/X802/M7(233.300,27.495)                                Xu_clefia_round/XU1445/MI45_1
+       X8/X802/M6(234.020,27.495)                                ** missing smashed mosfet ** 
+       X8/X802/M5(234.740,27.495)                                ** missing smashed mosfet ** 
+
+       X8/X802/M0(238.340,27.495)                                Xu_clefia_round/XU1445/MI44_0
+       X8/X802/M3(236.180,27.495)                                Xu_clefia_round/XU1445/MI44_1
+       X8/X802/M2(236.900,27.495)                                ** missing smashed mosfet ** 
+       X8/X802/M1(237.620,27.495)                                ** missing smashed mosfet ** 
+
+
+
+**************************************************************************************************************
+                                         SUMMARY
+**************************************************************************************************************
+
+Total CPU Time:      2 sec
+Total Elapsed Time:  2 sec

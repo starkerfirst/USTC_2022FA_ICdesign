@@ -1,0 +1,10 @@
+/*****************************************************************************/
+/* Apollo technology file for TSMC 018 LOGIC SALICIDE (SP5M)                 */
+/*****************************************************************************/
+/* DESIGN RULE DOCUMENT: T-018-LO-DR-001 V2.7                                */
+/* Resistor & Capacitor are referenced from spice model interconnect table.  */
+/* The index is "width=minWidth", "Space=Pitch".                             */
+/* Note :                                                                    */
+/*  1. Use tluplus to substitute 1DRC defined in tf file is strongly         */
+/*     recommended.                                                          */
+/*****************************************************************************/

@@ -1,0 +1,260 @@
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+
+Generating congestion map using Zroute global route ...
+Start Global Route ... 
+[Init] Elapsed real time: 0:00:00 
+[Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[Init] Total (MB): Used    6  Alloctr    6  Proc 2133 
+Printing options for 'set_route_zrt_common_options'
+
+Printing options for 'set_route_zrt_global_options'
+
+Begin global routing.
+Turn off antenna since no rule is specified
+Cell Min-Routing-Layer = METAL1
+Cell Max-Routing-Layer = METAL4
+Information: Multiple default contact VIA12H found for layer VIA12. (ZRT-021)
+Information: Multiple default contact VIA12V found for layer VIA12. (ZRT-021)
+Via on layer (VIA45) needs more than one tracks
+Warning: Layer METAL4 pitch 0.560 may be too small: wire/via-down 0.560, wire/via-up 0.610. (ZRT-026)
+Via on layer (VIA45) needs more than one tracks
+Warning: Layer METAL5 pitch 0.900 may be too small: wire/via-down 0.950, wire/via-up 0.900. (ZRT-026)
+Current Stage stats:
+[End of Read DB] Elapsed real time: 0:00:00 
+[End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Read DB] Stage (MB): Used   15  Alloctr   15  Proc    0 
+[End of Read DB] Total (MB): Used   22  Alloctr   22  Proc 2133 
+Constructing data structure ...
+Design statistics:
+Design Bounding Box (0.00,0.00,352.80,352.80)
+Number of routing layers = 5
+layer METAL1, dir Hor, min width = 0.23, min space = 0.23 pitch = 0.56
+layer METAL2, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+layer METAL3, dir Hor, min width = 0.28, min space = 0.28 pitch = 0.56
+layer METAL4, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+layer METAL5, dir Hor, min width = 0.44, min space = 0.46 pitch = 0.90
+Current Stage stats:
+[End of Build Tech Data] Elapsed real time: 0:00:00 
+[End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Tech Data] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Tech Data] Total (MB): Used   22  Alloctr   23  Proc 2133 
+Net statistics:
+Total number of nets     = 5802
+Number of nets to route  = 5739
+63 nets are fully connected,
+ of which 63 are detail routed and 0 are global routed.
+Current Stage stats:
+[End of Build All Nets] Elapsed real time: 0:00:00 
+[End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build All Nets] Stage (MB): Used    2  Alloctr    2  Proc    0 
+[End of Build All Nets] Total (MB): Used   24  Alloctr   25  Proc 2133 
+Average gCell capacity  1.66	 on layer (1)	 METAL1
+Average gCell capacity  6.99	 on layer (2)	 METAL2
+Average gCell capacity  6.96	 on layer (3)	 METAL3
+Average gCell capacity  6.97	 on layer (4)	 METAL4
+Average gCell capacity  4.34	 on layer (5)	 METAL5
+Average number of tracks per gCell 7.01	 on layer (1)	 METAL1
+Average number of tracks per gCell 7.01	 on layer (2)	 METAL2
+Average number of tracks per gCell 7.01	 on layer (3)	 METAL3
+Average number of tracks per gCell 7.01	 on layer (4)	 METAL4
+Average number of tracks per gCell 4.37	 on layer (5)	 METAL5
+Number of gCells = 40500
+Current Stage stats:
+[End of Build Congestion map] Elapsed real time: 0:00:00 
+[End of Build Congestion map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Congestion map] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Congestion map] Total (MB): Used   24  Alloctr   25  Proc 2133 
+Total stats:
+[End of Build Data] Elapsed real time: 0:00:00 
+[End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Data] Stage (MB): Used    2  Alloctr    2  Proc    0 
+[End of Build Data] Total (MB): Used   24  Alloctr   25  Proc 2133 
+Current Stage stats:
+[End of Blocked Pin Detection] Elapsed real time: 0:00:00 
+[End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Blocked Pin Detection] Stage (MB): Used    0  Alloctr    0  Proc    2 
+[End of Blocked Pin Detection] Total (MB): Used   24  Alloctr   25  Proc 2135 
+Information: Using 1 threads for routing. (ZRT-444)
+multi gcell levels ON
+
+Start GR phase 0
+Current Stage stats:
+[End of Initial Routing] Elapsed real time: 0:00:00 
+[End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Initial Routing] Stage (MB): Used    3  Alloctr    3  Proc    0 
+[End of Initial Routing] Total (MB): Used   28  Alloctr   28  Proc 2135 
+Initial. Routing result:
+Initial. Both Dirs: Overflow =  3536 Max = 6 GRCs =  2290 (14.14%)
+Initial. H routing: Overflow =  3205 Max = 6 (GRCs =  8) GRCs =  1794 (22.15%)
+Initial. V routing: Overflow =   330 Max = 2 (GRCs = 19) GRCs =   496 (6.12%)
+Initial. METAL1     Overflow =    37 Max = 1 (GRCs = 34) GRCs =    40 (0.49%)
+Initial. METAL2     Overflow =   284 Max = 2 (GRCs = 14) GRCs =   455 (5.62%)
+Initial. METAL3     Overflow =  3168 Max = 6 (GRCs =  8) GRCs =  1754 (21.65%)
+Initial. METAL4     Overflow =    46 Max = 2 (GRCs =  5) GRCs =    41 (0.51%)
+Initial. METAL5     Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+Initial. Total Wire Length = 293612.96
+Initial. Layer METAL1 wire length = 4811.81
+Initial. Layer METAL2 wire length = 74368.62
+Initial. Layer METAL3 wire length = 144571.44
+Initial. Layer METAL4 wire length = 69861.09
+Initial. Layer METAL5 wire length = 0.00
+Initial. Total Number of Contacts = 41238
+Initial. Via VIA12 count = 19859
+Initial. Via VIA23 count = 17403
+Initial. Via VIA34 count = 3976
+Initial. Via VIA45 count = 0
+Initial. completed.
+
+Start GR phase 1
+Current Stage stats:
+[End of Phase1 Routing] Elapsed real time: 0:00:01 
+[End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Phase1 Routing] Total (MB): Used   28  Alloctr   29  Proc 2135 
+phase1. Routing result:
+phase1. Both Dirs: Overflow =  1955 Max = 5 GRCs =  1525 (9.41%)
+phase1. H routing: Overflow =  1659 Max = 5 (GRCs =  1) GRCs =  1112 (13.73%)
+phase1. V routing: Overflow =   296 Max = 3 (GRCs =  1) GRCs =   413 (5.10%)
+phase1. METAL1     Overflow =    75 Max = 2 (GRCs =  3) GRCs =    80 (0.99%)
+phase1. METAL2     Overflow =   290 Max = 3 (GRCs =  1) GRCs =   407 (5.02%)
+phase1. METAL3     Overflow =  1583 Max = 5 (GRCs =  1) GRCs =  1032 (12.74%)
+phase1. METAL4     Overflow =     6 Max = 1 (GRCs =  6) GRCs =     6 (0.07%)
+phase1. METAL5     Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+phase1. Total Wire Length = 303851.95
+phase1. Layer METAL1 wire length = 6936.51
+phase1. Layer METAL2 wire length = 76270.27
+phase1. Layer METAL3 wire length = 140710.66
+phase1. Layer METAL4 wire length = 79934.51
+phase1. Layer METAL5 wire length = 0.00
+phase1. Total Number of Contacts = 41804
+phase1. Via VIA12 count = 20157
+phase1. Via VIA23 count = 16935
+phase1. Via VIA34 count = 4712
+phase1. Via VIA45 count = 0
+phase1. completed.
+
+Start GR phase 2
+Current Stage stats:
+[End of Phase2 Routing] Elapsed real time: 0:00:01 
+[End of Phase2 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Phase2 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Phase2 Routing] Total (MB): Used   28  Alloctr   29  Proc 2135 
+phase2. Routing result:
+phase2. Both Dirs: Overflow =  1651 Max = 5 GRCs =  1395 (8.61%)
+phase2. H routing: Overflow =  1412 Max = 5 (GRCs =  1) GRCs =  1036 (12.79%)
+phase2. V routing: Overflow =   238 Max = 3 (GRCs =  1) GRCs =   359 (4.43%)
+phase2. METAL1     Overflow =    53 Max = 1 (GRCs = 40) GRCs =    67 (0.83%)
+phase2. METAL2     Overflow =   225 Max = 3 (GRCs =  1) GRCs =   346 (4.27%)
+phase2. METAL3     Overflow =  1359 Max = 5 (GRCs =  1) GRCs =   969 (11.96%)
+phase2. METAL4     Overflow =    13 Max = 1 (GRCs = 13) GRCs =    13 (0.16%)
+phase2. METAL5     Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+phase2. Total Wire Length = 312559.23
+phase2. Layer METAL1 wire length = 7283.51
+phase2. Layer METAL2 wire length = 78459.62
+phase2. Layer METAL3 wire length = 140672.90
+phase2. Layer METAL4 wire length = 86139.21
+phase2. Layer METAL5 wire length = 3.98
+phase2. Total Number of Contacts = 42147
+phase2. Via VIA12 count = 20212
+phase2. Via VIA23 count = 16882
+phase2. Via VIA34 count = 5051
+phase2. Via VIA45 count = 2
+phase2. completed.
+
+Start GR phase 3
+Current Stage stats:
+[End of Phase3 Routing] Elapsed real time: 0:00:01 
+[End of Phase3 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Phase3 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Phase3 Routing] Total (MB): Used   28  Alloctr   29  Proc 2135 
+phase3. Routing result:
+phase3. Both Dirs: Overflow =  1629 Max = 4 GRCs =  1385 (8.55%)
+phase3. H routing: Overflow =  1393 Max = 4 (GRCs =  1) GRCs =  1013 (12.51%)
+phase3. V routing: Overflow =   236 Max = 2 (GRCs =  5) GRCs =   372 (4.59%)
+phase3. METAL1     Overflow =    51 Max = 1 (GRCs = 36) GRCs =    66 (0.81%)
+phase3. METAL2     Overflow =   224 Max = 2 (GRCs =  5) GRCs =   360 (4.44%)
+phase3. METAL3     Overflow =  1342 Max = 4 (GRCs =  1) GRCs =   947 (11.69%)
+phase3. METAL4     Overflow =    12 Max = 1 (GRCs = 12) GRCs =    12 (0.15%)
+phase3. METAL5     Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+phase3. Total Wire Length = 314036.60
+phase3. Layer METAL1 wire length = 7303.55
+phase3. Layer METAL2 wire length = 78828.86
+phase3. Layer METAL3 wire length = 140746.53
+phase3. Layer METAL4 wire length = 87133.82
+phase3. Layer METAL5 wire length = 23.84
+phase3. Total Number of Contacts = 42208
+phase3. Via VIA12 count = 20212
+phase3. Via VIA23 count = 16884
+phase3. Via VIA34 count = 5103
+phase3. Via VIA45 count = 9
+phase3. completed.
+[End of Whole Chip Routing] Elapsed real time: 0:00:05 
+[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:05 total=0:00:05
+[End of Whole Chip Routing] Stage (MB): Used    6  Alloctr    6  Proc    2 
+[End of Whole Chip Routing] Total (MB): Used   28  Alloctr   29  Proc 2135 
+
+Information: Global Routing terminated early: false (ZRT-103)
+
+Congestion utilization per direction:
+Average vertical track utilization   = 49.28 %
+Peak    vertical track utilization   = 114.29 %
+Average horizontal track utilization = 44.92 %
+Peak    horizontal track utilization = 93.75 %
+
+Current Stage stats:
+[GR: Done] Elapsed real time: 0:00:00 
+[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[GR: Done] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[GR: Done] Total (MB): Used   28  Alloctr   29  Proc 2135 
+GR Total stats:
+[GR: Done] Elapsed real time: 0:00:06 
+[GR: Done] Elapsed cpu  time: sys=0:00:00 usr=0:00:05 total=0:00:05
+[GR: Done] Stage (MB): Used   21  Alloctr   22  Proc    2 
+[GR: Done] Total (MB): Used   28  Alloctr   29  Proc 2135 
+Updating congestion ...
+Final total stats:
+[End of Global Routing] Elapsed real time: 0:00:06 
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:05 total=0:00:06
+[End of Global Routing] Stage (MB): Used   18  Alloctr   20  Proc    2 
+[End of Global Routing] Total (MB): Used   25  Alloctr   27  Proc 2135 
+ 
+****************************************
+Report : congestion
+Design : clefia_128
+Version: L-2016.03-SP5
+Date   : Sun Jan  2 03:01:51 2022
+****************************************
+
+Both Dirs: Overflow = 1199 Max = 3 (38 GRCs) GRCs = 851 (5.25%)
+H routing: Overflow = 1169 Max = 3 (38 GRCs) GRCs = 826  (5.10%)
+V routing: Overflow = 30 Max = 2 (5 GRCs) GRCs = 25  (0.15%)
+1

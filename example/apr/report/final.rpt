@@ -1,0 +1,463 @@
+Information: Updating graph... (UID-83)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : clefia_128
+Version: L-2016.03-SP5-3
+Date   : Sun Jan  2 03:34:25 2022
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: WCCOM   Library: tcb018gbwp7twc_ccs
+
+  Startpoint: k[34] (input port clocked by clk)
+  Endpoint: c[76] (output port clocked by clk)
+  Path Group: FEEDTHROUGH
+  Path Type: max
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                       12.00      12.00 f
+  k[34] (in)                                                        0.13      0.07      12.07 f
+  k[34] (net)                                   2         0.02                0.00      12.07 f
+  U1665/I (INVD0BWP7T)                                              0.13      0.00 *    12.07 f
+  U1665/ZN (INVD0BWP7T)                                             1.21      0.74      12.81 r
+  n1630 (net)                                   2         0.07                0.00      12.81 r
+  U2357/A2 (XNR2D1BWP7T)                                            1.21      0.00 *    12.82 r
+  U2357/ZN (XNR2D1BWP7T)                                            0.10      0.45      13.26 f
+  n1631 (net)                                   1         0.00                0.00      13.26 f
+  U2358/B2 (AOI22D0BWP7T)                                           0.10      0.00 *    13.26 f
+  U2358/ZN (AOI22D0BWP7T)                                           0.38      0.33      13.59 r
+  n1633 (net)                                   1         0.01                0.00      13.59 r
+  U2359/C (OAI211D0BWP7T)                                           0.38      0.00 *    13.59 r
+  U2359/ZN (OAI211D0BWP7T)                                          0.53      0.39      13.98 f
+  rk0[2] (net)                                  1         0.02                0.00      13.98 f
+  u_clefia_round/rk0[2] (clefia_round)                                        0.00      13.98 f
+  u_clefia_round/rk0[2] (net)                             0.02                0.00      13.98 f
+  u_clefia_round/U2468/I (CKBD0BWP7T)                               0.53      0.00 *    13.98 f
+  u_clefia_round/U2468/Z (CKBD0BWP7T)                               0.15      0.26      14.24 f
+  u_clefia_round/n2588 (net)                    1         0.01                0.00      14.24 f
+  u_clefia_round/U70/A1 (CKXOR2D2BWP7T)                             0.15      0.00 *    14.24 f
+  u_clefia_round/U70/Z (CKXOR2D2BWP7T)                              0.41      0.52      14.77 r
+  u_clefia_round/sin0[2] (net)                  7         0.09                0.00      14.77 r
+  u_clefia_round/x_sbox03/sin[2] (clefia_sbox1_2)                             0.00      14.77 r
+  u_clefia_round/x_sbox03/sin[2] (net)                    0.09                0.00      14.77 r
+  u_clefia_round/x_sbox03/U32/A1 (NR2XD1BWP7T)                      0.41      0.01 *    14.78 r
+  u_clefia_round/x_sbox03/U32/ZN (NR2XD1BWP7T)                      0.26      0.23      15.01 f
+  u_clefia_round/x_sbox03/n245 (net)            4         0.04                0.00      15.01 f
+  u_clefia_round/x_sbox03/U33/A1 (ND2D1BWP7T)                       0.26      0.00 *    15.01 f
+  u_clefia_round/x_sbox03/U33/ZN (ND2D1BWP7T)                       0.59      0.43      15.44 r
+  u_clefia_round/x_sbox03/n247 (net)            7         0.07                0.00      15.44 r
+  u_clefia_round/x_sbox03/U49/I (INVD1BWP7T)                        0.59      0.00 *    15.44 r
+  u_clefia_round/x_sbox03/U49/ZN (INVD1BWP7T)                       0.32      0.29      15.73 f
+  u_clefia_round/x_sbox03/n133 (net)            6         0.05                0.00      15.73 f
+  u_clefia_round/x_sbox03/U172/A2 (ND2D1BWP7T)                      0.32      0.00 *    15.73 f
+  u_clefia_round/x_sbox03/U172/ZN (ND2D1BWP7T)                      0.39      0.33      16.06 r
+  u_clefia_round/x_sbox03/n156 (net)            5         0.04                0.00      16.06 r
+  u_clefia_round/x_sbox03/U173/B (OAI21D2BWP7T)                     0.39      0.00 *    16.06 r
+  u_clefia_round/x_sbox03/U173/ZN (OAI21D2BWP7T)                    0.26      0.20      16.27 f
+  u_clefia_round/x_sbox03/n283 (net)            3         0.03                0.00      16.27 f
+  u_clefia_round/x_sbox03/U174/B (AOI31D0BWP7T)                     0.26      0.00 *    16.27 f
+  u_clefia_round/x_sbox03/U174/ZN (AOI31D0BWP7T)                    0.85      0.65      16.91 r
+  u_clefia_round/x_sbox03/n230 (net)            2         0.02                0.00      16.91 r
+  u_clefia_round/x_sbox03/U176/A1 (ND4D0BWP7T)                      0.85      0.00 *    16.91 r
+  u_clefia_round/x_sbox03/U176/ZN (ND4D0BWP7T)                      0.47      0.40      17.32 f
+  u_clefia_round/x_sbox03/n32 (net)             1         0.01                0.00      17.32 f
+  u_clefia_round/x_sbox03/U177/A4 (NR4D1BWP7T)                      0.47      0.00 *    17.32 f
+  u_clefia_round/x_sbox03/U177/ZN (NR4D1BWP7T)                      0.42      0.42      17.74 r
+  u_clefia_round/x_sbox03/n187 (net)            2         0.01                0.00      17.74 r
+  u_clefia_round/x_sbox03/U180/A2 (ND4D0BWP7T)                      0.42      0.00 *    17.74 r
+  u_clefia_round/x_sbox03/U180/ZN (ND4D0BWP7T)                      0.27      0.24      17.98 f
+  u_clefia_round/x_sbox03/n36 (net)             1         0.00                0.00      17.98 f
+  u_clefia_round/x_sbox03/U182/A3 (OAI31D0BWP7T)                    0.27      0.00 *    17.98 f
+  u_clefia_round/x_sbox03/U182/ZN (OAI31D0BWP7T)                    1.24      0.81      18.79 r
+  u_clefia_round/x_sbox03/n37 (net)             1         0.02                0.00      18.79 r
+  u_clefia_round/x_sbox03/U375/I (BUFFD0BWP7T)                      1.24      0.00 *    18.79 r
+  u_clefia_round/x_sbox03/U375/Z (BUFFD0BWP7T)                      0.12      0.21      19.00 r
+  u_clefia_round/x_sbox03/n392 (net)            1         0.00                0.00      19.00 r
+  u_clefia_round/x_sbox03/U44/I (INVD0BWP7T)                        0.12      0.00 *    19.00 r
+  u_clefia_round/x_sbox03/U44/ZN (INVD0BWP7T)                       0.07      0.07      19.08 f
+  u_clefia_round/x_sbox03/n434 (net)            1         0.00                0.00      19.08 f
+  u_clefia_round/x_sbox03/U48/A4 (OR4D2BWP7T)                       0.07      0.00 *    19.08 f
+  u_clefia_round/x_sbox03/U48/Z (OR4D2BWP7T)                        0.25      0.49      19.57 f
+  u_clefia_round/x_sbox03/sout[7] (net)         5         0.06                0.00      19.57 f
+  u_clefia_round/x_sbox03/sout[7] (clefia_sbox1_2)                            0.00      19.57 f
+  u_clefia_round/sout0[7] (net)                           0.06                0.00      19.57 f
+  u_clefia_round/U1711/I (INVD0BWP7T)                               0.25      0.00 *    19.57 f
+  u_clefia_round/U1711/ZN (INVD0BWP7T)                              0.89      0.60      20.17 r
+  u_clefia_round/n2351 (net)                    7         0.05                0.00      20.17 r
+  u_clefia_round/U1222/A1 (IAO22D1BWP7T)                            0.89      0.00 *    20.17 r
+  u_clefia_round/U1222/ZN (IAO22D1BWP7T)                            0.61      0.50      20.67 r
+  u_clefia_round/n1988 (net)                    2         0.03                0.00      20.67 r
+  u_clefia_round/U1223/A4 (XNR4D0BWP7T)                             0.61      0.00 *    20.67 r
+  u_clefia_round/U1223/ZN (XNR4D0BWP7T)                             0.21      0.68      21.35 f
+  u_clefia_round/n913 (net)                     1         0.01                0.00      21.35 f
+  u_clefia_round/U1224/A4 (XNR4D0BWP7T)                             0.21      0.00 *    21.35 f
+  u_clefia_round/U1224/ZN (XNR4D0BWP7T)                             0.27      0.57      21.91 r
+  u_clefia_round/rout[108] (net)                1         0.01                0.00      21.91 r
+  u_clefia_round/rout[108] (clefia_round)                                     0.00      21.91 r
+  rout[108] (net)                                         0.01                0.00      21.91 r
+  U3326/I (INVD1BWP7T)                                              0.27      0.00 *    21.91 r
+  U3326/ZN (INVD1BWP7T)                                             0.09      0.08      22.00 f
+  n2978 (net)                                   1         0.01                0.00      22.00 f
+  U3325/I (INVD0BWP7T)                                              0.09      0.00 *    22.00 f
+  U3325/ZN (INVD0BWP7T)                                             1.47      0.87      22.87 r
+  n2977 (net)                                   3         0.09                0.00      22.87 r
+  U3017/I (INVD0BWP7T)                                              1.47      0.01 *    22.88 r
+  U3017/ZN (INVD0BWP7T)                                             0.56      0.47      23.35 f
+  n2732 (net)                                   2         0.04                0.00      23.35 f
+  U1577/B2 (AO221D0BWP7T)                                           0.56      0.00 *    23.35 f
+  U1577/Z (AO221D0BWP7T)                                            0.30      0.81      24.16 f
+  n3524 (net)                                   1         0.02                0.00      24.16 f
+  U3205/I (INVD0BWP7T)                                              0.30      0.00 *    24.16 f
+  U3205/ZN (INVD0BWP7T)                                             1.82      1.15      25.31 r
+  c[76] (net)                                   1         0.11                0.00      25.31 r
+  c[76] (out)                                                       1.82      0.00 *    25.31 r
+  data arrival time                                                                     25.31
+
+  clock clk (rise edge)                                                      40.00      40.00
+  clock network delay (ideal)                                                 0.00      40.00
+  clock uncertainty                                                          -0.50      39.50
+  output external delay                                                     -12.00      27.50
+  data required time                                                                    27.50
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    27.50
+  data arrival time                                                                    -25.31
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            2.19
+
+
+  Startpoint: p[24] (input port clocked by clk)
+  Endpoint: rin_reg_24_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: REGIN
+  Path Type: max
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock clk (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                  0.00       0.00
+  input external delay                                        24.00      24.00 f
+  p[24] (in)                                         0.12      0.06      24.06 f
+  p[24] (net)                    2         0.02                0.00      24.06 f
+  U2727/B2 (MAOI22D0BWP7T)                           0.12      0.00 *    24.06 f
+  U2727/ZN (MAOI22D0BWP7T)                           0.17      0.31      24.38 f
+  n2054 (net)                    1         0.01                0.00      24.38 f
+  U2729/A2 (OAI21D0BWP7T)                            0.17      0.00 *    24.38 f
+  U2729/ZN (OAI21D0BWP7T)                            2.56      1.55      25.92 r
+  N121 (net)                     1         0.08                0.00      25.92 r
+  rin_reg_24_/D (DFCNQD1BWP7T)                       2.56      0.01 *    25.93 r
+  data arrival time                                                      25.93
+
+  clock clk (rise edge)                                       40.00      40.00
+  clock network delay (ideal)                                  0.00      40.00
+  clock uncertainty                                           -0.50      39.50
+  rin_reg_24_/CP (DFCNQD1BWP7T)                                0.00      39.50 r
+  library setup time                                          -0.22      39.28
+  data required time                                                     39.28
+  -------------------------------------------------------------------------------
+  data required time                                                     39.28
+  data arrival time                                                     -25.93
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            13.35
+
+
+  Startpoint: round_reg_1_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: c[29] (output port clocked by clk)
+  Path Group: REGOUT
+  Path Type: max
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  round_reg_1_/CP (EDFCND2BWP7T)                                    0.00      0.00       0.00 r
+  round_reg_1_/Q (EDFCND2BWP7T)                                     0.44      0.73       0.73 r
+  n2313 (net)                                  16         0.10                0.00       0.73 r
+  U3104/I (DEL1BWP7T)                                               0.44      0.00 *     0.74 r
+  U3104/Z (DEL1BWP7T)                                               0.39      1.15       1.89 r
+  n2766 (net)                                   7         0.04                0.00       1.89 r
+  U1867/A2 (NR2D1BWP7T)                                             0.39      0.00 *     1.89 r
+  U1867/ZN (NR2D1BWP7T)                                             0.20      0.19       2.08 f
+  n1528 (net)                                   4         0.03                0.00       2.08 f
+  U1724/I (INVD0BWP7T)                                              0.20      0.00 *     2.08 f
+  U1724/ZN (INVD0BWP7T)                                             1.44      0.89       2.97 r
+  n2527 (net)                                  12         0.09                0.00       2.97 r
+  U2050/A2 (NR2D1BWP7T)                                             1.44      0.01 *     2.98 r
+  U2050/ZN (NR2D1BWP7T)                                             0.37      0.28       3.26 f
+  n1640 (net)                                   3         0.03                0.00       3.26 f
+  U2051/C (AOI211D1BWP7T)                                           0.37      0.00 *     3.26 f
+  U2051/ZN (AOI211D1BWP7T)                                          0.91      0.70       3.95 r
+  n1371 (net)                                   3         0.03                0.00       3.95 r
+  U3692/C (OAI211D2BWP7T)                                           0.91      0.00 *     3.95 r
+  U3692/ZN (OAI211D2BWP7T)                                          0.41      0.33       4.29 f
+  n3360 (net)                                   2         0.05                0.00       4.29 f
+  U3470/I (DEL1BWP7T)                                               0.41      0.00 *     4.29 f
+  U3470/Z (DEL1BWP7T)                                               0.14      1.01       5.30 f
+  n3119 (net)                                   1         0.01                0.00       5.30 f
+  U2152/B2 (AOI22D0BWP7T)                                           0.14      0.00 *     5.30 f
+  U2152/ZN (AOI22D0BWP7T)                                           1.02      0.71       6.01 r
+  n1457 (net)                                   3         0.03                0.00       6.01 r
+  U2157/A2 (OAI21D0BWP7T)                                           1.02      0.00 *     6.01 r
+  U2157/ZN (OAI21D0BWP7T)                                           0.28      0.23       6.24 f
+  n1454 (net)                                   1         0.00                0.00       6.24 f
+  U2158/B (AOI21D0BWP7T)                                            0.28      0.00 *     6.24 f
+  U2158/ZN (AOI21D0BWP7T)                                           0.40      0.34       6.58 r
+  n1455 (net)                                   1         0.01                0.00       6.58 r
+  U2159/C (AOI211D1BWP7T)                                           0.40      0.00 *     6.58 r
+  U2159/ZN (AOI211D1BWP7T)                                          0.29      0.19       6.77 f
+  n1458 (net)                                   1         0.02                0.00       6.77 f
+  U2160/B (OAI211D1BWP7T)                                           0.29      0.00 *     6.77 f
+  U2160/ZN (OAI211D1BWP7T)                                          0.48      0.26       7.04 r
+  rk1[17] (net)                                 1         0.02                0.00       7.04 r
+  u_clefia_round/rk1[17] (clefia_round)                                       0.00       7.04 r
+  u_clefia_round/rk1[17] (net)                            0.02                0.00       7.04 r
+  u_clefia_round/U2453/I (BUFFD0BWP7T)                              0.48      0.00 *     7.04 r
+  u_clefia_round/U2453/Z (BUFFD0BWP7T)                              0.17      0.22       7.26 r
+  u_clefia_round/n2573 (net)                    1         0.01                0.00       7.26 r
+  u_clefia_round/U1480/A2 (CKXOR2D2BWP7T)                           0.17      0.00 *     7.26 r
+  u_clefia_round/U1480/Z (CKXOR2D2BWP7T)                            0.24      0.52       7.78 f
+  u_clefia_round/n1664 (net)                    8         0.08                0.00       7.78 f
+  u_clefia_round/U57/I (INVD0BWP7T)                                 0.24      0.01 *     7.79 f
+  u_clefia_round/U57/ZN (INVD0BWP7T)                                0.23      0.21       8.00 r
+  u_clefia_round/n2211 (net)                    2         0.01                0.00       8.00 r
+  u_clefia_round/U1497/A2 (NR2D1BWP7T)                              0.23      0.00 *     8.00 r
+  u_clefia_round/U1497/ZN (NR2D1BWP7T)                              0.18      0.15       8.15 f
+  u_clefia_round/n1085 (net)                    3         0.02                0.00       8.15 f
+  u_clefia_round/U1349/A2 (AN2D1BWP7T)                              0.18      0.00 *     8.15 f
+  u_clefia_round/U1349/Z (AN2D1BWP7T)                               0.20      0.32       8.47 f
+  u_clefia_round/n1750 (net)                    5         0.04                0.00       8.47 f
+  u_clefia_round/U647/I (INVD1BWP7T)                                0.20      0.00 *     8.47 f
+  u_clefia_round/U647/ZN (INVD1BWP7T)                               0.34      0.26       8.73 r
+  u_clefia_round/n2272 (net)                    5         0.04                0.00       8.73 r
+  u_clefia_round/U2359/A2 (NR2XD0BWP7T)                             0.34      0.00 *     8.74 r
+  u_clefia_round/U2359/ZN (NR2XD0BWP7T)                             0.39      0.34       9.07 f
+  u_clefia_round/n1683 (net)                    4         0.04                0.00       9.07 f
+  u_clefia_round/U1575/A2 (NR2D1BWP7T)                              0.39      0.00 *     9.08 f
+  u_clefia_round/U1575/ZN (NR2D1BWP7T)                              0.26      0.24       9.31 r
+  u_clefia_round/n1096 (net)                    2         0.01                0.00       9.31 r
+  u_clefia_round/U1612/A3 (AN3D1BWP7T)                              0.26      0.00 *     9.31 r
+  u_clefia_round/U1612/Z (AN3D1BWP7T)                               0.20      0.34       9.65 r
+  u_clefia_round/n1497 (net)                    2         0.02                0.00       9.65 r
+  u_clefia_round/U1619/A1 (ND3D0BWP7T)                              0.20      0.00 *     9.65 r
+  u_clefia_round/U1619/ZN (ND3D0BWP7T)                              0.37      0.27       9.92 f
+  u_clefia_round/n1112 (net)                    2         0.01                0.00       9.92 f
+  u_clefia_round/U1664/A3 (NR4D0BWP7T)                              0.37      0.00 *     9.92 f
+  u_clefia_round/U1664/ZN (NR4D0BWP7T)                              0.47      0.42      10.34 r
+  u_clefia_round/n1114 (net)                    1         0.01                0.00      10.34 r
+  u_clefia_round/U1666/B1 (IIND4D0BWP7T)                            0.47      0.00 *    10.34 r
+  u_clefia_round/U1666/ZN (IIND4D0BWP7T)                            0.70      0.53      10.87 f
+  u_clefia_round/n1118 (net)                    1         0.02                0.00      10.87 f
+  u_clefia_round/U337/A3 (OA31D0BWP7T)                              0.70      0.00 *    10.87 f
+  u_clefia_round/U337/Z (OA31D0BWP7T)                               0.14      0.52      11.39 f
+  u_clefia_round/n2697 (net)                    1         0.00                0.00      11.39 f
+  u_clefia_round/U2358/I (INVD0BWP7T)                               0.14      0.00 *    11.39 f
+  u_clefia_round/U2358/ZN (INVD0BWP7T)                              0.16      0.14      11.53 r
+  u_clefia_round/n2478 (net)                    1         0.01                0.00      11.53 r
+  u_clefia_round/U1669/C (OAI211D1BWP7T)                            0.16      0.00 *    11.54 r
+  u_clefia_round/U1669/ZN (OAI211D1BWP7T)                           0.26      0.19      11.72 f
+  u_clefia_round/n1122 (net)                    1         0.01                0.00      11.72 f
+  u_clefia_round/U2293/B (AOI21D0BWP7T)                             0.26      0.00 *    11.72 f
+  u_clefia_round/U2293/ZN (AOI21D0BWP7T)                            1.89      1.21      12.94 r
+  u_clefia_round/n1999 (net)                    1         0.05                0.00      12.94 r
+  u_clefia_round/U2319/I (BUFFD1P5BWP7T)                            1.89      0.00 *    12.94 r
+  u_clefia_round/U2319/Z (BUFFD1P5BWP7T)                            0.37      0.38      13.32 r
+  u_clefia_round/n2439 (net)                    8         0.06                0.00      13.32 r
+  u_clefia_round/U1765/I (INVD0BWP7T)                               0.37      0.01 *    13.33 r
+  u_clefia_round/U1765/ZN (INVD0BWP7T)                              0.22      0.21      13.53 f
+  u_clefia_round/n2358 (net)                    3         0.02                0.00      13.53 f
+  u_clefia_round/U2115/I1 (MUX2ND0BWP7T)                            0.22      0.00 *    13.54 f
+  u_clefia_round/U2115/ZN (MUX2ND0BWP7T)                            0.88      0.49      14.03 r
+  u_clefia_round/n2113 (net)                    4         0.02                0.00      14.03 r
+  u_clefia_round/U2023/I (INVD0BWP7T)                               0.88      0.00 *    14.03 r
+  u_clefia_round/U2023/ZN (INVD0BWP7T)                              0.24      0.18      14.21 f
+  u_clefia_round/n2372 (net)                    2         0.01                0.00      14.21 f
+  u_clefia_round/U2271/B1 (AOI22D0BWP7T)                            0.24      0.00 *    14.21 f
+  u_clefia_round/U2271/ZN (AOI22D0BWP7T)                            0.44      0.36      14.57 r
+  u_clefia_round/n2114 (net)                    1         0.01                0.00      14.57 r
+  u_clefia_round/U2272/A2 (CKXOR2D1BWP7T)                           0.44      0.00 *    14.57 r
+  u_clefia_round/U2272/Z (CKXOR2D1BWP7T)                            0.22      0.49      15.06 r
+  u_clefia_round/n2124 (net)                    2         0.02                0.00      15.06 r
+  u_clefia_round/U2273/A1 (XNR4D0BWP7T)                             0.22      0.00 *    15.06 r
+  u_clefia_round/U2273/ZN (XNR4D0BWP7T)                             0.40      0.70      15.77 r
+  u_clefia_round/rout[61] (net)                 1         0.02                0.00      15.77 r
+  u_clefia_round/rout[61] (clefia_round)                                      0.00      15.77 r
+  rout[61] (net)                                          0.02                0.00      15.77 r
+  U3584/I (DEL01BWP7T)                                              0.40      0.00 *    15.77 r
+  U3584/Z (DEL01BWP7T)                                              1.03      0.69      16.46 r
+  n3248 (net)                                   4         0.13                0.00      16.46 r
+  U3054/I (INVD0BWP7T)                                              1.03      0.01 *    16.47 r
+  U3054/ZN (INVD0BWP7T)                                             0.19      0.11      16.58 f
+  n2738 (net)                                   1         0.00                0.00      16.58 f
+  U1544/B2 (AO221D0BWP7T)                                           0.19      0.00 *    16.58 f
+  U1544/Z (AO221D0BWP7T)                                            0.32      0.76      17.34 f
+  n3515 (net)                                   1         0.03                0.00      17.34 f
+  U3187/I (INVD0BWP7T)                                              0.32      0.00 *    17.34 f
+  U3187/ZN (INVD0BWP7T)                                             1.84      1.16      18.50 r
+  c[29] (net)                                   1         0.11                0.00      18.50 r
+  c[29] (out)                                                       1.84      0.00 *    18.51 r
+  data arrival time                                                                     18.51
+
+  clock clk (rise edge)                                                      40.00      40.00
+  clock network delay (ideal)                                                 0.00      40.00
+  clock uncertainty                                                          -0.50      39.50
+  output external delay                                                     -12.00      27.50
+  data required time                                                                    27.50
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    27.50
+  data arrival time                                                                    -18.51
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            8.99
+
+
+  Startpoint: round_reg_1_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: l_reg_81_ (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  round_reg_1_/CP (EDFCND2BWP7T)                                    0.00      0.00       0.00 r
+  round_reg_1_/Q (EDFCND2BWP7T)                                     0.44      0.73       0.73 r
+  n2313 (net)                                  16         0.10                0.00       0.73 r
+  U3104/I (DEL1BWP7T)                                               0.44      0.00 *     0.74 r
+  U3104/Z (DEL1BWP7T)                                               0.39      1.15       1.89 r
+  n2766 (net)                                   7         0.04                0.00       1.89 r
+  U1867/A2 (NR2D1BWP7T)                                             0.39      0.00 *     1.89 r
+  U1867/ZN (NR2D1BWP7T)                                             0.20      0.19       2.08 f
+  n1528 (net)                                   4         0.03                0.00       2.08 f
+  U1724/I (INVD0BWP7T)                                              0.20      0.00 *     2.08 f
+  U1724/ZN (INVD0BWP7T)                                             1.44      0.89       2.97 r
+  n2527 (net)                                  12         0.09                0.00       2.97 r
+  U2243/B2 (AOI22D0BWP7T)                                           1.44      0.00 *     2.98 r
+  U2243/ZN (AOI22D0BWP7T)                                           0.35      0.26       3.24 f
+  n1529 (net)                                   1         0.00                0.00       3.24 f
+  U2922/C (AO211D0BWP7T)                                            0.35      0.00 *     3.24 f
+  U2922/Z (AO211D0BWP7T)                                            0.19      0.62       3.86 f
+  n3628 (net)                                   1         0.01                0.00       3.86 f
+  U2917/I (INVD0BWP7T)                                              0.19      0.00 *     3.86 f
+  U2917/ZN (INVD0BWP7T)                                             0.29      0.23       4.09 r
+  n1531 (net)                                   3         0.01                0.00       4.09 r
+  U2246/B (OAI211D0BWP7T)                                           0.29      0.00 *     4.09 r
+  U2246/ZN (OAI211D0BWP7T)                                          0.32      0.27       4.36 f
+  n1884 (net)                                   1         0.01                0.00       4.36 f
+  U3467/I (BUFFD2BWP7T)                                             0.32      0.00 *     4.36 f
+  U3467/Z (BUFFD2BWP7T)                                             0.10      0.25       4.61 f
+  n3116 (net)                                   3         0.03                0.00       4.61 f
+  U2076/I (INVD0BWP7T)                                              0.10      0.00 *     4.61 f
+  U2076/ZN (INVD0BWP7T)                                             0.92      0.56       5.17 r
+  n2617 (net)                                   6         0.06                0.00       5.17 r
+  U2576/A1 (AOI22D0BWP7T)                                           0.92      0.00 *     5.17 r
+  U2576/ZN (AOI22D0BWP7T)                                           0.49      0.36       5.53 f
+  n1896 (net)                                   2         0.02                0.00       5.53 f
+  U2292/I (INVD0BWP7T)                                              0.49      0.00 *     5.53 f
+  U2292/ZN (INVD0BWP7T)                                             0.25      0.25       5.78 r
+  n2638 (net)                                   2         0.01                0.00       5.78 r
+  U2580/A2 (AOI21D0BWP7T)                                           0.25      0.00 *     5.78 r
+  U2580/ZN (AOI21D0BWP7T)                                           0.23      0.15       5.93 f
+  n1889 (net)                                   1         0.01                0.00       5.93 f
+  U2581/C (AOI211D1BWP7T)                                           0.23      0.00 *     5.93 f
+  U2581/ZN (AOI211D1BWP7T)                                          0.36      0.35       6.28 r
+  n1895 (net)                                   1         0.00                0.00       6.28 r
+  U2584/B (OAI211D0BWP7T)                                           0.36      0.00 *     6.28 r
+  U2584/ZN (OAI211D0BWP7T)                                          1.21      0.82       7.10 f
+  rk0[25] (net)                                 1         0.06                0.00       7.10 f
+  u_clefia_round/rk0[25] (clefia_round)                                       0.00       7.10 f
+  u_clefia_round/rk0[25] (net)                            0.06                0.00       7.10 f
+  u_clefia_round/U2449/I (DEL1BWP7T)                                1.21      0.00 *     7.11 f
+  u_clefia_round/U2449/Z (DEL1BWP7T)                                0.14      1.19       8.30 f
+  u_clefia_round/n2569 (net)                    1         0.01                0.00       8.30 f
+  u_clefia_round/U648/A2 (CKXOR2D2BWP7T)                            0.14      0.00 *     8.30 f
+  u_clefia_round/U648/Z (CKXOR2D2BWP7T)                             0.32      0.54       8.84 r
+  u_clefia_round/n961 (net)                     7         0.07                0.00       8.84 r
+  u_clefia_round/U656/A1 (NR2D1BWP7T)                               0.32      0.00 *     8.84 r
+  u_clefia_round/U656/ZN (NR2D1BWP7T)                               0.14      0.13       8.98 f
+  u_clefia_round/n227 (net)                     2         0.02                0.00       8.98 f
+  u_clefia_round/U657/I (INVD0BWP7T)                                0.14      0.00 *     8.98 f
+  u_clefia_round/U657/ZN (INVD0BWP7T)                               0.45      0.31       9.29 r
+  u_clefia_round/n614 (net)                     2         0.02                0.00       9.29 r
+  u_clefia_round/U658/A2 (NR2D2BWP7T)                               0.45      0.00 *     9.29 r
+  u_clefia_round/U658/ZN (NR2D2BWP7T)                               0.22      0.21       9.50 f
+  u_clefia_round/n746 (net)                     7         0.06                0.00       9.50 f
+  u_clefia_round/U477/I (INVD2BWP7T)                                0.22      0.00 *     9.50 f
+  u_clefia_round/U477/ZN (INVD2BWP7T)                               0.31      0.25       9.75 r
+  u_clefia_round/n2260 (net)                    8         0.07                0.00       9.75 r
+  u_clefia_round/U718/A2 (NR2D1BWP7T)                               0.31      0.00 *     9.75 r
+  u_clefia_round/U718/ZN (NR2D1BWP7T)                               0.17      0.17       9.92 f
+  u_clefia_round/n694 (net)                     3         0.02                0.00       9.92 f
+  u_clefia_round/U721/A1 (NR2D1BWP7T)                               0.17      0.00 *     9.92 f
+  u_clefia_round/U721/ZN (NR2D1BWP7T)                               0.60      0.41      10.33 r
+  u_clefia_round/n783 (net)                     5         0.03                0.00      10.33 r
+  u_clefia_round/U723/B1 (IND3D0BWP7T)                              0.60      0.00 *    10.33 r
+  u_clefia_round/U723/ZN (IND3D0BWP7T)                              0.50      0.41      10.75 f
+  u_clefia_round/n1964 (net)                    2         0.02                0.00      10.75 f
+  u_clefia_round/U1455/I (INVD0BWP7T)                               0.50      0.00 *    10.75 f
+  u_clefia_round/U1455/ZN (INVD0BWP7T)                              0.28      0.27      11.02 r
+  u_clefia_round/n2329 (net)                    2         0.01                0.00      11.02 r
+  u_clefia_round/U1243/C (OAI211D1BWP7T)                            0.28      0.00 *    11.02 r
+  u_clefia_round/U1243/ZN (OAI211D1BWP7T)                           0.26      0.23      11.25 f
+  u_clefia_round/n962 (net)                     1         0.01                0.00      11.25 f
+  u_clefia_round/U1244/A4 (NR4D1BWP7T)                              0.26      0.00 *    11.25 f
+  u_clefia_round/U1244/ZN (NR4D1BWP7T)                              0.44      0.40      11.65 r
+  u_clefia_round/n966 (net)                     1         0.01                0.00      11.65 r
+  u_clefia_round/U1245/A3 (AOI31D0BWP7T)                            0.44      0.00 *    11.65 r
+  u_clefia_round/U1245/ZN (AOI31D0BWP7T)                            0.27      0.21      11.86 f
+  u_clefia_round/n969 (net)                     1         0.01                0.00      11.86 f
+  u_clefia_round/U1246/A4 (NR4D0BWP7T)                              0.27      0.00 *    11.86 f
+  u_clefia_round/U1246/ZN (NR4D0BWP7T)                              0.93      0.70      12.56 r
+  u_clefia_round/n2062 (net)                    1         0.02                0.00      12.56 r
+  u_clefia_round/U2571/I (DEL1BWP7T)                                0.93      0.00 *    12.56 r
+  u_clefia_round/U2571/Z (DEL1BWP7T)                                0.27      1.12      13.68 r
+  u_clefia_round/n2691 (net)                    4         0.02                0.00      13.68 r
+  u_clefia_round/U1716/I (INVD0BWP7T)                               0.27      0.00 *    13.69 r
+  u_clefia_round/U1716/ZN (INVD0BWP7T)                              0.16      0.15      13.83 f
+  u_clefia_round/n2353 (net)                    2         0.01                0.00      13.83 f
+  u_clefia_round/U2240/B2 (AOI22D1BWP7T)                            0.16      0.00 *    13.83 f
+  u_clefia_round/U2240/ZN (AOI22D1BWP7T)                            0.68      0.51      14.35 r
+  u_clefia_round/n2101 (net)                    2         0.03                0.00      14.35 r
+  u_clefia_round/U2242/A2 (XNR4D0BWP7T)                             0.68      0.00 *    14.35 r
+  u_clefia_round/U2242/ZN (XNR4D0BWP7T)                             1.35      1.34      15.69 r
+  u_clefia_round/rout[113] (net)                3         0.08                0.00      15.69 r
+  u_clefia_round/rout[113] (clefia_round)                                     0.00      15.69 r
+  rout[113] (net)                                         0.08                0.00      15.69 r
+  U1612/I (INVD0BWP7T)                                              1.35      0.01 *    15.70 r
+  U1612/ZN (INVD0BWP7T)                                             0.34      0.24      15.94 f
+  n2301 (net)                                   2         0.01                0.00      15.94 f
+  U3083/C1 (OAI222D0BWP7T)                                          0.34      0.00 *    15.94 f
+  U3083/ZN (OAI222D0BWP7T)                                          1.09      0.74      16.68 r
+  n1044 (net)                                   1         0.02                0.00      16.68 r
+  U3244/I (DEL1BWP7T)                                               1.09      0.00 *    16.68 r
+  U3244/Z (DEL1BWP7T)                                               0.14      1.05      17.73 r
+  n2861 (net)                                   1         0.01                0.00      17.73 r
+  l_reg_81_/D (DFCND0BWP7T)                                         0.14      0.00 *    17.73 r
+  data arrival time                                                                     17.73
+
+  clock clk (rise edge)                                                      40.00      40.00
+  clock network delay (ideal)                                                 0.00      40.00
+  clock uncertainty                                                          -0.50      39.50
+  l_reg_81_/CP (DFCND0BWP7T)                                                  0.00      39.50 r
+  library setup time                                                         -0.11      39.39
+  data required time                                                                    39.39
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    39.39
+  data arrival time                                                                    -17.73
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           21.67
+
+
+1

@@ -1,0 +1,35 @@
+T=                   0, out0=  0, out1=   0, out2=  0, out3=  0
+T=                 180, out0=  1, out1=   0, out2=  0, out3=  0
+T=                 200, out0=  5, out1=   1, out2=  0, out3=  0
+T=                 220, out0= 14, out1=   5, out2=  1, out3=  0
+T=                 240, out0= 30, out1=  14, out2=  5, out3=  1
+T=                 260, out0= 30, out1=  30, out2= 14, out3=  5
+T=                 280, out0= 30, out1=  30, out2= 30, out3= 14
+T=                 300, out0= 30, out1=  30, out2= 30, out3= 30
+T=                 380, out0=  0, out1=   0, out2=  0, out3=  0
+T=                 700, out0= 18, out1=   0, out2=  0, out3=  0
+T=                 720, out0= 44, out1=  18, out2=  0, out3=  0
+T=                 740, out0= 78, out1=  18, out2= 18, out3=  0
+T=                 760, out0=120, out1=  18, out2= 18, out3= 18
+T=                 780, out0=120, out1=  60, out2= 18, out3= 44
+T=                 800, out0=120, out1=  60, out2= 60, out3= 78
+T=                 820, out0=120, out1=  60, out2= 60, out3=120
+T=                 840, out0=112, out1=  56, out2= 56, out3=112
+T=                 860, out0=104, out1=  52, out2= 52, out3=104
+T=                 880, out0= 96, out1=  48, out2= 48, out3= 96
+T=                 900, out0=  0, out1=   0, out2=  0, out3=  0
+$finish called from file "systolic_array_sim_without_control.v", line 327.
+$finish at simulation time              1040000
+Simulation complete, time is 1040000 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1040000 ps
+CPU Time:      0.060 seconds;       Data structure size:   0.0Mb
+Fri Nov 11 17:09:10 2022
+Warning: [AD-MD] Missing dump for active drivers
+  Missing dump for the following signals when doing active drivers analysis:
+      * systolic_array_sim_without_control.rstn from time 40000
+  Some drivers couldn't be analyzed and will be shown as active.
+  Please dump the listed signals if you need more precise active drivers 
+  analysis.
+b'
+4 drivers (1 active statement) found for signal: systolic_array_sim_without_control.test.A_0.rstn

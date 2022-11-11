@@ -1,0 +1,3 @@
+.INCLUDE "/js1/baixf/teaching/PCD2021/example/check/lvs/clefia_128.source.sp"
+.INCLUDE "/js1/baixf/teaching/PCD2021/example/check/lvs/source.added"
+.INCLUDE "/js1/baixf/teaching/PCD2021/example/check/lvs/tcb018gbwp7t_270a.spi"

@@ -1,0 +1,125 @@
+ 
+****************************************
+Report : qor
+Design : clefia_128
+Version: L-2016.03-SP5
+Date   : Sun Jan  2 03:01:41 2022
+****************************************
+
+
+  Timing Path Group 'FEEDTHROUGH'
+  -----------------------------------
+  Levels of Logic:              27.00
+  Critical Path Length:         11.91
+  Critical Path Slack:           3.59
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:               2.00
+  Critical Path Length:          1.40
+  Critical Path Slack:          13.92
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:              35.00
+  Critical Path Length:         17.04
+  Critical Path Slack:          10.46
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              33.00
+  Critical Path Length:         16.17
+  Critical Path Slack:          23.23
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          4
+  Hierarchical Port Count:        368
+  Leaf Cell Count:               5787
+  Buf/Inv Cell Count:            1551
+  Buf Cell Count:                 307
+  Inv Cell Count:                1244
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      5526
+  Sequential Cell Count:          261
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    69919.314281
+  Noncombinational Area: 13138.272003
+  Buf/Inv Area:          12558.739008
+  Total Buffer Area:          4184.05
+  Total Inverter Area:        8374.69
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  Net XLength        :      160654.58
+  Net YLength        :      145497.33
+  -----------------------------------
+  Cell Area:             83057.586285
+  Design Area:           83057.586285
+  Net Length        :       306151.91
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          6139
+  Nets With Violations:           881
+  Max Trans Violations:           881
+  Max Cap Violations:               6
+  -----------------------------------
+
+
+  Hostname: mgt
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:               26.45
+  -----------------------------------------
+  Overall Compile Time:               44.03
+  Overall Compile Wall Clock Time:    44.56
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

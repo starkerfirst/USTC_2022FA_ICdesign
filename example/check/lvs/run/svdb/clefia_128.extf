@@ -1,0 +1,12 @@
+# Automagically generated file: Please do not edit!
+lvs_ExtfVersion 3
+lvs_ExtRunTimes 1641092101 1641092130
+lvs_ExtOutFile RUNDIR /js1/baixf/teaching/PCD2021/example/check/lvs/run
+lvs_ExtOutFile RULES_FILE /js1/baixf/teaching/PCD2021/example/check/lvs/run/_LVS_RC_Calibre_018um_gen3_1P5M_v1.3b_
+lvs_ExtInfoExtSummary {0 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoErcSummary {10 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoDfmSummary {0}
+lvs_ExtOutFile LAYOUT_NETLIST /js1/baixf/teaching/PCD2021/example/check/lvs/run/clefia_128.sp
+lvs_ExtOutFile EXTRACTION_REPORT clefia_128.lvs.report.ext
+lvs_ExtOutFile ERC_DATABASE clefia_128.erc.results
+lvs_ExtOutFile ERC_SUMMARY clefia_128.erc.summary
