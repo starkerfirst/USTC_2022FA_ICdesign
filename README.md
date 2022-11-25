@@ -22,7 +22,7 @@ Waiting for MIPS code...
 
 #### 2022.11.23 update
 
-Finish the synthesis of SA _v1
+Finish the synthesis of SA_v1 
 
 **Power: 7.1365 mW**
 
@@ -34,7 +34,12 @@ Finish the synthesis of SA _v1
 
 What about adding some new tricks?  activation or convolution
 
-
-
 Waiting for MIPS code... 
 
+#### 2022.11.25 update
+
+Finish the physical design of SA_v1
+
+**Generate GDS map !!! ( though only SA)**
+
+Waiting for MIPS code... 
