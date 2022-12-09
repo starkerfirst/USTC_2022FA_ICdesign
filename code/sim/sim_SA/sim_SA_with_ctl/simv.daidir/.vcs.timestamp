@@ -47,10 +47,10 @@ VCS_ARCH=amd64
 UNAME=/bin/uname
 TOOL_HOME=/soft1/synopsys/vcs/H-2013.06/amd64
 SSH_TTY=/dev/pts/1
-SSH_CONNECTION=192.168.3.70 48170 192.168.3.80 22
-SSH_CLIENT=192.168.3.70 48170 22
+SSH_CONNECTION=192.168.3.70 39153 192.168.3.80 22
+SSH_CLIENT=192.168.3.70 39153 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-SNPSLMD_LICENSE_FILE=27000@192.168.3.69:/soft1/synopsys/vcs/H-2013.06/flexlm//license.dat
+SNPSLMD_LICENSE_FILE=27000@192.168.3.69:/soft1/eda/license/synopsys.dat.c01n10:/soft1/synopsys/vcs/H-2013.06/flexlm//license.dat
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 REMOTEHOST=mgt
@@ -72,17 +72,17 @@ AGILEESOFD_LICENSE_FILE=27000@192.168.3.135
 ADS_LICENSE_FILE=27000@192.168.3.135
 0
 8
-1668686930 systolic_array_sim_with_control.v
-1668687374 /bks2/PB20000328/ic_design/src/systolic_array/controller.v
-1668476704 /bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v
+1670585906 systolic_array_sim_with_control.v
+1670579096 /bks2/PB20000328/ic_design/src/systolic_array/controller.v
+1670587322 /bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v
 1668155215 /bks2/PB20000328/ic_design/src/systolic_array/shift_buffer.v
 1668155223 /bks2/PB20000328/ic_design/src/systolic_array/pe.v
-1668155490 /bks2/PB20000328/ic_design/src/systolic_array/array.v
-1668085967 /bks2/PB20000328/ic_design/src/lib.v
+1670576574 /bks2/PB20000328/ic_design/src/systolic_array/array.v
+1670575796 /bks2/PB20000328/ic_design/src/lib.v
 1369979133 /soft1/synopsys/vcs/H-2013.06/amd64/lib/vcsdp.tab
 4
 0 
 1369979665 /soft1/synopsys/vcs/H-2013.06/amd64/lib/libvirsim.so
 1369979419 /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so
 1369979224 /soft1/synopsys/vcs/H-2013.06/amd64/lib/libsnpsmalloc.so
-1668687377 simv.daidir
+1670587333 simv.daidir

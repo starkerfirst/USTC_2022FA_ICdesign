@@ -34,4 +34,25 @@ begin
 end
 endmodule
 
+//Mux_4ways
+module mux4
+(
+	input [`N-1:0] in0,
+	input [`N-1:0] in1,
+	input [`N-1:0] in2,
+	input [`N-1:0] in3,
+	input [1:0] sel,
+	output reg [`N-1:0] mux
+);
+
+always@(*)
+begin
+	case(sel)
+		2'b00:mux=in0;
+		2'b01:mux=in1;
+		2'b10:mux=in2;
+		2'b11:mux=in3;
+	endcase
+end
+endmodule
 

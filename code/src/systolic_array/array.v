@@ -16,14 +16,29 @@ module PEarray
 	input [`N-1:0] input_col_2,
 	input [`N-1:0] input_col_3,
 	
-	output [`N-1:0] output_row_0,
-	output [`N-1:0] output_row_1,	
-	output [`N-1:0] output_row_2,
-	output [`N-1:0] output_row_3,
+	output [`N-1:0] output_row,
 
+	input [1:0] row_out,
     input OutputSign
     
 );
+	wire [`N-1:0] output_row_0;
+	wire [`N-1:0] output_row_1;	
+	wire [`N-1:0] output_row_2;
+	wire [`N-1:0] output_row_3;
+	
+	wire sign_0;
+	wire sign_1;
+	wire sign_2;
+	wire sign_0;
+
+	assign sign_0 = OutputSign & (row_out==2'b00);
+	assign sign_1 = OutputSign & (row_out==2'b01);
+	assign sign_2 = OutputSign & (row_out==2'b10);
+	assign sign_3 = OutputSign & (row_out==2'b11);
+
+	mux4 outputmux(output_row_0,output_row_1,output_row_2,output_row_3,row_out,output_row);
+
 
 	/*线采用如下标号规则：
 		1. 先从上到下row依次从左往右计数
@@ -47,7 +62,7 @@ module PEarray
         .Bij(input_col_0),
         .Cij(8'b0),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_0),
 		
         .Cij_o(shift_wire[0]),
         .Bij_o(connect[12]),
@@ -63,7 +78,7 @@ module PEarray
         .Bij(input_col_1),
         .Cij(shift_wire[0]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_0),
 		
         .Cij_o(shift_wire[1]),
         .Bij_o(connect[15]),
@@ -79,7 +94,7 @@ module PEarray
         .Bij(input_col_2),
         .Cij(shift_wire[1]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_0),
 		
         .Cij_o(shift_wire[2]),
         .Bij_o(connect[18]),
@@ -95,7 +110,7 @@ module PEarray
         .Bij(input_col_3),
         .Cij(shift_wire[2]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_0),
 		
         .Cij_o(output_row_0),
         .Bij_o(connect[21]),
@@ -113,7 +128,7 @@ module PEarray
         .Bij(connect[12]),
         .Cij(8'b0),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_1),
 		
         .Cij_o(shift_wire[3]),
         .Bij_o(connect[13]),
@@ -129,7 +144,7 @@ module PEarray
         .Bij(connect[15]),
         .Cij(shift_wire[3]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_1),
 		
         .Cij_o(shift_wire[4]),
         .Bij_o(connect[16]),
@@ -145,7 +160,7 @@ module PEarray
         .Bij(connect[18]),
         .Cij(shift_wire[4]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_1),
 		
         .Cij_o(shift_wire[5]),
         .Bij_o(connect[19]),
@@ -161,7 +176,7 @@ module PEarray
         .Bij(connect[21]),
         .Cij(shift_wire[5]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_1),
 		
         .Cij_o(output_row_1),
         .Bij_o(connect[22]),
@@ -179,7 +194,7 @@ module PEarray
         .Bij(connect[13]),
         .Cij(8'b0),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_2),
 		
         .Cij_o(shift_wire[6]),
         .Bij_o(connect[14]),
@@ -195,7 +210,7 @@ module PEarray
         .Bij(connect[16]),
         .Cij(shift_wire[6]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_2),
 		
         .Cij_o(shift_wire[7]),
         .Bij_o(connect[17]),
@@ -211,7 +226,7 @@ module PEarray
         .Bij(connect[19]),
         .Cij(shift_wire[7]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_2),
 		
         .Cij_o(shift_wire[8]),
         .Bij_o(connect[20]),
@@ -227,7 +242,7 @@ module PEarray
         .Bij(connect[22]),
         .Cij(shift_wire[8]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_2),
 		
         .Cij_o(output_row_2),
         .Bij_o(connect[23]),
@@ -245,7 +260,7 @@ module PEarray
         .Bij(connect[14]),
         .Cij(8'b0),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_3),
 		
         .Cij_o(shift_wire[9]),
         .Bij_o(),
@@ -261,7 +276,7 @@ module PEarray
         .Bij(connect[17]),
         .Cij(shift_wire[9]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_3),
 		
         .Cij_o(shift_wire[10]),
         .Bij_o(),
@@ -277,7 +292,7 @@ module PEarray
         .Bij(connect[20]),
         .Cij(shift_wire[10]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_3),
 		
         .Cij_o(shift_wire[11]),
         .Bij_o(),
@@ -293,7 +308,7 @@ module PEarray
         .Bij(connect[23]),
         .Cij(shift_wire[11]),
         
-        .OutputSign(OutputSign),
+        .OutputSign(sign_3),
 		
         .Cij_o(output_row_3),
         .Bij_o(),

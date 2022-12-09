@@ -1649,6 +1649,9 @@ void  hsM_5_2(UB  * I763);
 void  hsM_6_0(UB  * I763, scalar  val);
 void  hsM_6_1(UB  * I763, scalar  val, U  I891, scalar  * I890);
 void  hsM_6_2(UB  * I763);
+void  hsM_7_0(UB  * I763, scalar  val);
+void  hsM_7_1(UB  * I763, scalar  val, U  I891, scalar  * I890);
+void  hsM_7_2(UB  * I763);
 void  hsG_0(struct dummyq_struct * I874, EBLK  * I875, U  I653);
 U   hsG_1(U  I888);
 #ifdef __cplusplus

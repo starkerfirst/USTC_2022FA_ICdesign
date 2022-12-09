@@ -14,20 +14,11 @@ module systolic_array_sim_without_control
 	reg en;  //协处理器启动信号
 	
 	//测试使用	
-	reg [7:0] shift_in_A_0;
-	reg [7:0] shift_in_A_1;
-	reg [7:0] shift_in_A_2;
-	reg [7:0] shift_in_A_3;
+	reg [7:0] shift_in_A;
 	
-	reg [7:0] shift_in_B_0;
-	reg [7:0] shift_in_B_1;
-	reg [7:0] shift_in_B_2;
-	reg [7:0] shift_in_B_3;
-	
-	wire [7:0] shift_out_0;
-	wire [7:0] shift_out_1;
-	wire [7:0] shift_out_2;
-    wire [7:0] shift_out_3;
+	reg [7:0] shift_in_B;
+
+	wire [7:0] shift_out;
 
 systolic_array_wrapper  test//脉动阵列封装
 (
@@ -35,20 +26,12 @@ systolic_array_wrapper  test//脉动阵列封装
 	.rstn(rstn),
 	.en(en),
 	
-	.shift_in_A_0(shift_in_A_0),
-	.shift_in_A_1(shift_in_A_1),
-	.shift_in_A_2(shift_in_A_2),
-	.shift_in_A_3(shift_in_A_3),
+	.shift_in_A(shift_in_A),
 	
-	.shift_in_B_0(shift_in_B_0),
-	.shift_in_B_1(shift_in_B_1),
-	.shift_in_B_2(shift_in_B_2),
-	.shift_in_B_3(shift_in_B_3),
+	.shift_in_B(shift_in_B),
+
 	
-	.shift_out_0(shift_out_0),
-	.shift_out_1(shift_out_1),
-	.shift_out_2(shift_out_2),
-	.shift_out_3(shift_out_3)
+	.shift_out(shift_out)
 );
 
 
@@ -188,49 +171,37 @@ initial
 begin
 //初始化系统
 	rstn = 0;
-$monitor("T=%5d, out0=%d, out1= %d, out2=%d, out3=%d, state=%d, state_shift=%d, state_compute_pump=%d, state_compute_out=%d", $time, shift_out_0, shift_out_1, shift_out_2, shift_out_3, test.ctrl.state_overall, test.ctrl.state_shift, test.ctrl.state_compute_pump, test.ctrl.state_compute_out);
+$monitor("T=%5d, out=%d, state=%d, state_load_id=%d, state_load_row=%d, state_compute_pump=%d, state_compute_out=%d, state_compute_out_counter=%d", $time, shift_out, test.ctrl.state_overall, test.ctrl.state_load_id,test.ctrl.state_load_row, test.ctrl.state_compute_pump, test.ctrl.state_compute_out,test.ctrl.state_compute_out_counter);
 $monitoron;
 	
 	
 	//测试使用
 	en = 0;
 	
-	shift_in_A_0 = 0;
-	shift_in_A_1 = 0;
-	shift_in_A_2 = 0;
-	shift_in_A_3 = 0;
+	shift_in_A = 0;
 	
-	shift_in_B_0 = 0;
-	shift_in_B_1 = 0;
-	shift_in_B_2 = 0;
-	shift_in_B_3 = 0;
+	shift_in_B = 0;
 	
 	#40 rstn = 1; 
 		en = 1; //启动
 
 //装载数据
 	for(i=0; i<4; i=i+1)
-	begin
-		#clk_period; 
+		for(j=0; j<4; j=j+1)
+			begin
+			#clk_period; 
 	
-		shift_in_A_0 = A[0*4+3-i];
-		shift_in_A_1 = A[1*4+3-i];
-		shift_in_A_2 = A[2*4+3-i];
-		shift_in_A_3 = A[3*4+3-i];
+			shift_in_A = A[i*4+3-j];
 		
-		shift_in_B_0 = B[(3-i)*4+3];
-		shift_in_B_1 = B[(3-i)*4+2];
-		shift_in_B_2 = B[(3-i)*4+1];
-		shift_in_B_3 = B[(3-i)*4+0];
-		
-		
-	end
+			shift_in_B = B[(3-j)*4+i];
+
+			end
 	en = 0;
 //计算	
 	for(i=0; i<15; i=i+1) #clk_period ;
 	
 //输出
-	#(8*clk_period);
+	#(20*clk_period);
 	
 
 //第二次实验
@@ -240,15 +211,9 @@ $monitoron;
 	//测试使用
 	
 	
-	shift_in_A_0 = 0;
-	shift_in_A_1 = 0;
-	shift_in_A_2 = 0;
-	shift_in_A_3 = 0;
+	shift_in_A = 0;
 	
-	shift_in_B_0 = 0;
-	shift_in_B_1 = 0;
-	shift_in_B_2 = 0;
-	shift_in_B_3 = 0;
+	shift_in_B = 0;
 	
 
 	#40 rstn = 1;
@@ -256,27 +221,22 @@ $monitoron;
 
 //装载数据
 	for(i=0; i<4; i=i+1)
-	begin
-			
-		#clk_period	; 
+		for(j=0; j<4; j=j+1)
+			begin
+			#clk_period; 
+	
+			shift_in_A = D[i*4+3-j];
 		
-		shift_in_A_0 = D[0*4+3-i];
-		shift_in_A_1 = D[1*4+3-i];
-		shift_in_A_2 = D[2*4+3-i];
-		shift_in_A_3 = D[3*4+3-i];
-		
-		shift_in_B_0 = E[(3-i)*4+0];
-		shift_in_B_1 = E[(3-i)*4+1];
-		shift_in_B_2 = E[(3-i)*4+2];
-		shift_in_B_3 = E[(3-i)*4+3];
-	end
+			shift_in_B = E[(3-j)*4+i];
+
+			end
 	
 //计算	
 	en = 0;
 	for(i=0; i<15; i=i+1) #clk_period ;
 	
 //输出
-	#(8*clk_period);
+	#(20*clk_period);
 	
 
 //第三次实验
@@ -285,15 +245,9 @@ $monitoron;
 	
 	//测试使用
 	
-	shift_in_A_0 = 0;
-	shift_in_A_1 = 0;
-	shift_in_A_2 = 0;
-	shift_in_A_3 = 0;
+	shift_in_A = 0;
 	
-	shift_in_B_0 = 0;
-	shift_in_B_1 = 0;
-	shift_in_B_2 = 0;
-	shift_in_B_3 = 0;
+	shift_in_B = 0;
 	
 
 	#40 rstn = 1;
@@ -301,31 +255,22 @@ $monitoron;
 
 //装载数据
 	for(i=0; i<4; i=i+1)
-	begin
-		#clk_period	; 
-
-		shift_in_A_0 = H[0*4+3-i];
-		shift_in_A_1 = H[1*4+3-i];
-		shift_in_A_2 = H[2*4+3-i];
-		shift_in_A_3 = H[3*4+3-i];
-		
-		shift_in_B_0 = I[(3-i)*4+0];
-		shift_in_B_1 = I[(3-i)*4+1];
-		shift_in_B_2 = I[(3-i)*4+2];
-		shift_in_B_3 = I[(3-i)*4+3];
-		
-		
-		
+		for(j=0; j<4; j=j+1)
+			begin
+			#clk_period; 
 	
-	end
+			shift_in_A = H[i*4+3-j];
+		
+			shift_in_B = I[(3-j)*4+i];
+
+			end
 	en = 0;
 //计算	
 	for(i=0; i<15; i=i+1) #clk_period ;
 	
 //输出
 	
-	#(9*clk_period);
-	#(clk_period);
+	#(20*clk_period);
 	$monitoroff;
 	$finish;
 end

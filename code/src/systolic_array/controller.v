@@ -15,23 +15,24 @@ module controller
 	output reg shift, //shift使能信号
 	
 	//load_A的位置
-	output reg [2:0] id_A_0, 
-	output reg [2:0] id_A_1, 
-	output reg [2:0] id_A_2, 
-	output reg [2:0] id_A_3, 
+	output reg [2:0] id_A, 
+	output reg [1:0] row_A,
 	
 	//load_B的位置
-	output reg [2:0] id_B_0, 
-	output reg [2:0] id_B_1, 
-	output reg [2:0] id_B_2, 
-	output reg [2:0] id_B_3
+	output reg [2:0] id_B, 
+	output reg [1:0] row_B,
+	
+	//输出行数
+	output reg [1:0] row_out
 );
 
 //分离式状态机
 reg [1:0] state_overall;
-reg [1:0] state_shift; 
+reg [2:0] state_load_id; 
+reg [1:0] state_load_row; 
 reg	[3:0] state_compute_pump;
 reg	[1:0] state_compute_out;
+reg	[1:0] state_compute_out_counter;
 
 //状态动作
 always @(*)
@@ -42,36 +43,31 @@ begin
 			OutputSign = 0;
 			shift = 0;
 			
-			id_A_0 = 0;
-			id_A_1 = 0;
-			id_A_2 = 0;
-			id_A_3 = 0;
+			row_A = 0;
+			id_A = 0;
 			
-			id_B_0 = 0;
-			id_B_1 = 0;
-			id_B_2 = 0;
-			id_B_3 = 0;	
+			row_B = 0;
+			id_B = 0;
+			
+			row_out = 0;
 		end
 		
 		else if(state_overall == `STATE_LOAD) //处于load状态
 		begin
-			//要求一次对每个矩阵的每一单元同时load一个元素，则带宽是 8unit/clk
+			//要求一次对每个矩阵同时load一个元素，每行循环装载，则带宽是 2unit/clk，需要装载16clk
 			//A矩阵的物理存储排布是关于竖直轴对称，B矩阵的物理存储排布是关于水平轴对称
 			//在ram里最好是A列优先，B行优先，这样是连续取址的
 			load = 1;
 			OutputSign = 0;
 			shift = 0;
 			
-			id_A_0 = state_shift + 2'b11;
-			id_A_1 = state_shift + 2'b10;
-			id_A_2 = state_shift + 2'b01;
-			id_A_3 = state_shift + 2'b00;
+			row_A = state_load_row;
+			id_A = state_load_id;
 			
-			id_B_0 = state_shift + 2'b11;
-			id_B_1 = state_shift + 2'b10;
-			id_B_2 = state_shift + 2'b01;
-			id_B_3 = state_shift + 2'b00;
+			row_B = state_load_row;
+			id_B = state_load_id;
 			
+			row_out = 0;
 		end
 		
 		else if(state_overall == `STATE_COMPUTE_PUMP) //处于compute_pump状态
@@ -80,15 +76,13 @@ begin
 			shift = 1;
 			OutputSign = 0;
 			
-			id_A_0 = 0;
-			id_A_1 = 0;
-			id_A_2 = 0;
-			id_A_3 = 0;
+			row_A = 0;
+			id_A = 0;
 			
-			id_B_0 = 0;
-			id_B_1 = 0;
-			id_B_2 = 0;
-			id_B_3 = 0;
+			row_B = 0;
+			id_B = 0;
+			
+			row_out=0;
 			
 		end
 		
@@ -98,15 +92,12 @@ begin
 			shift = 0;
 			OutputSign = 1;
 			
-			id_A_0 = 0;
-			id_A_1 = 0;
-			id_A_2 = 0;
-			id_A_3 = 0;
+			row_A = 0;
+			id_A = 0;
 			
-			id_B_0 = 0;
-			id_B_1 = 0;
-			id_B_2 = 0;
-			id_B_3 = 0;
+			row_B = 0;
+			id_B = 0;
+			row_out = state_compute_out;
 			
 		end
 end
@@ -118,25 +109,33 @@ begin
 	if(rstn == 0)
 	begin
 		state_overall <= 0;
-		state_shift <= 0;
+		state_load_id <= 2'b11;
+		state_load_row <= 0;
 		state_compute_pump <= 0;
 		state_compute_out <= 0;
+		state_compute_out_counter <= 0;
 		
 	end
 	else if(state_overall == `STATE_IDLE) //处于闲置状态
 		begin
 			if(en == 1) state_overall <= `STATE_LOAD;
 			
-			state_shift <= 0;
+			state_load_id <= 2'b11;
+			state_load_row <= 0;
 			state_compute_pump <= 0;
 			state_compute_out <= 0;
+			state_compute_out_counter <= 0;
 		end
 	
 	else if(state_overall == `STATE_LOAD) //处于load状态
 		begin
-			if(state_shift == 2'b11) state_overall <= `STATE_COMPUTE_PUMP;
-			
-			state_shift <= state_shift + 1'b1;
+			if(state_load_id == 2'b11 && state_load_row==2'b11) state_overall <= `STATE_COMPUTE_PUMP;
+			else if(state_load_id + state_load_row == 3'b110) 
+				begin 
+					state_load_row <= state_load_row + 1'b1;
+					state_load_id <= 2'b10 - state_load_row;
+				end
+			else state_load_id <= state_load_id + 1'b1;
 		end
 		
 	else if(state_overall == `STATE_COMPUTE_PUMP) //处于compute_pump状态
@@ -147,8 +146,13 @@ begin
 		
 	else if(state_overall == `STATE_COMPUTE_OUT) //处于compute_out状态
 		begin
-			if(state_compute_out == 2'b11) state_overall<= `STATE_IDLE;
-			state_compute_out <= state_compute_out + 1'b1;
+			if(state_compute_out == 2'b11 && state_compute_out_counter==2'b11) state_overall<= `STATE_IDLE;
+			else if(state_compute_out_counter==2'b11) 
+			begin 
+				state_compute_out <= state_compute_out + 1'b1;
+				state_compute_out_counter <= 0;
+			end
+			else state_compute_out_counter <= state_compute_out_counter + 1'b1;
 		end
 		
 end

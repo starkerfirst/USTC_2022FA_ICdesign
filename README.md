@@ -43,3 +43,11 @@ Finish the physical design of SA_v1
 **Generate GDS map !!! ( though only SA)**
 
 Waiting for MIPS code... 
+
+#### 2022.12.9 update
+
+Cut down the number of IOs by changing input and output mode from parallel to serial
+
+SA_v2 sim done!
+
+New GDS map updated
