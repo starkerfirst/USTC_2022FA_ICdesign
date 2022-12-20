@@ -30,7 +30,7 @@ module PEarray
 	wire sign_0;
 	wire sign_1;
 	wire sign_2;
-	wire sign_0;
+	wire sign_3;
 
 	assign sign_0 = OutputSign & (row_out==2'b00);
 	assign sign_1 = OutputSign & (row_out==2'b01);
