@@ -1,0 +1,142 @@
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Wed Dec 21 12:21:46 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Multiply driven inputs (LINT-6)                                19
+    Shorted outputs (LINT-31)                                       5
+
+Cells                                                              61
+    Cells with unconnected inputs (LINT-0)                         19
+    Cells do not drive (LINT-1)                                     6
+    Connected to power or ground (LINT-32)                         32
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_clk' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_rst_n' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_0' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_1' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_2' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_3' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_4' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_5' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_6' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_7' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_8' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_9' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_10' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_11' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_12' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_13' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_14' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_15' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'systolic_array', input pin 'I' of leaf cell 'u_pad_data_in_16' is not connected to any net.  Logic 0 assumed. (LINT-0)
+Warning: In design 'controller', cell 'C255' does not drive any nets. (LINT-1)
+Warning: In design 'controller', cell 'C265' does not drive any nets. (LINT-1)
+Warning: In design 'controller', cell 'C273' does not drive any nets. (LINT-1)
+Warning: In design 'controller', cell 'C277' does not drive any nets. (LINT-1)
+Warning: In design 'controller', cell 'C283' does not drive any nets. (LINT-1)
+Warning: In design 'controller', cell 'C286' does not drive any nets. (LINT-1)
+Warning: In design 'systolic_array', input port 'clk_p' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'rstn_p' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'en_p' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_A[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'systolic_array', input port 'p_shift_in_B[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'controller', output port 'id_A[2]' is connected directly to output port 'id_B[2]'. (LINT-31)
+Warning: In design 'controller', output port 'id_A[1]' is connected directly to output port 'id_B[1]'. (LINT-31)
+Warning: In design 'controller', output port 'id_A[0]' is connected directly to output port 'id_B[0]'. (LINT-31)
+Warning: In design 'controller', output port 'row_A[1]' is connected directly to output port 'row_B[1]'. (LINT-31)
+Warning: In design 'controller', output port 'row_A[0]' is connected directly to output port 'row_B[0]'. (LINT-31)
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[7]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[6]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[5]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[4]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[3]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[2]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[1]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_0_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[0]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[7]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[6]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[5]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[4]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[3]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[2]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[1]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_1_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[0]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[7]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[6]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[5]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[4]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[3]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[2]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[1]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_2_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[0]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[7]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[6]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[5]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[4]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[3]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[2]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[1]' is connected to logic 0. 
+Warning: In design 'PEarray', a pin on submodule 'pe_3_0' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'Cij[0]' is connected to logic 0. 
+Warning: In design 'PEarray', the same net is connected to more than one pin on submodule 'pe_0_0'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Cij[7]', 'Cij[6]'', 'Cij[5]', 'Cij[4]', 'Cij[3]', 'Cij[2]', 'Cij[1]', 'Cij[0]'.
+Warning: In design 'PEarray', the same net is connected to more than one pin on submodule 'pe_1_0'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Cij[7]', 'Cij[6]'', 'Cij[5]', 'Cij[4]', 'Cij[3]', 'Cij[2]', 'Cij[1]', 'Cij[0]'.
+Warning: In design 'PEarray', the same net is connected to more than one pin on submodule 'pe_2_0'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Cij[7]', 'Cij[6]'', 'Cij[5]', 'Cij[4]', 'Cij[3]', 'Cij[2]', 'Cij[1]', 'Cij[0]'.
+Warning: In design 'PEarray', the same net is connected to more than one pin on submodule 'pe_3_0'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'Cij[7]', 'Cij[6]'', 'Cij[5]', 'Cij[4]', 'Cij[3]', 'Cij[2]', 'Cij[1]', 'Cij[0]'.
+1

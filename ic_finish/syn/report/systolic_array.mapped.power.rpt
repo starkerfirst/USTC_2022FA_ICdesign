@@ -1,0 +1,56 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : systolic_array
+Version: L-2016.03-SP5
+Date   : Wed Dec 21 12:24:56 2022
+****************************************
+
+
+Library(s) Used:
+
+    tcb018gbwp7twc_ccs (File: /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db)
+    tpd018bcdnv5wc (File: /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db)
+
+
+Operating Conditions: WCCOM   Library: tcb018gbwp7twc_ccs
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.62 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+Warning: Cannot report correlated power unless power prediction mode is set. (PWR-727)
+Power Breakdown
+---------------
+
+                             Cell        Driven Net  Tot Dynamic      Cell
+                             Internal    Switching   Power (mW)       Leakage
+Cell                         Power (mW)  Power (mW)  (% Cell/Tot)     Power (nW)
+--------------------------------------------------------------------------------
+Netlist Power                   2.2295      1.4863   3.716e+00 (60%)  2.094e+03
+Estimated Clock Tree Power   N/A         N/A          (N/A)           N/A
+--------------------------------------------------------------------------------
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.4417            1.4292          339.4630            1.8712  (  50.33%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           1.7466        7.3880e-03          732.9424            1.7547  (  47.20%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  4.1229e-02        4.9734e-02        1.0214e+03        9.1985e-02  (   2.47%)
+--------------------------------------------------------------------------------------------------
+Total              2.2295 mW         1.4863 mW     2.0938e+03 nW         3.7179 mW
+1

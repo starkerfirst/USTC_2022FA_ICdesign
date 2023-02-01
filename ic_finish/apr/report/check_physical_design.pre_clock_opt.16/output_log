@@ -1,0 +1,393 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ min_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ mapping_file: /bks2/PB20000328/ic_design/apr/tech/tluplus/star.map_5M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: systolic_array_APR
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+155.000 155.000 936.200 923.320
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+Ignored layers in congestion analysis and RC estimation: METAL5 
+
+Min_routing_layer: METAL1
+Max_routing_layer: METAL4
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:12:01 2022
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:12:01 2022
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL1             Y         0.720          1924      0.560           
+METAL2             Y         0.720          1924      0.560           
+METAL2             X         0.720          1947      0.560           
+METAL1             X         0.720          1947      0.560           
+METAL3             X         0.720          1947      0.560           
+METAL3             Y         0.720          1924      0.560           
+METAL2             Y         0.720          1924      0.560           
+METAL4             Y         0.720          1924      0.560           
+METAL4             X         0.720          1947      0.560           
+METAL3             X         0.720          1947      0.560           
+METAL5             X         0.720          1947      0.560           
+METAL5             Y         0.480          1198      0.900           
+METAL4             Y         0.480          1198      0.900           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: ::check_database 
+************************************************************
+CHECK_DATABASE RESULTS FOR CELL : clock_opt_cts_icc.CEL
+************************************************************
+MWUHIER: Checking for hierarchical internal netlist and flat internal netlist consistency ... 
+MWUHIER: Done with checking hierarchical internal netlist and flat internal netlist consistency. 
+Information: MWUHIER: Number of errors = 0 (MW-348)
+End PG consistent checking.. PG_Pass
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+
+Start UPF checking.
+No UPF infomation. Finish UPF checking.
+1
+End CPD check: ::check_database
+Start CPD check: report_taint -dump_errors 
+
+****************************************
+  Report : Suggestions
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Tue Dec 27 20:12:01 2022
+****************************************
+
+Information: No suggestion for current design. (PSYN-1068)
+
+1
+End CPD check: report_taint -dump_errors
+Start CPD check: check_for_HFN_ideal 
+
+End CPD check: check_for_HFN_ideal
+Start CPD check: check_for_dont_touch_net_with_drc_violation 
+Warning: The trip points for the library named tpd018bcdnv5wc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Warning: The trip points for the library named tpd018bcdnv5bc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Information: Updating design information... (UID-85)
+
+End CPD check: check_for_dont_touch_net_with_drc_violation
+Start CPD check: check_block_abstraction -stage pre_clock_opt 
+Information: No blocks with abstraction information found
+1
+End CPD check: check_block_abstraction -stage pre_clock_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Tue Dec 27 20:12:02 2022
+****************************************
+Std cell utilization: 16.43%  (38549/(273420-38808))
+(Non-fixed + Fixed)
+Std cell utilization: 17.00%  (38549/(273420-46648))
+(Non-fixed only)
+Chip area:            273420   sites, bbox (155.00 155.00 936.20 923.32) um
+Std cell area:        38549    sites, (non-fixed:38549  fixed:0)
+                      4028     cells, (non-fixed:4028   fixed:0)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  38808    sites, (excluding fixed std cells)
+                      46648    sites, (include fixed std cells & chimney area)
+                      38808    sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       111 
+Avg. std cell width:  5.47 um 
+Site array:           unit     (width: 0.56 um, height: 3.92 um, rows: 196)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Tue Dec 27 20:12:02 2022
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete    0.00        0.00        via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+METAL5     none          ---         ---       via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 113 (7.06%)
+Number of regions with placement utilization 0.125 - 0.25 is 1205 (75.31%)
+Number of regions with placement utilization 0.25 - 0.375 is 279 (17.44%)
+Number of regions with placement utilization 0.375 - 0.5 is 3 (0.19%)
+Number of regions with placement utilization 0.5 - 0.625 is 0 (0.00%)
+Number of regions with placement utilization 0.625 - 0.75 is 0 (0.00%)
+Number of regions with placement utilization 0.75 - 0.875 is 0 (0.00%)
+Number of regions with placement utilization 0.875 - 1 is 0 (0.00%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: check_legality_violation 
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Warning: IO pad 'PVSS3CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1ANA' is unusable: unknown logic function.  (OPT-1022)
+  Loading design 'systolic_array'
+
+
+Information: The design has 3920 physical cells. (PSYN-105)
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 196 horizontal rows
+    8082 pre-routes for placement blockage/checking
+    8279 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 3676 pre-routes used for checking; 7092 redundant shapes removed
+[end initializing data for legality checker]
+Warning: Die area is not integer multiples of min site height (3920), object's width and height(1091200,1079000). (PSYN-523)
+Warning: Die area is not integer multiples of min site width (560), object's width and height(1091200,1079000). (PSYN-523)
+Warning: Cell u_pad_clk is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_clk is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_rst_n is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_rst_n is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_0 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_0 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_1 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_1 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_2 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_2 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_3 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_3 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_4 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_4 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_5 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_5 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_6 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_6 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_7 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_7 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_8 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_8 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_9 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_9 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_10 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_10 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_11 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_11 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_12 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_12 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_13 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_13 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_14 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_14 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_15 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_15 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_16 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_in_16 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_0 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_0 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_1 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_1 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_2 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_2 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_3 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_3 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_4 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_4 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_5 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_5 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_6 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_6 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_7 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_7 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_8 is not integer multiples of min site width (560), object's width and height(80000,120000). (PSYN-523)
+Warning: Cell u_pad_data_out_8 is not integer multiples of min site height (3920), object's width and height(120000,120000). (PSYN-523)
+
+**************************************************** 
+Check_legality: Report for Fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+**************************************************** 
+(fixed placement) Cells Not on Row            : 0
+(fixed placement) Cell Overlaps               : 0
+(fixed placement) Cells overlapping blockages : 0
+(fixed placement) Orientation Violations      : 0
+(fixed placement) Site Violations             : 0
+(fixed placement) Power Strap Violations      : 0
+****************************************************** 
+
+****************************************************** 
+Check_legality: Report for Non-fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+****************************************************** 
+Number of Cells Not on Row            : 0
+Number of Cell Overlaps               : 0
+Number of Cells overlapping blockages : 0
+Number of Orientation Violations      : 0
+Number of Site Violations             : 0
+Number of Power Strap Violations      : 0
+******************************************** 
+
+  Total moveable cell area: 84622.8
+  Total fixed cell area: 268800.0
+  Total physical cell area: 353422.8
+  Core area: (155000 155000 936200 923320)
+1
+
+
+End CPD check: check_legality_violation
+Start CPD check: cpd_check_tie_connection 
+0
+End CPD check: cpd_check_tie_connection
+Start CPD check: cpd_check_cells_restrictions 
+0
+End CPD check: cpd_check_cells_restrictions
+Start CPD check: check_unplaced_cells 
+1
+End CPD check: check_unplaced_cells
+Start CPD check: check_clock_tree 
+Information: Updating design information... (UID-85)
+
+*********************** Check_Clock_Tree Summary Report ************************
+There is no issue found !
+******************** End of Check_Clock_Tree Summary Report ********************
+1
+End CPD check: check_clock_tree
+Start CPD check: check_net_routing_rules 
+
+****************************************
+Report : net routing rules
+Design : clock_opt_cts_icc
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:12:04 2022
+****************************************
+
+
+ ---------- All nets use DEFAULT routing rule ----------
+ -------------------------------------------------------
+
+1
+End CPD check: check_net_routing_rules

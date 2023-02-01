@@ -1,0 +1,17 @@
+Writing verilog file '/bks2/PB20000328/ic_design/syn/result/ICC2_files/systolic_array.v'.
+1
+1
+Information: This script is running at a Synopsys site.  CMD-005 messages will not be suppressed
+Information: No Scenarios exist, writing data for one virtual_scenario
+Warning: Deleting existing directory ./result/ICC2_files/systolic_array.MCMM
+Information: Creating directory ./result/ICC2_files/systolic_array.MCMM
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Writing COMPONENTS section (DDEFW-014)
+Information: Completed COMPONENTS section  (DDEFW-016)
+Information: Writing PINS section (DDEFW-014)
+Information: Completed PINS section  (DDEFW-016)
+Information: No groups were written. (RPGP-018)
+1
+Error: Current design systolic_array does not have any CTL model attached. ScanDEF generation cannot proceed.
+0

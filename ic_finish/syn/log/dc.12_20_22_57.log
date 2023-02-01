@@ -1,0 +1,1409 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version L-2016.03-SP5 for linux64 - Oct 14, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Starting shell in Topographical mode...
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_dv_prefs.tcl
+source -echo -verbose ./script/dc_setup.tcl
+source -echo -verbose ./script/common_setup.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+systolic_array
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          "SA"
+SA
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*] [glob ../tech/*]"
+../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus ../tech/TSMC180BCDGEN3
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db tpd018bcdnv5wc.db"
+tcb018gbwp7twc_ccs.db tpd018bcdnv5wc.db
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db tpd018bcdnv5wc.db   tpd018bcdnv5bc.db"
+tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db tpd018bcdnv5wc.db   tpd018bcdnv5bc.db
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t_290a tpd018bcdnv5_160c tpb018v_180a"
+tcb018gbwp7t_290a tpd018bcdnv5_160c tpb018v_180a
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+./tech/icc/tsmc018_5lm.tf
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+star.map_5M
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+METAL1
+set MAX_ROUTING_LAYER           "METAL4"
+METAL4
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+VDD1
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+VDD2
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+VDD3
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+VDD4
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo -verbose ./script/dc_setup_filenames.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# General Flow Files
+#-----------------------------------------------------------------------------
+# Milkyway library names
+set DCRM_MW_LIBRARY_NAME                                ${DESIGN_NAME}_LIB
+systolic_array_LIB
+set DCRM_FINAL_MW_CEL_NAME                              ${DESIGN_NAME}_DCT
+systolic_array_DCT
+# Input files
+set DCRM_SDC_INPUT_FILE                                 ${DESIGN_NAME}.sdc
+systolic_array.sdc
+set DCRM_CONSTRAINTS_INPUT_FILE                         ${DESIGN_NAME}.constraints.tcl
+systolic_array.constraints.tcl
+# Report files
+set DCRM_CHECK_LIBRARY_REPORT                           ${DESIGN_NAME}.check_library.rpt
+systolic_array.check_library.rpt
+set DCRM_CONSISTENCY_CHECK_ENV_FILE                     ${DESIGN_NAME}.compile_ultra.env
+systolic_array.compile_ultra.env
+set DCRM_CHECK_DESIGN_REPORT                            ${DESIGN_NAME}.check_design.rpt
+systolic_array.check_design.rpt
+set DCRM_ANALYZE_DATAPATH_EXTRACTION_REPORT             ${DESIGN_NAME}.analyze_datapath_extraction.rpt
+systolic_array.analyze_datapath_extraction.rpt
+set DCRM_FINAL_QOR_REPORT                               ${DESIGN_NAME}.mapped.qor.rpt
+systolic_array.mapped.qor.rpt
+set DCRM_FINAL_TIMING_REPORT                            ${DESIGN_NAME}.mapped.timing.rpt
+systolic_array.mapped.timing.rpt
+set DCRM_FINAL_AREA_REPORT                              ${DESIGN_NAME}.mapped.area.rpt
+systolic_array.mapped.area.rpt
+set DCRM_FINAL_POWER_REPORT                             ${DESIGN_NAME}.mapped.power.rpt
+systolic_array.mapped.power.rpt
+set DCRM_FINAL_CLOCK_GATING_REPORT                      ${DESIGN_NAME}.mapped.clock_gating.rpt
+systolic_array.mapped.clock_gating.rpt
+set DCRM_FINAL_SELF_GATING_REPORT                       ${DESIGN_NAME}.mapped.self_gating.rpt
+systolic_array.mapped.self_gating.rpt
+set DCRM_THRESHOLD_VOLTAGE_GROUP_REPORT                 ${DESIGN_NAME}.mapped.threshold.voltage.group.rpt
+systolic_array.mapped.threshold.voltage.group.rpt
+set DCRM_INSTANTIATE_CLOCK_GATES_REPORT                 ${DESIGN_NAME}.instatiate_clock_gates.rpt
+systolic_array.instatiate_clock_gates.rpt
+set DCRM_FINAL_DESIGNWARE_AREA_REPORT                   ${DESIGN_NAME}.mapped.designware_area.rpt
+systolic_array.mapped.designware_area.rpt
+set DCRM_FINAL_RESOURCES_REPORT                         ${DESIGN_NAME}.mapped.final_resources.rpt
+systolic_array.mapped.final_resources.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE             ${DESIGN_NAME}.register_bank.rpt
+systolic_array.register_bank.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_REPORT           ${DESIGN_NAME}.register_bank_report_file.rpt 
+systolic_array.register_bank_report_file.rpt
+set DCRM_MULTIBIT_COMPONENTS_REPORT                     ${DESIGN_NAME}.multibit.components.rpt
+systolic_array.multibit.components.rpt
+set DCRM_MULTIBIT_BANKING_REPORT                        ${DESIGN_NAME}.multibit.banking.rpt
+systolic_array.multibit.banking.rpt
+# Output files
+set DCRM_AUTOREAD_RTL_SCRIPT                            ${DESIGN_NAME}.autoread_rtl.tcl
+systolic_array.autoread_rtl.tcl
+set DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE              ${DESIGN_NAME}.elab.ddc
+systolic_array.elab.ddc
+set DCRM_COMPILE_ULTRA_DDC_OUTPUT_FILE                  ${DESIGN_NAME}.compile_ultra.ddc
+systolic_array.compile_ultra.ddc
+set DCRM_FINAL_DDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.ddc
+systolic_array.mapped.ddc
+set DCRM_FINAL_PG_VERILOG_OUTPUT_FILE                   ${DESIGN_NAME}.mapped.pg.v
+systolic_array.mapped.pg.v
+set DCRM_FINAL_VERILOG_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.v
+systolic_array.mapped.v
+set DCRM_FINAL_SDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.sdc
+systolic_array.mapped.sdc
+set DCRM_FINAL_DESIGN_ICC2                              ICC2_files
+ICC2_files
+#-----------------------------------------------------------------------------
+# DCT Flow Files
+#-----------------------------------------------------------------------------
+# DCT input files
+set DCRM_DCT_DEF_INPUT_FILE                             ${DESIGN_NAME}.def
+systolic_array.def
+set DCRM_DCT_FLOORPLAN_INPUT_FILE                       ${DESIGN_NAME}.fp
+systolic_array.fp
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE            ${DESIGN_NAME}.physical_constraints.tcl
+systolic_array.physical_constraints.tcl
+# DCT report files
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT                ${DESIGN_NAME}.physical_constraints.rpt
+systolic_array.physical_constraints.rpt
+set DCRM_DCT_FINAL_CONGESTION_REPORT                    ${DESIGN_NAME}.mapped.congestion.rpt
+systolic_array.mapped.congestion.rpt
+set DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE           ${DESIGN_NAME}.mapped.congestion_map.png
+systolic_array.mapped.congestion_map.png
+set DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE    ${DESIGN_NAME}.mapped.congestion_map_window.png
+systolic_array.mapped.congestion_map_window.png
+set DCRM_ANALYZE_RTL_CONGESTION_REPORT_FILE             ${DESIGN_NAME}.analyze_rtl_congetion.rpt
+systolic_array.analyze_rtl_congetion.rpt
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_FOLDER                  ${DESIGN_NAME}.qor_snapshot
+systolic_array.qor_snapshot
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT                  ${DESIGN_NAME}.qor_snapshot.rpt
+systolic_array.qor_snapshot.rpt
+# DCT output files
+set DCRM_DCT_FLOORPLAN_OUTPUT_FILE                      ${DESIGN_NAME}.initial.fp
+systolic_array.initial.fp
+set DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE                ${DESIGN_NAME}.mapped.fp
+systolic_array.mapped.fp
+set DCRM_DCT_FINAL_SPEF_OUTPUT_FILE                     ${DESIGN_NAME}.mapped.spef
+systolic_array.mapped.spef
+set DCRM_DCT_FINAL_SDF_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.sdf
+systolic_array.mapped.sdf
+# Standard cell placement file
+set DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE                  ${DESIGN_NAME}.mapped.std_cell.def
+systolic_array.mapped.std_cell.def
+#-----------------------------------------------------------------------------
+# Formality Flow Files
+#-----------------------------------------------------------------------------
+set DCRM_SVF_OUTPUT_FILE                                ${DESIGN_NAME}.mapped.svf
+systolic_array.mapped.svf
+set FMRM_UNMATCHED_POINTS_REPORT                        ${DESIGN_NAME}.fmv_unmatched_points.rpt
+systolic_array.fmv_unmatched_points.rpt
+set FMRM_FAILING_SESSION_NAME                           ${DESIGN_NAME}
+systolic_array
+set FMRM_FAILING_POINTS_REPORT                          ${DESIGN_NAME}.fmv_failing_points.rpt
+systolic_array.fmv_failing_points.rpt
+set FMRM_ABORTED_POINTS_REPORT                          ${DESIGN_NAME}.fmv_aborted_points.rpt
+systolic_array.fmv_aborted_points.rpt
+set FMRM_ANALYZE_POINTS_REPORT                          ${DESIGN_NAME}.fmv_analyze_points.rpt
+systolic_array.fmv_analyze_points.rpt
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Setup Variables
+#-----------------------------------------------------------------------------
+# Removes new variable info messages.
+set_app_var sh_new_variable_message     false
+false
+if {$synopsys_program_name == "dc_shell"}  {
+    # Enable multicore optimization.
+    # set_host_options -max_cores 4
+    
+    # Analyzed libraries location.
+    set_app_var alib_library_analysis_path  ./tech/alib
+
+    # Additional Design Compiler variables.
+    }
+./tech/alib
+# RTL file list.
+set RTL_SOURCE_FILES    "../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						"
+../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						
+# Directories definition.
+set REPORT_DIR          "./report"
+./report
+set RESULT_DIR          "./result"
+./result
+set MW_LIB_DIR          "../milkyway"
+../milkyway
+set WORK_DIR            "./work"
+./work
+set LOG_DIR             "./log"
+./log
+file mkdir ${REPORT_DIR}
+file mkdir ${RESULT_DIR}
+file mkdir ${MW_LIB_DIR}
+file mkdir ${WORK_DIR}
+file mkdir ${LOG_DIR}
+# Optimization options for following RM+ flows.
+# hplp    - High Performance Low Power
+# hc      - High Connectivity
+# rtm_exp - Runtime Exploration
+set OPTIMIZATION_FLOW           ""
+# Search path setup.
+set_app_var search_path         ". ${ADDITIONAL_SEARCH_PATH} $search_path"
+. ../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus ../tech/TSMC180BCDGEN3 . /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn /soft1/synopsys/synthesis/L-2016.03-SP5/minpower/syn /soft1/synopsys/synthesis/L-2016.03-SP5/dw/syn_ver /soft1/synopsys/synthesis/L-2016.03-SP5/dw/sim_ver
+#-----------------------------------------------------------------------------
+# Library Setup
+#-----------------------------------------------------------------------------
+# Milkyway variable settings.
+set mw_reference_library        ${MW_REFERENCE_LIB_DIRS}
+tcb018gbwp7t_290a tpd018bcdnv5_160c tpb018v_180a
+set mw_design_library           ${MW_LIB_DIR}/${DCRM_MW_LIBRARY_NAME}
+../milkyway/systolic_array_LIB
+set mw_site_name_mapping        {{CORE unit} {Core unit} {core unit}}
+{CORE unit} {Core unit} {core unit}
+if {$synopsys_program_name == "dc_shell"}  {
+    # Set logical libraries.
+    set_app_var target_library      ${TARGET_LIBRARY_FILES}
+    set_app_var synthetic_library   dw_foundation.sldb
+    
+    if {$OPTIMIZATION_FLOW == "hplp"} {
+        # Enable DesignWare minPower Components.
+        # set_app_var synthetic_library "dw_minpower.sldb dw_foundation.sldb"
+        }
+    
+    set_app_var link_library        "* $target_library $ADDITIONAL_LINK_LIB_FILES $synthetic_library"
+    
+    # Set min libraries.
+    foreach {max_library min_library} $MIN_LIBRARY_FILES {
+        set_min_library $max_library -min_version $min_library
+        }
+    
+    if {[shell_is_in_topographical_mode]} {
+        # Activate the extended layer mode to support 4095 layers.
+        # extend_mw_layers
+    
+        # Create new Milkyway design library if it doesn't already exist.
+        if {![file isdirectory $mw_design_library ]} {
+            create_mw_lib                 $mw_design_library                 -technology             $MW_TECH_FILE                 -mw_reference_library   $mw_reference_library
+            }         else {
+        # If Milkyway design library already exists, ensure that it is
+        # consistent with specified Milkyway reference libraries.
+            set_mw_lib_reference                 $mw_design_library                 -mw_reference_library   $mw_reference_library
+            }
+
+        # Open Milkyway library.
+        open_mw_lib     $mw_design_library
+        check_library > ${REPORT_DIR}/${DCRM_CHECK_LIBRARY_REPORT}
+
+        # Set TLU+ extraction files.
+        set_tlu_plus_files             -max_tluplus    $TLUPLUS_MAX_FILE             -min_tluplus    $TLUPLUS_MIN_FILE             -tech2itf_map   $TLUPLUS_MAP_FILE
+
+        check_tlu_plus_files
+        }
+    
+    # Library Modifications.
+    if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+        puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_FILE}]\n"
+        source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+        }
+    }
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db'
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5bc.db'
+Warning: Fail to open library 'tcb018gbwp7t_290a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpd018bcdnv5_160c' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpb018v_180a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+
+------------------- Internal Reference Library Settings -----------------
+Warning: Fail to open library '/bks2/PB20000328/ic_design/milkyway/tcb018gbwp7t_290a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library '/bks2/PB20000328/ic_design/milkyway/tpd018bcdnv5_160c' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library '/bks2/PB20000328/ic_design/milkyway/tpb018v_180a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+
+
+------------------- Control File Reference Library Settings -----------
+Warning: Fail to open library 'tcb018gbwp7t_290a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpd018bcdnv5_160c' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpb018v_180a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+-------------------------------------------------------------------------
+
+Warning: Fail to open library 'tcb018gbwp7t_290a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpd018bcdnv5_160c' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+Warning: Fail to open library 'tpb018v_180a' as reference of library '/bks2/PB20000328/ic_design/milkyway/systolic_array_LIB' (MW-214)
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+ min_tlu+: /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+ mapping_file: /bks2/PB20000328/ic_design/syn/tech/tluplus/star.map_5M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: systolic_array_LIB
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Design Compiler must be run in topographical mode for SPG flow support.
+if {![shell_is_in_topographical_mode]} {
+    puts "RM-Error: dc_shell must be run in topographical mode for SPG support."
+    exit 1
+    }
+#-----------------------------------------------------------------------------
+# Additional Variables
+#-----------------------------------------------------------------------------
+# Enable inference of multibit registers from the buses defined in the RTL.
+# set_app_var hdlin_infer_multibit default_all
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    set_app_var hdlin_infer_multibit default_all
+    }
+# Enable the support of via resistance for RC estimation to improve the timing 
+# correlation with IC Compiler.
+set_app_var spg_enable_via_resistance_support true
+true
+# Enable library dont_use modification before first compile.
+if {[file exists [which ${LIBRARY_DONT_USE_PRE_COMPILE_LIST}]]} {
+    puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_PRE_COMPILE_LIST}]\n"
+    source -echo -verbose $LIBRARY_DONT_USE_PRE_COMPILE_LIST
+    }
+#-----------------------------------------------------------------------------
+# Setup for Formality Verification
+#-----------------------------------------------------------------------------
+# Enable single pass flow.
+# set_app_var simplified_verification_mode true
+# Define the verification setup file for Formality.
+set_svf ${RESULT_DIR}/${DCRM_SVF_OUTPUT_FILE}
+1
+#-----------------------------------------------------------------------------
+# Setup SAIF Name Mapping Database
+#-----------------------------------------------------------------------------
+# Include an RTL SAIF for better power optimization and analysis.
+# saif_map -start
+#-----------------------------------------------------------------------------
+# Read in the RTL Design
+#-----------------------------------------------------------------------------
+define_design_lib WORK -path ${WORK_DIR}
+1
+# Read the RTL source files.
+analyze -format verilog ${RTL_SOURCE_FILES}
+Running PRESTO HDLC
+Compiling source file ../src/systolic_array/array.v
+Compiling source file ../src/systolic_array/controller.v
+Compiling source file ../src/systolic_array/pe.v
+Compiling source file ../src/systolic_array/shift_buffer.v
+Compiling source file ../src/systolic_array/systolic_array_wrapper_withctl.v
+Compiling source file ../src/lib.v
+Compiling source file ../src/systolic_array.v
+Presto compilation completed successfully.
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb'
+1
+elaborate ${DESIGN_NAME}
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/standard.sldb'
+  Loading link library 'tcb018gbwp7twc_ccs'
+  Loading link library 'tpd018bcdnv5wc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'systolic_array'.
+Information: Building the design 'systolic_array_wrapper'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'controller'. (HDL-193)
+
+Inferred memory devices in process
+	in routine controller line 107 in file
+		'../src/systolic_array/controller.v'.
+=========================================================================================
+|         Register Name         |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=========================================================================================
+|    state_compute_pump_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     state_compute_out_reg     | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|       state_overall_reg       | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|       state_load_id_reg       | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| state_compute_out_counter_reg | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|      state_load_row_reg       | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+=========================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'PEarray'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'shift_buffer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine shift_buffer line 22 in file
+		'../src/systolic_array/shift_buffer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    shift_reg_reg    | Flip-flop |  56   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4'. (HDL-193)
+
+Statistics for case statements in always block at line 48 in file
+	'../src/lib.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            50            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'PE'. (HDL-193)
+
+Inferred memory devices in process
+	in routine PE line 24 in file
+		'../src/systolic_array/pe.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Aij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      Bij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      Cij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux2'. (HDL-193)
+Presto compilation completed successfully.
+1
+# OR
+# Read an elaborated design from the same release.
+# read_ddc ${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+write -hierarchy -format ddc -output ${RESULT_DIR}/${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+Writing ddc file './result/systolic_array.elab.ddc'.
+1
+#-----------------------------------------------------------------------------
+# Sets the multibit_mode Attribute
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    # Enable mapping to multibit only if the timing is not degraded.
+    set_multibit_options -mode timing_driven
+    }
+#-----------------------------------------------------------------------------
+# Report Pre-Synthesis Congestion Analysis
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hc"} {
+    # Analyze the RTL constructs which may lead to congestion.
+    analyze_rtl_congestion > ${REPORT_DIR}/${DCRM_ANALYZE_RTL_CONGESTION_REPORT_FILE}
+    }
+#-----------------------------------------------------------------------------
+# Apply Logical Design Constraints
+#-----------------------------------------------------------------------------
+# Constrain the design by reading an SDC file.
+if {[file exists [which ${DCRM_SDC_INPUT_FILE}]]} {
+    puts "RM-Info: Reading SDC file [which ${DCRM_SDC_INPUT_FILE}]\n"
+    read_sdc ${DCRM_SDC_INPUT_FILE}
+    }
+Warning: File 'systolic_array.sdc' was not found in search path. (CMD-030)
+# OR
+# Constrain the design by source a Tcl file.
+if {[file exists [which ${DCRM_CONSTRAINTS_INPUT_FILE}]]} {
+    puts "RM-Info: Sourcing script file [which ${DCRM_CONSTRAINTS_INPUT_FILE}]\n"
+    source -echo -verbose ${DCRM_CONSTRAINTS_INPUT_FILE}
+    }
+RM-Info: Sourcing script file /bks2/PB20000328/ic_design/syn/script/systolic_array.constraints.tcl
+
+#-----------------------------------------------------------------------------
+# Variables
+#-----------------------------------------------------------------------------
+set TOP_MODULE              systolic_array
+systolic_array
+set unit                    1
+1
+set jitter                  [expr 0.10*$unit]
+0.1
+set skew                    [expr 0.05*$unit]
+0.05
+set trans                   [expr 0.50*$unit]
+0.5
+set input_delay_percent     0.6
+0.6
+set output_delay_percent    0.6
+0.6
+set operating_condition     WCCOM
+WCCOM
+set DRIVE_CELL              "BUFFD1BWP7T"
+BUFFD1BWP7T
+set DRIVE_PIN               "Z"
+Z
+set PIN_LOAD                [expr 32*[load_of tcb018gbwp7twc_ccs/BUFFD1BWP7T/I]]
+0.10334656
+set PAD_TRANS               0.5
+0.5
+set PAD_LOAD                50
+50
+set INPUT_CLK_LIST          [get_ports clk_p]
+{clk_p}
+set INPUT_RST_LIST          [get_ports rstn_p]
+{rstn_p}
+set CLK_PERIOD              [expr 10*$unit]
+10
+#-----------------------------------------------------------------------------
+# Clocks
+#-----------------------------------------------------------------------------
+# Create clocks.
+create_clock [get_ports clk_p] -name clk_p -period $CLK_PERIOD -waveform [list 0 [expr ${CLK_PERIOD}*0.5]]
+1
+# Create generated clocks.
+# create_generated_clock -name genclk -source clk -divide_by 2 [get_pins DFF1/genclk]
+# Create clock groups.
+# The command below is equivalent to set_false_path between the clocks.
+# set_clock_groups -logically_exclusive -group {clk1} -group {clk2} -group {clk3}
+#-----------------------------------------------------------------------------
+# Common Settings
+#-----------------------------------------------------------------------------
+set_clock_uncertainty   -setup 0.5 [all_clocks]
+1
+set_max_transition      $trans [list $INPUT_CLK_LIST]
+1
+set_ideal_network       [list $INPUT_CLK_LIST $INPUT_RST_LIST]
+1
+set_driving_cell        -no_design_rule -lib_cell $DRIVE_CELL -pin $DRIVE_PIN [all_inputs]
+1
+set_load                $PIN_LOAD [all_outputs]
+1
+# For pads only.
+# set_input_transition    $PAD_TRANS   [$PAD_INPUT]
+# set_load                $PAD_LOAD    [$PAD_OUTPUT]
+#-----------------------------------------------------------------------------
+# Clock Domain: clk
+#-----------------------------------------------------------------------------
+set MCLK_INPUT_LIST     [remove_from_collection [all_inputs] [list $INPUT_CLK_LIST]]
+{rstn_p en_p p_shift_in_A[7] p_shift_in_A[6] p_shift_in_A[5] p_shift_in_A[4] p_shift_in_A[3] p_shift_in_A[2] p_shift_in_A[1] p_shift_in_A[0] p_shift_in_B[7] p_shift_in_B[6] p_shift_in_B[5] p_shift_in_B[4] p_shift_in_B[3] p_shift_in_B[2] p_shift_in_B[1] p_shift_in_B[0]}
+set MCLK_OUTPUT_LIST    [all_outputs]
+{p_shift_out[7] p_shift_out[6] p_shift_out[5] p_shift_out[4] p_shift_out[3] p_shift_out[2] p_shift_out[1] p_shift_out[0] ack_p}
+# External delays.
+set_input_delay  [expr $input_delay_percent  * $CLK_PERIOD] -clock clk_p [list $MCLK_INPUT_LIST]
+1
+set_output_delay [expr $output_delay_percent * $CLK_PERIOD] -clock clk_p [list $MCLK_OUTPUT_LIST]
+1
+# Specify external delays for some inputs/outputs here.
+#set_input_delay  [expr $input_delay_percent  * 0.5 * $CLK_PERIOD] -clock clk_p [list k]
+#set_output_delay [expr $output_delay_percent * 0.5 * $CLK_PERIOD] -clock clk_p [list c]
+# Timing and constraint exceptions.
+# set_false_path
+# set_max_delay
+# set_min_delay
+# set_data_check
+# set_multicycle_path
+# set_dont_touch
+#-----------------------------------------------------------------------------
+# Common Settings
+#-----------------------------------------------------------------------------
+set operating_condition $operating_condition
+WCCOM
+set_max_area        0
+1
+set_max_fanout      32  $TOP_MODULE
+1
+set_max_transition  0.5 $TOP_MODULE
+1
+set_fix_multiple_port_nets -buffer_constants -all
+1
+set verilogout_show_unconnected_pins    true
+true
+set compile_allow_dw_hierarchical_pins  true
+true
+set verilogout_unconnected_prefix       "SYSNOPSYS_UNCONNECTED"
+SYSNOPSYS_UNCONNECTED
+set register_duplicate                  true
+true
+set_critical_range  0.1 $TOP_MODULE
+1
+set_fix_hold            [all_clocks]
+1
+#-----------------------------------------------------------------------------
+# The End
+#-----------------------------------------------------------------------------
+# Enable analysis and optimization for multiple clocks per register, after
+# removing false interactions between mutually exclusive clocks to prevent
+# unnecessary analysis that can result in a significant runtime increase with
+# this feature enabled.
+# set_clock_groups -physically_exclusive | -logically_exclusive | -asynchronous #                  -group {CLKA, CLKB} -group {CLKC, CLKD} 
+# set_app_var timing_enable_multiple_clocks_per_reg true
+#-----------------------------------------------------------------------------
+# Apply The Operating Conditions
+#-----------------------------------------------------------------------------
+# Set operating condition on top level
+set_operating_conditions -max WCCOM -min BCCOM
+Using operating conditions 'WCCOM' found in library 'tcb018gbwp7twc_ccs'.
+Using operating conditions 'BCCOM' found in library 'tcb018gbwp7tbc_ccs'.
+1
+#-----------------------------------------------------------------------------
+# Create Default Path Groups
+#-----------------------------------------------------------------------------
+# Separating these paths can help improve optimization.
+# Remove these settings if user path groups have already been defined.
+set ports_clock_root [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+{clk_p}
+group_path -name REGOUT      -to   [all_outputs] 
+1
+group_path -name REGIN       -from [remove_from_collection [all_inputs] ${ports_clock_root}] 
+1
+group_path -name FEEDTHROUGH -from [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+1
+#-----------------------------------------------------------------------------
+# Clock Gating Setup
+#-----------------------------------------------------------------------------
+# If the design has instantiated clock gates, identify and report them.
+# identify_clock_gating
+# report_clock_gating -multi_stage -nosplit > ${REPORT_DIR}/${DCRM_INSTANTIATE_CLOCK_GATES_REPORT}
+# Prevent clock-gating from optimizing user instantiated clock-gating cells.
+# set_preserve_clock_gate [get_cell <user_clock_gating_cells>]
+# Default clock_gating_style suits most designs. Change only if necessary.
+# set_clock_gating_style -positive_edge_logic {integrated} #                        -negative_edge_logic {integrated} #                        -control_point       before ...
+# Enable global clock gating to extract enable signals across hierarchies
+# which results in fewer redundant clock gates. 
+# set compile_clock_gating_through_hierarchy true 
+# Specifiy clock latency for clock gating cells optionally for better timing
+# optimization of enable logic.
+# set_clock_gate_latency -clock <clock_name> -stage <stage_num> #         -fanout_latency {fanout_range1 latency_val1 fanout_range2 latency_val2 ...}
+# Insert self-gate on clock-gated registers.
+# set_self_gating_options -interaction_with_clock_gating insert
+# Enable physically aware clock gating in Design Compiler Graphical to improve
+# enable timing in high performance designs.
+# set_app_var power_cg_physically_aware_cg true
+#-----------------------------------------------------------------------------
+# Apply Power Optimization Constraints
+#-----------------------------------------------------------------------------
+# Read a SAIF file for power optimization.
+# If a SAIF file is not provided, the default toggle rate of 0.1 will be used
+# for propagating switching activity.
+# read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance <DESIGN_INSTANCE> -verbose
+if {[shell_is_in_topographical_mode]} {
+    # Set the threshold voltage groups in the libraries for multi-Vth design.
+    # set_attribute <my_hvt_lib> default_threshold_voltage_group HVT -type string
+    # set_attribute <my_lvt_lib> default_threshold_voltage_group LVT -type string
+    }
+if {[shell_is_in_topographical_mode]} {
+    # Enable power prediction using clock tree estimation.
+    # set_power_prediction true -ct_references <LIB CELL LIST>
+    }
+#-----------------------------------------------------------------------------
+# Apply Physical Design Constraints
+#-----------------------------------------------------------------------------
+if {[shell_is_in_topographical_mode]} {
+
+    # Optional: Floorplan information can be read in here if available.
+    # This is highly recommended for irregular floorplans.
+    #
+    # Floorplan constraints can be provided from one of the following sources:
+    # * extract_physical_constraints with a DEF file
+    # * read_floorplan with a floorplan file (written by write_floorplan)
+    # * User generated Tcl physical constraints
+
+    # Specify ignored layers for routing to improve correlation.
+    # Use the same ignored layers that will be used during place and route.
+    if {${MIN_ROUTING_LAYER} != ""} {
+        set_ignored_layers -min_routing_layer ${MIN_ROUTING_LAYER}
+        }
+    if { ${MAX_ROUTING_LAYER} != ""} {
+        set_ignored_layers -max_routing_layer ${MAX_ROUTING_LAYER}
+        }
+
+    report_ignored_layers
+
+    # If the macro names change after mapping and writing out the design due
+    # to ungrouping or Verilog change_names renaming, it may be necessary to
+    # translate the names to correspond to the cell names before compile.
+
+    # During DEF constraint extraction, extract_physical_constraints command
+    # automatically matches DEF names back to precompile names in memory using
+    # standard matching rules. read_floorplan command will also automatically
+    # perform this name matching.
+
+    # Modify set_query_rules if other characters are used for hierarchy
+    # separators or bus names. 
+    # set_query_rules -hierarchical_separators {/ _ .}     #                 -bus_name_notations {[] __ ()}       #                 -class {cell pin port net}           #                 -wildcard                            #                 -regsub_cumulative                   #                 -show
+
+    # For DEF file input
+
+    # The DEF file for Design Compiler Topographical can be written from ICC
+    # using the following recommended options:
+    # icc_shell> write_def -version 5.7 -rows_tracks_gcells -fixed -pins -blockages -specialnets     #                      -vias -regions_groups -verbose -output ${DCRM_DCT_DEF_INPUT_FILE}
+
+    if {[file exists [which ${DCRM_DCT_DEF_INPUT_FILE}]]} {
+
+        puts "RM-Info: Reading in DEF file [which ${DCRM_DCT_DEF_INPUT_FILE}]\n"
+        extract_physical_constraints ${DCRM_DCT_DEF_INPUT_FILE}
+        if {$OPTIMIZATION_FLOW == "hplp"} {
+            # Include the physical only cells as a part of the floorplan in
+            # Design Compiler to improve correlation.
+            extract_physical_constraints -allow_physical_cells ${DCRM_DCT_DEF_INPUT_FILE}  
+            }
+        }
+ 
+    # OR
+
+    # For floorplan file input
+
+    # The floorplan file for Design Compiler Topographical can be written from
+    # ICC using the following recommended options:
+    # icc_shell> write_floorplan -placement {io terminal hard_macro soft_macro} -create_terminal     #                            -row -create_bound -preroute -track ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+
+    # Read the secondary floorplan file, previously written by write_floorplan
+    # in Design Compiler, to restore physical-only objects back to the design,
+    # before reading the main floorplan file.
+    if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]]} {
+        puts "RM-Info: Reading in secondary floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]\n"
+        read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects
+        }
+
+    # Read the main floorplan file.
+    if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]]} {
+        puts "RM-Info: Reading in floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]\n"
+        read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+        }
+
+    # OR
+
+    # For Tcl file input
+
+    # For Tcl constraints, the name matching feature must be explicitly enabled
+    # and will also use the set_query_rules settings. This should be turned off
+    # after the constraint read in order to minimize runtime.
+    if {[file exists [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]]} {
+        set_app_var enable_rule_based_query true
+        puts "RM-Info: Sourcing script file [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]\n"
+        source -echo -verbose ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}
+        set_app_var enable_rule_based_query false 
+        }
+
+    # Save the applied floorplan.
+    write_floorplan -all ${RESULT_DIR}/${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}
+
+    # Verify that all the desired physical constraints have been applied.
+    report_physical_constraints > ${REPORT_DIR}/${DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT}
+    }
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+Warning: File 'systolic_array.def' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.fp.objects' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.fp' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.physical_constraints.tcl' was not found in search path. (CMD-030)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+#-----------------------------------------------------------------------------
+# Apply Additional Optimization Constraints
+#-----------------------------------------------------------------------------
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+#-----------------------------------------------------------------------------
+# Snapshot the Environment
+#-----------------------------------------------------------------------------
+# Save the compile environment snapshot for the Consistency Checker utility.
+# This utility checks for inconsistent settings between Design Compiler and
+# IC Compiler which can contribute to correlation mismatches.
+# See the following SolvNet article for complete details:
+# https://solvnet.synopsys.com/retrieve/026366.html
+# write_environment -consistency -output ${REPORT_DIR}/${DCRM_CONSISTENCY_CHECK_ENV_FILE}
+#-----------------------------------------------------------------------------
+# Check for Design Problems 
+#-----------------------------------------------------------------------------
+# Check the current design for consistency.
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Tue Dec 20 22:57:21 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Multiply driven inputs (LINT-6)                                19
+    Shorted outputs (LINT-31)                                       5
+
+Cells                                                              61
+    Cells with unconnected inputs (LINT-0)                         19
+    Cells do not drive (LINT-1)                                     6
+    Connected to power or ground (LINT-32)                         32
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > ${REPORT_DIR}/${DCRM_CHECK_DESIGN_REPORT}
+# Report datapath extraction analysis.
+# analyze_datapath_extraction > ${REPORT_DIR}/${DCRM_ANALYZE_DATAPATH_EXTRACTION_REPORT}
+#-----------------------------------------------------------------------------
+# Report Multibit Register before Compile
+#-----------------------------------------------------------------------------
+# Verify that the desired bussed registers are grouped as multibit components.
+# redirect ${REPORT_DIR}/${DCRM_MULTIBIT_COMPONENTS_REPORT} {report_multibit -hierarchical }
+#-----------------------------------------------------------------------------
+# Compile Options
+#-----------------------------------------------------------------------------
+# Recommended Options:
+#     -scan
+#     -gate_clock (-self_gating)
+#     -retime
+#     -spg
+#
+# Use compile_ultra as the starting point.
+#
+# Use -scan option with the first compile and any subsequent compiles for
+# test-ready compile.
+#
+# Use -gate_clock to insert clock-gating logic during optimization. This
+# is now the recommended methodology for clock gating.
+#
+# Use -self_gating option in addition to -gate_clock for potentially saving 
+# additional dynamic power, in topographical mode only. Registers that are not
+# clock gated will be considered for XOR self gating. XOR self gating should
+# be performed along with clock gating, using -gate_clock and -self_gating
+# options. XOR self gates will be inserted only if there is potential power
+# saving without degrading the timing.
+# 
+# An accurate switching activity annotation either by reading in a SAIF file
+# or through set_switching_activity command is recommended. 
+# Use "set_self_gating_options" command to specify self-gating options.
+#
+# Use -retime to enable adaptive retiming optimization for further timing
+# benefit.
+#
+# Use the -spg option to enable Design Compiler Graphical physical guidance
+# flow. The physical guidance flow improves QoR, area and timing correlation,
+# and congestion. It also improves place_opt runtime in IC Compiler.
+#
+# In addition to -spg option, the support of via resistance for RC estimation
+# can be enabled to improve the timing correlation with IC Compiler by using
+# the following setting.
+# set_app_var spg_enable_via_resistance_support true
+#
+# The congestion optimization on parts of the design can be enabled or
+# disabled by using the set_congestion_optimization command.
+#
+# The constant propagation is enabled when boundary optimization is disabled.
+# The following command can stop constant propagation.
+# set_compile_directives -constant_propagation false <object_list>
+#
+# Layer optimization is on by default in Design Compiler Graphical, to 
+# improve the the accuracy of certain net delay during optimization.
+# To disable the the automatic layer optimization you can use the 
+# -no_auto_layer_optimization option.
+#-----------------------------------------------------------------------------
+# RM+ Variable and Command Settings before First Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Run additional optimizations to improve the timing of the design at
+        # the cost of additional run time.
+        set_app_var compile_timing_high_effort          true
+
+        # Enable a mode of coarse placement in which cells are not distributed
+        # evenly across the surface but are allowed to clump together for
+        # better QoR.
+        set_app_var placer_max_cell_density_threshold   0.75        
+
+        # Enable very high effort optimization to fix total negative slack but
+        # may affect run time.
+        set_app_var psynopt_tns_high_effort             true
+
+        # Enable the physically aware clock gating.
+        set_app_var power_cg_physically_aware_cg        true
+        
+        # Reduce the total negative slack of the design.
+        set_app_var placer_tns_driven                   true
+
+        # Enable low power placement.  
+        # Low power placement affects the placement of cells, pulls them
+        # closer together, on nets with high switching activity to reduce the
+        # overall dynamic power of your design.  
+        set_app_var power_low_power_placement           true
+
+        # Enable dynamic-power optimization.
+        set_dynamic_optimization                        true
+        # In MCMM flow, use the following command.
+        # set_scenario_options -dynamic_power true
+        
+        # Enable register replication across the hierarchy by creating new
+        # ports on the instances of the subdesigns if it is necessary to
+        # improve the timing of the design.
+        set_app_var compile_register_replication_across_hierarchy   true 
+        }
+    }
+if {$OPTIMIZATION_FLOW == "hc"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Enable congestion aware global buffering based on Zroute-based
+        # estimation on macro intensive designs with narrow channels, reducing
+        # congestion along narrow channels across macros.
+        # Enabling this feature may have runtime and QOR impact.
+        # set_ahfs_options -global_route true
+
+        # Enable Zroute-based congestion-driven placement instead of virtual
+        # route based estimation for highly congested designs.
+        # Enabling this feature may have runtime impact.
+        # set_app_var placer_congestion_effort medium
+        # set_app_var placer_enable_enhanced_router true
+
+        # Enable lower congestion for designs that have congestion due to
+        # multiplexing logic in the RTL. This variable is supported only in
+        # the initial compile step, not supported in incremental compile.
+        set_app_var compile_prefer_mux  true
+        }
+    }
+if {$OPTIMIZATION_FLOW == "rtm_exp"} {
+    if {[shell_is_in_topographical_mode]} {
+        set_host_options -max_cores 8
+
+        # Override runtime-intensive user settings with settings designed to
+        # improve runtime. Since the run time intensive optimizations are
+        # turned off it might impact QoR. This can be used as an exploration
+        # flow when run time is a concern.
+        compile_prefer_runtime
+        }
+    }
+if {[shell_is_in_topographical_mode]} {
+    # Use the "-check_only" option to verify that the libraries and design
+    # are complete and that optimization will not fail in topographical mode.
+    # Use the same options as will be used in compile_ultra.
+    # compile_ultra -spg -check_only
+    }
+#-----------------------------------------------------------------------------
+# Compile the Design
+#-----------------------------------------------------------------------------
+compile_ultra -spg
+Warning: Congestion optimization is enabled as part of the physical guidance flow. (OPT-1445)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+0
+#-----------------------------------------------------------------------------
+# Placement Aware Multibit Banking
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Use placement aware multibit banking to group single-bit register
+        # cells that are physically near each other into a multibit registers.
+        # This has to be done before DFT insertion in Design Compiler.
+        # identify_register_banks -output ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        # redirect ${REPORT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_REPORT} {source -echo -verbose ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}}
+        }
+    }
+#-----------------------------------------------------------------------------
+# RM+ Variable and Command Settings before Incremental Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Use placement aware multibit banking to group single-bit register
+        # cells that are physically near each other into a multibit registers.
+        identify_register_banks -output ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        source -echo -verbose ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        }
+    }
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    # Creating path groups to reduce TNS.
+    create_auto_path_groups -mode mapped
+    }
+if {(${OPTIMIZATION_FLOW} == "hc") || (${OPTIMIZATION_FLOW} == "hplp")} {
+    if {[shell_is_in_topographical_mode]} {
+        # Enable congestion-driven placement in incremental compile to improve
+        # congestion while preserving quality of results.
+        set_app_var spg_congestion_placement_in_incremental_compile true
+        }
+    }
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # Enable library dont_use modification before incremental compile.
+    if {[file exists [which ${LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST}]]} {
+        puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST}]\n"
+        source -echo -verbose $LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST
+        }
+    }
+#-----------------------------------------------------------------------------
+# Incremental Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # Incremental compile is required if the netlist and/or constraints are
+    # changed after first compile, for example, DFT insertion, placement aware
+    # multibit banking etc. Incremental compile is also recommended for final
+    # QoR signoff as well.
+    compile_ultra -incremental -spg
+    }
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+0
+if {$OPTIMIZATION_FLOW == "hplp" } {
+    # Remove the path groups generated by create_path_groups command. 
+    # This does not remove user created path groups
+    remove_auto_path_groups
+    }
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # High-effort area optimization to improve area of gate-level netlists
+    # without degrading timing or leakage. 
+    optimize_netlist -area
+    }
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+1
+#-----------------------------------------------------------------------------
+# Write Out Final Design
+#-----------------------------------------------------------------------------
+#     .ddc: Recommended binary format for subsequent Design Compiler sessions
+# Milkyway: Recommended binary format for IC Compiler
+#       .v: Verilog netlist for ASCII flow (Formality, PrimeTime, VCS)
+#    .spef: Topographical mode parasitics for PrimeTime
+#     .sdf: SDF backannotated topographical mode timing for PrimeTime
+#     .sdc: SDC constraints for ASCII flow
+change_names -rules verilog -hierarchy
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+Warning: In the design controller, net 'id_A[2]' is connecting multiple ports. (UCN-1)
+Warning: In the design controller, net 'id_A[1]' is connecting multiple ports. (UCN-1)
+Warning: In the design controller, net 'id_A[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design controller, net 'row_B[1]' is connecting multiple ports. (UCN-1)
+Warning: In the design controller, net 'row_B[0]' is connecting multiple ports. (UCN-1)
+1
+# Write out design.
+write_icc2_files          -force -output ${RESULT_DIR}/${DCRM_FINAL_DESIGN_ICC2}
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+0
+write -format verilog -hierarchy -output ${RESULT_DIR}/${DCRM_FINAL_VERILOG_OUTPUT_FILE}
+Writing verilog file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Module controller contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+Warning: Module mux4 contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+Warning: Module mux2 contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+Warning: Module PE contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+Warning: Module shift_buffer contains unmapped components.  The output netlist might not be read back into the system. (VO-12)
+1
+write -format ddc     -hierarchy -output ${RESULT_DIR}/${DCRM_FINAL_DDC_OUTPUT_FILE}
+Writing ddc file './result/systolic_array.mapped.ddc'.
+1
+# Write and close SVF file and make it available for immediate use.
+set_svf -off
+1
+# Write out design data.
+if {[shell_is_in_topographical_mode]} {
+    # Write a Tcl script that contains detailed floorplanning information. A
+    # secondary floorplan file might also be written to capture physical-only
+    # objects in the design.
+    write_floorplan -all ${RESULT_DIR}/${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}
+
+    # Create the standard cell physical guidance to support SPG ASCII hand-off
+    # to IC Compiler.
+    if {[info exists DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE]} {
+        write_def -components -output ${RESULT_DIR}/${DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE}
+        }
+
+    # Write parasitics data from DC Topographical placement for STA. 
+    write_parasitics -output ${RESULT_DIR}/${DCRM_DCT_FINAL_SPEF_OUTPUT_FILE}
+
+    # Write SDF backannotation data from DC Topographical placement for STA.
+    write_sdf ${RESULT_DIR}/${DCRM_DCT_FINAL_SDF_OUTPUT_FILE}
+
+    # Do not write out net RC info into SDC.
+    set_app_var write_sdc_output_lumped_net_capacitance false
+    set_app_var write_sdc_output_net_resistance         false
+    }
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library)
+                              /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library)
+                              /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+Information: Writing parasitics to file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.spef'. (WP-3)
+Warning: Unable to initialize LIM. Parasitics may have wrong values
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.sdf'. (WT-3)
+Warning: The trip points for the library named tpd018bcdnv5wc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Warning: The trip points for the library named tpd018bcdnv5bc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Information: Updating design information... (UID-85)
+Warning: Design contains black-box components.  These cells will have no timing information. (WT-7)
+false
+# Write SDC file.
+write_sdc -nosplit ${RESULT_DIR}/${DCRM_FINAL_SDC_OUTPUT_FILE}
+1
+# If SAIF is used, write out SAIF name mapping file for PrimeTime-PX.
+# saif_map -type ptpx -write_map ${RESULT_DIR}/${DESIGN_NAME}.mapped.SAIF.namemap
+#-----------------------------------------------------------------------------
+# Generate Final Reports
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "rtm_exp"} {
+    set_host_options -max_cores 8
+    update_timing
+
+    parallel_execute [list         "report_qor > ${REPORT_DIR}/${DCRM_FINAL_QOR_REPORT}"         "report_timing -transition_time -nets -attributes -nosplit > ${REPORT_DIR}/${DCRM_FINAL_TIMING_REPORT}"         "report_area -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}"         "report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}"         ]
+    } else {
+    report_qor > ${REPORT_DIR}/${DCRM_FINAL_QOR_REPORT}
+    report_timing -transition_time -nets -attributes -nosplit > ${REPORT_DIR}/${DCRM_FINAL_TIMING_REPORT}
+
+    if {[shell_is_in_topographical_mode]} {
+        report_area -physical -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}
+        }     else {
+        report_area -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}
+        }
+
+    report_area      -designware > ${REPORT_DIR}/${DCRM_FINAL_DESIGNWARE_AREA_REPORT}
+    report_resources -hierarchy  > ${REPORT_DIR}/${DCRM_FINAL_RESOURCES_REPORT}
+    # report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+    }
+# Create a QoR snapshot of timing, physical, constraints, clock, power data,
+# and routing on active scenarios and stores it in the location specified by
+# the icc_snapshot_storage_location variable. 
+if {[shell_is_in_topographical_mode]} {
+    set icc_snapshot_storage_location ${REPORT_DIR}/${DCRM_DCT_FINAL_QOR_SNAPSHOT_FOLDER}
+    create_qor_snapshot -name ${DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT} > ${REPORT_DIR}/${DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT}
+    }
+# Report all the multibit registers and the banking ratio in the design.
+# redirect ${REPORT_DIR}/${DCRM_MULTIBIT_BANKING_REPORT} {report_multibit_banking -nosplit }
+# Use SAIF file for power analysis.
+# read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance < DESIGN_INSTANCE > -verbose
+report_power -nosplit > ${REPORT_DIR}/${DCRM_FINAL_POWER_REPORT}
+# report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+# Report the XOR self gating information if the -self_gating is included in
+# the compile_ultra command.
+# report_self_gating  -nosplit > ${REPORT_DIR}/${DCRM_FINAL_SELF_GATING_REPORT}
+# Report the number, area, and  percentage of cells for each threshold voltage
+# group in the design.
+# report_threshold_voltage_group -nosplit > ${REPORT_DIR}/${DCRM_THRESHOLD_VOLTAGE_GROUP_REPORT}
+if {[shell_is_in_topographical_mode]} {
+    # Use Zroute for estimating and reporting routing related congestion which
+    # improves the congestion correlation with IC Compiler. DC Topographical
+    # supports create_route_guide command to be consistent with IC Compiler
+    # after topographical mode synthesis.
+    report_congestion > ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_REPORT}
+
+    # Generate and write out a congestion map from batch mode. This requires
+    # a GUI session to be temporarily opened and closed.
+    if {[info exists env(DISPLAY)]} {
+        gui_start
+
+        # Create a layout window.
+        set MyLayout [gui_create_window -type LayoutWindow]
+
+        # Build congestion map in case report_congestion was not previously run.
+        report_congestion -build_map
+
+        # Display congestion map in layout window.
+        gui_show_map -map "Global Route Congestion" -show true
+
+        # Zoom full to display complete floorplan.
+        gui_zoom -window [gui_get_current_window -view] -full
+
+        # Save the congestion map only without the legends.
+        gui_write_window_image -format png -file ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE}
+
+        # Save the entire congestion map layout window with the legends.
+        gui_write_window_image -window ${MyLayout} -format png -file ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE}
+
+        gui_stop
+        }     else {
+        puts "Information: The DISPLAY environment variable is not set. Congestion map generation has been skipped."
+        }
+    }
+Current design is 'systolic_array'.
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+Error: gui_create_window: Pre-create failed for window type 'LayoutWindow'
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/syn/tech/lib/tpd018bcdnv5wc.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Error: DC-Topographical Failed to link physical library. (OPT-1428)
+Error: gui_show_map, no layout window to open the map Global Route Congestion
+	Use error_info for more info. (CMD-013)
+#-----------------------------------------------------------------------------
+# Write out Milkyway Design for Top-Down Flow
+#-----------------------------------------------------------------------------
+if {[shell_is_in_topographical_mode]} {
+    write_milkyway -overwrite -output ${DCRM_FINAL_MW_CEL_NAME}
+    }
+Error: Milkyway design library does not have reference library.
+0
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#exit
+dc_shell-topo> dc_shell-topo> exit
+
+Memory usage for main task 664 Mbytes.
+Memory usage for this session 664 Mbytes.
+CPU usage for this session 28 seconds ( 0.01 hours ).
+
+Thank you...

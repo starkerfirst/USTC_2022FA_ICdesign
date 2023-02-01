@@ -1,0 +1,9 @@
+/bks2/PB20000328/ic_design/sim/sim_top/systolic_array_sim_top.v
+/bks2/PB20000328/ic_design/sim/sim_top/io/tpd018bcdnv5.v
+/bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v
+/bks2/PB20000328/ic_design/src/systolic_array/shift_buffer.v
+/bks2/PB20000328/ic_design/src/lib.v
+/bks2/PB20000328/ic_design/src/systolic_array/array.v
+/bks2/PB20000328/ic_design/src/systolic_array/pe.v
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v
+/bks2/PB20000328/ic_design/src/systolic_array.v

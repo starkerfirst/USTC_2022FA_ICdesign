@@ -1,0 +1,198 @@
+Warning: Cell 'u_pad_data_out_8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_7' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_6' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_5' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_4' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_3' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_2' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_1' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_0' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_in_16' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Note - message 'PSYN-040' limit (10) exceeded.  Remainder will be suppressed.
+
+Warning: The trip points for the library named tpd018bcdnv5wc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Warning: The trip points for the library named tpd018bcdnv5bc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Warning: IO pad 'PVSS3CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1ANA' is unusable: unknown logic function.  (OPT-1022)
+Information: CCS Noise library has been found and will be used.
+  Loading design 'systolic_array'
+
+
+Information: Setting a dont_touch attribute on net 'clk_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'en_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_A[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in_B[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'ack_p' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: The design has 3920 physical cells. (PSYN-105)
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is detail route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Warning: Not enough nets are routed (16/4387 < 0.66667); will do extraction by using placement congestion map as background. (RCEX-047)
+Memory usage for extraction task 283 Mbytes -- main task 925 Mbytes.
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRVirtualC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 0/25/125. (RCEX-043)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+Information: Input delay ('rise') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Using CCS timing info. (TIM-025)
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:14:31 2022
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk_p                783       15        16        0.0444    16.4149     0            436.8448
+1

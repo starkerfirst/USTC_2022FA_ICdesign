@@ -1,0 +1,11 @@
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_icc_prefs.tcl
+icc_shell> source script/icc_setup.tcl
+Error: could not open script file "script/icc_setup.tcl" (CMD-015)
+icc_shell> exit
+
+Memory usage for main task 94 Mbytes.
+Memory usage for this session 94 Mbytes.
+CPU usage for this session 4 seconds ( 0.00 hours ).
+
+Thank you...
+

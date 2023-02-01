@@ -1,0 +1,416 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ min_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ mapping_file: /bks2/PB20000328/ic_design/apr/tech/tluplus/star.map_5M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: systolic_array_wrapper_APR
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+20.000 20.000 485.360 482.560
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+Ignored layers in congestion analysis and RC estimation: METAL5 
+
+Min_routing_layer: METAL1
+Max_routing_layer: METAL4
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : systolic_array_wrapper
+Version: L-2016.03-SP5-3
+Date   : Fri Nov 25 16:26:42 2022
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : systolic_array_wrapper
+Version: L-2016.03-SP5-3
+Date   : Fri Nov 25 16:26:42 2022
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL1             Y         0.680          896       0.560           
+METAL2             Y         0.680          896       0.560           
+METAL2             X         0.680          901       0.560           
+METAL1             X         0.680          901       0.560           
+METAL3             X         0.680          901       0.560           
+METAL3             Y         0.680          896       0.560           
+METAL2             Y         0.680          896       0.560           
+METAL4             Y         0.680          896       0.560           
+METAL4             X         0.680          901       0.560           
+METAL3             X         0.680          901       0.560           
+METAL5             X         0.680          901       0.560           
+METAL5             Y         0.480          558       0.900           
+METAL4             Y         0.480          558       0.900           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: ::check_database 
+************************************************************
+CHECK_DATABASE RESULTS FOR CELL : systolic_array_wrapper.CEL
+************************************************************
+MWUHIER: Checking for hierarchical internal netlist and flat internal netlist consistency ... 
+MWUHIER: Done with checking hierarchical internal netlist and flat internal netlist consistency. 
+Information: MWUHIER: Number of errors = 0 (MW-348)
+End PG consistent checking.. PG_Pass
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+
+Start UPF checking.
+No UPF infomation. Finish UPF checking.
+1
+End CPD check: ::check_database
+Start CPD check: report_taint -dump_errors 
+
+****************************************
+  Report : Suggestions
+  Design : systolic_array_wrapper
+  Version: L-2016.03-SP5-3
+  Date   : Fri Nov 25 16:26:42 2022
+****************************************
+
+Information: No suggestion for current design. (PSYN-1068)
+
+1
+End CPD check: report_taint -dump_errors
+Start CPD check: check_for_HFN_dont_touch_nets 
+
+End CPD check: check_for_HFN_dont_touch_nets
+Start CPD check: check_block_abstraction -stage pre_place_opt 
+Information: No blocks with abstraction information found
+1
+End CPD check: check_block_abstraction -stage pre_place_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : systolic_array_wrapper
+  Version: L-2016.03-SP5-3
+  Date   : Fri Nov 25 16:26:43 2022
+****************************************
+Std cell utilization: 40.32%  (39533/(98058-0))
+(Non-fixed + Fixed)
+Std cell utilization: 41.62%  (39533/(98058-3068))
+(Non-fixed only)
+Chip area:            98058    sites, bbox (20.00 20.00 485.36 482.56) um
+Std cell area:        39533    sites, (non-fixed:39533  fixed:0)
+                      3141     cells, (non-fixed:3141   fixed:0)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  0        sites, (excluding fixed std cells)
+                      3068     sites, (include fixed std cells & chimney area)
+                      0        sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       33 
+Avg. std cell width:  5.99 um 
+Site array:           unit     (width: 0.56 um, height: 3.92 um, rows: 118)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : systolic_array_wrapper
+  Version: L-2016.03-SP5-3
+  Date   : Fri Nov 25 16:26:43 2022
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete    0.00        0.00        via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+METAL5     none          ---         ---       via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 576 (100.00%)
+Number of regions with placement utilization 0.125 - 0.25 is 0 (0.00%)
+Number of regions with placement utilization 0.25 - 0.375 is 0 (0.00%)
+Number of regions with placement utilization 0.375 - 0.5 is 0 (0.00%)
+Number of regions with placement utilization 0.5 - 0.625 is 0 (0.00%)
+Number of regions with placement utilization 0.625 - 0.75 is 0 (0.00%)
+Number of regions with placement utilization 0.75 - 0.875 is 0 (0.00%)
+Number of regions with placement utilization 0.875 - 1 is 0 (0.00%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: cpd_check_tie_connection 
+0
+End CPD check: cpd_check_tie_connection
+Start CPD check: cpd_check_cells_restrictions 
+0
+End CPD check: cpd_check_cells_restrictions
+Start CPD check: check_bound_utilization 
+Checking Bounds Utilization:
+Warning: Nothing implicitly matched '*' (SEL-003)
+0
+End CPD check: check_bound_utilization
+Start CPD check: check_bounds 
+Warning: Nothing implicitly matched '*' (SEL-003)
+
+End CPD check: check_bounds
+Start CPD check: cpd_check_bounds_overlap 
+
+End CPD check: cpd_check_bounds_overlap
+Start CPD check: check_va_utilization 
+Checking Voltage Area Utilization:
+Error: This site is not licensed for 'Galaxy-MV'. (SEC-51)
+Please contact  at eda@(none), who is
+your local Synopsys license administrator for Synopsys site 31269.
+Error: No such collection '0' (SEL-001)
+
+End CPD check: check_va_utilization
+Start CPD check: placement_check 
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+  Loading design 'systolic_array_wrapper'
+
+
+
+
+Information: The design has 1534 physical cells. (PSYN-105)
+
+  Total moveable cell area: 86782.8
+  Total fixed cell area: 0.0
+  Total physical cell area: 86782.8
+  Core area: (20000 20000 485360 482560)
+false
+End CPD check: placement_check
+Start CPD check: report_fp_placement 
+Reference Point: Lower Left-hand corner of Core Base Array
+Number of plan group pins = 0
+  2 blocks freed
+  0 bytes freed
+*********************************************
+Report     : Virtual Flat Placement
+Design     : systolic_array_wrapper
+Version    : L-2016.03-SP5-3
+Date       : Fri Nov 25 16:26:44 2022
+*********************************************
+
+Total wirelength: 1004250.31
+Number of 100x100 tracks cell density regions: 64
+Number of low (< 10%) cell density regions: 81 (1.266%)
+Number of high (> 200%) cell density regions: 0 (0.000%)
+Maximum cell density: 4.33% (at 433 379 485 431)
+Checking hard macro to hard macro overlaps...
+Number of hard macro to hard macro overlaps: 0
+Checking hard macro to std cell overlaps...
+Number of hard macro to std cell overlaps: 0
+Checking plan group to plan group overlaps...
+Number of plan group to plan group overlaps: 0
+Number of TL cells overlapping PG: 0
+  Top Level: cell U6049 is not inside core
+  Top Level: cell U6053 is not inside core
+  Top Level: cell U6054 is not inside core
+  Top Level: cell U6056 is not inside core
+  Top Level: cell U6057 is not inside core
+  Further messages suppressed ...
+Number of cells violating core area: 3141
+Total number of cells violating plan group or core area: 3141
+1
+End CPD check: report_fp_placement
+Start CPD check: ::check_physical_constraints 
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+  Loading design 'systolic_array_wrapper'
+
+
+Total Physical Cells: 1534 Fixed: 1534 Not fixed :0
+
+Total Area : 6734.99 Fixed Area: 6734.99 Unfixed Area:0.00
+
+ Physical Library: /bks2/PB20000328/ic_design/milkyway/systolic_array_wrapper_APR
+
+ Routing layer : METAL1    width: 230    pitch: 560   space: 230
+
+ Routing Layer : METAL1 Resistance : 7.8e-05 Capacitance : 6.52e-05
+
+ Routing layer : METAL2    width: 280    pitch: 560   space: 280
+
+ Routing Layer : METAL2 Resistance : 7.8e-05 Capacitance : 1.76e-05
+
+ Routing layer : METAL3    width: 280    pitch: 560   space: 280
+
+ Routing Layer : METAL3 Resistance : 7.8e-05 Capacitance : 1.02e-05
+
+ Routing layer : METAL4    width: 280    pitch: 560   space: 280
+
+ Routing Layer : METAL4 Resistance : 7.8e-05 Capacitance : 7.2e-06
+
+ Routing layer : METAL5    width: 440    pitch: 900   space: 460
+
+ Routing Layer : METAL5 Resistance : 3.6e-05 Capacitance : 5.5e-06
+
+Warning: Capacitance of layer METAL1 varies more than the specified factor (5.00) from layer METAL5. (PSYN-261)
+
+ Physical Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+
+Warning: Missing Power nets in the floorplan. (PSYN-266)
+Warning: Missing Ground nets in the floorplan. (PSYN-266)
+
+Total Bounds:0 Group Bounds:0 Move Bounds:0
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 118 horizontal rows
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 0 pre-routes used for checking; 0 redundant shapes removed
+[end initializing data for legality checker]
+
+The maximum cell width in library is 13.440 um (e.g. 24 sites)
+Warning: Placement area is less than specified site width of 24. (PNR-148)
+Narrow Placement Area : (483.12,20.00) (485.36,482.56)
+1
+End CPD check: ::check_physical_constraints

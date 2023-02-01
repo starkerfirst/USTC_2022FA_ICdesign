@@ -1,0 +1,560 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP4 for linux64 - Aug 24, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4180577
+Hostname: c01n10 (RHEL64)
+Current time: Tue Dec 20 20:45:12 2022
+
+Loading db file '/soft1/synopsys/formality/L-2016.03-SP4/libraries/syn/gtech.db'
+source -echo -verbose ./script/dc_setup.tcl
+source -echo -verbose ./script/common_setup.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script ./script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+systolic_array
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          ""
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*]"
+../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db"
+tcb018gbwp7twc_ccs.db
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db"
+tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t"
+tcb018gbwp7t
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+./tech/icc/tsmc018_5lm.tf
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+star.map_5M
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+METAL1
+set MAX_ROUTING_LAYER           "METAL4"
+METAL4
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+VDD1
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+VDD2
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+VDD3
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+VDD4
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script ./script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo -verbose ./script/dc_setup_filenames.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script ./script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# General Flow Files
+#-----------------------------------------------------------------------------
+# Milkyway library names
+set DCRM_MW_LIBRARY_NAME                                ${DESIGN_NAME}_LIB
+systolic_array_LIB
+set DCRM_FINAL_MW_CEL_NAME                              ${DESIGN_NAME}_DCT
+systolic_array_DCT
+# Input files
+set DCRM_SDC_INPUT_FILE                                 ${DESIGN_NAME}.sdc
+systolic_array.sdc
+set DCRM_CONSTRAINTS_INPUT_FILE                         ${DESIGN_NAME}.constraints.tcl
+systolic_array.constraints.tcl
+# Report files
+set DCRM_CHECK_LIBRARY_REPORT                           ${DESIGN_NAME}.check_library.rpt
+systolic_array.check_library.rpt
+set DCRM_CONSISTENCY_CHECK_ENV_FILE                     ${DESIGN_NAME}.compile_ultra.env
+systolic_array.compile_ultra.env
+set DCRM_CHECK_DESIGN_REPORT                            ${DESIGN_NAME}.check_design.rpt
+systolic_array.check_design.rpt
+set DCRM_ANALYZE_DATAPATH_EXTRACTION_REPORT             ${DESIGN_NAME}.analyze_datapath_extraction.rpt
+systolic_array.analyze_datapath_extraction.rpt
+set DCRM_FINAL_QOR_REPORT                               ${DESIGN_NAME}.mapped.qor.rpt
+systolic_array.mapped.qor.rpt
+set DCRM_FINAL_TIMING_REPORT                            ${DESIGN_NAME}.mapped.timing.rpt
+systolic_array.mapped.timing.rpt
+set DCRM_FINAL_AREA_REPORT                              ${DESIGN_NAME}.mapped.area.rpt
+systolic_array.mapped.area.rpt
+set DCRM_FINAL_POWER_REPORT                             ${DESIGN_NAME}.mapped.power.rpt
+systolic_array.mapped.power.rpt
+set DCRM_FINAL_CLOCK_GATING_REPORT                      ${DESIGN_NAME}.mapped.clock_gating.rpt
+systolic_array.mapped.clock_gating.rpt
+set DCRM_FINAL_SELF_GATING_REPORT                       ${DESIGN_NAME}.mapped.self_gating.rpt
+systolic_array.mapped.self_gating.rpt
+set DCRM_THRESHOLD_VOLTAGE_GROUP_REPORT                 ${DESIGN_NAME}.mapped.threshold.voltage.group.rpt
+systolic_array.mapped.threshold.voltage.group.rpt
+set DCRM_INSTANTIATE_CLOCK_GATES_REPORT                 ${DESIGN_NAME}.instatiate_clock_gates.rpt
+systolic_array.instatiate_clock_gates.rpt
+set DCRM_FINAL_DESIGNWARE_AREA_REPORT                   ${DESIGN_NAME}.mapped.designware_area.rpt
+systolic_array.mapped.designware_area.rpt
+set DCRM_FINAL_RESOURCES_REPORT                         ${DESIGN_NAME}.mapped.final_resources.rpt
+systolic_array.mapped.final_resources.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE             ${DESIGN_NAME}.register_bank.rpt
+systolic_array.register_bank.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_REPORT           ${DESIGN_NAME}.register_bank_report_file.rpt 
+systolic_array.register_bank_report_file.rpt
+set DCRM_MULTIBIT_COMPONENTS_REPORT                     ${DESIGN_NAME}.multibit.components.rpt
+systolic_array.multibit.components.rpt
+set DCRM_MULTIBIT_BANKING_REPORT                        ${DESIGN_NAME}.multibit.banking.rpt
+systolic_array.multibit.banking.rpt
+# Output files
+set DCRM_AUTOREAD_RTL_SCRIPT                            ${DESIGN_NAME}.autoread_rtl.tcl
+systolic_array.autoread_rtl.tcl
+set DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE              ${DESIGN_NAME}.elab.ddc
+systolic_array.elab.ddc
+set DCRM_COMPILE_ULTRA_DDC_OUTPUT_FILE                  ${DESIGN_NAME}.compile_ultra.ddc
+systolic_array.compile_ultra.ddc
+set DCRM_FINAL_DDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.ddc
+systolic_array.mapped.ddc
+set DCRM_FINAL_PG_VERILOG_OUTPUT_FILE                   ${DESIGN_NAME}.mapped.pg.v
+systolic_array.mapped.pg.v
+set DCRM_FINAL_VERILOG_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.v
+systolic_array.mapped.v
+set DCRM_FINAL_SDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.sdc
+systolic_array.mapped.sdc
+set DCRM_FINAL_DESIGN_ICC2                              ICC2_files
+ICC2_files
+#-----------------------------------------------------------------------------
+# DCT Flow Files
+#-----------------------------------------------------------------------------
+# DCT input files
+set DCRM_DCT_DEF_INPUT_FILE                             ${DESIGN_NAME}.def
+systolic_array.def
+set DCRM_DCT_FLOORPLAN_INPUT_FILE                       ${DESIGN_NAME}.fp
+systolic_array.fp
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE            ${DESIGN_NAME}.physical_constraints.tcl
+systolic_array.physical_constraints.tcl
+# DCT report files
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT                ${DESIGN_NAME}.physical_constraints.rpt
+systolic_array.physical_constraints.rpt
+set DCRM_DCT_FINAL_CONGESTION_REPORT                    ${DESIGN_NAME}.mapped.congestion.rpt
+systolic_array.mapped.congestion.rpt
+set DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE           ${DESIGN_NAME}.mapped.congestion_map.png
+systolic_array.mapped.congestion_map.png
+set DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE    ${DESIGN_NAME}.mapped.congestion_map_window.png
+systolic_array.mapped.congestion_map_window.png
+set DCRM_ANALYZE_RTL_CONGESTION_REPORT_FILE             ${DESIGN_NAME}.analyze_rtl_congetion.rpt
+systolic_array.analyze_rtl_congetion.rpt
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_FOLDER                  ${DESIGN_NAME}.qor_snapshot
+systolic_array.qor_snapshot
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT                  ${DESIGN_NAME}.qor_snapshot.rpt
+systolic_array.qor_snapshot.rpt
+# DCT output files
+set DCRM_DCT_FLOORPLAN_OUTPUT_FILE                      ${DESIGN_NAME}.initial.fp
+systolic_array.initial.fp
+set DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE                ${DESIGN_NAME}.mapped.fp
+systolic_array.mapped.fp
+set DCRM_DCT_FINAL_SPEF_OUTPUT_FILE                     ${DESIGN_NAME}.mapped.spef
+systolic_array.mapped.spef
+set DCRM_DCT_FINAL_SDF_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.sdf
+systolic_array.mapped.sdf
+# Standard cell placement file
+set DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE                  ${DESIGN_NAME}.mapped.std_cell.def
+systolic_array.mapped.std_cell.def
+#-----------------------------------------------------------------------------
+# Formality Flow Files
+#-----------------------------------------------------------------------------
+set DCRM_SVF_OUTPUT_FILE                                ${DESIGN_NAME}.mapped.svf
+systolic_array.mapped.svf
+set FMRM_UNMATCHED_POINTS_REPORT                        ${DESIGN_NAME}.fmv_unmatched_points.rpt
+systolic_array.fmv_unmatched_points.rpt
+set FMRM_FAILING_SESSION_NAME                           ${DESIGN_NAME}
+systolic_array
+set FMRM_FAILING_POINTS_REPORT                          ${DESIGN_NAME}.fmv_failing_points.rpt
+systolic_array.fmv_failing_points.rpt
+set FMRM_ABORTED_POINTS_REPORT                          ${DESIGN_NAME}.fmv_aborted_points.rpt
+systolic_array.fmv_aborted_points.rpt
+set FMRM_ANALYZE_POINTS_REPORT                          ${DESIGN_NAME}.fmv_analyze_points.rpt
+systolic_array.fmv_analyze_points.rpt
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script ./script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script ./script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Setup Variables
+#-----------------------------------------------------------------------------
+# Removes new variable info messages.
+set_app_var sh_new_variable_message     false
+false
+if {$synopsys_program_name == "dc_shell"}  {
+    # Enable multicore optimization.
+    # set_host_options -max_cores 4
+    
+    # Analyzed libraries location.
+    set_app_var alib_library_analysis_path  ./tech/alib
+
+    # Additional Design Compiler variables.
+    }
+# RTL file list.
+set RTL_SOURCE_FILES    "../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						"
+../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						
+# Directories definition.
+set REPORT_DIR          "./report"
+./report
+set RESULT_DIR          "./result"
+./result
+set MW_LIB_DIR          "../milkyway"
+../milkyway
+set WORK_DIR            "./work"
+./work
+set LOG_DIR             "./log"
+./log
+file mkdir ${REPORT_DIR}
+file mkdir ${RESULT_DIR}
+file mkdir ${MW_LIB_DIR}
+file mkdir ${WORK_DIR}
+file mkdir ${LOG_DIR}
+# Optimization options for following RM+ flows.
+# hplp    - High Performance Low Power
+# hc      - High Connectivity
+# rtm_exp - Runtime Exploration
+set OPTIMIZATION_FLOW           ""
+# Search path setup.
+set_app_var search_path         ". ${ADDITIONAL_SEARCH_PATH} $search_path"
+. ../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus 
+#-----------------------------------------------------------------------------
+# Library Setup
+#-----------------------------------------------------------------------------
+# Milkyway variable settings.
+set mw_reference_library        ${MW_REFERENCE_LIB_DIRS}
+tcb018gbwp7t
+set mw_design_library           ${MW_LIB_DIR}/${DCRM_MW_LIBRARY_NAME}
+../milkyway/systolic_array_LIB
+set mw_site_name_mapping        {{CORE unit} {Core unit} {core unit}}
+{CORE unit} {Core unit} {core unit}
+if {$synopsys_program_name == "dc_shell"}  {
+    # Set logical libraries.
+    set_app_var target_library      ${TARGET_LIBRARY_FILES}
+    set_app_var synthetic_library   dw_foundation.sldb
+    
+    if {$OPTIMIZATION_FLOW == "hplp"} {
+        # Enable DesignWare minPower Components.
+        # set_app_var synthetic_library "dw_minpower.sldb dw_foundation.sldb"
+        }
+    
+    set_app_var link_library        "* $target_library $ADDITIONAL_LINK_LIB_FILES $synthetic_library"
+    
+    # Set min libraries.
+    foreach {max_library min_library} $MIN_LIBRARY_FILES {
+        set_min_library $max_library -min_version $min_library
+        }
+    
+    if {[shell_is_in_topographical_mode]} {
+        # Activate the extended layer mode to support 4095 layers.
+        # extend_mw_layers
+    
+        # Create new Milkyway design library if it doesn't already exist.
+        if {![file isdirectory $mw_design_library ]} {
+            create_mw_lib                 $mw_design_library                 -technology             $MW_TECH_FILE                 -mw_reference_library   $mw_reference_library
+            }         else {
+        # If Milkyway design library already exists, ensure that it is
+        # consistent with specified Milkyway reference libraries.
+            set_mw_lib_reference                 $mw_design_library                 -mw_reference_library   $mw_reference_library
+            }
+
+        # Open Milkyway library.
+        open_mw_lib     $mw_design_library
+        check_library > ${REPORT_DIR}/${DCRM_CHECK_LIBRARY_REPORT}
+
+        # Set TLU+ extraction files.
+        set_tlu_plus_files             -max_tluplus    $TLUPLUS_MAX_FILE             -min_tluplus    $TLUPLUS_MIN_FILE             -tech2itf_map   $TLUPLUS_MAP_FILE
+
+        check_tlu_plus_files
+        }
+    
+    # Library Modifications.
+    if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+        puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_FILE}]\n"
+        source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+        }
+    }
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script ./script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#################################################################################
+# Formality Verification Script for
+# Design Compiler Reference Methodology Script for Top-Down Flow
+# Script: fm.tcl
+# Version: M-2016.12-SP4 (July 17, 2017)
+# Copyright (C) 2007-2016 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Synopsys Auto Setup Mode
+#################################################################################
+set_app_var synopsys_auto_setup true
+true
+# Note: The Synopsys Auto Setup mode is less conservative than the Formality default 
+# mode, and is more likely to result in a successful verification out-of-the-box.
+#
+# Using the Setting this variable will change the default values of the variables 
+# listed here below. You may change any of these variables back to their default 
+# settings to be more conservative. Uncomment the appropriate lines below to revert 
+# back to their default settings:
+# set_app_var hdlin_ignore_parallel_case true
+# set_app_var hdlin_ignore_full_case true
+# set_app_var verification_verify_directly_undriven_output true
+# set_app_var hdlin_ignore_embedded_configuration false
+# set_app_var svf_ignore_unqualified_fsm_information true
+# set_app_var signature_analysis_allow_subset_match true
+# Other variables with changed default values are described in the next few sections.
+#################################################################################
+# Setup for handling undriven signals in the design
+#################################################################################
+# The Synopsys Auto Setup mode sets undriven signals in the reference design to
+# "0" or "BINARY" (as done by DC), and the undriven signals in the impl design are
+# forced to "BINARY".  This is done with the following setting:
+# set_app_var verification_set_undriven_signals synthesis
+# Uncomment the next line to revert back to the more conservative default setting:
+# set_app_var verification_set_undriven_signals BINARY:X
+#################################################################################
+# Setup for simulation/synthesis mismatch messaging
+#################################################################################
+# The Synopsys Auto Setup mode will produce warning messages, not error messages,
+# when Formality encounters potential differences between simulation and synthesis.
+# Uncomment the next line to revert back to the more conservative default setting:
+# remove_mismatch_message_filter -all
+#################################################################################
+# Setup for Clock-gating
+#################################################################################
+# The Synopsys Auto Setup mode, along with the SVF file, will appropriately set 
+# the clock-gating variable. Otherwise, the user will need to notify Formality 
+# of clock-gating by uncommenting the next line:
+# set_app_var verification_clock_gate_hold_mode any
+#################################################################################
+# Setup for instantiated DesignWare or function-inferred DesignWare components
+#################################################################################
+# The Synopsys Auto Setup mode, along with the SVF file, will automatically set 
+# the hdlin_dwroot variable to the top-level of the Design Compiler tree used for 
+# synthesis.  Otherwise, the user will need to set this variable if the design 
+# contains instantiated DW or function-inferred DW.
+# set_app_var hdlin_dwroot "" ;# Enter the pathname to the top-level of the DC tree
+#################################################################################
+# Setup for handling missing design modules
+#################################################################################
+# If the design has missing blocks or missing components in both the reference and 
+# implementation designs, uncomment the following variable so that Formality can 
+# complete linking each design:
+# set_app_var hdlin_unresolved_modules black_box
+#################################################################################
+# Read in the SVF file(s)
+#################################################################################
+# Set this variable to point to individual SVF file(s) or to a directory containing SVF files.
+set_svf ${RESULT_DIR}/${DCRM_SVF_OUTPUT_FILE}
+SVF set to './result/systolic_array.mapped.svf'.
+1
+#################################################################################
+# Read in the libraries
+#################################################################################
+foreach tech_lib "${TARGET_LIBRARY_FILES} ${ADDITIONAL_LINK_LIB_FILES}" {
+  read_db -technology_library $tech_lib
+}
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+#################################################################################
+# Read in the Reference Design as verilog/vhdl source code
+#################################################################################
+read_verilog -r ${RTL_SOURCE_FILES} -work_library ${WORK_DIR}
+Error: Illegal identifier : './work' (FM-212)
+0
+set_top r:/WORK/${DESIGN_NAME}
+Error: Unknown name: 'r:/WORK/systolic_array' (FM-036)
+0
+#################################################################################
+# Read in the Implementation Design from DC-RM results
+#
+# Choose the format that is used in your flow.
+#################################################################################
+# For Verilog
+#read_verilog -i ${RESULT_DIR}/${DCRM_FINAL_VERILOG_OUTPUT_FILE}
+# OR
+# For DDC
+read_ddc -i ${RESULT_DIR}/${DCRM_FINAL_DDC_OUTPUT_FILE}
+Loading ddc file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.ddc'
+No target library specified, default is WORK
+Current container set to 'i'
+1
+# OR
+# For Milkyway
+# The -no_pg option should be used for MW designs from DC to prevent automatic
+# linking to power aware versions of the cells.
+# read_milkyway -i -no_pg -libname WORK -cell_name ${DCRM_FINAL_MW_CEL_NAME} ${mw_design_library}
+set_top i:/WORK/${DESIGN_NAME}
+Setting top design to 'i:/WORK/systolic_array'
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_8' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_7' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_6' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_5' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_4' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_3' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_2' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_1' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_out_0' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_16' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_15' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_14' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_13' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_12' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_11' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_10' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_9' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_8' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_7' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_6' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_5' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_4' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_3' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_2' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_1' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_data_in_0' to its reference design 'PDDW0208CDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_rst_n' to its reference design 'PDUW0208SCDG'. (FE-LINK-2)
+Warning: Cannot link cell '/WORK/systolic_array/u_pad_clk' to its reference design 'PDDW0208SCDG'. (FE-LINK-2)
+Error: Unresolved references detected during link. (FM-234)
+Error: Failed to set top design to 'i:/WORK/systolic_array' (FM-156)
+0
+#################################################################################
+# Configure constant ports
+#
+# When using the Synopsys Auto Setup mode, the SVF file will convey information
+# automatically to Formality about how to disable scan.
+#
+# Otherwise, manually define those ports whose inputs should be assumed constant
+# during verification.
+#
+# Example command format:
+#
+#   set_constant -type port i:/WORK/${DESIGN_NAME}/<port_name> <constant_value> 
+#
+#################################################################################
+#################################################################################
+# Report design statistics, design read warning messages, and user specified setup
+#################################################################################
+# report_setup_status will create a report showing all design statistics,
+# design read warning messages, and all user specified setup.  This will allow
+# the user to check all setup before proceeding to run the more time consuming
+# commands "match" and "verify".
+# report_setup_status
+#################################################################################
+# Match compare points and report unmatched points 
+#################################################################################
+match
+Error: Reference design not set (FM-045)
+0
+report_unmatched_points > ${REPORT_DIR}/${FMRM_UNMATCHED_POINTS_REPORT}
+#################################################################################
+# Verify and Report
+#
+# If the verification is not successful, the session will be saved and reports
+# will be generated to help debug the failed or inconclusive verification.
+#################################################################################
+if { ![verify] }  {  
+    save_session -replace     ${REPORT_DIR}/${FMRM_FAILING_SESSION_NAME}
+    report_failing_points   > ${REPORT_DIR}/${FMRM_FAILING_POINTS_REPORT}
+    report_aborted          > ${REPORT_DIR}/${FMRM_ABORTED_POINTS_REPORT}
+
+    # Use analyze_points to help determine the next step in resolving verification
+    # issues. It runs heuristic analysis to determine if there are potential causes
+    # other than logical differences for failing or hard verification points. 
+    analyze_points -all     > ${REPORT_DIR}/${FMRM_ANALYZE_POINTS_REPORT}
+    }
+Error: Reference design not set (FM-045)
+Info:  Session being saved in minimal format.
+Error: Top design has not been successfully linked in container 'i' (FM-236)
+Error: No session file generated. Reason : No such file or directory. (FM-427)
+exit
+
+Maximum memory usage for this session: 789592 KB
+CPU usage for this session: 2.79 seconds
+Current time: Tue Dec 20 20:45:14 2022
+Elapsed time: 5 seconds
+
+Thank you for using Formality (R)!

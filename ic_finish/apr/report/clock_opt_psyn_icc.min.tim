@@ -1,0 +1,135 @@
+Warning: Clock network timing may not be up-to-date since only 94.117645 percentage of clock nets are routed. (TIM-233)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:13:41 2022
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: BCCOM   Library: tcb018gbwp7tbc_ccs
+
+Information: Percent of Arnoldi-based delays =  5.60%
+
+Information: Percent of CCS-based delays =  5.58%
+
+  Startpoint: p_shift_in_A[7]
+              (input port clocked by clk_p)
+  Endpoint: SA_A_0_shift_reg_reg_4__7_
+            (rising edge-triggered flip-flop clocked by clk_p)
+  Path Group: REGIN
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                       12.00      12.00 f
+  p_shift_in_A[7] (in)                                              3.82      2.28      14.28 f
+  p_shift_in_A[7] (net)                         1         1.97                0.00      14.28 f
+  u_pad_data_in_7/PAD (PDDW0208CDG)                                 3.82      0.06 *    14.34 f
+  u_pad_data_in_7/C (PDDW0208CDG)                                   0.21      0.97      15.31 f
+  shift_in_A[7] (net)                           3         0.08                0.00      15.31 f
+  U3500/A1 (ND2D1P5BWP7T)                                           0.21      0.01 *    15.32 f
+  U3500/ZN (ND2D1P5BWP7T)                                           0.17      0.14      15.46 r
+  n3170 (net)                                   7         0.05                0.00      15.46 r
+  U3633/A1 (OAI21D0BWP7T)                                           0.17      0.00 *    15.46 r
+  U3633/ZN (OAI21D0BWP7T)                                           0.06      0.05      15.52 f
+  n989 (net)                                    1         0.01                0.00      15.52 f
+  SA_A_0_shift_reg_reg_4__7_/D (DFQD0BWP7T)                         0.06      0.00 *    15.52 f
+  data arrival time                                                                     15.52
+
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (propagated)                                            6.80       6.80
+  clock reconvergence pessimism                                               0.00       6.80
+  SA_A_0_shift_reg_reg_4__7_/CP (DFQD0BWP7T)                                  0.00       6.80 r
+  library hold time                                                           0.03       6.83
+  data required time                                                                     6.83
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     6.83
+  data arrival time                                                                    -15.52
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            8.69
+
+
+  Startpoint: SA_core_pe_2_3_Cij_o_reg_0_
+              (rising edge-triggered flip-flop clocked by clk_p)
+  Endpoint: p_shift_out[0]
+            (output port clocked by clk_p)
+  Path Group: REGOUT
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (propagated)                                            6.67       6.67
+  SA_core_pe_2_3_Cij_o_reg_0_/CP (DFQD1BWP7T)                       0.19      0.00       6.67 r
+  SA_core_pe_2_3_Cij_o_reg_0_/Q (DFQD1BWP7T)                        0.05      0.21       6.88 f
+  SA_core_output_row_2[0] (net)                 3         0.02                0.00       6.88 f
+  U1416/A2 (AOI22D0BWP7T)                                           0.05      0.00 *     6.88 f
+  U1416/ZN (AOI22D0BWP7T)                                           0.15      0.11       6.99 r
+  n1056 (net)                                   1         0.01                0.00       6.99 r
+  U1421/A1 (ND2D1BWP7T)                                             0.15      0.00 *     6.99 r
+  U1421/ZN (ND2D1BWP7T)                                             0.18      0.14       7.12 f
+  shift_out[0] (net)                            1         0.06                0.00       7.12 f
+  u_pad_data_out_0/I (PDDW0208CDG)                                  0.18      0.00 *     7.13 f
+  u_pad_data_out_0/PAD (PDDW0208CDG)                                0.68      1.67       8.80 f
+  p_shift_out[0] (net)                          1         2.07                0.00       8.80 f
+  p_shift_out[0] (out)                                              0.68      0.00 *     8.80 f
+  data arrival time                                                                      8.80
+
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  clock reconvergence pessimism                                               0.00       0.00
+  output external delay                                                     -12.00     -12.00
+  data required time                                                                   -12.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                   -12.00
+  data arrival time                                                                     -8.80
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           20.80
+
+
+  Startpoint: SA_ctrl_state_compute_pump_reg_3_
+              (rising edge-triggered flip-flop clocked by clk_p)
+  Endpoint: SA_ctrl_state_compute_pump_reg_3_
+            (rising edge-triggered flip-flop clocked by clk_p)
+  Path Group: clk_p
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (propagated)                                            6.66       6.66
+  SA_ctrl_state_compute_pump_reg_3_/CP (DFQD0BWP7T)                 0.22      0.00       6.66 r
+  SA_ctrl_state_compute_pump_reg_3_/Q (DFQD0BWP7T)                  0.14      0.23       6.89 r
+  SA_ctrl_state_compute_pump[3] (net)           3         0.02                0.00       6.89 r
+  U3456/A1 (AOI21D0BWP7T)                                           0.14      0.00 *     6.89 r
+  U3456/ZN (AOI21D0BWP7T)                                           0.06      0.05       6.94 f
+  n1044 (net)                                   1         0.01                0.00       6.94 f
+  SA_ctrl_state_compute_pump_reg_3_/D (DFQD0BWP7T)                  0.06      0.00 *     6.94 f
+  data arrival time                                                                      6.94
+
+  clock clk_p (rise edge)                                                     0.00       0.00
+  clock network delay (propagated)                                            6.80       6.80
+  clock reconvergence pessimism                                              -0.13       6.66
+  SA_ctrl_state_compute_pump_reg_3_/CP (DFQD0BWP7T)                           0.00       6.66 r
+  library hold time                                                           0.03       6.69
+  data required time                                                                     6.69
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     6.69
+  data arrival time                                                                     -6.94
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.25
+
+
+1

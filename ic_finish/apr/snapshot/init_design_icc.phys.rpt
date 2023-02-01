@@ -1,0 +1,156 @@
+ 
+****************************************
+Report : design
+        -physical
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 20:09:10 2022
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Tue Dec 27 20:09:10 2022
+Machine Host Name: c01n10
+Working Directory: /bks2/PB20000328/ic_design/apr
+Library Name:      systolic_array_APR
+Cell Name:         systolic_array.CEL;4
+Design Statistics:
+    Number of Module Cells:        7847
+    Number of Pins:                29978
+    Number of IO Pad Cells:        40
+    Number of IO Pins:             28
+    Number of Nets:                4266
+    Average Pins Per Net (Signal): 3.35155
+
+Chip Utilization:
+    Total Std Cell Area:           82175.12
+    Total Pad Cell Area:           451600.00
+    Core Size:     width 781.20, height 768.32; area 600211.58
+    Pad Core Size: width 851.20, height 839.00; area 714156.80
+    Chip Size:     width 1091.20, height 1079.00; area 1177404.80
+    Std cells utilization:         13.69% 
+    Cell/Core Ratio:               13.69%
+    Cell/Chip Ratio:               45.33%
+    Number of Cell Rows:            196
+
+Master Instantiation:
+	MasterName	Type	InstCount
+	=================================
+	TAPCELLBWP7T	STD	3920
+	DFQD0BWP7T	STD	686
+	NR2D1BWP7T	STD	534
+	OAI21D0BWP7T	STD	445
+	AOI22D0BWP7T	STD	404
+	FA1D0BWP7T	STD	288
+	INVD0BWP7T	STD	246
+	ND2D1BWP7T	STD	245
+	INVD1BWP7T	STD	151
+	AN2D1BWP7T	STD	88
+	MAOI22D0BWP7T	STD	72
+	DFQD1BWP7T	STD	69
+	MOAI22D0BWP7T	STD	59
+	AOI21D0BWP7T	STD	59
+	ND3D0BWP7T	STD	46
+	NR3D0BWP7T	STD	42
+	XOR4D0BWP7T	STD	40
+	XNR4D0BWP7T	STD	36
+	DEL1BWP7T	STD	33
+	IAO21D0BWP7T	STD	28
+	AN3D1BWP7T	STD	27
+	DFQD2BWP7T	STD	26
+	XNR3D0BWP7T	STD	24
+	BUFFD1BWP7T	STD	24
+	AO22D0BWP7T	STD	21
+	OAI31D0BWP7T	STD	20
+	IOA21D0BWP7T	STD	19
+	MAOI222D0BWP7T	STD	18
+	OA21D0BWP7T	STD	18
+	MAOI222D1BWP7T	STD	18
+	CKBD2BWP7T	STD	14
+	XOR3D0BWP7T	STD	12
+	AOI211D1BWP7T	STD	11
+	OAI22D0BWP7T	STD	9
+	OA31D0BWP7T	STD	9
+	OAI211D0BWP7T	STD	9
+	ND2D3BWP7T	STD	6
+	OAI31D1BWP7T	STD	4
+	OR4D0BWP7T	STD	4
+	AOI21D1BWP7T	STD	3
+	OA32D0BWP7T	STD	3
+	AN2D4BWP7T	STD	3
+	BUFFD2P5BWP7T	STD	3
+	INR2XD2BWP7T	STD	3
+	ND2D2P5BWP7T	STD	3
+	ND2D2BWP7T	STD	2
+	CKND2D3BWP7T	STD	2
+	OAI31D2BWP7T	STD	2
+	NR3D1BWP7T	STD	2
+	OAI21D2BWP7T	STD	2
+	AO211D0BWP7T	STD	2
+	IND2D2BWP7T	STD	2
+	IND2D4BWP7T	STD	2
+	CKND2D0BWP7T	STD	2
+	BUFFD1P5BWP7T	STD	2
+	AOI21D2BWP7T	STD	2
+	AOI32D0BWP7T	STD	1
+	DFD0BWP7T	STD	1
+	OAI211D1BWP7T	STD	1
+	CKND1BWP7T	STD	1
+	AO222D0BWP7T	STD	1
+	IND2D1BWP7T	STD	1
+	AOI221D0BWP7T	STD	1
+	OAI221D1BWP7T	STD	1
+	INR2D1BWP7T	STD	1
+	TIEHBWP7T	STD	1
+	TIELBWP7T	STD	1
+	OA211D0BWP7T	STD	1
+	AN4D1BWP7T	STD	1
+	OR2D2BWP7T	STD	1
+	OR2D1BWP7T	STD	1
+	INVD2BWP7T	STD	1
+	AN2D0BWP7T	STD	1
+	NR2XD2BWP7T	STD	1
+	BUFFD5BWP7T	STD	1
+	ND2D4BWP7T	STD	1
+	BUFFD0BWP7T	STD	1
+	DFKCND2BWP7T	STD	1
+	ND2D1P5BWP7T	STD	1
+	PFILLER0005	IO	80
+	PFILLER1	IO	40
+	PDDW0208CDG	IO	26
+	PFILLER10	IO	4
+	PVDD2CDG	IO	4
+	PVSS3CDG	IO	4
+	PVDD1CDG	IO	4
+	PFILLER5	IO	4
+	PDUW0208SCDG	IO	1
+	PDDW0208SCDG	IO	1
+	PCORNER		CORNER	4
+	=================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+
+Track Assignment Information:
+
+Detailed Routing Information:
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+
+Stripe Wiring Statistics:
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+
+Signal Wiring Statistics:
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+  ==============================================================
+    Total              0.00                      0.00
+1

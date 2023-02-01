@@ -1,0 +1,8 @@
+#@ # 
+#@ # Running icc_shell Version L-2016.03-SP5-3 for linux64 -- Jun 12, 2017
+#@ # Date:   Wed Feb  1 17:30:56 2023
+#@ # Run by: PB2000032@c01n10
+#@ 
+
+source script/icc_setup.tcl
+exit

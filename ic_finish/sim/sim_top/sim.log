@@ -1,0 +1,17 @@
+
+Note-[I_OPTS] Ignoring -I option
+  Ignoring -I option, using -PP option
+
+                         Chronologic VCS (TM)
+         Version H-2013.06_Full64 -- Tue Dec 20 20:29:47 2022
+               Copyright (c) 1991-2013 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+The design hasn't changed and need not be recompiled. 
+If you really want to, delete file simv.daidir/.vcs.timestamp and
+run VCS again.
+

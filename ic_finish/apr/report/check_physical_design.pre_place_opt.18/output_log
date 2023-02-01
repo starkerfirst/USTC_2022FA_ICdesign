@@ -1,0 +1,153 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ min_tlu+: /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+ mapping_file: /bks2/PB20000328/ic_design/apr/tech/tluplus/star.map_5M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: systolic_array_APR
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+No ignored layers specified.
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Tue Dec 27 13:44:31 2022
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Not Set             Horizontal
+METAL2                       Vertical            Not Set             Vertical
+METAL3                       Horizontal          Not Set             Horizontal
+METAL4                       Vertical            Not Set             Vertical
+METAL5                       Horizontal          Not Set             Horizontal
+
+Information: Report track info.  (PNR-165)
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+Error: Track is not define for layer METAL1.  (PNR-172)
+Error: Track is not define for layer METAL2.  (PNR-172)
+Error: Track is not define for layer METAL3.  (PNR-172)
+Error: Track is not define for layer METAL4.  (PNR-172)
+Error: Track is not define for layer METAL5.  (PNR-172)
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: ::check_database 
+************************************************************
+CHECK_DATABASE RESULTS FOR CELL : systolic_array.CEL
+************************************************************
+MWUHIER: Checking for hierarchical internal netlist and flat internal netlist consistency ... 
+MWUHIER: Done with checking hierarchical internal netlist and flat internal netlist consistency. 
+Information: MWUHIER: Number of errors = 0 (MW-348)
+End PG consistent checking.. PG_Pass
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+
+Start UPF checking.
+No UPF infomation. Finish UPF checking.
+1
+End CPD check: ::check_database
+Start CPD check: report_taint -dump_errors 
+
+****************************************
+  Report : Suggestions
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Tue Dec 27 13:44:31 2022
+****************************************
+
+Information: No suggestion for current design. (PSYN-1068)
+
+1
+End CPD check: report_taint -dump_errors
+Start CPD check: check_for_HFN_dont_touch_nets 
+
+End CPD check: check_for_HFN_dont_touch_nets
+Start CPD check: check_block_abstraction -stage pre_place_opt 
+Information: No blocks with abstraction information found
+1
+End CPD check: check_block_abstraction -stage pre_place_opt
+Start CPD check: check_placement_utilization_violation 
+0
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: cpd_check_tie_connection 
+0
+End CPD check: cpd_check_tie_connection
+Start CPD check: cpd_check_cells_restrictions 
+0
+End CPD check: cpd_check_cells_restrictions
+Start CPD check: check_bound_utilization 
+Checking Bounds Utilization:
+Warning: Nothing implicitly matched '*' (SEL-003)
+0
+End CPD check: check_bound_utilization
+Start CPD check: check_bounds 
+Warning: Nothing implicitly matched '*' (SEL-003)
+
+End CPD check: check_bounds
+Start CPD check: cpd_check_bounds_overlap 
+
+End CPD check: cpd_check_bounds_overlap
+Start CPD check: check_va_utilization 
+Checking Voltage Area Utilization:
+Error: This site is not licensed for 'Galaxy-MV'. (SEC-51)
+Please contact  at eda@(none), who is
+your local Synopsys license administrator for Synopsys site 31269.
+Error: No such collection '0' (SEL-001)
+
+End CPD check: check_va_utilization
+Start CPD check: placement_check 
+
+Warning: IO pad 'PVSS3CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1ANA' is unusable: unknown logic function.  (OPT-1022)
+  Loading design 'systolic_array'
+Warning: The core area for block is not defined. (PSYN-006)
+Error: No floorplan is defined for the current design for incremental physical synthesis. (PSYN-080)
+false
+End CPD check: placement_check
+Start CPD check: report_fp_placement 
+Error: Failed to get chip boundary. (VFP-020)
+Error: Failed to get chip boundary. (VFP-020)
+1
+End CPD check: report_fp_placement
+Start CPD check: ::check_physical_constraints 
+
+  Loading design 'systolic_array'
+Warning: The core area for block is not defined. (PSYN-006)
+Error: No floorplan is defined for the current design for incremental physical synthesis. (PSYN-080)
+0
+End CPD check: ::check_physical_constraints

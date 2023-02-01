@@ -1,0 +1,64 @@
+## 
+## define_antenna_rule mw_lib -mode mode \
+##   -diode_mode diode_mode [-metal_ratio metal_ratio]\
+##   [-cut_ratio cut_ratio] [-metal_pratio metal_pratio]\
+##   [-metal_nratio metal_nratio] [-cut_pratio cut_pratio]\
+##   [-cut_nratio cut_nratio] [-protected_metal_scale metal_scale]\
+##   [-cut_area_to_gate_diffusion_length_ratio cut_gate_diffusion_length_ratio] [-metal_area_to_pgate_diffusion_length_ratio metal_pgate_diffusion_length_ratio]\
+##   [-metal_area_to_ngate_diffusion_length_ratio metal_ngate_diffusion_length_ratio] [-cut_area_to_pgate_diffusion_length_ratio cut_pgate_diffusion_length_ratio]\
+##   [-cut_area_to_ngate_diffusion_length_ratio cut_ngate_diffusion_length_ratio] [-metal_area_to_gate_diffusion_length_ratio metal_gate_diffusion_length_ratio]\
+##   [-protected_cut_scale cut_scale]\
+##   [-name rule_name]
+## mode
+##  1, 4 : ignore all lower-layer segments
+##  2, 5 : include lower-layer segments to the input pins
+##  3, 6 : include all lower-layer segments
+##  1, 2, 3 : polygon area
+##  4, 5, 6 : sidewall area
+## diode_mode (output pin)
+##  0 : output pin cannot protect antenna.
+##  1 : output pin can provide unlimited protection.
+##  2 : limited diode protection; the diode ratio is defined
+##     by define_antenna_layer_rule & dbDefineDiodeProtection (CLF)
+##     If antenna has multiple diode pins, the max antenna ratio
+##     is the one with the largest diode ratio.
+##  3 : limited diode protection. If antenna has multiple diode pins, 
+##     the max antenna ratio is sum of all diode ratios.
+##  4 : limited diode protection. The max antenna ratio is calculated
+##     from the total diode protection on the antenna, which is the
+##     sum of the diode protection of all diodes.
+##  5 : limited diode protection. The equivalent gate area is calculated
+##      from the maximum diode-protection value of all diodes.
+##  6 : limited diode protection. The equivalent gate area is calculated
+##      from the sum of the diode protection of all diodes.
+##  7 : limited diode protection. The equivalent metal area is calculated
+##      from the maximum diode-protection value of all diodes.
+##  8 : limited diode protection. The equivalent metal area is calculated
+##      from the sum of the diode protection of all diodes.
+## 
+## define_antenna_layer_rule mw_lib -mode mode \
+##   -layer layer_name -ratio ratio \
+##   -diode_ratio {v0 v1 v2 v3 [v4]}\
+##   -name rule_name
+## ratio
+##  max. antenna ratio with no diode protection
+##      MIN((dp > v0) ? ((dp + v1 ) * v2 + v3), v4) : ratio 
+##  max. antenna ratio with (diode protection == dp)
+ 
+ 
+
+set lib [current_mw_lib]
+remove_antenna_rules $lib
+define_antenna_rule $lib -mode 1 -diode_mode 4 -metal_ratio 0 -cut_ratio 20
+define_antenna_layer_rule $lib -mode 1 -layer "VIA12" -ratio 20 -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib -mode 1 -layer "VIA23" -ratio 20 -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib -mode 1 -layer "VIA34" -ratio 20 -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib -mode 1 -layer "VIA45" -ratio 20 -diode_ratio {0.203 0 83.33 75}
+
+define_antenna_rule $lib -mode 4 -diode_mode 4 -metal_ratio 400 -cut_ratio 0
+define_antenna_layer_rule $lib -mode 4 -layer "METAL5" -ratio 400 -diode_ratio {0.203 0 8000 30000}
+define_antenna_layer_rule $lib -mode 4 -layer "METAL4" -ratio 400 -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib -mode 4 -layer "METAL3" -ratio 400 -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib -mode 4 -layer "METAL2" -ratio 400 -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib -mode 4 -layer "METAL1" -ratio 400 -diode_ratio {0.203 0 400 2200}
+

@@ -1,0 +1,1399 @@
+###################################################################
+
+# Created by write_floorplan on Tue Dec 27 20:10:13 2022
+
+###################################################################
+undo_config -disable
+
+remove_die_area 
+
+create_die_area  \
+	-poly {	{0.000 0.000} {1091.200 0.000} {1091.200 1079.000} {0.000 1079.000} {0.000 0.000}} 
+set oldSnapState [set_object_snap_type -enabled false]
+
+#*************
+#    IOs    
+# obj#: 172 
+# objects are in clockwise ordering 
+#*************
+
+
+set obj [get_cells {"u_pad_corner_ll"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {0.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller0"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {130.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller1"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {140.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_14"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {141.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller2"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {221.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller3"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {222.000 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller4"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {222.005 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller5"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {222.010 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_13"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {222.015 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller6"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {302.015 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller7"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {303.015 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller8"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {303.020 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller9"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {303.025 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_12"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {303.030 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller10"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {383.030 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller11"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {384.030 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller12"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {384.035 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller13"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {384.040 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd2_2"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {384.045 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller14"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {464.045 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller15"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {465.045 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller16"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {465.050 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller17"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {465.055 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vss3_2"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {465.060 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller18"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {545.060 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller19"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {546.060 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller20"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {546.065 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller21"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {546.070 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd1_2"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {546.075 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller22"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {626.075 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller23"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {627.075 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller24"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {627.080 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller25"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {627.085 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_11"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {627.090 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller26"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {707.090 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller27"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {708.090 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller28"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {708.095 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller29"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {708.100 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_10"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {708.105 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller30"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {788.105 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller31"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {789.105 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller32"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {789.110 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller33"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {789.115 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_9"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {789.120 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller34"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {869.120 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller35"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {870.120 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller36"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {870.125 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller37"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {870.130 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_8"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {870.135 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller38"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {950.135 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller39"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {960.135 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller40"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.135 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller41"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.140 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller42"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.145 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller43"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.150 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller44"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.155 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller45"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.160 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller46"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.165 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller47"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.170 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller48"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.175 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller49"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.180 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller50"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.185 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller51"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.190 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller52"} -all]
+set_attribute -quiet $obj orientation N
+set_attribute -quiet $obj origin {961.195 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_corner_lr"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 0.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller117"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 130.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_7"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 135.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller118"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 215.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_6"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 216.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller119"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 296.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_5"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 297.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller120"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 377.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_4"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 378.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller121"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 458.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd2_1"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 459.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller122"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 539.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vss3_1"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 540.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller123"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 620.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd1_1"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 621.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller124"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 701.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_3"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 702.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller125"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 782.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_2"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 783.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller126"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 863.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_1"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 864.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller127"} -all]
+set_attribute -quiet $obj orientation W
+set_attribute -quiet $obj origin {1091.200 944.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_corner_ur"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {1091.200 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller105"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.200 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller104"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.195 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller103"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.190 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller102"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.185 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller101"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.180 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller100"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.175 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller99"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.170 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller98"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.165 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller97"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.160 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller96"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.155 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller95"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.150 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller94"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.145 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller93"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.140 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller92"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {961.135 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller91"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {960.135 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_rst_n"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {950.135 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller90"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {870.135 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller89"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {870.130 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller88"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {870.125 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller87"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {870.120 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_0"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {869.120 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller86"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {789.120 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller85"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {789.115 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller84"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {789.110 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller83"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {789.105 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_15"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {788.105 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller82"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {708.105 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller81"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {708.100 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller80"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {708.095 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller79"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {708.090 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_in_16"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {707.090 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller78"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {627.090 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller77"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {627.085 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller76"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {627.080 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller75"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {627.075 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd1_3"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {626.075 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller74"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {546.075 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller73"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {546.070 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller72"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {546.065 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller71"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {546.060 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vss3_3"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {545.060 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller70"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {465.060 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller69"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {465.055 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller68"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {465.050 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller67"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {465.045 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd2_3"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {464.045 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller66"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {384.045 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller65"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {384.040 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller64"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {384.035 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller63"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {384.030 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_8"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {383.030 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller62"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {303.030 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller61"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {303.025 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller60"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {303.020 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller59"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {303.015 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_0"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {302.015 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller58"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {222.015 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller57"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {222.010 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller56"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {222.005 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller55"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {222.000 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_clk"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {221.000 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller54"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {141.000 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller53"} -all]
+set_attribute -quiet $obj orientation S
+set_attribute -quiet $obj origin {140.000 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_corner_ul"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 1079.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller116"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 949.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_1"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 944.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller115"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 864.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_2"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 863.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller114"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 783.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_3"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 782.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller113"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 702.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd1_0"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 701.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller112"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 621.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vss3_0"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 620.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller111"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 540.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_vdd2_0"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 539.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller110"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 459.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_4"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 458.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller109"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 378.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_5"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 377.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller108"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 297.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_6"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 296.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller107"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 216.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"u_pad_data_out_7"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 215.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+set obj [get_cells {"pfiller106"} -all]
+set_attribute -quiet $obj orientation E
+set_attribute -quiet $obj origin {0.000 135.000}
+set_attribute -quiet $obj is_placed true
+set_attribute -quiet $obj is_fixed false
+set_attribute -quiet $obj is_soft_fixed false
+set_attribute -quiet $obj eco_status eco_reset
+
+
+set_object_snap_type -enabled $oldSnapState
+undo_config -enable

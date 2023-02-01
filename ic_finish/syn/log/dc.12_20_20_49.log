@@ -1,0 +1,2221 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version L-2016.03-SP5 for linux64 - Oct 14, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Starting shell in Topographical mode...
+source -echo -verbose ./script/dc_setup.tcl
+source -echo -verbose ./script/common_setup.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+systolic_array
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          ""
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*]"
+../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db"
+tcb018gbwp7twc_ccs.db
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db"
+tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t"
+tcb018gbwp7t
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+./tech/icc/tsmc018_5lm.tf
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+star.map_5M
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+t018lo_1p5m_typical.tluplus
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+METAL1
+set MAX_ROUTING_LAYER           "METAL4"
+METAL4
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+VDD1
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+VDD2
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+VDD3
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+VDD4
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo -verbose ./script/dc_setup_filenames.tcl
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# General Flow Files
+#-----------------------------------------------------------------------------
+# Milkyway library names
+set DCRM_MW_LIBRARY_NAME                                ${DESIGN_NAME}_LIB
+systolic_array_LIB
+set DCRM_FINAL_MW_CEL_NAME                              ${DESIGN_NAME}_DCT
+systolic_array_DCT
+# Input files
+set DCRM_SDC_INPUT_FILE                                 ${DESIGN_NAME}.sdc
+systolic_array.sdc
+set DCRM_CONSTRAINTS_INPUT_FILE                         ${DESIGN_NAME}.constraints.tcl
+systolic_array.constraints.tcl
+# Report files
+set DCRM_CHECK_LIBRARY_REPORT                           ${DESIGN_NAME}.check_library.rpt
+systolic_array.check_library.rpt
+set DCRM_CONSISTENCY_CHECK_ENV_FILE                     ${DESIGN_NAME}.compile_ultra.env
+systolic_array.compile_ultra.env
+set DCRM_CHECK_DESIGN_REPORT                            ${DESIGN_NAME}.check_design.rpt
+systolic_array.check_design.rpt
+set DCRM_ANALYZE_DATAPATH_EXTRACTION_REPORT             ${DESIGN_NAME}.analyze_datapath_extraction.rpt
+systolic_array.analyze_datapath_extraction.rpt
+set DCRM_FINAL_QOR_REPORT                               ${DESIGN_NAME}.mapped.qor.rpt
+systolic_array.mapped.qor.rpt
+set DCRM_FINAL_TIMING_REPORT                            ${DESIGN_NAME}.mapped.timing.rpt
+systolic_array.mapped.timing.rpt
+set DCRM_FINAL_AREA_REPORT                              ${DESIGN_NAME}.mapped.area.rpt
+systolic_array.mapped.area.rpt
+set DCRM_FINAL_POWER_REPORT                             ${DESIGN_NAME}.mapped.power.rpt
+systolic_array.mapped.power.rpt
+set DCRM_FINAL_CLOCK_GATING_REPORT                      ${DESIGN_NAME}.mapped.clock_gating.rpt
+systolic_array.mapped.clock_gating.rpt
+set DCRM_FINAL_SELF_GATING_REPORT                       ${DESIGN_NAME}.mapped.self_gating.rpt
+systolic_array.mapped.self_gating.rpt
+set DCRM_THRESHOLD_VOLTAGE_GROUP_REPORT                 ${DESIGN_NAME}.mapped.threshold.voltage.group.rpt
+systolic_array.mapped.threshold.voltage.group.rpt
+set DCRM_INSTANTIATE_CLOCK_GATES_REPORT                 ${DESIGN_NAME}.instatiate_clock_gates.rpt
+systolic_array.instatiate_clock_gates.rpt
+set DCRM_FINAL_DESIGNWARE_AREA_REPORT                   ${DESIGN_NAME}.mapped.designware_area.rpt
+systolic_array.mapped.designware_area.rpt
+set DCRM_FINAL_RESOURCES_REPORT                         ${DESIGN_NAME}.mapped.final_resources.rpt
+systolic_array.mapped.final_resources.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE             ${DESIGN_NAME}.register_bank.rpt
+systolic_array.register_bank.rpt
+set DCRM_MULTIBIT_CREATE_REGISTER_BANK_REPORT           ${DESIGN_NAME}.register_bank_report_file.rpt 
+systolic_array.register_bank_report_file.rpt
+set DCRM_MULTIBIT_COMPONENTS_REPORT                     ${DESIGN_NAME}.multibit.components.rpt
+systolic_array.multibit.components.rpt
+set DCRM_MULTIBIT_BANKING_REPORT                        ${DESIGN_NAME}.multibit.banking.rpt
+systolic_array.multibit.banking.rpt
+# Output files
+set DCRM_AUTOREAD_RTL_SCRIPT                            ${DESIGN_NAME}.autoread_rtl.tcl
+systolic_array.autoread_rtl.tcl
+set DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE              ${DESIGN_NAME}.elab.ddc
+systolic_array.elab.ddc
+set DCRM_COMPILE_ULTRA_DDC_OUTPUT_FILE                  ${DESIGN_NAME}.compile_ultra.ddc
+systolic_array.compile_ultra.ddc
+set DCRM_FINAL_DDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.ddc
+systolic_array.mapped.ddc
+set DCRM_FINAL_PG_VERILOG_OUTPUT_FILE                   ${DESIGN_NAME}.mapped.pg.v
+systolic_array.mapped.pg.v
+set DCRM_FINAL_VERILOG_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.v
+systolic_array.mapped.v
+set DCRM_FINAL_SDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.sdc
+systolic_array.mapped.sdc
+set DCRM_FINAL_DESIGN_ICC2                              ICC2_files
+ICC2_files
+#-----------------------------------------------------------------------------
+# DCT Flow Files
+#-----------------------------------------------------------------------------
+# DCT input files
+set DCRM_DCT_DEF_INPUT_FILE                             ${DESIGN_NAME}.def
+systolic_array.def
+set DCRM_DCT_FLOORPLAN_INPUT_FILE                       ${DESIGN_NAME}.fp
+systolic_array.fp
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE            ${DESIGN_NAME}.physical_constraints.tcl
+systolic_array.physical_constraints.tcl
+# DCT report files
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT                ${DESIGN_NAME}.physical_constraints.rpt
+systolic_array.physical_constraints.rpt
+set DCRM_DCT_FINAL_CONGESTION_REPORT                    ${DESIGN_NAME}.mapped.congestion.rpt
+systolic_array.mapped.congestion.rpt
+set DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE           ${DESIGN_NAME}.mapped.congestion_map.png
+systolic_array.mapped.congestion_map.png
+set DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE    ${DESIGN_NAME}.mapped.congestion_map_window.png
+systolic_array.mapped.congestion_map_window.png
+set DCRM_ANALYZE_RTL_CONGESTION_REPORT_FILE             ${DESIGN_NAME}.analyze_rtl_congetion.rpt
+systolic_array.analyze_rtl_congetion.rpt
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_FOLDER                  ${DESIGN_NAME}.qor_snapshot
+systolic_array.qor_snapshot
+set DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT                  ${DESIGN_NAME}.qor_snapshot.rpt
+systolic_array.qor_snapshot.rpt
+# DCT output files
+set DCRM_DCT_FLOORPLAN_OUTPUT_FILE                      ${DESIGN_NAME}.initial.fp
+systolic_array.initial.fp
+set DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE                ${DESIGN_NAME}.mapped.fp
+systolic_array.mapped.fp
+set DCRM_DCT_FINAL_SPEF_OUTPUT_FILE                     ${DESIGN_NAME}.mapped.spef
+systolic_array.mapped.spef
+set DCRM_DCT_FINAL_SDF_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.sdf
+systolic_array.mapped.sdf
+# Standard cell placement file
+set DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE                  ${DESIGN_NAME}.mapped.std_cell.def
+systolic_array.mapped.std_cell.def
+#-----------------------------------------------------------------------------
+# Formality Flow Files
+#-----------------------------------------------------------------------------
+set DCRM_SVF_OUTPUT_FILE                                ${DESIGN_NAME}.mapped.svf
+systolic_array.mapped.svf
+set FMRM_UNMATCHED_POINTS_REPORT                        ${DESIGN_NAME}.fmv_unmatched_points.rpt
+systolic_array.fmv_unmatched_points.rpt
+set FMRM_FAILING_SESSION_NAME                           ${DESIGN_NAME}
+systolic_array
+set FMRM_FAILING_POINTS_REPORT                          ${DESIGN_NAME}.fmv_failing_points.rpt
+systolic_array.fmv_failing_points.rpt
+set FMRM_ABORTED_POINTS_REPORT                          ${DESIGN_NAME}.fmv_aborted_points.rpt
+systolic_array.fmv_aborted_points.rpt
+set FMRM_ANALYZE_POINTS_REPORT                          ${DESIGN_NAME}.fmv_analyze_points.rpt
+systolic_array.fmv_analyze_points.rpt
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc_setup_filenames.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Setup Variables
+#-----------------------------------------------------------------------------
+# Removes new variable info messages.
+set_app_var sh_new_variable_message     false
+false
+if {$synopsys_program_name == "dc_shell"}  {
+    # Enable multicore optimization.
+    # set_host_options -max_cores 4
+    
+    # Analyzed libraries location.
+    set_app_var alib_library_analysis_path  ./tech/alib
+
+    # Additional Design Compiler variables.
+    }
+./tech/alib
+# RTL file list.
+set RTL_SOURCE_FILES    "../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						"
+../src/systolic_array/array.v                          ../src/systolic_array/controller.v                          ../src/systolic_array/pe.v                          ../src/systolic_array/shift_buffer.v                          ../src/systolic_array/systolic_array_wrapper_withctl.v 						 ../src/lib.v 						 ../src/systolic_array.v
+						
+# Directories definition.
+set REPORT_DIR          "./report"
+./report
+set RESULT_DIR          "./result"
+./result
+set MW_LIB_DIR          "../milkyway"
+../milkyway
+set WORK_DIR            "./work"
+./work
+set LOG_DIR             "./log"
+./log
+file mkdir ${REPORT_DIR}
+file mkdir ${RESULT_DIR}
+file mkdir ${MW_LIB_DIR}
+file mkdir ${WORK_DIR}
+file mkdir ${LOG_DIR}
+# Optimization options for following RM+ flows.
+# hplp    - High Performance Low Power
+# hc      - High Connectivity
+# rtm_exp - Runtime Exploration
+set OPTIMIZATION_FLOW           ""
+# Search path setup.
+set_app_var search_path         ". ${ADDITIONAL_SEARCH_PATH} $search_path"
+. ../milkyway ../src ../syn/result ./script ./tech/alib ./tech/icc ./tech/lib ./tech/tluplus . /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn /soft1/synopsys/synthesis/L-2016.03-SP5/minpower/syn /soft1/synopsys/synthesis/L-2016.03-SP5/dw/syn_ver /soft1/synopsys/synthesis/L-2016.03-SP5/dw/sim_ver
+#-----------------------------------------------------------------------------
+# Library Setup
+#-----------------------------------------------------------------------------
+# Milkyway variable settings.
+set mw_reference_library        ${MW_REFERENCE_LIB_DIRS}
+tcb018gbwp7t
+set mw_design_library           ${MW_LIB_DIR}/${DCRM_MW_LIBRARY_NAME}
+../milkyway/systolic_array_LIB
+set mw_site_name_mapping        {{CORE unit} {Core unit} {core unit}}
+{CORE unit} {Core unit} {core unit}
+if {$synopsys_program_name == "dc_shell"}  {
+    # Set logical libraries.
+    set_app_var target_library      ${TARGET_LIBRARY_FILES}
+    set_app_var synthetic_library   dw_foundation.sldb
+    
+    if {$OPTIMIZATION_FLOW == "hplp"} {
+        # Enable DesignWare minPower Components.
+        # set_app_var synthetic_library "dw_minpower.sldb dw_foundation.sldb"
+        }
+    
+    set_app_var link_library        "* $target_library $ADDITIONAL_LINK_LIB_FILES $synthetic_library"
+    
+    # Set min libraries.
+    foreach {max_library min_library} $MIN_LIBRARY_FILES {
+        set_min_library $max_library -min_version $min_library
+        }
+    
+    if {[shell_is_in_topographical_mode]} {
+        # Activate the extended layer mode to support 4095 layers.
+        # extend_mw_layers
+    
+        # Create new Milkyway design library if it doesn't already exist.
+        if {![file isdirectory $mw_design_library ]} {
+            create_mw_lib                 $mw_design_library                 -technology             $MW_TECH_FILE                 -mw_reference_library   $mw_reference_library
+            }         else {
+        # If Milkyway design library already exists, ensure that it is
+        # consistent with specified Milkyway reference libraries.
+            set_mw_lib_reference                 $mw_design_library                 -mw_reference_library   $mw_reference_library
+            }
+
+        # Open Milkyway library.
+        open_mw_lib     $mw_design_library
+        check_library > ${REPORT_DIR}/${DCRM_CHECK_LIBRARY_REPORT}
+
+        # Set TLU+ extraction files.
+        set_tlu_plus_files             -max_tluplus    $TLUPLUS_MAX_FILE             -min_tluplus    $TLUPLUS_MIN_FILE             -tech2itf_map   $TLUPLUS_MAP_FILE
+
+        check_tlu_plus_files
+        }
+    
+    # Library Modifications.
+    if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+        puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_FILE}]\n"
+        source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+        }
+    }
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7tbc_ccs.db'
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_LIB
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_LIB
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+-------------------------------------------------------------------------
+
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+	Main Library (systolic_array_LIB) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA45 (260, 260)
+	Upper Layer     METAL5 (90, 90)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+	Main Library (systolic_array_LIB) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA12 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL1 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL6 (90, 90)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+	Main Library (systolic_array_LIB) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA23 (260, 260)  |	VIA12 (260, 260)
+	Lower Layer     METAL2 (60, 10)   |	METAL1 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+	Main Library (systolic_array_LIB) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA34 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL3 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL4 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+	Main Library (systolic_array_LIB) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA34 (260, 260)
+	Lower Layer     METAL4 (60, 10)   |	METAL3 (60, 10)
+	Upper Layer     METAL5 (90, 90)   |	METAL4 (60, 10)	 (MWLIBP-324)
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+ min_tlu+: /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+ mapping_file: /bks2/PB20000328/ic_design/syn/tech/tluplus/star.map_5M
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: systolic_array_LIB
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/syn/script/dc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Design Compiler must be run in topographical mode for SPG flow support.
+if {![shell_is_in_topographical_mode]} {
+    puts "RM-Error: dc_shell must be run in topographical mode for SPG support."
+    exit 1
+    }
+#-----------------------------------------------------------------------------
+# Additional Variables
+#-----------------------------------------------------------------------------
+# Enable inference of multibit registers from the buses defined in the RTL.
+# set_app_var hdlin_infer_multibit default_all
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    set_app_var hdlin_infer_multibit default_all
+    }
+# Enable the support of via resistance for RC estimation to improve the timing 
+# correlation with IC Compiler.
+set_app_var spg_enable_via_resistance_support true
+true
+# Enable library dont_use modification before first compile.
+if {[file exists [which ${LIBRARY_DONT_USE_PRE_COMPILE_LIST}]]} {
+    puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_PRE_COMPILE_LIST}]\n"
+    source -echo -verbose $LIBRARY_DONT_USE_PRE_COMPILE_LIST
+    }
+#-----------------------------------------------------------------------------
+# Setup for Formality Verification
+#-----------------------------------------------------------------------------
+# Enable single pass flow.
+# set_app_var simplified_verification_mode true
+# Define the verification setup file for Formality.
+set_svf ${RESULT_DIR}/${DCRM_SVF_OUTPUT_FILE}
+1
+#-----------------------------------------------------------------------------
+# Setup SAIF Name Mapping Database
+#-----------------------------------------------------------------------------
+# Include an RTL SAIF for better power optimization and analysis.
+# saif_map -start
+#-----------------------------------------------------------------------------
+# Read in the RTL Design
+#-----------------------------------------------------------------------------
+define_design_lib WORK -path ${WORK_DIR}
+1
+# Read the RTL source files.
+analyze -format verilog ${RTL_SOURCE_FILES}
+Running PRESTO HDLC
+Compiling source file ../src/systolic_array/array.v
+Compiling source file ../src/systolic_array/controller.v
+Compiling source file ../src/systolic_array/pe.v
+Compiling source file ../src/systolic_array/shift_buffer.v
+Compiling source file ../src/systolic_array/systolic_array_wrapper_withctl.v
+Compiling source file ../src/lib.v
+Compiling source file ../src/systolic_array.v
+Presto compilation completed successfully.
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb'
+1
+elaborate ${DESIGN_NAME}
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/standard.sldb'
+  Loading link library 'tcb018gbwp7twc_ccs'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'systolic_array'.
+Information: Building the design 'systolic_array_wrapper'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'controller'. (HDL-193)
+
+Inferred memory devices in process
+	in routine controller line 107 in file
+		'../src/systolic_array/controller.v'.
+=========================================================================================
+|         Register Name         |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=========================================================================================
+|    state_compute_pump_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     state_compute_out_reg     | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|       state_overall_reg       | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|       state_load_id_reg       | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+| state_compute_out_counter_reg | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|      state_load_row_reg       | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+=========================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'PEarray'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'shift_buffer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine shift_buffer line 22 in file
+		'../src/systolic_array/shift_buffer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    shift_reg_reg    | Flip-flop |  56   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4'. (HDL-193)
+
+Statistics for case statements in always block at line 48 in file
+	'../src/lib.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            50            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'PE'. (HDL-193)
+
+Inferred memory devices in process
+	in routine PE line 24 in file
+		'../src/systolic_array/pe.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Aij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      Bij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      Cij_o_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux2'. (HDL-193)
+Presto compilation completed successfully.
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+# OR
+# Read an elaborated design from the same release.
+# read_ddc ${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+write -hierarchy -format ddc -output ${RESULT_DIR}/${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing ddc file './result/systolic_array.elab.ddc'.
+1
+#-----------------------------------------------------------------------------
+# Sets the multibit_mode Attribute
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    # Enable mapping to multibit only if the timing is not degraded.
+    set_multibit_options -mode timing_driven
+    }
+#-----------------------------------------------------------------------------
+# Report Pre-Synthesis Congestion Analysis
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hc"} {
+    # Analyze the RTL constructs which may lead to congestion.
+    analyze_rtl_congestion > ${REPORT_DIR}/${DCRM_ANALYZE_RTL_CONGESTION_REPORT_FILE}
+    }
+#-----------------------------------------------------------------------------
+# Apply Logical Design Constraints
+#-----------------------------------------------------------------------------
+# Constrain the design by reading an SDC file.
+if {[file exists [which ${DCRM_SDC_INPUT_FILE}]]} {
+    puts "RM-Info: Reading SDC file [which ${DCRM_SDC_INPUT_FILE}]\n"
+    read_sdc ${DCRM_SDC_INPUT_FILE}
+    }
+Warning: File 'systolic_array.sdc' was not found in search path. (CMD-030)
+# OR
+# Constrain the design by source a Tcl file.
+if {[file exists [which ${DCRM_CONSTRAINTS_INPUT_FILE}]]} {
+    puts "RM-Info: Sourcing script file [which ${DCRM_CONSTRAINTS_INPUT_FILE}]\n"
+    source -echo -verbose ${DCRM_CONSTRAINTS_INPUT_FILE}
+    }
+RM-Info: Sourcing script file /bks2/PB20000328/ic_design/syn/script/systolic_array.constraints.tcl
+
+#-----------------------------------------------------------------------------
+# Variables
+#-----------------------------------------------------------------------------
+set TOP_MODULE              systolic_array
+systolic_array
+set unit                    1
+1
+set jitter                  [expr 0.10*$unit]
+0.1
+set skew                    [expr 0.05*$unit]
+0.05
+set trans                   [expr 0.50*$unit]
+0.5
+set input_delay_percent     0.6
+0.6
+set output_delay_percent    0.6
+0.6
+set operating_condition     WCCOM
+WCCOM
+set DRIVE_CELL              "BUFFD1BWP7T"
+BUFFD1BWP7T
+set DRIVE_PIN               "Z"
+Z
+set PIN_LOAD                [expr 32*[load_of tcb018gbwp7twc_ccs/BUFFD1BWP7T/I]]
+0.10334656
+set PAD_TRANS               0.5
+0.5
+set PAD_LOAD                50
+50
+set INPUT_CLK_LIST          [get_ports clk_p]
+{clk_p}
+set INPUT_RST_LIST          [get_ports rstn_p]
+{rstn_p}
+set CLK_PERIOD              [expr 10*$unit]
+10
+#-----------------------------------------------------------------------------
+# Clocks
+#-----------------------------------------------------------------------------
+# Create clocks.
+create_clock [get_ports clk] -name clk -period $CLK_PERIOD -waveform [list 0 [expr ${CLK_PERIOD}*0.5]]
+Warning: Can't find port 'clk' in design 'systolic_array'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+0
+# Create generated clocks.
+# create_generated_clock -name genclk -source clk -divide_by 2 [get_pins DFF1/genclk]
+# Create clock groups.
+# The command below is equivalent to set_false_path between the clocks.
+# set_clock_groups -logically_exclusive -group {clk1} -group {clk2} -group {clk3}
+#-----------------------------------------------------------------------------
+# Common Settings
+#-----------------------------------------------------------------------------
+set_clock_uncertainty   -setup 0.5 [all_clocks]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+0
+set_max_transition      $trans [list $INPUT_CLK_LIST]
+1
+set_ideal_network       [list $INPUT_CLK_LIST $INPUT_RST_LIST]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_driving_cell        -no_design_rule -lib_cell $DRIVE_CELL -pin $DRIVE_PIN [all_inputs]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_load                $PIN_LOAD [all_outputs]
+1
+# For pads only.
+# set_input_transition    $PAD_TRANS   [$PAD_INPUT]
+# set_load                $PAD_LOAD    [$PAD_OUTPUT]
+#-----------------------------------------------------------------------------
+# Clock Domain: clk
+#-----------------------------------------------------------------------------
+set MCLK_INPUT_LIST     [remove_from_collection [all_inputs] [list $INPUT_CLK_LIST]]
+{rstn_p en_p p_shift_in_A[7] p_shift_in_A[6] p_shift_in_A[5] p_shift_in_A[4] p_shift_in_A[3] p_shift_in_A[2] p_shift_in_A[1] p_shift_in_A[0] p_shift_in_B[7] p_shift_in_B[6] p_shift_in_B[5] p_shift_in_B[4] p_shift_in_B[3] p_shift_in_B[2] p_shift_in_B[1] p_shift_in_B[0]}
+set MCLK_OUTPUT_LIST    [all_outputs]
+{p_shift_out[7] p_shift_out[6] p_shift_out[5] p_shift_out[4] p_shift_out[3] p_shift_out[2] p_shift_out[1] p_shift_out[0] ack_p}
+# External delays.
+set_input_delay  [expr $input_delay_percent  * $CLK_PERIOD] -clock clk [list $MCLK_INPUT_LIST]
+Warning: Can't find clock 'clk' in design 'systolic_array'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+set_output_delay [expr $output_delay_percent * $CLK_PERIOD] -clock clk [list $MCLK_OUTPUT_LIST]
+Warning: Can't find clock 'clk' in design 'systolic_array'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+# Specify external delays for some inputs/outputs here.
+set_input_delay  [expr $input_delay_percent  * 0.5 * $CLK_PERIOD] -clock clk [list k]
+Warning: Can't find clock 'clk' in design 'systolic_array'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Warning: Can't find object 'k' in design 'systolic_array'. (UID-95)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+0
+set_output_delay [expr $output_delay_percent * 0.5 * $CLK_PERIOD] -clock clk [list c]
+Warning: Can't find clock 'clk' in design 'systolic_array'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Warning: Can't find object 'c' in design 'systolic_array'. (UID-95)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+0
+# Timing and constraint exceptions.
+# set_false_path
+# set_max_delay
+# set_min_delay
+# set_data_check
+# set_multicycle_path
+# set_dont_touch
+#-----------------------------------------------------------------------------
+# Common Settings
+#-----------------------------------------------------------------------------
+set operating_condition $operating_condition
+WCCOM
+set_max_area        0
+1
+set_max_fanout      32  $TOP_MODULE
+1
+set_max_transition  0.5 $TOP_MODULE
+1
+set_fix_multiple_port_nets -buffer_constants -all
+1
+set verilogout_show_unconnected_pins    true
+true
+set compile_allow_dw_hierarchical_pins  true
+true
+set verilogout_unconnected_prefix       "SYSNOPSYS_UNCONNECTED"
+SYSNOPSYS_UNCONNECTED
+set register_duplicate                  true
+true
+set_critical_range  0.1 $TOP_MODULE
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_fix_hold            [all_clocks]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Error: Value for list '<clock_list>' must have 1 elements. (CMD-036)
+0
+#-----------------------------------------------------------------------------
+# The End
+#-----------------------------------------------------------------------------
+# Enable analysis and optimization for multiple clocks per register, after
+# removing false interactions between mutually exclusive clocks to prevent
+# unnecessary analysis that can result in a significant runtime increase with
+# this feature enabled.
+# set_clock_groups -physically_exclusive | -logically_exclusive | -asynchronous #                  -group {CLKA, CLKB} -group {CLKC, CLKD} 
+# set_app_var timing_enable_multiple_clocks_per_reg true
+#-----------------------------------------------------------------------------
+# Apply The Operating Conditions
+#-----------------------------------------------------------------------------
+# Set operating condition on top level
+set_operating_conditions -max WCCOM -min BCCOM
+Using operating conditions 'WCCOM' found in library 'tcb018gbwp7twc_ccs'.
+Using operating conditions 'BCCOM' found in library 'tcb018gbwp7tbc_ccs'.
+1
+#-----------------------------------------------------------------------------
+# Create Default Path Groups
+#-----------------------------------------------------------------------------
+# Separating these paths can help improve optimization.
+# Remove these settings if user path groups have already been defined.
+set ports_clock_root [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Can't find clocks matching '*' in design 'systolic_array'. (UID-95)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+group_path -name REGOUT      -to   [all_outputs] 
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+group_path -name REGIN       -from [remove_from_collection [all_inputs] ${ports_clock_root}] 
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+group_path -name FEEDTHROUGH -from [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#-----------------------------------------------------------------------------
+# Clock Gating Setup
+#-----------------------------------------------------------------------------
+# If the design has instantiated clock gates, identify and report them.
+# identify_clock_gating
+# report_clock_gating -multi_stage -nosplit > ${REPORT_DIR}/${DCRM_INSTANTIATE_CLOCK_GATES_REPORT}
+# Prevent clock-gating from optimizing user instantiated clock-gating cells.
+# set_preserve_clock_gate [get_cell <user_clock_gating_cells>]
+# Default clock_gating_style suits most designs. Change only if necessary.
+# set_clock_gating_style -positive_edge_logic {integrated} #                        -negative_edge_logic {integrated} #                        -control_point       before ...
+# Enable global clock gating to extract enable signals across hierarchies
+# which results in fewer redundant clock gates. 
+# set compile_clock_gating_through_hierarchy true 
+# Specifiy clock latency for clock gating cells optionally for better timing
+# optimization of enable logic.
+# set_clock_gate_latency -clock <clock_name> -stage <stage_num> #         -fanout_latency {fanout_range1 latency_val1 fanout_range2 latency_val2 ...}
+# Insert self-gate on clock-gated registers.
+# set_self_gating_options -interaction_with_clock_gating insert
+# Enable physically aware clock gating in Design Compiler Graphical to improve
+# enable timing in high performance designs.
+# set_app_var power_cg_physically_aware_cg true
+#-----------------------------------------------------------------------------
+# Apply Power Optimization Constraints
+#-----------------------------------------------------------------------------
+# Read a SAIF file for power optimization.
+# If a SAIF file is not provided, the default toggle rate of 0.1 will be used
+# for propagating switching activity.
+# read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance <DESIGN_INSTANCE> -verbose
+if {[shell_is_in_topographical_mode]} {
+    # Set the threshold voltage groups in the libraries for multi-Vth design.
+    # set_attribute <my_hvt_lib> default_threshold_voltage_group HVT -type string
+    # set_attribute <my_lvt_lib> default_threshold_voltage_group LVT -type string
+    }
+if {[shell_is_in_topographical_mode]} {
+    # Enable power prediction using clock tree estimation.
+    # set_power_prediction true -ct_references <LIB CELL LIST>
+    }
+#-----------------------------------------------------------------------------
+# Apply Physical Design Constraints
+#-----------------------------------------------------------------------------
+if {[shell_is_in_topographical_mode]} {
+
+    # Optional: Floorplan information can be read in here if available.
+    # This is highly recommended for irregular floorplans.
+    #
+    # Floorplan constraints can be provided from one of the following sources:
+    # * extract_physical_constraints with a DEF file
+    # * read_floorplan with a floorplan file (written by write_floorplan)
+    # * User generated Tcl physical constraints
+
+    # Specify ignored layers for routing to improve correlation.
+    # Use the same ignored layers that will be used during place and route.
+    if {${MIN_ROUTING_LAYER} != ""} {
+        set_ignored_layers -min_routing_layer ${MIN_ROUTING_LAYER}
+        }
+    if { ${MAX_ROUTING_LAYER} != ""} {
+        set_ignored_layers -max_routing_layer ${MAX_ROUTING_LAYER}
+        }
+
+    report_ignored_layers
+
+    # If the macro names change after mapping and writing out the design due
+    # to ungrouping or Verilog change_names renaming, it may be necessary to
+    # translate the names to correspond to the cell names before compile.
+
+    # During DEF constraint extraction, extract_physical_constraints command
+    # automatically matches DEF names back to precompile names in memory using
+    # standard matching rules. read_floorplan command will also automatically
+    # perform this name matching.
+
+    # Modify set_query_rules if other characters are used for hierarchy
+    # separators or bus names. 
+    # set_query_rules -hierarchical_separators {/ _ .}     #                 -bus_name_notations {[] __ ()}       #                 -class {cell pin port net}           #                 -wildcard                            #                 -regsub_cumulative                   #                 -show
+
+    # For DEF file input
+
+    # The DEF file for Design Compiler Topographical can be written from ICC
+    # using the following recommended options:
+    # icc_shell> write_def -version 5.7 -rows_tracks_gcells -fixed -pins -blockages -specialnets     #                      -vias -regions_groups -verbose -output ${DCRM_DCT_DEF_INPUT_FILE}
+
+    if {[file exists [which ${DCRM_DCT_DEF_INPUT_FILE}]]} {
+
+        puts "RM-Info: Reading in DEF file [which ${DCRM_DCT_DEF_INPUT_FILE}]\n"
+        extract_physical_constraints ${DCRM_DCT_DEF_INPUT_FILE}
+        if {$OPTIMIZATION_FLOW == "hplp"} {
+            # Include the physical only cells as a part of the floorplan in
+            # Design Compiler to improve correlation.
+            extract_physical_constraints -allow_physical_cells ${DCRM_DCT_DEF_INPUT_FILE}  
+            }
+        }
+ 
+    # OR
+
+    # For floorplan file input
+
+    # The floorplan file for Design Compiler Topographical can be written from
+    # ICC using the following recommended options:
+    # icc_shell> write_floorplan -placement {io terminal hard_macro soft_macro} -create_terminal     #                            -row -create_bound -preroute -track ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+
+    # Read the secondary floorplan file, previously written by write_floorplan
+    # in Design Compiler, to restore physical-only objects back to the design,
+    # before reading the main floorplan file.
+    if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]]} {
+        puts "RM-Info: Reading in secondary floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]\n"
+        read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects
+        }
+
+    # Read the main floorplan file.
+    if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]]} {
+        puts "RM-Info: Reading in floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]\n"
+        read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+        }
+
+    # OR
+
+    # For Tcl file input
+
+    # For Tcl constraints, the name matching feature must be explicitly enabled
+    # and will also use the set_query_rules settings. This should be turned off
+    # after the constraint read in order to minimize runtime.
+    if {[file exists [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]]} {
+        set_app_var enable_rule_based_query true
+        puts "RM-Info: Sourcing script file [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]\n"
+        source -echo -verbose ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}
+        set_app_var enable_rule_based_query false 
+        }
+
+    # Save the applied floorplan.
+    write_floorplan -all ${RESULT_DIR}/${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}
+
+    # Verify that all the desired physical constraints have been applied.
+    report_physical_constraints > ${REPORT_DIR}/${DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT}
+    }
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t. (PSYN-878)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /bks2/PB20000328/ic_design/syn/systolic_array.db, etc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Information: No preferred routing direction is found for design layer METAL1. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer METAL2. Automatically deriving direction V. (DCT-035)
+Information: No preferred routing direction is found for design layer METAL3. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer METAL4. Automatically deriving direction V. (DCT-035)
+Information: No preferred routing direction is found for design layer METAL5. Automatically deriving direction H. (DCT-035)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: setting METAL5 as ignored_layer due to min_max layer setting. (PSYN-178)
+Information: setting METAL4 as max routing layer.  (PSYN-179)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Ignored layers in congestion analysis and RC estimation: METAL5 
+
+Min_routing_layer: METAL1
+Max_routing_layer: METAL4
+Warning: File 'systolic_array.def' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.fp.objects' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.fp' was not found in search path. (CMD-030)
+Warning: File 'systolic_array.physical_constraints.tcl' was not found in search path. (CMD-030)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#-----------------------------------------------------------------------------
+# Apply Additional Optimization Constraints
+#-----------------------------------------------------------------------------
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+#-----------------------------------------------------------------------------
+# Snapshot the Environment
+#-----------------------------------------------------------------------------
+# Save the compile environment snapshot for the Consistency Checker utility.
+# This utility checks for inconsistent settings between Design Compiler and
+# IC Compiler which can contribute to correlation mismatches.
+# See the following SolvNet article for complete details:
+# https://solvnet.synopsys.com/retrieve/026366.html
+# write_environment -consistency -output ${REPORT_DIR}/${DCRM_CONSISTENCY_CHECK_ENV_FILE}
+#-----------------------------------------------------------------------------
+# Check for Design Problems 
+#-----------------------------------------------------------------------------
+# Check the current design for consistency.
+check_design -summary
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Tue Dec 20 20:50:05 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Multiply driven inputs (LINT-6)                                19
+    Shorted outputs (LINT-31)                                       5
+
+Cells                                                              42
+    Cells do not drive (LINT-1)                                     6
+    Connected to power or ground (LINT-32)                         32
+    Nets connected to multiple pins on same cell (LINT-33)          4
+
+Nets                                                                2
+    Multiply driven net with constant driver (LINT-54)              2
+
+Tristate                                                           11
+    A tristate bus has a non tri-state driver (LINT-34)            11
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > ${REPORT_DIR}/${DCRM_CHECK_DESIGN_REPORT}
+# Report datapath extraction analysis.
+# analyze_datapath_extraction > ${REPORT_DIR}/${DCRM_ANALYZE_DATAPATH_EXTRACTION_REPORT}
+#-----------------------------------------------------------------------------
+# Report Multibit Register before Compile
+#-----------------------------------------------------------------------------
+# Verify that the desired bussed registers are grouped as multibit components.
+# redirect ${REPORT_DIR}/${DCRM_MULTIBIT_COMPONENTS_REPORT} {report_multibit -hierarchical }
+#-----------------------------------------------------------------------------
+# Compile Options
+#-----------------------------------------------------------------------------
+# Recommended Options:
+#     -scan
+#     -gate_clock (-self_gating)
+#     -retime
+#     -spg
+#
+# Use compile_ultra as the starting point.
+#
+# Use -scan option with the first compile and any subsequent compiles for
+# test-ready compile.
+#
+# Use -gate_clock to insert clock-gating logic during optimization. This
+# is now the recommended methodology for clock gating.
+#
+# Use -self_gating option in addition to -gate_clock for potentially saving 
+# additional dynamic power, in topographical mode only. Registers that are not
+# clock gated will be considered for XOR self gating. XOR self gating should
+# be performed along with clock gating, using -gate_clock and -self_gating
+# options. XOR self gates will be inserted only if there is potential power
+# saving without degrading the timing.
+# 
+# An accurate switching activity annotation either by reading in a SAIF file
+# or through set_switching_activity command is recommended. 
+# Use "set_self_gating_options" command to specify self-gating options.
+#
+# Use -retime to enable adaptive retiming optimization for further timing
+# benefit.
+#
+# Use the -spg option to enable Design Compiler Graphical physical guidance
+# flow. The physical guidance flow improves QoR, area and timing correlation,
+# and congestion. It also improves place_opt runtime in IC Compiler.
+#
+# In addition to -spg option, the support of via resistance for RC estimation
+# can be enabled to improve the timing correlation with IC Compiler by using
+# the following setting.
+# set_app_var spg_enable_via_resistance_support true
+#
+# The congestion optimization on parts of the design can be enabled or
+# disabled by using the set_congestion_optimization command.
+#
+# The constant propagation is enabled when boundary optimization is disabled.
+# The following command can stop constant propagation.
+# set_compile_directives -constant_propagation false <object_list>
+#
+# Layer optimization is on by default in Design Compiler Graphical, to 
+# improve the the accuracy of certain net delay during optimization.
+# To disable the the automatic layer optimization you can use the 
+# -no_auto_layer_optimization option.
+#-----------------------------------------------------------------------------
+# RM+ Variable and Command Settings before First Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Run additional optimizations to improve the timing of the design at
+        # the cost of additional run time.
+        set_app_var compile_timing_high_effort          true
+
+        # Enable a mode of coarse placement in which cells are not distributed
+        # evenly across the surface but are allowed to clump together for
+        # better QoR.
+        set_app_var placer_max_cell_density_threshold   0.75        
+
+        # Enable very high effort optimization to fix total negative slack but
+        # may affect run time.
+        set_app_var psynopt_tns_high_effort             true
+
+        # Enable the physically aware clock gating.
+        set_app_var power_cg_physically_aware_cg        true
+        
+        # Reduce the total negative slack of the design.
+        set_app_var placer_tns_driven                   true
+
+        # Enable low power placement.  
+        # Low power placement affects the placement of cells, pulls them
+        # closer together, on nets with high switching activity to reduce the
+        # overall dynamic power of your design.  
+        set_app_var power_low_power_placement           true
+
+        # Enable dynamic-power optimization.
+        set_dynamic_optimization                        true
+        # In MCMM flow, use the following command.
+        # set_scenario_options -dynamic_power true
+        
+        # Enable register replication across the hierarchy by creating new
+        # ports on the instances of the subdesigns if it is necessary to
+        # improve the timing of the design.
+        set_app_var compile_register_replication_across_hierarchy   true 
+        }
+    }
+if {$OPTIMIZATION_FLOW == "hc"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Enable congestion aware global buffering based on Zroute-based
+        # estimation on macro intensive designs with narrow channels, reducing
+        # congestion along narrow channels across macros.
+        # Enabling this feature may have runtime and QOR impact.
+        # set_ahfs_options -global_route true
+
+        # Enable Zroute-based congestion-driven placement instead of virtual
+        # route based estimation for highly congested designs.
+        # Enabling this feature may have runtime impact.
+        # set_app_var placer_congestion_effort medium
+        # set_app_var placer_enable_enhanced_router true
+
+        # Enable lower congestion for designs that have congestion due to
+        # multiplexing logic in the RTL. This variable is supported only in
+        # the initial compile step, not supported in incremental compile.
+        set_app_var compile_prefer_mux  true
+        }
+    }
+if {$OPTIMIZATION_FLOW == "rtm_exp"} {
+    if {[shell_is_in_topographical_mode]} {
+        set_host_options -max_cores 8
+
+        # Override runtime-intensive user settings with settings designed to
+        # improve runtime. Since the run time intensive optimizations are
+        # turned off it might impact QoR. This can be used as an exploration
+        # flow when run time is a concern.
+        compile_prefer_runtime
+        }
+    }
+if {[shell_is_in_topographical_mode]} {
+    # Use the "-check_only" option to verify that the libraries and design
+    # are complete and that optimization will not fail in topographical mode.
+    # Use the same options as will be used in compile_ultra.
+    # compile_ultra -spg -check_only
+    }
+#-----------------------------------------------------------------------------
+# Compile the Design
+#-----------------------------------------------------------------------------
+compile_ultra -spg
+Warning: Congestion optimization is enabled as part of the physical guidance flow. (OPT-1445)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+TLU+ File = /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+TLU+ File = /bks2/PB20000328/ic_design/syn/tech/tluplus/t018lo_1p5m_typical.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+Information: Core area not specified, which can cause correlation issues with IC Compiler. (DCT-041)
+Warning: '28' ports are missing location, compile_ultra will automatically assign a location for these ports. For more details run compile_ultra -check_only -spg. (SPG-013)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.5 |     *     |
+| Licensed DW Building Blocks        | L-2016.03-DWBB_201603.5 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 79 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 8 instances of design 'shift_buffer'. (OPT-1056)
+Information: Uniquified 16 instances of design 'PE'. (OPT-1056)
+Information: Uniquified 16 instances of design 'mux2'. (OPT-1056)
+  Simplifying Design 'systolic_array'
+
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Loaded alib file './tech/alib/alib-52/tcb018gbwp7twc_ccs.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy SA/ctrl before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/A_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/B_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/B_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/B_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/B_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/A_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/A_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/A_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/outputmux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_0/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_3/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_2/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_1/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_3_0/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_3/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_2/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_1/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_2_0/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_3/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_2/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_1/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_1_0/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_3/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_2/mux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SA/core/pe_0_1/mux before Pass 1 (OPT-776)
+Information: Ungrouping 43 of 45 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'systolic_array_wrapper'
+Information: Added key list 'DesignWare' to design 'systolic_array_wrapper'. (DDB-72)
+ Implement Synthetic for 'systolic_array_wrapper'.
+  Processing 'systolic_array'
+Memory usage for J1 task 663 Mbytes -- main task 663 Mbytes.
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIELBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEHBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:31   82096.1      0.00       0.0     814.3                           1847.0349
+    0:00:31   82096.1      0.00       0.0     814.3                           1847.0349
+    0:00:31   82096.1      0.00       0.0     814.3                           1847.0349
+    0:00:31   82096.1      0.00       0.0     814.3                           1847.0349
+  Loading design 'systolic_array'
+Information: The library cell 'TIELBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEHBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+
+...25%...50%...75%...100% done.
+
+
+ Collecting Buffer Trees ... Found 412
+
+ Processing Buffer Trees ... 
+
+    [42]  10% ...
+    [84]  20% ...
+    [126]  30% ...
+    [168]  40% ...
+    [210]  50% ...
+    [252]  60% ...
+    [294]  70% ...
+    [336]  80% ...
+    [378]  90% ...
+    [412] 100% Done ...
+
+
+Information: Automatic high-fanout synthesis deletes 370 cells. (HFS-802)
+Information: Automatic high-fanout synthesis adds 294 new cells. (PSYN-864)
+
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+Information: Critical range constraint is used for TNS optimization. (PSYN-308)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:37   82460.5      0.00       0.0     825.1                           1847.9340
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:37   82460.5      0.00       0.0     825.1                           1847.9340
+    0:00:38   85759.9      0.00       0.0     779.8                           1926.7013
+Warning: Circuit has no valid timing end points. (PSYN-415)
+Warning: Circuit has no valid timing end points. (PSYN-415)
+...20%...40%...60%...80%...100% done.
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+Information: Critical range constraint is used for TNS optimization. (PSYN-308)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:40   85759.9      0.00       0.0     784.7                           1926.7013
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:40   85759.9      0.00       0.0     784.7                           1926.7013
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:00:58   89641.0      0.00       0.0     791.1                           1985.8488
+    0:00:58   89641.0      0.00       0.0     791.1                           1985.8488
+    0:00:58   89641.0      0.00       0.0     791.1                           1985.8488
+    0:00:58   89641.0      0.00       0.0     791.1                           1985.8488
+    0:01:02   89641.0      0.00       0.0     791.1                           1985.8488
+    0:01:02   89469.8      0.00       0.0     819.5                           1955.3160
+    0:01:03   89469.8      0.00       0.0     819.5                           1955.3160
+    0:01:03   89469.8      0.00       0.0     819.5                           1955.3160
+    0:01:03   89469.8      0.00       0.0     819.5                           1955.3160
+    0:01:03   89469.8      0.00       0.0     819.5                           1955.3160
+Information: Automatic layer optimization disabled because layer resistance variation is not significant enough.  (OPT-1472)
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:04   89469.8      0.00       0.0     819.5                           1955.3160
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated black box outputs. (PWR-428)
+1
+#-----------------------------------------------------------------------------
+# Placement Aware Multibit Banking
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Use placement aware multibit banking to group single-bit register
+        # cells that are physically near each other into a multibit registers.
+        # This has to be done before DFT insertion in Design Compiler.
+        # identify_register_banks -output ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        # redirect ${REPORT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_REPORT} {source -echo -verbose ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}}
+        }
+    }
+#-----------------------------------------------------------------------------
+# RM+ Variable and Command Settings before Incremental Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    if {[shell_is_in_topographical_mode]} {
+        # Use placement aware multibit banking to group single-bit register
+        # cells that are physically near each other into a multibit registers.
+        identify_register_banks -output ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        source -echo -verbose ${RESULT_DIR}/${DCRM_MULTIBIT_CREATE_REGISTER_BANK_FILE}
+        }
+    }
+if {$OPTIMIZATION_FLOW == "hplp"} {
+    # Creating path groups to reduce TNS.
+    create_auto_path_groups -mode mapped
+    }
+if {(${OPTIMIZATION_FLOW} == "hc") || (${OPTIMIZATION_FLOW} == "hplp")} {
+    if {[shell_is_in_topographical_mode]} {
+        # Enable congestion-driven placement in incremental compile to improve
+        # congestion while preserving quality of results.
+        set_app_var spg_congestion_placement_in_incremental_compile true
+        }
+    }
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # Enable library dont_use modification before incremental compile.
+    if {[file exists [which ${LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST}]]} {
+        puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST}]\n"
+        source -echo -verbose $LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST
+        }
+    }
+#-----------------------------------------------------------------------------
+# Incremental Compile
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # Incremental compile is required if the netlist and/or constraints are
+    # changed after first compile, for example, DFT insertion, placement aware
+    # multibit banking etc. Incremental compile is also recommended for final
+    # QoR signoff as well.
+    compile_ultra -incremental -spg
+    }
+Warning: Congestion optimization is enabled as part of the physical guidance flow. (OPT-1445)
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Core area not specified, which can cause correlation issues with IC Compiler. (DCT-041)
+Warning: '28' ports are missing location, compile_ultra will automatically assign a location for these ports. For more details run compile_ultra -check_only -spg. (SPG-013)
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 32 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Loaded alib file './tech/alib/alib-52/tcb018gbwp7twc_ccs.db.alib'
+Information: State dependent leakage is now switched from on to off.
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIELBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEHBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+  Loading design 'systolic_array'
+Information: The library cell 'TIELBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEHBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+
+
+
+ Collecting Buffer Trees ... Found 300
+
+ Processing Buffer Trees ... 
+
+    [30]  10% ...
+    [60]  20% ...
+    [90]  30% ...
+    [120]  40% ...
+    [150]  50% ...
+    [180]  60% ...
+    [210]  70% ...
+    [240]  80% ...
+    [270]  90% ...
+    [300] 100% ...
+    [300] 100% Done ...
+
+
+Information: Automatic high-fanout synthesis deletes 0 cells. (HFS-802)
+Information: Automatic high-fanout synthesis adds 6 new cells. (PSYN-864)
+
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+Information: Critical range constraint is used for TNS optimization. (PSYN-308)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:12   89636.6      0.00       0.0     805.3                           1959.4115
+    0:00:16   89636.6      0.00       0.0     805.3                           1959.4115
+    0:00:16   89601.5      0.00       0.0     819.4                           1957.6783
+    0:00:24   90980.1      0.00       0.0     752.1                           2009.8313
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:24   90980.1      0.00       0.0     752.1                           2009.8313
+Warning: Circuit has no valid timing end points. (PSYN-415)
+40%...60%...80%...100% done.
+    0:00:26   90982.3      0.00       0.0     752.3                           2015.4796
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:26   90982.3      0.00       0.0     752.3                           2015.4796
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:00:30   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:30   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:39   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:39   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:39   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:39   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+    0:00:43   90453.2      0.00       0.0     792.1                           1986.4149
+Information: Automatic layer optimization disabled because layer resistance variation is not significant enough.  (OPT-1472)
+    0:00:44   89087.8      0.00       0.0     790.2                           1961.9363
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+
+
+  Beginning High Effort Optimization Phase
+  ----------------------------------------
+
+
+  Beginning Timing Optimization
+  -----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+    0:00:45   89070.2      0.00       0.0     790.0                           1960.6821
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+    0:00:46   88872.7      0.00       0.0     789.7                           1957.1384
+
+
+  High Effort Optimization Phase Complete
+  ---------------------------------------
+
+
+  Beginning Buftree Cleanup
+  -------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:50   88872.7      0.00       0.0     789.8                           1957.1384
+    0:00:50   88872.7      0.00       0.0     789.8                           1957.1384
+    0:00:54   88872.7      0.00       0.0     789.8                           1957.1384
+    0:00:54   88872.7      0.00       0.0     789.8                           1957.1384
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+    0:00:54   88872.7      0.00       0.0     789.8                           1957.1384
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Building the design 'PDDW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDUW0208SCDG'. (HDL-193)
+Warning: Cannot find the design 'PDUW0208SCDG' in the library 'WORK'. (LBR-1)
+Information: Building the design 'PDDW0208CDG'. (HDL-193)
+Warning: Cannot find the design 'PDDW0208CDG' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'PDDW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDUW0208SCDG' in 'systolic_array'. (LINK-5)
+Warning: Unable to resolve reference 'PDDW0208CDG' in 'systolic_array'. (LINK-5)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated black box outputs. (PWR-428)
+1
+if {$OPTIMIZATION_FLOW == "hplp" } {
+    # Remove the path groups generated by create_path_groups command. 
+    # This does not remove user created path groups
+    remove_auto_path_groups
+    }
+if {$OPTIMIZATION_FLOW != "rtm_exp"} {
+    # High-effort area optimization to improve area of gate-level netlists
+    # without degrading timing or leakage. 
+    optimize_netlist -area
+    }
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Core area not specified, which can cause correlation issues with IC Compiler. (DCT-041)
+Warning: '28' ports are missing location, compile_ultra will automatically assign a location for these ports. For more details run compile_ultra -check_only -spg. (SPG-013)
+
+Information: There are 32 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loaded alib file './tech/alib/alib-52/tcb018gbwp7twc_ccs.db.alib'
+  Loading design 'systolic_array'
+Information: The library cell 'TIELBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEHBWP7T' in the library 'tcb018gbwp7twc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:09   88872.7      0.00       0.0     789.8                           1957.1384
+
+
+  Beginning Area Optimization
+  -----------------------------
+    0:00:16   82561.5      0.00       0.0     788.5                           1890.3074
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:16   82561.5      0.00       0.0     788.5                           1890.3074
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/syn/tech/lib/tcb018gbwp7twc_ccs.db'
+1
+#-----------------------------------------------------------------------------
+# Write Out Final Design
+#-----------------------------------------------------------------------------
+#     .ddc: Recommended binary format for subsequent Design Compiler sessions
+# Milkyway: Recommended binary format for IC Compiler
+#       .v: Verilog netlist for ASCII flow (Formality, PrimeTime, VCS)
+#    .spef: Topographical mode parasitics for PrimeTime
+#     .sdf: SDF backannotated topographical mode timing for PrimeTime
+#     .sdc: SDC constraints for ASCII flow
+change_names -rules verilog -hierarchy
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+# Write out design.
+write_icc2_files          -force -output ${RESULT_DIR}/${DCRM_FINAL_DESIGN_ICC2}
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Memory usage for J2 task 663 Mbytes -- main task 663 Mbytes.
+Memory usage for J3 task 663 Mbytes -- main task 663 Mbytes.
+Memory usage for J4 task 663 Mbytes -- main task 663 Mbytes.
+Memory usage for J5 task 663 Mbytes -- main task 663 Mbytes.
+Memory usage for J6 task 663 Mbytes -- main task 663 Mbytes.
+Information: During the execution of write_icc2_files error messages were issued, please check ./result/ICC2_files/write_icc2_files.log files. (DCT-228)
+1
+write -format verilog -hierarchy -output ${RESULT_DIR}/${DCRM_FINAL_VERILOG_OUTPUT_FILE}
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.v'.
+1
+write -format ddc     -hierarchy -output ${RESULT_DIR}/${DCRM_FINAL_DDC_OUTPUT_FILE}
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing ddc file './result/systolic_array.mapped.ddc'.
+1
+# Write and close SVF file and make it available for immediate use.
+set_svf -off
+1
+# Write out design data.
+if {[shell_is_in_topographical_mode]} {
+    # Write a Tcl script that contains detailed floorplanning information. A
+    # secondary floorplan file might also be written to capture physical-only
+    # objects in the design.
+    write_floorplan -all ${RESULT_DIR}/${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}
+
+    # Create the standard cell physical guidance to support SPG ASCII hand-off
+    # to IC Compiler.
+    if {[info exists DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE]} {
+        write_def -components -output ${RESULT_DIR}/${DCRM_DCT_SPG_PLACEMENT_OUTPUT_FILE}
+        }
+
+    # Write parasitics data from DC Topographical placement for STA. 
+    write_parasitics -output ${RESULT_DIR}/${DCRM_DCT_FINAL_SPEF_OUTPUT_FILE}
+
+    # Write SDF backannotation data from DC Topographical placement for STA.
+    write_sdf ${RESULT_DIR}/${DCRM_DCT_FINAL_SDF_OUTPUT_FILE}
+
+    # Do not write out net RC info into SDC.
+    set_app_var write_sdc_output_lumped_net_capacitance false
+    set_app_var write_sdc_output_net_resistance         false
+    }
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Information: Writing COMPONENTS section (DDEFW-014)
+Information: Completed COMPONENTS section  (DDEFW-016)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Writing parasitics to file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.spef'. (WP-3)
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/bks2/PB20000328/ic_design/syn/result/systolic_array.mapped.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+Warning: Design contains black-box components.  These cells will have no timing information. (WT-7)
+false
+# Write SDC file.
+write_sdc -nosplit ${RESULT_DIR}/${DCRM_FINAL_SDC_OUTPUT_FILE}
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+# If SAIF is used, write out SAIF name mapping file for PrimeTime-PX.
+# saif_map -type ptpx -write_map ${RESULT_DIR}/${DESIGN_NAME}.mapped.SAIF.namemap
+#-----------------------------------------------------------------------------
+# Generate Final Reports
+#-----------------------------------------------------------------------------
+if {$OPTIMIZATION_FLOW == "rtm_exp"} {
+    set_host_options -max_cores 8
+    update_timing
+
+    parallel_execute [list         "report_qor > ${REPORT_DIR}/${DCRM_FINAL_QOR_REPORT}"         "report_timing -transition_time -nets -attributes -nosplit > ${REPORT_DIR}/${DCRM_FINAL_TIMING_REPORT}"         "report_area -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}"         "report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}"         ]
+    } else {
+    report_qor > ${REPORT_DIR}/${DCRM_FINAL_QOR_REPORT}
+    report_timing -transition_time -nets -attributes -nosplit > ${REPORT_DIR}/${DCRM_FINAL_TIMING_REPORT}
+
+    if {[shell_is_in_topographical_mode]} {
+        report_area -physical -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}
+        }     else {
+        report_area -nosplit > ${REPORT_DIR}/${DCRM_FINAL_AREA_REPORT}
+        }
+
+    report_area      -designware > ${REPORT_DIR}/${DCRM_FINAL_DESIGNWARE_AREA_REPORT}
+    report_resources -hierarchy  > ${REPORT_DIR}/${DCRM_FINAL_RESOURCES_REPORT}
+    # report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+    }
+# Create a QoR snapshot of timing, physical, constraints, clock, power data,
+# and routing on active scenarios and stores it in the location specified by
+# the icc_snapshot_storage_location variable. 
+if {[shell_is_in_topographical_mode]} {
+    set icc_snapshot_storage_location ${REPORT_DIR}/${DCRM_DCT_FINAL_QOR_SNAPSHOT_FOLDER}
+    create_qor_snapshot -name ${DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT} > ${REPORT_DIR}/${DCRM_DCT_FINAL_QOR_SNAPSHOT_REPORT}
+    }
+# Report all the multibit registers and the banking ratio in the design.
+# redirect ${REPORT_DIR}/${DCRM_MULTIBIT_BANKING_REPORT} {report_multibit_banking -nosplit }
+# Use SAIF file for power analysis.
+# read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance < DESIGN_INSTANCE > -verbose
+report_power -nosplit > ${REPORT_DIR}/${DCRM_FINAL_POWER_REPORT}
+# report_clock_gating -nosplit > ${REPORT_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+# Report the XOR self gating information if the -self_gating is included in
+# the compile_ultra command.
+# report_self_gating  -nosplit > ${REPORT_DIR}/${DCRM_FINAL_SELF_GATING_REPORT}
+# Report the number, area, and  percentage of cells for each threshold voltage
+# group in the design.
+# report_threshold_voltage_group -nosplit > ${REPORT_DIR}/${DCRM_THRESHOLD_VOLTAGE_GROUP_REPORT}
+if {[shell_is_in_topographical_mode]} {
+    # Use Zroute for estimating and reporting routing related congestion which
+    # improves the congestion correlation with IC Compiler. DC Topographical
+    # supports create_route_guide command to be consistent with IC Compiler
+    # after topographical mode synthesis.
+    report_congestion > ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_REPORT}
+
+    # Generate and write out a congestion map from batch mode. This requires
+    # a GUI session to be temporarily opened and closed.
+    if {[info exists env(DISPLAY)]} {
+        gui_start
+
+        # Create a layout window.
+        set MyLayout [gui_create_window -type LayoutWindow]
+
+        # Build congestion map in case report_congestion was not previously run.
+        report_congestion -build_map
+
+        # Display congestion map in layout window.
+        gui_show_map -map "Global Route Congestion" -show true
+
+        # Zoom full to display complete floorplan.
+        gui_zoom -window [gui_get_current_window -view] -full
+
+        # Save the congestion map only without the legends.
+        gui_write_window_image -format png -file ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE}
+
+        # Save the entire congestion map layout window with the legends.
+        gui_write_window_image -window ${MyLayout} -format png -file ${REPORT_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE}
+
+        gui_stop
+        }     else {
+        puts "Information: The DISPLAY environment variable is not set. Congestion map generation has been skipped."
+        }
+    }
+Current design is 'systolic_array'.
+Information: Base Cell (com): cell CKXOR2D1BWP7T, w=5040, h=3920 (npin=3)
+Information: Base Cell (seq): cell DFKSND2BWP7T, w=15120, h=3920 (npin=4)
+Information: Generating dummy physical description for cell PDDW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDUW0208SCDG. The generated physical library cell has height 3.920000 and width 10.080000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDUW0208SCDG. (OPT-1413)
+Information: Generating dummy physical description for cell PDDW0208CDG. The generated physical library cell has height 3.920000 and width 11.760000. (PSYN-420)
+Warning: Created physical library cell for logical library cell PDDW0208CDG. (OPT-1413)
+Current design is 'systolic_array'.
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Reporting congestion information from cached data. (DCT-246)
+Updating preference file: /bks2/PB20000328/.synopsys_dv_prefs.tcl
+To restart the GUI, type 'gui_start'.
+#-----------------------------------------------------------------------------
+# Write out Milkyway Design for Top-Down Flow
+#-----------------------------------------------------------------------------
+if {[shell_is_in_topographical_mode]} {
+    write_milkyway -overwrite -output ${DCRM_FINAL_MW_CEL_NAME}
+    }
+Warning: Design 'systolic_array' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Error: Can not create instance master 'PDDW0208SCDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDUW0208SCDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Can not create instance master 'PDDW0208CDG' in FRAM view. (MWDC-001)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_clk'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_rst_n'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_16'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_15'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_14'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_13'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_12'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_11'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_10'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_9'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_in_8'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_7'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_6'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_5'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_4'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_3'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_2'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_1'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_0'. (MWDC-005)
+Error: Cannot find instance in CEL view 'u_pad_data_out_8'. (MWDC-005)
+1
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/syn/script/dc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#exit
+dc_shell-topo> 
