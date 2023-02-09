@@ -1,0 +1,4 @@
+.INCLUDE "/bks2/PB20000328/ic_design/check/lvs/source.added"
+.INCLUDE "/bks2/PB20000328/ic_design/check/lvs/systolic_array.source.sp"
+.INCLUDE "/bks2/PB20000328/ic_design/check/lvs/tcb018gbwp7t_270a.spi"
+.INCLUDE "/bks2/PB20000328/ic_design/check/lvs/tpd018bcdnv5_3.spi"

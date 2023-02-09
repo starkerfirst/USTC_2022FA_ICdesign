@@ -1,0 +1,416 @@
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_icc_prefs.tcl
+icc_shell> gui_start
+Information: Visibility is turned ON for cells and cell contents because the task is set to Block Implementation (GUI-026)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA45 (260, 260)
+        Upper Layer     METAL5 (90, 90)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA12 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL1 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA23 (260, 260)  |     VIA12 (260, 260)
+        Lower Layer     METAL2 (60, 10)   |     METAL1 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA34 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL3 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL4 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA34 (260, 260)
+        Lower Layer     METAL4 (60, 10)   |     METAL3 (60, 10)
+        Upper Layer     METAL5 (90, 90)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA45 (260, 260)
+        Upper Layer     METAL5 (90, 90)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA12 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL1 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA23 (260, 260)  |     VIA12 (260, 260)
+        Lower Layer     METAL2 (60, 10)   |     METAL1 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA34 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL3 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL4 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA34 (260, 260)
+        Lower Layer     METAL4 (60, 10)   |     METAL3 (60, 10)
+        Upper Layer     METAL5 (90, 90)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA45 (260, 260)
+        Upper Layer     METAL5 (90, 90)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA12 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL1 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA23 (260, 260)  |     VIA12 (260, 260)
+        Lower Layer     METAL2 (60, 10)   |     METAL1 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA34 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL3 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL4 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA34 (260, 260)
+        Lower Layer     METAL4 (60, 10)   |     METAL3 (60, 10)
+        Upper Layer     METAL5 (90, 90)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+icc_shell> open_mw_lib /bks2/PB20000328/ic_design/milkyway/systolic_array_APR
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA45 (260, 260)
+        Upper Layer     METAL5 (90, 90)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA12 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL1 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA23 (260, 260)  |     VIA12 (260, 260)
+        Lower Layer     METAL2 (60, 10)   |     METAL1 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA34 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL3 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL4 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA34 (260, 260)
+        Lower Layer     METAL4 (60, 10)   |     METAL3 (60, 10)
+        Upper Layer     METAL5 (90, 90)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+icc_shell> ::iccGUI::open_mw_cel  outputs_icc
+icc_shell> open_mw_cel outputs_icc
+Warning: No valid link library found; check the link_library variable. (IFS-008)
+Information: Opened "outputs_icc.CEL;2" from "/bks2/PB20000328/ic_design/milkyway/systolic_array_APR" library. (MWUI-068)
+icc_shell> 
+Preparing data for query................... 
+icc_shell> 
+Preparing data for query................... 
+icc_shell> start_gui
+Preparing data for query................... 
+icc_shell> verify_lvs -max_error 50 -use_notch_gap_fill_cell -check_single_pin_net_for_floating_port -check_single_pin_net_for_floating_net -check_floating_port_on_null_net -check_open_locator -check_short_locator -ignore_metal_without_net_name -check_child_blockage
+
+-- LVS START : --
+** Total SHORT Nets are 0.
+
+-- LVS END : --
+Elapsed =    0:00:01, CPU =    0:00:00
+
+-- LVS START : --
+
+** Total SHORT FRAM blockages are 0.
+Total area error in layer 0 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 1 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 2 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 3 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 4 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 5 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 6 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 7 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 8 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 9 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 10 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 11 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 12 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 13 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 14 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+Total area error in layer 15 is 0.  Elapsed =    0:00:01, CPU =    0:00:01
+** Total Floating ports are 0.
+** Total Floating Nets are 39.
+** Total OPEN Nets are 0.
+** Total Electrical Equivalent Error are 0.
+** Total Must Joint Error are 0.
+
+-- LVS END : --
+Elapsed =    0:00:01, CPU =    0:00:01
+Update error cell ...
+1
+icc_shell> 
+Information: Opened "outputs_icc_lvs.err;1" from "/bks2/PB20000328/ic_design/milkyway/systolic_array_APR" library. (MWUI-068)
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -start RulerTool
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -reset
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -abort
+icc_shell> exit
+
+Memory usage for main task 205 Mbytes.
+Memory usage for this session 205 Mbytes.
+CPU usage for this session 23 seconds ( 0.01 hours ).
+
+Thank you...
+

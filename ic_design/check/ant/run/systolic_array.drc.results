@@ -1,0 +1,544 @@
+systolic_array 1000
+A.R.1.POLY
+0 0 6 Feb  9 23:11:24 2023                     
+A.R.1.POLY { @ (Poly perim*thickness / gate area) > 200 
+  NET AREA RATIO POLYi GATE > 200
+    [
+      PERIMETER(POLYi)*0.2/AREA(GATE)
+    ] RDB A.R.1.POLYi.rep POLYi GATE
+}
+A.R.4.CO
+0 0 7 Feb  9 23:11:24 2023                     
+A.R.4.CO { @ (contact area / gate area) > 10 
+  CO_POLYi = COi AND POLYi
+  NET AREA RATIO POLYi CO_POLYi GATE > 10   // error highlight on POLY
+    [
+      AREA(CO_POLYi)/AREA(GATE) + AREA(POLYi)/AREA(POLYi) - 1
+    ] RDB A.R.4.CO.rep CO_POLYi GATE  
+}
+A.R.2_A.R.3.M1
+0 0 9 Feb  9 23:11:26 2023                     
+A.R.2_A.R.3.M1 { @ (M1 perim*thickness / gate area) > 400 (without effective diode)
+                 @ (M1 perim*thickness / gate area) > Ratio (with effective diode)
+  NET AREA RATIO M1 M1_MIN_DIO GATE > 0         // no effective diode
+    [
+      !!AREA(M1) * !!AREA(GATE) *
+      (!AREA(M1_MIN_DIO) * ( PERIMETER(M1)*M1_THICKNESS/AREA(GATE) - 400 ) +
+      !!AREA(M1_MIN_DIO) * ( PERIMETER(M1)*M1_THICKNESS/AREA(GATE) - AREA(M1_MIN_DIO)*400 - 2200 ))
+    ] RDB A.R.2.M1.rep M1 M1_MIN_DIO GATE
+}
+A.R.5_A.R.6.VIA1i
+0 0 9 Feb  9 23:11:27 2023                     
+A.R.5_A.R.6.VIA1i { @ (VIA1 area / gate area) > 20 (without effective diode)
+                    @ (VIA1 area / gate area) > Ratio (with effective diode)
+   NET AREA RATIO M1 VIA1i VIA1_MIN_DIO GATE > 0        // no effective diode
+    [
+      !!AREA(M1) * !!AREA(GATE) *
+      (!AREA(VIA1_MIN_DIO) * ( AREA(VIA1i)/AREA(GATE) - 20 ) +
+      !!AREA(VIA1_MIN_DIO) * ( AREA(VIA1i)/AREA(GATE) - AREA(VIA1_MIN_DIO)*83.33 - 75 ))
+    ] RDB A.R.5_A.R.6.VIA1.rep VIA1i VIA1_MIN_DIO GATE
+}
+A.R.2_A.R.3.M2
+0 0 9 Feb  9 23:11:28 2023                     
+A.R.2_A.R.3.M2 { @ (M2 perim*thickness / gate area) > 400 (without effective diode)
+                 @ (M2 perim*thickness / gate area) > Ratio (with effective diode)
+  NET AREA RATIO M2 M2_MIN_DIO GATE > 0         // no effective diode
+    [
+      !!AREA(M2) * !!AREA(GATE) *
+      (!AREA(M2_MIN_DIO) * ( PERIMETER(M2)*M2_THICKNESS/AREA(GATE) - 400 ) +
+      !!AREA(M2_MIN_DIO) * ( PERIMETER(M2)*M2_THICKNESS/AREA(GATE) - AREA(M2_MIN_DIO)*400 - 2200 ))
+    ] RDB A.R.2.M2.rep M2 M2_MIN_DIO GATE
+}
+A.R.5_A.R.6.VIA2i
+0 0 9 Feb  9 23:11:28 2023                     
+A.R.5_A.R.6.VIA2i { @ (VIA2 area / gate area) > 20 (without effective diode)
+                    @ (VIA2 area / gate area) > Ratio (with effective diode)
+   NET AREA RATIO M2 VIA2i VIA2_MIN_DIO GATE > 0        // no effective diode
+    [
+      !!AREA(M2) * !!AREA(GATE) *
+      (!AREA(VIA2_MIN_DIO) * ( AREA(VIA2i)/AREA(GATE) - 20 ) +
+      !!AREA(VIA2_MIN_DIO) * ( AREA(VIA2i)/AREA(GATE) - AREA(VIA2_MIN_DIO)*83.33 - 75 ))
+    ] RDB A.R.5_A.R.6.VIA2.rep VIA2i VIA2_MIN_DIO GATE
+}
+A.R.2_A.R.3.M3
+0 0 9 Feb  9 23:11:29 2023                     
+A.R.2_A.R.3.M3 { @ (M3 perim*thickness / gate area) > 400 (without effective diode)
+                 @ (M3 perim*thickness / gate area) > Ratio (with effective diode)
+  NET AREA RATIO M3 M3_MIN_DIO GATE > 0         // no effective diode
+    [
+      !!AREA(M3) * !!AREA(GATE) *
+      (!AREA(M3_MIN_DIO) * ( PERIMETER(M3)*M3_THICKNESS/AREA(GATE) - 400 ) +
+      !!AREA(M3_MIN_DIO) * ( PERIMETER(M3)*M3_THICKNESS/AREA(GATE) - AREA(M3_MIN_DIO)*400 - 2200 ))
+    ] RDB A.R.2.M3.rep M3 M3_MIN_DIO GATE
+}
+A.R.MIM.5.M3_CBM_B
+0 0 5 Feb  9 23:11:29 2023                     
+A.R.MIM.5.M3_CBM_B { @ Mx as MIM capacitor bottom metal directly connecting to OD/gate
+                   @ through underneath VIA is not allowed
+  NET AREA RATIO CBM3 SD > 0
+  NET AREA RATIO CBM3 GATE > 0
+ }
+A.R.5_A.R.6.VIA3t
+0 0 9 Feb  9 23:11:30 2023                     
+A.R.5_A.R.6.VIA3t { @ (VIA3 area / gate area) > 20 (without effective diode)
+                    @ (VIA3 area / gate area) > Ratio (with effective diode)
+   NET AREA RATIO M3 VIA3t VIA3_MIN_DIO GATE > 0 // no effective diode
+    [
+      !!AREA(M3) * !!AREA(GATE) *
+      (!AREA(VIA3_MIN_DIO) * ( AREA(VIA3t)/AREA(GATE) - 20 ) +
+      !!AREA(VIA3_MIN_DIO) * ( AREA(VIA3t)/AREA(GATE) - AREA(VIA3_MIN_DIO)*83.33 - 75 ))
+    ] RDB A.R.5_A.R.6.VIA3.rep VIA3t VIA3_MIN_DIO GATE
+}
+A.R.2_A.R.3.M4
+0 0 9 Feb  9 23:11:31 2023                     
+A.R.2_A.R.3.M4 { @ (M4 perim*thickness / gate area) > 400 (without effective diode)
+                 @ (M4 perim*thickness / gate area) > Ratio (with effective diode)
+  NET AREA RATIO M4 M4_MIN_DIO GATE > 0         // no effective diode
+    [
+      !!AREA(M4) * !!AREA(GATE) *
+      (!AREA(M4_MIN_DIO) * ( PERIMETER(M4)*M4_THICKNESS/AREA(GATE) - 400 ) +
+      !!AREA(M4_MIN_DIO) * ( PERIMETER(M4)*M4_THICKNESS/AREA(GATE) - AREA(M4_MIN_DIO)*400 - 2200 ))
+    ] RDB A.R.2.M4.rep M4 M4_MIN_DIO GATE
+}
+A.R.MIM.1.CTM3_M4.CBM
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.1.CTM3_M4.CBM { @ Maximum ratio of M4 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+   NET AREA RATIO M4 CBM_CTM3_NODE_BAL_M4_WO_OD > Balance_Ratio ACCUMULATE
+   [!!AREA(CBM_CTM3_NODE_BAL_M4_WO_OD)*(PERIMETER(M4)*M4_THICKNESS/AREA(CBM_CTM3_NODE_BAL_M4_WO_OD))]
+     RDB A.R.MIM.1.CTM3_M4.CBM.rep M4 CBM_CTM3_NODE_BAL_M4_WO_OD BY LAYER
+}
+A.R.MIM.1.CTM3_M4.CTM
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.1.CTM3_M4.CTM { @ Maximum ratio of M4 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+   NET AREA RATIO M4 CTM_CTM3_NODE_BAL_M4_WO_OD > Balance_Ratio ACCUMULATE
+   [!!AREA(CTM_CTM3_NODE_BAL_M4_WO_OD)*(PERIMETER(M4)*M4_THICKNESS/AREA(CTM_CTM3_NODE_BAL_M4_WO_OD))]
+     RDB A.R.MIM.1.CTM3_M4.CTM.rep M4 CTM_CTM3_NODE_BAL_M4_WO_OD BY LAYER
+}
+A.R.MIM.2.CTM3_M4.CTM.A
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.2.CTM3_M4.CTM.A { @ Unbalanced MIM structure:
+                      @ CTM is connceted to OD with OD area < 0.203 and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  NET AREA RATIO M4 CTM_CTM3_NODE_unBAL_M4_WI_OD SD > 0 ACCUMULATE
+      [!!AREA(CTM_CTM3_NODE_unBAL_M4_WI_OD) * (DIO_AREA - AREA(SD))]
+      RDB A.R.MIM.2.CTM3_M4.CTM.WO_DIO.rep M4 CTM_CTM3_NODE_unBAL_M4_WI_OD SD BY LAYER
+}
+A.R.MIM.2.CTM3_M4.CTM.B
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.2.CTM3_M4.CTM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  NET AREA RATIO M4 CTM3_M4_DIO CTM_CTM3_NODE_unBAL_M4_WI_OD > 0 ACCUMULATE		      
+  [!!AREA(CTM_CTM3_NODE_unBAL_M4_WI_OD)*!!AREA(CTM3_M4_DIO)*(PERIMETER(M4)*M4_THICKNESS/AREA(CTM_CTM3_NODE_unBAL_M4_WI_OD) - AREA(CTM3_M4_DIO)*400 - 2200 )]
+     RDB A.R.MIM.2.CTM3_M4.CTM.WI_DIO.rep M4 CTM_CTM3_NODE_unBAL_M4_WI_OD CTM3_M4_DIO BY LAYER
+}
+A.R.MIM.2.CTM3_M4.CBM
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.2.CTM3_M4.CBM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 100
+  NET AREA RATIO M4 CBM_CTM3_NODE_unBAL_M4_WO_OD > unBalance_Ratio ACCUMULATE
+  [!!AREA(CBM_CTM3_NODE_unBAL_M4_WO_OD)*(PERIMETER(M4)*M4_THICKNESS/AREA(CBM_CTM3_NODE_unBAL_M4_WO_OD))]
+     RDB A.R.MIM.2.CTM3_M4.CBM.rep M4 CBM_CTM3_NODE_unBAL_M4_WO_OD BY LAYER
+}
+A.R.MIM.3.CTM3_M4.CTM
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.3.CTM3_M4.CTM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD < 100
+  NET AREA RATIO M4 CTM_CTM3_NODE_unBAL_M4_WO_OD > unBalance_Ratio ACCUMULATE
+  [!!AREA(CTM_CTM3_NODE_unBAL_M4_WO_OD)*(PERIMETER(M4)*M4_THICKNESS/AREA(CTM_CTM3_NODE_unBAL_M4_WO_OD))]
+     RDB A.R.MIM.3.CTM3_M4.CTM.rep M4 CTM_CTM3_NODE_unBAL_M4_WO_OD BY LAYER
+}
+A.R.MIM.3.CTM3_M4.CBM.A
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.3.CTM3_M4.CBM.A { @ Unbalanced MIM structure:
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD with OD area < 0.203
+  NET AREA RATIO M4 CBM_CTM3_NODE_unBAL_M4_WI_OD SD > 0 ACCUMULATE
+     [!!AREA(CBM_CTM3_NODE_unBAL_M4_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.3.CTM3_M4.CBM.WO_DIO.rep M4 CBM_CTM3_NODE_unBAL_M4_WI_OD SD BY LAYER
+}
+A.R.MIM.3.CTM3_M4.CBM.B
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.3.CTM3_M4.CBM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD
+  NET AREA RATIO M4 CTM3_M4_DIO CBM_CTM3_NODE_unBAL_M4_WI_OD > 0 ACCUMULATE		      
+  [!!AREA(CBM_CTM3_NODE_unBAL_M4_WI_OD)*!!AREA(CTM3_M4_DIO)*(PERIMETER(M4)*M4_THICKNESS/AREA(CBM_CTM3_NODE_unBAL_M4_WI_OD) - AREA(CTM3_M4_DIO)*400 - 2200 )]
+     RDB A.R.MIM.3.CTM3_M4.CBM.WI_DIO.rep M4 CBM_CTM3_NODE_unBAL_M4_WI_OD CTM3_M4_DIO BY LAYER
+ }
+A.R.MIM.4.CTM3_M4.CTM.A
+0 0 5 Feb  9 23:11:31 2023                     
+A.R.MIM.4.CTM3_M4.CTM.A { @ Balanced MIM structure but the OD area connected to CTM < 0.203
+  NET AREA RATIO M4 CTM_CTM3_NODE_BAL_M4_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CTM_CTM3_NODE_BAL_M4_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM3_M4.CTM.WO_DIO.rep M4 CTM_CTM3_NODE_BAL_M4_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM3_M4.CTM.B
+0 0 6 Feb  9 23:11:31 2023                     
+A.R.MIM.4.CTM3_M4.CTM.B { @ Max. ratio of M5 metal side-wall area to CTM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  NET AREA RATIO M4 CTM3_M4_DIO CTM_CTM3_NODE_BAL_M4_WI_OD > 0 ACCUMULATE
+  [ !!AREA(CTM_CTM3_NODE_BAL_M4_WI_OD) * ( (PERIMETER(M4) * M4_THICKNESS) / AREA(CTM_CTM3_NODE_BAL_M4_WI_OD) - AREA(CTM3_M4_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CTM3_M4.CTM.WI_DIO.rep M4 CTM_CTM3_NODE_BAL_M4_WI_OD CTM3_M4_DIO BY LAYER
+}
+A.R.MIM.4.CTM3_M4.CBM.A
+0 0 5 Feb  9 23:11:31 2023                     
+A.R.MIM.4.CTM3_M4.CBM.A { @ Balanced MIM structure but the OD area connected to Mx as capacitor bottom metal < 0.203
+  NET AREA RATIO M4 CBM_CTM3_NODE_BAL_M4_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CBM_CTM3_NODE_BAL_M4_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM3_M4.CBM.WO_DIO.rep M4 CBM_CTM3_NODE_BAL_M4_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM3_M4.CBM.B
+0 0 7 Feb  9 23:11:31 2023                     
+A.R.MIM.4.CTM3_M4.CBM.B { @ Max. ratio of M5 metal side-wall area to CBM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  NET AREA RATIO M4 CTM3_M4_DIO CBM_CTM3_NODE_BAL_M4_WI_OD > 0 ACCUMULATE		    
+  [
+      !!AREA(CBM_CTM3_NODE_BAL_M4_WI_OD) * ( (PERIMETER(M4) * M4_THICKNESS) / AREA(CBM_CTM3_NODE_BAL_M4_WI_OD) - AREA(CTM3_M4_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CBM.CTM3_M4.WI_DIO.rep M4 CBM_CTM3_NODE_BAL_M4_WI_OD CTM3_M4_DIO BY LAYER
+}
+A.R.MIM.5.CTM3_M4_CTM
+0 0 4 Feb  9 23:11:31 2023                     
+A.R.MIM.5.CTM3_M4_CTM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CTM_CTM3_M4 BY CTM3
+  NET AREA RATIO A M4 > 0 [!!AREA(M4)*AREA(A)]   
+}
+A.R.MIM.5.CTM3_M4_CBM
+0 0 4 Feb  9 23:11:31 2023                     
+A.R.MIM.5.CTM3_M4_CBM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CBM_CTM3_M4 BY CBM3
+  NET AREA RATIO A M4 > 0 [!!AREA(M4)*AREA(A)]
+}
+A.R.MIM.5.M4_CBM_B
+0 0 5 Feb  9 23:11:31 2023                     
+A.R.MIM.5.M4_CBM_B { @ Mx as MIM capacitor bottom metal directly connecting to OD/gate
+                   @ through underneath VIA is not allowed
+  NET AREA RATIO CBM4 SD > 0
+  NET AREA RATIO CBM4 GATE > 0
+ }
+A.R.5_A.R.6.VIA4t
+0 0 9 Feb  9 23:11:32 2023                     
+A.R.5_A.R.6.VIA4t { @ (VIA4 area / gate area) > 20 (without effective diode)
+                    @ (VIA4 area / gate area) > Ratio (with effective diode)
+   NET AREA RATIO M4 VIA4t VIA4_MIN_DIO GATE > 0 // no effective diode
+    [
+      !!AREA(M4) * !!AREA(GATE) *
+      (!AREA(VIA4_MIN_DIO) * ( AREA(VIA4t)/AREA(GATE) - 20 ) +
+      !!AREA(VIA4_MIN_DIO) * ( AREA(VIA4t)/AREA(GATE) - AREA(VIA4_MIN_DIO)*83.33 - 75 ))
+    ] RDB A.R.5_A.R.6.VIA4.rep VIA4t VIA4_MIN_DIO GATE
+}
+A.R.2_A.R.3.M5
+0 0 9 Feb  9 23:11:32 2023                     
+A.R.2_A.R.3.M5 { @ (M5 perim*thickness / gate area) > 400 (without effective diode)
+                 @ (M5 perim*thickness / gate area) > Ratio (with effective diode)
+  NET AREA RATIO M5 M5_MIN_DIO GATE > 0         // no effective diode
+    [
+      !!AREA(M5) * !!AREA(GATE) *
+      (!AREA(M5_MIN_DIO) * ( PERIMETER(M5)*M5_THICKNESS/AREA(GATE) - 400 ) +
+      !!AREA(M5_MIN_DIO) * ( PERIMETER(M5)*M5_THICKNESS/AREA(GATE) - AREA(M5_MIN_DIO)*8000 - 30000 ))
+    ] RDB A.R.2.M5.rep M5 M5_MIN_DIO GATE
+}
+A.R.MIM.1.CTM3_M5.CBM
+0 0 8 Feb  9 23:11:32 2023                     
+A.R.MIM.1.CTM3_M5.CBM { @ Maximum ratio of M5 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+  A = NET AREA RATIO M5 M4 CBM_CTM3_NODE_BAL_M5_WO_OD CTM3c > Balance_Ratio ACCUMULATE ACC_M4_CTM3c
+    [!!AREA(CBM_CTM3_NODE_BAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM3_NODE_BAL_M5_WO_OD))]
+     RDB A.R.MIM.1.CTM3_M5.CBM.rep M5 CBM_CTM3_NODE_BAL_M5_WO_OD BY LAYER
+     A INTERACT CBM_CTM3_NODE_BAL_M5_WO_OD
+}
+A.R.MIM.1.CTM3_M5.CTM
+0 0 8 Feb  9 23:11:32 2023                     
+A.R.MIM.1.CTM3_M5.CTM { @ Maximum ratio of M5 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+  A = NET AREA RATIO M5 M4 CTM_CTM3_NODE_BAL_M5_WO_OD CTM3 > Balance_Ratio ACCUMULATE ACC_M4_CTM3
+     [!!AREA(CTM_CTM3_NODE_BAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM3_NODE_BAL_M5_WO_OD))]
+     RDB A.R.MIM.1.CTM3_M5.CTM.rep M5 CTM_CTM3_NODE_BAL_M5_WO_OD BY LAYER
+  A INTERACT CTM_CTM3_NODE_BAL_M5_WO_OD
+}
+A.R.MIM.2.CTM3_M5.CTM.A
+0 0 7 Feb  9 23:11:32 2023                     
+A.R.MIM.2.CTM3_M5.CTM.A { @ Unbalanced MIM structure:
+                      @ CTM is connceted to OD with OD area < 0.203 and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  NET AREA RATIO M5 CTM_CTM3_NODE_unBAL_M5_WI_OD SD > 0 ACCUMULATE
+      [!!AREA(CTM_CTM3_NODE_unBAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+      RDB A.R.MIM.2.CTM3_M5.CTM.WO_DIO.rep M5 CTM_CTM3_NODE_unBAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.2.CTM3_M5.CTM.B
+0 0 8 Feb  9 23:11:33 2023                     
+A.R.MIM.2.CTM3_M5.CTM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  A = NET AREA RATIO M5 M4 CTM_CTM3_NODE_unBAL_M5_WI_OD CTM3_M5_DIO CTM3 > 0 ACCUMULATE ACC_M4_CTM3
+  [!!AREA(CTM_CTM3_NODE_unBAL_M5_WI_OD)*!!AREA(CTM3_M5_DIO)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM3_NODE_unBAL_M5_WI_OD) - AREA(CTM3_M5_DIO)*400 - 2200 )]
+     RDB A.R.MIM.2.CTM3_M5.CTM.WI_DIO.rep M5 CTM_CTM3_NODE_unBAL_M5_WI_OD CTM3_M5_DIO BY LAYER
+  A INTERACT CTM_CTM3_NODE_unBAL_M5_WI_OD
+}
+A.R.MIM.2.CTM3_M5.CBM
+0 0 8 Feb  9 23:11:33 2023                     
+A.R.MIM.2.CTM3_M5.CBM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 100
+  A = NET AREA RATIO M5 M4 CBM_CTM3_NODE_unBAL_M5_WO_OD CTM3c > unBalance_Ratio ACCUMULATE ACC_M4_CTM3c
+    [!!AREA(CBM_CTM3_NODE_unBAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM3_NODE_unBAL_M5_WO_OD))]
+     RDB A.R.MIM.2.CTM3_M5.CBM.rep M5 CBM_CTM3_NODE_unBAL_M5_WO_OD BY LAYER
+  A INTERACT CBM_CTM3_NODE_unBAL_M5_WO_OD
+}
+A.R.MIM.3.CTM3_M5.CTM
+0 0 8 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM3_M5.CTM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD < 100
+  A = NET AREA RATIO M5 M4 CTM_CTM3_NODE_unBAL_M5_WO_OD CTM3 > unBalance_Ratio ACCUMULATE ACC_M4_CTM3
+  [!!AREA(CTM_CTM3_NODE_unBAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM3_NODE_unBAL_M5_WO_OD))]
+     RDB A.R.MIM.3.CTM3_M5.CTM.rep M5 CTM_CTM3_NODE_unBAL_M5_WO_OD BY LAYER
+  A INTERACT CTM_CTM3_NODE_unBAL_M5_WO_OD
+}
+A.R.MIM.3.CTM3_M5.CBM.A
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM3_M5.CBM.A { @ Unbalanced MIM structure:
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD with OD area < 0.203
+  NET AREA RATIO M5 CBM_CTM3_NODE_unBAL_M5_WI_OD SD > 0 ACCUMULATE
+     [!!AREA(CBM_CTM3_NODE_unBAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.3.CTM3_M5.CBM.WO_DIO.rep M5 CBM_CTM3_NODE_unBAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.3.CTM3_M5.CBM.B
+0 0 8 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM3_M5.CBM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD
+  A = NET AREA RATIO M5 M4 CBM_CTM3_NODE_unBAL_M5_WI_OD CTM3_M5_DIO CTM3c > 0 ACCUMULATE ACC_M4_CTM3c
+    [!!AREA(CBM_CTM3_NODE_unBAL_M5_WI_OD)*!!AREA(CTM3_M5_DIO)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM3_NODE_unBAL_M5_WI_OD) - AREA(CTM3_M5_DIO)*400 - 2200 )]
+     RDB A.R.MIM.3.CTM3_M5.CBM.WI_DIO.rep M5 CBM_CTM3_NODE_unBAL_M5_WI_OD CTM3_M5_DIO BY LAYER
+  A INTERACT CBM_CTM3_NODE_unBAL_M5_WI_OD
+ }
+A.R.MIM.4.CTM3_M5.CTM.A
+0 0 5 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM3_M5.CTM.A { @ Balanced MIM structure but the OD area connected to CTM < 0.203
+  NET AREA RATIO M5 CTM_CTM3_NODE_BAL_M5_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CTM_CTM3_NODE_BAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM3_M5.CTM.WO_DIO.rep M5 CTM_CTM3_NODE_BAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM3_M5.CTM.B
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM3_M5.CTM.B { @ Max. ratio of M5 metal side-wall area to CTM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  A = NET AREA RATIO M5 CTM_CTM3_NODE_BAL_M5_WI_OD CTM3_M5_DIO CTM3 > 0 ACCUMULATE ACC_M4_CTM3
+    [ !!AREA(CTM_CTM3_NODE_BAL_M5_WI_OD) * ( (PERIMETER(M5) * M5_THICKNESS) / AREA(CTM_CTM3_NODE_BAL_M5_WI_OD) - AREA(CTM3_M5_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CTM3_M5.CTM.WI_DIO.rep M5 CTM_CTM3_NODE_BAL_M5_WI_OD CTM3_M5_DIO BY LAYER
+  A INTERACT CTM_CTM3_NODE_BAL_M5_WI_OD
+}
+A.R.MIM.4.CTM3_M5.CBM.A
+0 0 5 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM3_M5.CBM.A { @ Balanced MIM structure but the OD area connected to Mx as capacitor bottom metal < 0.203
+  NET AREA RATIO M5 CBM_CTM3_NODE_BAL_M5_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CBM_CTM3_NODE_BAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM3_M5.CBM.WO_DIO.rep M5 CBM_CTM3_NODE_BAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM3_M5.CBM.B
+0 0 8 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM3_M5.CBM.B { @ Max. ratio of M5 metal side-wall area to CBM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  A = NET AREA RATIO M5 CBM_CTM3_NODE_BAL_M5_WI_OD CTM3_M5_DIO CTM3c > 0 ACCUMULATE ACC_M4_CTM3c
+    [
+      !!AREA(CBM_CTM3_NODE_BAL_M5_WI_OD) * ( (PERIMETER(M5) * M5_THICKNESS) / AREA(CBM_CTM3_NODE_BAL_M5_WI_OD) - AREA(CTM3_M5_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CBM.CTM3_M5.WI_DIO.rep M5 CBM_CTM3_NODE_BAL_M5_WI_OD CTM3_M5_DIO BY LAYER
+  A INTERACT CBM_CTM3_NODE_BAL_M5_WI_OD
+}
+A.R.MIM.5.CTM3_M5_CTM
+0 0 4 Feb  9 23:11:33 2023                     
+A.R.MIM.5.CTM3_M5_CTM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CTM_CTM3_M5 BY CTM3
+  NET AREA RATIO A M5 > 0 [!!AREA(M5)*AREA(A)]   
+}
+A.R.MIM.5.CTM3_M5_CBM
+0 0 4 Feb  9 23:11:33 2023                     
+A.R.MIM.5.CTM3_M5_CBM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CBM_CTM3_M5 BY CBM3
+  NET AREA RATIO A M5 > 0 [!!AREA(M5)*AREA(A)]
+}
+A.R.MIM.1.CTM4_M5.CBM
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.1.CTM4_M5.CBM { @ Maximum ratio of M5 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+   NET AREA RATIO M5 CBM_CTM4_NODE_BAL_M5_WO_OD > Balance_Ratio ACCUMULATE
+   [!!AREA(CBM_CTM4_NODE_BAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM4_NODE_BAL_M5_WO_OD))]
+     RDB A.R.MIM.1.CTM4_M5.CBM.rep M5 CBM_CTM4_NODE_BAL_M5_WO_OD BY LAYER
+}
+A.R.MIM.1.CTM4_M5.CTM
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.1.CTM4_M5.CTM { @ Maximum ratio of M5 perimeter area to the MIM cap. when
+                      @ CTM is not connected to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 6000
+   NET AREA RATIO M5 CTM_CTM4_NODE_BAL_M5_WO_OD > Balance_Ratio ACCUMULATE
+   [!!AREA(CTM_CTM4_NODE_BAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM4_NODE_BAL_M5_WO_OD))]
+     RDB A.R.MIM.1.CTM4_M5.CTM.rep M5 CTM_CTM4_NODE_BAL_M5_WO_OD BY LAYER
+}
+A.R.MIM.2.CTM4_M5.CTM.A
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.2.CTM4_M5.CTM.A { @ Unbalanced MIM structure:
+                      @ CTM is connceted to OD with OD area < 0.203 and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  NET AREA RATIO M5 CTM_CTM4_NODE_unBAL_M5_WI_OD SD > 0 ACCUMULATE
+      [!!AREA(CTM_CTM4_NODE_unBAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+      RDB A.R.MIM.2.CTM4_M5.CTM.WO_DIO.rep M5 CTM_CTM4_NODE_unBAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.2.CTM4_M5.CTM.B
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.2.CTM4_M5.CTM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD
+  NET AREA RATIO M5 CTM4_M5_DIO CTM_CTM4_NODE_unBAL_M5_WI_OD > 0 ACCUMULATE		      
+  [!!AREA(CTM_CTM4_NODE_unBAL_M5_WI_OD)*!!AREA(CTM4_M5_DIO)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM4_NODE_unBAL_M5_WI_OD) - AREA(CTM4_M5_DIO)*400 - 2200 )]
+     RDB A.R.MIM.2.CTM4_M5.CTM.WI_DIO.rep M5 CTM_CTM4_NODE_unBAL_M5_WI_OD CTM4_M5_DIO BY LAYER
+}
+A.R.MIM.2.CTM4_M5.CBM
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.2.CTM4_M5.CBM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is not connected to OD < 100
+  NET AREA RATIO M5 CBM_CTM4_NODE_unBAL_M5_WO_OD > unBalance_Ratio ACCUMULATE
+  [!!AREA(CBM_CTM4_NODE_unBAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM4_NODE_unBAL_M5_WO_OD))]
+     RDB A.R.MIM.2.CTM4_M5.CBM.rep M5 CBM_CTM4_NODE_unBAL_M5_WO_OD BY LAYER
+}
+A.R.MIM.3.CTM4_M5.CTM
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM4_M5.CTM { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD < 100
+  NET AREA RATIO M5 CTM_CTM4_NODE_unBAL_M5_WO_OD > unBalance_Ratio ACCUMULATE
+  [!!AREA(CTM_CTM4_NODE_unBAL_M5_WO_OD)*(PERIMETER(M5)*M5_THICKNESS/AREA(CTM_CTM4_NODE_unBAL_M5_WO_OD))]
+     RDB A.R.MIM.3.CTM4_M5.CTM.rep M5 CTM_CTM4_NODE_unBAL_M5_WO_OD BY LAYER
+}
+A.R.MIM.3.CTM4_M5.CBM.A
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM4_M5.CBM.A { @ Unbalanced MIM structure:
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD with OD area < 0.203
+  NET AREA RATIO M5 CBM_CTM4_NODE_unBAL_M5_WI_OD SD > 0 ACCUMULATE
+     [!!AREA(CBM_CTM4_NODE_unBAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.3.CTM4_M5.CBM.WO_DIO.rep M5 CBM_CTM4_NODE_unBAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.3.CTM4_M5.CBM.B
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.3.CTM4_M5.CBM.B { @ Maximum ratio of the metal area to the MIM cap. when
+                      @ CTM is not connceted to OD and
+                      @ Mx as MIM capacitor metal bottom metal is connected to OD
+  NET AREA RATIO M5 CTM4_M5_DIO CBM_CTM4_NODE_unBAL_M5_WI_OD > 0 ACCUMULATE		      
+  [!!AREA(CBM_CTM4_NODE_unBAL_M5_WI_OD)*!!AREA(CTM4_M5_DIO)*(PERIMETER(M5)*M5_THICKNESS/AREA(CBM_CTM4_NODE_unBAL_M5_WI_OD) - AREA(CTM4_M5_DIO)*400 - 2200 )]
+     RDB A.R.MIM.3.CTM4_M5.CBM.WI_DIO.rep M5 CBM_CTM4_NODE_unBAL_M5_WI_OD CTM4_M5_DIO BY LAYER
+ }
+A.R.MIM.4.CTM4_M5.CTM.A
+0 0 5 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM4_M5.CTM.A { @ Balanced MIM structure but the OD area connected to CTM < 0.203
+  NET AREA RATIO M5 CTM_CTM4_NODE_BAL_M5_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CTM_CTM4_NODE_BAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM4_M5.CTM.WO_DIO.rep M5 CTM_CTM4_NODE_BAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM4_M5.CTM.B
+0 0 6 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM4_M5.CTM.B { @ Max. ratio of M5 metal side-wall area to CTM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  NET AREA RATIO M5 CTM4_M5_DIO CTM_CTM4_NODE_BAL_M5_WI_OD > 0 ACCUMULATE
+  [ !!AREA(CTM_CTM4_NODE_BAL_M5_WI_OD) * ( (PERIMETER(M5) * M5_THICKNESS) / AREA(CTM_CTM4_NODE_BAL_M5_WI_OD) - AREA(CTM4_M5_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CTM4_M5.CTM.WI_DIO.rep M5 CTM_CTM4_NODE_BAL_M5_WI_OD CTM4_M5_DIO BY LAYER
+}
+A.R.MIM.4.CTM4_M5.CBM.A
+0 0 5 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM4_M5.CBM.A { @ Balanced MIM structure but the OD area connected to Mx as capacitor bottom metal < 0.203
+  NET AREA RATIO M5 CBM_CTM4_NODE_BAL_M5_WI_OD SD > 0 ACCUMULATE
+    [!!AREA(CBM_CTM4_NODE_BAL_M5_WI_OD) * (DIO_AREA - AREA(SD))]
+     RDB A.R.MIM.4.CTM4_M5.CBM.WO_DIO.rep M5 CBM_CTM4_NODE_BAL_M5_WI_OD SD BY LAYER
+}
+A.R.MIM.4.CTM4_M5.CBM.B
+0 0 7 Feb  9 23:11:33 2023                     
+A.R.MIM.4.CTM4_M5.CBM.B { @ Max. ratio of M5 metal side-wall area to CBM area.
+                @ Both CTM and CBM associated M4 are connected to OD.
+  NET AREA RATIO M5 CTM4_M5_DIO CBM_CTM4_NODE_BAL_M5_WI_OD > 0 ACCUMULATE		    
+  [
+      !!AREA(CBM_CTM4_NODE_BAL_M5_WI_OD) * ( (PERIMETER(M5) * M5_THICKNESS) / AREA(CBM_CTM4_NODE_BAL_M5_WI_OD) - AREA(CTM4_M5_DIO)*400 - 2200 )
+    ] RDB A.R.MIM.4.CBM.CTM4_M5.WI_DIO.rep M5 CBM_CTM4_NODE_BAL_M5_WI_OD CTM4_M5_DIO BY LAYER
+}
+A.R.MIM.5.CTM4_M5_CTM
+0 0 4 Feb  9 23:11:33 2023                     
+A.R.MIM.5.CTM4_M5_CTM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CTM_CTM4_M5 BY CTM4
+  NET AREA RATIO A M5 > 0 [!!AREA(M5)*AREA(A)]   
+}
+A.R.MIM.5.CTM4_M5_CBM
+0 0 4 Feb  9 23:11:33 2023                     
+A.R.MIM.5.CTM4_M5_CBM {@ Unbalanced structure is not allowed. 
+  A = STAMP unBAL_CBM_CTM4_M5 BY CBM4
+  NET AREA RATIO A M5 > 0 [!!AREA(M5)*AREA(A)]
+}
+NBL.R.7
+0 0 8 Feb  9 23:11:37 2023                     
+NBL.R.7 { @ Max. cumulative area ratio of NBL to {(LV NMOS core gates) OUTSIDE NBL} [connects to 
+          @ {((PP AND OD) AND NW) INSIDE (NW INTERACT NBL)} ] <= 500000
+          @ This rule is checked by the ANTENNA DRC command file
+  NET AREA RATIO B_PATH_GATE_NNBL PACT_CORE_NBL_R_7 NBL_R_7 > NBL_R_7
+       [
+       !!AREA(B_PATH_GATE_NNBL) * !!AREA(PACT_CORE_NBL_R_7) * !!AREA(NBL_R_7) * (AREA(NBL_R_7)/AREA(B_PATH_GATE_NNBL))
+       ] RDB NBL.R.7.rep NBL_R_7 B_PATH_GATE_NNBL BY LAYER
+}
+NET_AREA_RATIO_RDBS
+0 0 48 Feb  9 23:11:37 2023
+A.R.1.POLYi.rep 0
+A.R.4.CO.rep 0
+A.R.2.M1.rep 0
+A.R.5_A.R.6.VIA1.rep 0
+A.R.2.M2.rep 0
+A.R.5_A.R.6.VIA2.rep 0
+A.R.2.M3.rep 0
+A.R.5_A.R.6.VIA3.rep 0
+A.R.2.M4.rep 0
+A.R.MIM.1.CTM3_M4.CBM.rep 0
+A.R.MIM.1.CTM3_M4.CTM.rep 0
+A.R.MIM.2.CTM3_M4.CTM.WO_DIO.rep 0
+A.R.MIM.2.CTM3_M4.CTM.WI_DIO.rep 0
+A.R.MIM.2.CTM3_M4.CBM.rep 0
+A.R.MIM.3.CTM3_M4.CTM.rep 0
+A.R.MIM.3.CTM3_M4.CBM.WO_DIO.rep 0
+A.R.MIM.3.CTM3_M4.CBM.WI_DIO.rep 0
+A.R.MIM.4.CTM3_M4.CTM.WO_DIO.rep 0
+A.R.MIM.4.CTM3_M4.CTM.WI_DIO.rep 0
+A.R.MIM.4.CTM3_M4.CBM.WO_DIO.rep 0
+A.R.MIM.4.CBM.CTM3_M4.WI_DIO.rep 0
+A.R.5_A.R.6.VIA4.rep 0
+A.R.2.M5.rep 0
+A.R.MIM.1.CTM3_M5.CBM.rep 0
+A.R.MIM.1.CTM3_M5.CTM.rep 0
+A.R.MIM.2.CTM3_M5.CTM.WO_DIO.rep 0
+A.R.MIM.2.CTM3_M5.CTM.WI_DIO.rep 0
+A.R.MIM.2.CTM3_M5.CBM.rep 0
+A.R.MIM.3.CTM3_M5.CTM.rep 0
+A.R.MIM.3.CTM3_M5.CBM.WO_DIO.rep 0
+A.R.MIM.3.CTM3_M5.CBM.WI_DIO.rep 0
+A.R.MIM.4.CTM3_M5.CTM.WO_DIO.rep 0
+A.R.MIM.4.CTM3_M5.CTM.WI_DIO.rep 0
+A.R.MIM.4.CTM3_M5.CBM.WO_DIO.rep 0
+A.R.MIM.4.CBM.CTM3_M5.WI_DIO.rep 0
+A.R.MIM.1.CTM4_M5.CBM.rep 0
+A.R.MIM.1.CTM4_M5.CTM.rep 0
+A.R.MIM.2.CTM4_M5.CTM.WO_DIO.rep 0
+A.R.MIM.2.CTM4_M5.CTM.WI_DIO.rep 0
+A.R.MIM.2.CTM4_M5.CBM.rep 0
+A.R.MIM.3.CTM4_M5.CTM.rep 0
+A.R.MIM.3.CTM4_M5.CBM.WO_DIO.rep 0
+A.R.MIM.3.CTM4_M5.CBM.WI_DIO.rep 0
+A.R.MIM.4.CTM4_M5.CTM.WO_DIO.rep 0
+A.R.MIM.4.CTM4_M5.CTM.WI_DIO.rep 0
+A.R.MIM.4.CTM4_M5.CBM.WO_DIO.rep 0
+A.R.MIM.4.CBM.CTM4_M5.WI_DIO.rep 0
+NBL.R.7.rep 0

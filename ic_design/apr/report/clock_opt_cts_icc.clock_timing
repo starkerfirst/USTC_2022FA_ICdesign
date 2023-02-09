@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : clock timing
+        -type skew
+        -nworst 1
+        -setup
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 14:57:32 2023
+****************************************
+
+  Clock: clk_p
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  SA_ctrl_state_overall_reg_1_/CP        1.99                          wrp-+
+  SA_B_2_shift_reg_reg_6__0_/CP          1.93      -0.03     0.03      wrp-+
+----------------------------------------------------------------------------
+
+1

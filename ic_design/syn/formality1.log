@@ -1,0 +1,110 @@
+Warning: Cell r:/TPD018BCDNV5WC/PDDW0208SCDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell r:/TPD018BCDNV5WC/PDDW0208SCDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell r:/TPD018BCDNV5WC/PDUW0208SCDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell r:/TPD018BCDNV5WC/PDUW0208SCDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell r:/TPD018BCDNV5WC/PDDW0208CDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell r:/TPD018BCDNV5WC/PDDW0208CDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Info:  Multiple drivers on net r:/WORK/systolic_array/en_p.
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[7].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[6].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[5].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[4].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[3].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[2].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[1].
+Info:  Multiple drivers on net r:/WORK/systolic_array/p_shift_in[0].
+Info:  Multiple drivers on net r:/WORK/systolic_array/rstn_p.
+Info:  Multiple drivers on net r:/WORK/systolic_array/clk_p.
+Info:  Net r:/WORK/systolic_array/u_pad_clk.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_rst_n.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_0.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_1.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_2.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_3.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_4.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_5.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_6.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_7.I is undriven.
+Info:  Net r:/WORK/systolic_array/u_pad_data_in_8.I is undriven.
+Info:  Multiple drivers on net r:/TPD018BCDNV5WC/PDDW0208SCDG/n1.
+Info:  Multiple drivers on net r:/TPD018BCDNV5WC/PDUW0208SCDG/n1.
+Info:  Multiple drivers on net r:/TPD018BCDNV5WC/PDDW0208CDG/n1.
+Warning: Cell i:/TPD018BCDNV5WC/PDDW0208CDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell i:/TPD018BCDNV5WC/PDDW0208CDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell i:/TPD018BCDNV5WC/PDUW0208SCDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell i:/TPD018BCDNV5WC/PDUW0208SCDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell i:/TPD018BCDNV5WC/PDDW0208SCDG/DS\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Warning: Cell i:/TPD018BCDNV5WC/PDDW0208SCDG/PE\*unread\* references black-box design /TPD018BCDNV5WC/SNPS_UNREAD_TECH_INPUT_PIN_BBOX (FM-158)
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[0].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[1].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[2].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[3].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[4].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[5].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[6].
+Info:  Multiple drivers on net i:/WORK/systolic_array/p_shift_in[7].
+Info:  Multiple drivers on net i:/WORK/systolic_array/en_p.
+Info:  Multiple drivers on net i:/WORK/systolic_array/rstn_p.
+Info:  Multiple drivers on net i:/WORK/systolic_array/clk_p.
+Info:  Multiple drivers on net i:/TPD018BCDNV5WC/PDDW0208CDG/n1.
+Info:  Multiple drivers on net i:/TPD018BCDNV5WC/PDUW0208SCDG/n1.
+Info:  Multiple drivers on net i:/TPD018BCDNV5WC/PDDW0208SCDG/n1.
+Info:  SVF Operation 88 (Line: 533) - ungroup.  Status: accepted
+Info:  SVF Operation 89 (Line: 537) - ungroup.  Status: accepted
+Info:  SVF Operation 90 (Line: 541) - ungroup.  Status: accepted
+Info:  SVF Operation 91 (Line: 545) - ungroup.  Status: accepted
+Info:  SVF Operation 92 (Line: 549) - ungroup.  Status: accepted
+Info:  SVF Operation 93 (Line: 553) - ungroup.  Status: accepted
+Info:  SVF Operation 94 (Line: 557) - ungroup.  Status: accepted
+Info:  SVF Operation 95 (Line: 561) - ungroup.  Status: accepted
+Info:  SVF Operation 96 (Line: 565) - ungroup.  Status: accepted
+Info:  SVF Operation 97 (Line: 569) - ungroup.  Status: accepted
+Info:  SVF Operation 98 (Line: 573) - ungroup.  Status: accepted
+Info:  SVF Operation 99 (Line: 577) - ungroup.  Status: accepted
+Info:  SVF Operation 100 (Line: 581) - ungroup.  Status: accepted
+Info:  SVF Operation 101 (Line: 585) - ungroup.  Status: accepted
+Info:  SVF Operation 102 (Line: 589) - ungroup.  Status: accepted
+Info:  SVF Operation 103 (Line: 593) - ungroup.  Status: accepted
+Info:  SVF Operation 104 (Line: 597) - ungroup.  Status: accepted
+Info:  SVF Operation 105 (Line: 601) - ungroup.  Status: accepted
+Info:  SVF Operation 106 (Line: 605) - ungroup.  Status: accepted
+Info:  SVF Operation 107 (Line: 609) - ungroup.  Status: accepted
+Info:  SVF Operation 108 (Line: 613) - ungroup.  Status: accepted
+Info:  SVF Operation 109 (Line: 617) - ungroup.  Status: accepted
+Info:  SVF Operation 110 (Line: 621) - ungroup.  Status: accepted
+Info:  SVF Operation 111 (Line: 625) - ungroup.  Status: accepted
+Info:  SVF Operation 112 (Line: 629) - ungroup.  Status: accepted
+Info:  SVF Operation 113 (Line: 633) - ungroup.  Status: accepted
+Info:  SVF Operation 114 (Line: 637) - ungroup.  Status: accepted
+Info:  SVF Operation 115 (Line: 641) - ungroup.  Status: accepted
+Info:  SVF Operation 116 (Line: 645) - ungroup.  Status: accepted
+Info:  SVF Operation 117 (Line: 649) - ungroup.  Status: accepted
+Info:  SVF Operation 118 (Line: 653) - ungroup.  Status: accepted
+Info:  SVF Operation 119 (Line: 657) - ungroup.  Status: accepted
+Info:  SVF Operation 120 (Line: 661) - ungroup.  Status: accepted
+Info:  SVF Operation 121 (Line: 665) - ungroup.  Status: accepted
+Info:  SVF Operation 122 (Line: 669) - ungroup.  Status: accepted
+Info:  SVF Operation 123 (Line: 673) - ungroup.  Status: accepted
+Info:  SVF Operation 124 (Line: 677) - ungroup.  Status: accepted
+Info:  SVF Operation 125 (Line: 681) - ungroup.  Status: accepted
+Info:  SVF Operation 126 (Line: 685) - ungroup.  Status: accepted
+Info:  SVF Operation 127 (Line: 689) - ungroup.  Status: accepted
+Info:  SVF Operation 128 (Line: 693) - ungroup.  Status: accepted
+Info:  SVF Operation 129 (Line: 697) - ungroup.  Status: accepted
+Info:  SVF Operation 130 (Line: 701) - ungroup.  Status: accepted
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_217J1_122_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_218J1_123_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_219J1_124_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_220J1_125_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_221J1_126_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_222J1_127_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_223J1_128_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_224J1_129_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_225J1_130_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_226J1_131_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_227J1_132_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_228J1_133_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_229J1_134_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_230J1_135_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_231J1_136_2998 SUCCEEDED.
+Info:  Pre-verification of r:/WORK/systolic_array/DP_OP_232J1_137_2998 SUCCEEDED.

@@ -1,0 +1,15 @@
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:04:30 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk_p                784       14        15        0.0333    1.9670      0            456.6016
+1

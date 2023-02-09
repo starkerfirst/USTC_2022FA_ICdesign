@@ -1,0 +1,72 @@
+**************************************************
+Report         : unmatched_points
+
+Reference      : r:/WORK/systolic_array
+Implementation : i:/WORK/systolic_array
+Version        : L-2016.03-SP4
+Date           : Thu Feb  9 12:11:53 2023
+**************************************************
+
+16 Unmatched points (16 reference, 0 implementation):
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/OutputSign_reg
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_A_reg[0]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_A_reg[1]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_A_reg[2]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_B_reg[0]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_B_reg[1]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/id_B_reg[2]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/load_A_reg
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/load_B_reg
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_A_reg[0]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_A_reg[1]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_B_reg[0]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_B_reg[1]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_out_reg[0]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/row_out_reg[1]
+
+  Ref  TLA        r:/WORK/systolic_array/SA/ctrl/shift_reg
+
+ [BBNet: multiply-driven net
+  BBox:  black-box
+  BBPin: black-box pin
+  Block: hierarchical block
+  BlPin: hierarchical block pin
+  Cut:   cut-point
+  DFF:   non-constant DFF register
+  DFF0:  constant 0 DFF register
+  DFF1:  constant 1 DFF register
+  DFFX:  constant X DFF register
+  DFF0X: constrained 0X DFF register
+  DFF1X: constrained 1X DFF register
+  LAT:   non-constant latch register
+  LAT0:  constant 0 latch register
+  LAT1:  constant 1 latch register
+  LATX:  constant X latch register
+  LAT0X: constrained 0X latch register
+  LAT1X: constrained 1X latch register
+  LATCG: clock-gating latch register
+  TLA:   transparent latch register
+  TLA0X: transparent constrained 0X latch register
+  TLA1X: transparent constrained 1X latch register
+  Loop:  cycle break point
+  Net:   matchable net
+  Port:  primary (top-level) port
+  Und:   undriven signal cut-point
+  Unk:   unknown signal cut-point]
+
+1

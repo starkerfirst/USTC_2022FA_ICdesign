@@ -1,0 +1,77 @@
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:00:58 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+============ Global Skew Report ================
+
+Clock Tree Name                : "clk_p"
+Clock Period                   : 40.00000       
+Clock Tree root pin            : "clk_p"
+Number of Levels               : 6
+Number of Sinks                : 784
+Number of CT Buffers           : 14
+Number of CTS added gates      : 0
+Number of Preexisting Gates    : 1
+Number of Preexisting Buf/Inv  : 0
+Total Number of Clock Cells    : 15
+Total Area of CT Buffers       : 456.60162      
+Total Area of CT cells         : 10056.60059    
+Max Global Skew                : 0.03178   
+Number of MaxTran Violators    : 0
+Number of MaxCap Violators     : 0
+Number of MaxFanout Violators  : 0
+
+
+Operating Condition               worst
+Clock global Skew                 0.032
+Longest path delay                1.964
+Shortest path delay               1.932
+
+The longest path delay end pin: SA_core_pe_2_1_Cij_o_reg_4_/CP
+The shortest path delay end pin: SA_A_2_shift_reg_reg_0__6_/CP
+
+The longest Path:
+Pin                                         Cap       Fanout    Trans     Incr      Arri
+----------------------------------------------------------------------------------------------------
+clk_p                                       0.000            1  0.000     0.000     0.000     r
+clk_p                                       2.306            1  0.500     0.000     0.000     r
+u_pad_clk/PAD                               2.306            1  0.500     0.079     0.079     r
+u_pad_clk/C                                 0.024            1  0.198     1.317     1.395     r
+CTSCKND12BWP7T_G2B4I1/I                     0.024            1  0.143     0.001     1.396     r
+CTSCKND12BWP7T_G2B4I1/ZN                    0.079            1  0.109     0.095     1.491     f
+CTSCKND3BWP7T_G2B3I1/I                      0.079            1  0.112     0.009     1.500     f
+CTSCKND3BWP7T_G2B3I1/ZN                     0.150            2  0.128     0.097     1.597     r
+CTSCKND10BWP7T_G2B2I2/I                     0.150            1  0.132     0.007     1.604     r
+CTSCKND10BWP7T_G2B2I2/ZN                    0.364            6  0.149     0.116     1.720     f
+CTSCKND12BWP7T_G2B1I5/I                     0.364            1  0.151     0.005     1.725     f
+CTSCKND12BWP7T_G2B1I5/ZN                    0.503           98  0.368     0.229     1.953     r
+SA_core_pe_2_1_Cij_o_reg_4_/CP              0.503            0  0.375     0.010     1.964     r
+[clock delay]                                                                       1.964
+----------------------------------------------------------------------------------------------------
+
+The Shortest Path:
+Pin                                         Cap       Fanout    Trans     Incr      Arri
+----------------------------------------------------------------------------------------------------
+clk_p                                       0.000            1  0.000     0.000     0.000     r
+clk_p                                       2.306            1  0.500     0.000     0.000     r
+u_pad_clk/PAD                               2.306            1  0.500     0.079     0.079     r
+u_pad_clk/C                                 0.024            1  0.198     1.317     1.395     r
+CTSCKND12BWP7T_G2B4I1/I                     0.024            1  0.143     0.001     1.396     r
+CTSCKND12BWP7T_G2B4I1/ZN                    0.079            1  0.109     0.095     1.491     f
+CTSCKND3BWP7T_G2B3I1/I                      0.079            1  0.112     0.009     1.500     f
+CTSCKND3BWP7T_G2B3I1/ZN                     0.150            2  0.128     0.097     1.597     r
+CTSCKND10BWP7T_G2B2I2/I                     0.150            1  0.132     0.007     1.604     r
+CTSCKND10BWP7T_G2B2I2/ZN                    0.364            6  0.149     0.116     1.720     f
+CTSCKND12BWP7T_G2B1I8/I                     0.364            1  0.152     0.012     1.731     f
+CTSCKND12BWP7T_G2B1I8/ZN                    0.405           79  0.301     0.198     1.929     r
+SA_A_2_shift_reg_reg_0__6_/CP               0.405            0  0.302     0.003     1.932     r
+[clock delay]                                                                       1.932
+----------------------------------------------------------------------------------------------------
+
+1

@@ -1,0 +1,119 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream In
+Program   : @(#)$CDS: strmin version 6.1.6-64b 05/03/2013 14:41 (sjfnl008) $
+          : sub-version  IC6.1.6-64b.101 
+Started at: 09-Feb-2023  15:47:35
+User Name : PB20000328
+Host Name : c01n05
+Directory : /bks2/PB20000328/ic_design/oa
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+WARNING (XSTRM-75): Target library 'systolic_array' is attached to the technology library 'tsmc18'. Therefore, the technology file is opened in read-only mode. All the undefined layer-purpose pairs will be dropped.
+INFO (XSTRM-217): Reading the layer map file, /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/tsmc18/tsmc18.layermap
+INFO (XSTRM-217): Reading the refliblist file, /bks2/PB20000328/ic_design/oa/.cadence/xstream/IN/reflib.list
+INFO (XSTRM-163): You have not used the viaMap option. If a viaMap file, corresponding techfile or technology library exist, then use the -viaMap option for creating oaVia instances in the Streamed-In library. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design. For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options:
+	library				systolic_array
+	strmFile			/bks2/PB20000328/ic_design/apr/result/systolic_array.gds
+	logFile				strmIn.log
+	topCell				systolic_array
+	view				layout
+	case				Preserve
+	layerMap			/soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/tsmc18/tsmc18.layermap
+	propSeparator			,
+	refLibList				/bks2/PB20000328/ic_design/oa/.cadence/xstream/IN/reflib.list
+	attachTechFileOfLib				tsmc18
+
+INFO (XSTRM-220): 1. Translating STRUCTURE $$VIA12H_520_520_2_1 as cellView systolic_array/$$VIA12H_520_520_2_1/layout
+INFO (XSTRM-220): 2. Translating STRUCTURE $$VIA23_520_520_1_2 as cellView systolic_array/$$VIA23_520_520_1_2/layout
+INFO (XSTRM-220): 3. Translating STRUCTURE $$VIA12_520_520_2_1 as cellView systolic_array/$$VIA12_520_520_2_1/layout
+INFO (XSTRM-220): 4. Translating STRUCTURE $$VIA23_520_520_4_1 as cellView systolic_array/$$VIA23_520_520_4_1/layout
+INFO (XSTRM-220): 5. Translating STRUCTURE $$VIA23_520_520_21_1 as cellView systolic_array/$$VIA23_520_520_21_1/layout
+INFO (XSTRM-220): 6. Translating STRUCTURE $$VIA34_520_520_21_1 as cellView systolic_array/$$VIA34_520_520_21_1/layout
+INFO (XSTRM-220): 7. Translating STRUCTURE $$VIA34_520_520_4_1 as cellView systolic_array/$$VIA34_520_520_4_1/layout
+INFO (XSTRM-220): 8. Translating STRUCTURE $$VIA34_520_520_21_21 as cellView systolic_array/$$VIA34_520_520_21_21/layout
+INFO (XSTRM-220): 9. Translating STRUCTURE $$VIA34_520_520_4_21 as cellView systolic_array/$$VIA34_520_520_4_21/layout
+INFO (XSTRM-220): 10. Translating STRUCTURE $$VIA12V as cellView systolic_array/$$VIA12V/layout
+INFO (XSTRM-220): 11. Translating STRUCTURE $$VIA23 as cellView systolic_array/$$VIA23/layout
+INFO (XSTRM-220): 12. Translating STRUCTURE $$VIA12 as cellView systolic_array/$$VIA12/layout
+INFO (XSTRM-220): 13. Translating STRUCTURE $$VIA34 as cellView systolic_array/$$VIA34/layout
+INFO (XSTRM-220): 14. Translating STRUCTURE $$VIA23_520_520_2_1 as cellView systolic_array/$$VIA23_520_520_2_1/layout
+INFO (XSTRM-220): 15. Translating STRUCTURE $$VIA34_520_520_2_1 as cellView systolic_array/$$VIA34_520_520_2_1/layout
+INFO (XSTRM-220): 16. Translating STRUCTURE $$VIA12H_520_520_1_2 as cellView systolic_array/$$VIA12H_520_520_1_2/layout
+INFO (XSTRM-220): 17. Translating STRUCTURE $$VIA12_520_520_1_2 as cellView systolic_array/$$VIA12_520_520_1_2/layout
+INFO (XSTRM-220): 18. Translating STRUCTURE $$VIA34_520_520_1_2 as cellView systolic_array/$$VIA34_520_520_1_2/layout
+INFO (XSTRM-220): 19. Translating STRUCTURE $$VIA34_520_520_1_60 as cellView systolic_array/$$VIA34_520_520_1_60/layout
+INFO (XSTRM-220): 20. Translating STRUCTURE $$VIA34_520_520_60_1 as cellView systolic_array/$$VIA34_520_520_60_1/layout
+INFO (XSTRM-220): 21. Translating STRUCTURE $$VIA34_520_520_58_1 as cellView systolic_array/$$VIA34_520_520_58_1/layout
+INFO (XSTRM-220): 22. Translating STRUCTURE $$VIA23_520_520_1_60 as cellView systolic_array/$$VIA23_520_520_1_60/layout
+INFO (XSTRM-220): 23. Translating STRUCTURE $$VIA23_520_520_1_58 as cellView systolic_array/$$VIA23_520_520_1_58/layout
+INFO (XSTRM-220): 24. Translating STRUCTURE $$VIA23_520_520_60_1 as cellView systolic_array/$$VIA23_520_520_60_1/layout
+INFO (XSTRM-220): 25. Translating STRUCTURE $$VIA23_520_520_58_1 as cellView systolic_array/$$VIA23_520_520_58_1/layout
+INFO (XSTRM-220): 26. Translating STRUCTURE $$VIA12_520_520_1_58 as cellView systolic_array/$$VIA12_520_520_1_58/layout
+INFO (XSTRM-220): 27. Translating STRUCTURE $$VIA12_520_520_58_1 as cellView systolic_array/$$VIA12_520_520_58_1/layout
+INFO (XSTRM-220): 28. Translating STRUCTURE $$VIA12_520_520_21_1 as cellView systolic_array/$$VIA12_520_520_21_1/layout
+INFO (XSTRM-220): 29. Translating STRUCTURE $$VIA12_520_520_4_1 as cellView systolic_array/$$VIA12_520_520_4_1/layout
+INFO (XSTRM-220): 30. Translating STRUCTURE $$VIA45_710_710_15_43 as cellView systolic_array/$$VIA45_710_710_15_43/layout
+INFO (XSTRM-220): 31. Translating STRUCTURE $$VIA45_710_710_1_43 as cellView systolic_array/$$VIA45_710_710_1_43/layout
+INFO (XSTRM-220): 32. Translating STRUCTURE $$VIA34_520_520_60_21 as cellView systolic_array/$$VIA34_520_520_60_21/layout
+INFO (XSTRM-220): 33. Translating STRUCTURE $$VIA34_520_520_21_58 as cellView systolic_array/$$VIA34_520_520_21_58/layout
+INFO (XSTRM-220): 34. Translating STRUCTURE $$VIA34_520_520_21_13 as cellView systolic_array/$$VIA34_520_520_21_13/layout
+INFO (XSTRM-220): 35. Translating STRUCTURE $$VIA34_520_520_21_12 as cellView systolic_array/$$VIA34_520_520_21_12/layout
+INFO (XSTRM-220): 36. Translating STRUCTURE $$VIA34_520_520_58_21 as cellView systolic_array/$$VIA34_520_520_58_21/layout
+INFO (XSTRM-220): 37. Translating STRUCTURE systolic_array as cellView systolic_array/systolic_array/layout
+WARNING (XSTRM-207): Path length 280 at location (470955,120510) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (509315,120510) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (390085,120480) on layer 28 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (430115,120480) on layer 28 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (509315,779210) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (470955,779210) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (430115,779240) on layer 28 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (390085,779240) on layer 28 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5050 at location (470955,115790) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5050 at location (509315,115790) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (390085,120430) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (430115,120430) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5050 at location (509315,779160) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5050 at location (470955,779160) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (430115,779190) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (390085,779190) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 4990 at location (390085,115770) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 4990 at location (430115,115770) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 4990 at location (430115,779240) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 4990 at location (390085,779240) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (769700,470820) on layer 31 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (769700,509180) on layer 31 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (130160,509180) on layer 31 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 380 at location (130160,470820) on layer 31 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 9880 at location (769700,470820) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 9880 at location (769700,509180) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 9880 at location (120660,509180) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 9880 at location (120660,470820) on layer 28 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5200 at location (115790,509180) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5200 at location (115790,470820) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 6155 at location (115770,430015) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (120680,389985) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5200 at location (779250,470820) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5200 at location (779250,509180) on layer 18 is less than 1/2 of path width 31060. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 6155 at location (778315,430015) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 280 at location (779280,389985) on layer 18 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5240 at location (779230,389985) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+WARNING (XSTRM-207): Path length 5240 at location (115770,389985) on layer 16 is less than 1/2 of path width 30190. The path would be created with the dimensions in Stream file. To resolve this, fix the source from which the Stream file is generated and then run the translator again with the new Stream File.
+
+Summary of Objects Translated:
+	Instances:                              58409
+	Arrays:                                 0
+	Polygons:                               0
+	Paths:                                  57130
+	PathSegs:                               0
+	Rectangles:                             6302
+	Text:                                   20
+	Node:                                   0
+	Line:                                   0
+	Cells:                                  37
+
+Elapsed Time: 2.3s   User Time: 1.3s   CPU Time: 0.3s   Peak VM: 106568KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '39' warning(s) found.

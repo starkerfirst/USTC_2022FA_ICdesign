@@ -1,0 +1,24 @@
+*lvsRulesFile: /js1/baixf/teaching/PCD2021/top/check/lvs/calibre.lvs
+*lvsRunDir: /js1/baixf/teaching/PCD2021/top/check/lvs/run
+*lvsLayoutPaths: digital.calibre.db
+*lvsLayoutPrimary: digital
+*lvsLayoutLibrary: digital
+*lvsLayoutView: layout
+*lvsLayoutGetFromViewer: 1
+*lvsSourcePath: /js1/baixf/teaching/PCD2021/top/check/lvs/digital.source.sp /js1/baixf/teaching/PCD2021/top/check/lvs/source.added /js1/baixf/teaching/PCD2021/top/check/lvs/tcb018gbwp7t_270a.spi /js1/baixf/teaching/PCD2021/top/check/lvs/tpd018bcdnv5_3.spi
+*lvsSourcePrimary: digital
+*lvsSourceLibrary: digital
+*lvsSpiceFile: digital.sp
+*lvsERCDatabase: digital.erc.results
+*lvsERCSummaryFile: digital.erc.summary
+*lvsIncludeSVRFCmds: 1
+*lvsSVRFCmds: {LAYOUT CASE YES} {SOURCE CASE YES} {}
+*lvsReportFile: digital.lvs.report
+*lvsMaskDBFile: digital.maskdb
+*cmnShowOptions: 1
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: digital
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: digital.def

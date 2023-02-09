@@ -1,0 +1,208 @@
+ 
+****************************************
+Report : design
+        -physical
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 14:58:55 2023
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Thu Feb  9 14:58:55 2023
+Machine Host Name: c01n10
+Working Directory: /bks2/PB20000328/ic_design/apr
+Library Name:      systolic_array_APR
+Cell Name:         clock_opt_psyn_icc.CEL;1
+Design Statistics:
+    Number of Module Cells:        6252
+    Number of Pins:                26957
+    Number of IO Pad Cells:        32
+    Number of IO Pins:             20
+    Number of Nets:                4323
+    Average Pins Per Net (Signal): 3.16771
+
+Chip Utilization:
+    Total Std Cell Area:           84523.98
+    Total Blockage Area:           41489.28
+    Total Pad Cell Area:           374800.00
+    Core Size:     width 590.24, height 588.00; area 347061.12
+    Pad Core Size: width 660.24, height 660.00; area 435758.40
+    Chip Size:     width 900.24, height 900.00; area 810216.00
+    Std cells utilization:         27.66% 
+    Cell/Core Ratio:               24.35%
+    Cell/Chip Ratio:               56.69%
+    Number of Cell Rows:            150
+
+Master Instantiation:
+	MasterName	Type	InstCount
+	=================================
+	TAPCELLBWP7T	STD	2250
+	DFQD0BWP7T	STD	617
+	NR2D1BWP7T	STD	526
+	OAI21D0BWP7T	STD	437
+	AOI22D0BWP7T	STD	395
+	FA1D0BWP7T	STD	288
+	ND2D1BWP7T	STD	234
+	INVD0BWP7T	STD	153
+	DFQD1BWP7T	STD	151
+	INVD1BWP7T	STD	137
+	AN2D1BWP7T	STD	87
+	MAOI22D0BWP7T	STD	72
+	CKBD1BWP7T	STD	61
+	AOI21D0BWP7T	STD	46
+	ND3D0BWP7T	STD	45
+	MOAI22D0BWP7T	STD	44
+	XOR4D0BWP7T	STD	40
+	XNR4D0BWP7T	STD	36
+	ND2D1P5BWP7T	STD	34
+	MAOI222D1BWP7T	STD	31
+	NR3D0BWP7T	STD	29
+	IAO21D0BWP7T	STD	28
+	AN3D1BWP7T	STD	28
+	INVD2BWP7T	STD	28
+	XNR3D0BWP7T	STD	24
+	CKND1BWP7T	STD	22
+	AO22D0BWP7T	STD	21
+	AOI21D1BWP7T	STD	21
+	IOA21D0BWP7T	STD	19
+	OA21D0BWP7T	STD	18
+	ND2D2BWP7T	STD	18
+	BUFFD1P5BWP7T	STD	18
+	DFQD2BWP7T	STD	16
+	NR3D1BWP7T	STD	16
+	OAI31D1BWP7T	STD	15
+	BUFFD3BWP7T	STD	14
+	XOR3D0BWP7T	STD	12
+	OAI31D2BWP7T	STD	12
+	MOAI22D1BWP7T	STD	12
+	AOI211D1BWP7T	STD	11
+	OAI21D1BWP7T	STD	10
+	OAI211D0BWP7T	STD	10
+	AOI22D1BWP7T	STD	10
+	BUFFD1BWP7T	STD	9
+	INR2XD2BWP7T	STD	8
+	OAI22D1BWP7T	STD	8
+	INVD2P5BWP7T	STD	7
+	CKND12BWP7T	STD	6
+	CKBD0BWP7T	STD	5
+	MAOI222D2BWP7T	STD	5
+	BUFFD4BWP7T	STD	5
+	CKND2D2BWP7T	STD	4
+	OAI21D2BWP7T	STD	4
+	BUFFD6BWP7T	STD	4
+	OA31D0BWP7T	STD	3
+	OA32D0BWP7T	STD	3
+	AO211D0BWP7T	STD	3
+	CKND0BWP7T	STD	3
+	BUFFD5BWP7T	STD	3
+	CKND2BWP7T	STD	3
+	INVD10BWP7T	STD	3
+	OAI31D0BWP7T	STD	2
+	AOI21D2BWP7T	STD	2
+	IND3D0BWP7T	STD	2
+	OR4D1BWP7T	STD	2
+	ND3D1BWP7T	STD	2
+	ND2D4BWP7T	STD	2
+	OAI22D2BWP7T	STD	2
+	NR2XD0BWP7T	STD	2
+	CKND2D1BWP7T	STD	2
+	NR2XD3BWP7T	STD	2
+	BUFFD8BWP7T	STD	2
+	IOA22D0BWP7T	STD	2
+	CKND10BWP7T	STD	2
+	INVD12BWP7T	STD	2
+	INR2XD4BWP7T	STD	2
+	IAO21D2BWP7T	STD	2
+	AOI221D1BWP7T	STD	2
+	NR3D3BWP7T	STD	2
+	NR3D4BWP7T	STD	2
+	OAI211D1BWP7T	STD	1
+	IAO21D1BWP7T	STD	1
+	TIEHBWP7T	STD	1
+	TIELBWP7T	STD	1
+	OA211D0BWP7T	STD	1
+	AOI31D0BWP7T	STD	1
+	CKBD6BWP7T	STD	1
+	OA21D1BWP7T	STD	1
+	INR2XD0BWP7T	STD	1
+	CKBD2BWP7T	STD	1
+	BUFFD12BWP7T	STD	1
+	BUFFD0BWP7T	STD	1
+	BUFFD2BWP7T	STD	1
+	AOI31D1BWP7T	STD	1
+	NR4D3BWP7T	STD	1
+	NR4D1BWP7T	STD	1
+	CKND4BWP7T	STD	1
+	AO21D0BWP7T	STD	1
+	NR2D1P5BWP7T	STD	1
+	INVD8BWP7T	STD	1
+	INVD3BWP7T	STD	1
+	ND2D3BWP7T	STD	1
+	CKND3BWP7T	STD	1
+	IOA22D2BWP7T	STD	1
+	NR2D2BWP7T	STD	1
+	INVD4BWP7T	STD	1
+	AN3D4BWP7T	STD	1
+	OR2D4BWP7T	STD	1
+	NR2XD2BWP7T	STD	1
+	NR2D3BWP7T	STD	1
+	NR4D4BWP7T	STD	1
+	NR2XD1BWP7T	STD	1
+	PFILLER0005	IO	96
+	PDDW0208CDG	IO	18
+	PVDD2CDG	IO	4
+	PVSS3CDG	IO	4
+	PVDD1CDG	IO	4
+	PDUW0208SCDG	IO	1
+	PDDW0208SCDG	IO	1
+	PCORNER		CORNER	4
+	=================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+
+Track Assignment Information:
+
+Detailed Routing Information:
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+    metal3 Wire Length(count):               2460.08(4)
+    metal4 Wire Length(count):               2450.88(4)
+  ==============================================
+    Total Wire Length(count):                4910.96(8)
+    Number of via3 Contacts:              8
+  ==============================================
+    Total Number of Contacts:        8
+
+Stripe Wiring Statistics:
+    metal4 Wire Length(count):              17408.16(28)
+  ==============================================
+    Total Wire Length(count):               17408.16(28)
+    Number of via3 Contacts:             56
+  ==============================================
+    Total Number of Contacts:       56
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+    metal1 Wire Length(count):              94469.83(151)
+  ==============================================
+    Total Wire Length(count):               94469.83(151)
+    Number of via1 Contacts:           2416
+    Number of via2 Contacts:           2416
+    Number of via3 Contacts:           2410
+  ==============================================
+    Total Number of Contacts:     7242
+
+Signal Wiring Statistics:
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+  ==============================================================
+    Total              0.00                      0.00
+1

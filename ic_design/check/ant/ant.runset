@@ -1,0 +1,12 @@
+*drcRulesFile: /js1/baixf/teaching/PCD2021/top/check/drc/CHV18S_AL_5V_6V_9V_12V_16V_20V_24V_29V_45V_5M.13_4a
+*drcRunDir: /js1/baixf/teaching/PCD2021/top/check/drc
+*drcLayoutPaths: digital.calibre.db
+*drcLayoutPrimary: digital
+*drcLayoutLibrary: digital
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: digital.drc.results
+*drcSummaryFile: digital.drc.summary
+*cmnFDILayoutLibrary: digital
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: digital.def

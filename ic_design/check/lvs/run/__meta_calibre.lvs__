@@ -1,0 +1,6 @@
+DRC ICSTATION YES
+
+LAYOUT CASE YES
+SOURCE CASE YES
+
+INCLUDE "/bks2/PB20000328/ic_design/check/lvs/calibre.lvs"

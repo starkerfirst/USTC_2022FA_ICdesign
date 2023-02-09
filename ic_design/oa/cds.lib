@@ -1,0 +1,8 @@
+INCLUDE ../../tech/TSMC180BCDGEN3/tcb018gbwp7t_290a/oa/cds.lib
+INCLUDE ../../tech/TSMC180BCDGEN3/tpb018v_180a/oa/cds.lib
+INCLUDE ../../tech/TSMC180BCDGEN3/pdk/cds.lib
+
+DEFINE tpd018bcdnv5_mt_2_5lm ./tpd018bcdnv5_mt_2_5lm
+DEFINE sealring_1P5M         ./sealring_1P5M
+DEFINE systolic_array /bks2/PB20000328/ic_design/oa/systolic_array
+DEFINE Newton_Layout /bks2/PB20000328/ic_design/oa/Newton_Layout

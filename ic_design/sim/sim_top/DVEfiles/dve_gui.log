@@ -1,0 +1,177 @@
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_clk
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_rst_n
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_0
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_1
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_2
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_3
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_4
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_5
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_6
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_7
+ERROR :                    0 ++BUS CONFLICT++ : systolic_array_sim_top.test.u_pad_data_in_8
+T=    0, out=  x, state=0, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=   20, out=  0, state=0, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=   40, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=   60, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=   80, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  100, out=  0, state=1, state_load_AB=0, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  120, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  140, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  160, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  180, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  200, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  220, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  240, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  260, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  280, out=  0, state=1, state_load_AB=0, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  300, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  320, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  340, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  360, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  380, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  400, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  420, out=  0, state=1, state_load_AB=1, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  440, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  460, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  480, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  500, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  520, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  540, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  560, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  580, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  600, out=  0, state=1, state_load_AB=1, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  620, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  640, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  660, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  680, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  700, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 1, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  720, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 2, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  740, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 3, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  760, out=  1, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 4, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  780, out=  3, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 5, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  800, out=  6, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 6, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  820, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 7, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  840, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 8, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  860, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 9, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  880, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=10, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  900, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=11, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  920, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=12, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  940, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=13, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  960, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=14, state_compute_out=0, state_compute_out_counter=0, ack=0
+T=  980, out= 10, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=15, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1000, out= 10, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=1
+T= 1020, out= 10, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=1, ack=1
+T= 1040, out= 10, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=2, ack=1
+T= 1060, out= 10, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=3, ack=1
+T= 1080, out=  0, state=0, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1120, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1140, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1160, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1180, out=  0, state=1, state_load_AB=0, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1200, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1220, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1240, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1260, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1280, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1300, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1320, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1340, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1360, out=  0, state=1, state_load_AB=0, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1380, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1400, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1420, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1440, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1460, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1480, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1500, out=  0, state=1, state_load_AB=1, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1520, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1540, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1560, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1580, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1600, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1620, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1640, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1660, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1680, out=  0, state=1, state_load_AB=1, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1700, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1720, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1740, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1760, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1780, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 1, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1800, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 2, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1820, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 3, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1840, out=  1, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 4, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1860, out=  2, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 5, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1880, out=  3, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 6, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1900, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 7, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1920, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 8, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1940, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 9, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1960, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=10, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 1980, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=11, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2000, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=12, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2020, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=13, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2040, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=14, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2060, out=  4, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=15, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2080, out=  4, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=1
+T= 2100, out=  4, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=1, ack=1
+T= 2120, out=  4, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=2, ack=1
+T= 2140, out=  4, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=3, ack=1
+T= 2160, out=  0, state=0, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2200, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2220, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2240, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2260, out=  0, state=1, state_load_AB=0, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2280, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2300, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2320, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2340, out=  0, state=1, state_load_AB=0, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2360, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2380, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2400, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2420, out=  0, state=1, state_load_AB=0, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2440, out=  0, state=1, state_load_AB=0, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2460, out=  0, state=1, state_load_AB=0, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2480, out=  0, state=1, state_load_AB=0, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2500, out=  0, state=1, state_load_AB=0, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2520, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2540, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2560, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2580, out=  0, state=1, state_load_AB=1, state_load_id=6, state_load_row=0, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2600, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2620, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2640, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2660, out=  0, state=1, state_load_AB=1, state_load_id=5, state_load_row=1, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2680, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2700, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2720, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2740, out=  0, state=1, state_load_AB=1, state_load_id=4, state_load_row=2, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2760, out=  0, state=1, state_load_AB=1, state_load_id=0, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2780, out=  0, state=1, state_load_AB=1, state_load_id=1, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2800, out=  0, state=1, state_load_AB=1, state_load_id=2, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2820, out=  0, state=1, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2840, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2860, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 1, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2880, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 2, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2900, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 3, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2920, out=  0, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 4, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2940, out=108, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 5, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2960, out= 68, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 6, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 2980, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 7, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3000, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 8, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3020, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 9, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3040, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=10, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3060, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=11, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3080, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=12, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3100, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=13, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3120, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=14, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3140, out=136, state=2, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump=15, state_compute_out=0, state_compute_out_counter=0, ack=0
+T= 3160, out=136, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=0, ack=1
+T= 3180, out=136, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=1, ack=1
+T= 3200, out=136, state=3, state_load_AB=1, state_load_id=3, state_load_row=3, state_compute_pump= 0, state_compute_out=0, state_compute_out_counter=2, ack=1
+$finish called from file "systolic_array_sim_top.v", line 268.
+$finish at simulation time              3220000
+Simulation complete, time is 3220000 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 3220000 ps
+CPU Time:      0.070 seconds;       Data structure size:   0.1Mb
+Wed Feb  8 13:37:14 2023

@@ -1,0 +1,378 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.6-64b 05/03/2013 14:41 (sjfnl125) $
+          : sub-version  IC6.1.6-64b.101 
+Started at: 09-Feb-2023  23:22:10
+User Name : PB20000328
+Host Name : c01n10
+Directory : /bks2/PB20000328/ic_design/oa
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+INFO (XSTRM-217): Reading the layer map file, /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/tsmc18/tsmc18.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 systolic_array
+strmFile                                /bks2/PB20000328/ic_design/check/lvs/run/systolic_array.calibre.db
+topCell                                 systolic_array
+view                                    layout
+runDir                                  /bks2/PB20000328/ic_design/check/lvs/run/
+logFile                                 PIPO.LOG.systolic_array
+layerMap                                /soft2/eda/tech/TSMC180BCDGEN3/pdk/oa/T018CVSP027K3_1_3A/HRI_3.3K_1.8V_5V_MIM_2.0fF_GA_GB_1P5M_4Kx4_MiM_40K/tsmc18/tsmc18.layermap
+case                                    Preserve
+convertDot                              node
+
+INFO (XSTRM-223): 1. Translating cellView tcb018gbwp7t/FILL1BWP7T/layout as STRUCTURE FILL1BWP7T
+INFO (XSTRM-223): 2. Translating cellView tcb018gbwp7t/FILL16BWP7T/layout as STRUCTURE FILL16BWP7T
+INFO (XSTRM-223): 3. Translating cellView tcb018gbwp7t/FILL8BWP7T/layout as STRUCTURE FILL8BWP7T
+INFO (XSTRM-223): 4. Translating cellView tcb018gbwp7t/FILL4BWP7T/layout as STRUCTURE FILL4BWP7T
+INFO (XSTRM-223): 5. Translating cellView tcb018gbwp7t/FILL2BWP7T/layout as STRUCTURE FILL2BWP7T
+INFO (XSTRM-223): 6. Translating cellView tcb018gbwp7t/FILL32BWP7T/layout as STRUCTURE FILL32BWP7T
+INFO (XSTRM-223): 7. Translating cellView tcb018gbwp7t/FILL64BWP7T/layout as STRUCTURE FILL64BWP7T
+INFO (XSTRM-275): Number of vertices `260' in `polygon' at layer `13' where the start point (135, 140) exceeds the limit defined by `maxVertices', `200'. Therefore, StreamOut will break this polygon into smaller polygons.
+INFO (XSTRM-223): 8. Translating cellView tcb018gbwp7t/DCAPBWP7T/layout as STRUCTURE DCAPBWP7T
+INFO (XSTRM-223): 9. Translating cellView tcb018gbwp7t/DCAP4BWP7T/layout as STRUCTURE DCAP4BWP7T
+INFO (XSTRM-223): 10. Translating cellView tcb018gbwp7t/DCAP8BWP7T/layout as STRUCTURE DCAP8BWP7T
+INFO (XSTRM-223): 11. Translating cellView tcb018gbwp7t/DCAP16BWP7T/layout as STRUCTURE DCAP16BWP7T
+INFO (XSTRM-223): 12. Translating cellView tcb018gbwp7t/DCAP32BWP7T/layout as STRUCTURE DCAP32BWP7T
+INFO (XSTRM-223): 13. Translating cellView tcb018gbwp7t/DCAP64BWP7T/layout as STRUCTURE DCAP64BWP7T
+INFO (XSTRM-223): 14. Translating cellView tcb018gbwp7t/BUFFD6BWP7T/layout as STRUCTURE BUFFD6BWP7T
+INFO (XSTRM-223): 15. Translating cellView tcb018gbwp7t/INVD2BWP7T/layout as STRUCTURE INVD2BWP7T
+INFO (XSTRM-223): 16. Translating cellView tcb018gbwp7t/CKBD1BWP7T/layout as STRUCTURE CKBD1BWP7T
+INFO (XSTRM-223): 17. Translating cellView tcb018gbwp7t/BUFFD2BWP7T/layout as STRUCTURE BUFFD2BWP7T
+INFO (XSTRM-223): 18. Translating cellView tcb018gbwp7t/BUFFD1P5BWP7T/layout as STRUCTURE BUFFD1P5BWP7T
+INFO (XSTRM-223): 19. Translating cellView tcb018gbwp7t/BUFFD4BWP7T/layout as STRUCTURE BUFFD4BWP7T
+INFO (XSTRM-223): 20. Translating cellView tcb018gbwp7t/BUFFD5BWP7T/layout as STRUCTURE BUFFD5BWP7T
+INFO (XSTRM-223): 21. Translating cellView tcb018gbwp7t/INVD2P5BWP7T/layout as STRUCTURE INVD2P5BWP7T
+INFO (XSTRM-223): 22. Translating cellView tcb018gbwp7t/CKND2BWP7T/layout as STRUCTURE CKND2BWP7T
+INFO (XSTRM-223): 23. Translating cellView tcb018gbwp7t/INVD6BWP7T/layout as STRUCTURE INVD6BWP7T
+INFO (XSTRM-223): 24. Translating cellView tcb018gbwp7t/INVD4BWP7T/layout as STRUCTURE INVD4BWP7T
+INFO (XSTRM-223): 25. Translating cellView tcb018gbwp7t/INVD3BWP7T/layout as STRUCTURE INVD3BWP7T
+INFO (XSTRM-223): 26. Translating cellView tcb018gbwp7t/BUFFD3BWP7T/layout as STRUCTURE BUFFD3BWP7T
+INFO (XSTRM-223): 27. Translating cellView tcb018gbwp7t/INVD8BWP7T/layout as STRUCTURE INVD8BWP7T
+INFO (XSTRM-223): 28. Translating cellView tcb018gbwp7t/CKBD0BWP7T/layout as STRUCTURE CKBD0BWP7T
+INFO (XSTRM-223): 29. Translating cellView tcb018gbwp7t/NR3D0BWP7T/layout as STRUCTURE NR3D0BWP7T
+INFO (XSTRM-223): 30. Translating cellView tcb018gbwp7t/BUFFD1BWP7T/layout as STRUCTURE BUFFD1BWP7T
+INFO (XSTRM-223): 31. Translating cellView tcb018gbwp7t/OAI31D2BWP7T/layout as STRUCTURE OAI31D2BWP7T
+INFO (XSTRM-223): 32. Translating cellView tcb018gbwp7t/AO21D0BWP7T/layout as STRUCTURE AO21D0BWP7T
+INFO (XSTRM-223): 33. Translating cellView tcb018gbwp7t/BUFFD8BWP7T/layout as STRUCTURE BUFFD8BWP7T
+INFO (XSTRM-223): 34. Translating cellView tcb018gbwp7t/INVD5BWP7T/layout as STRUCTURE INVD5BWP7T
+INFO (XSTRM-223): 35. Translating cellView tcb018gbwp7t/INVD0BWP7T/layout as STRUCTURE INVD0BWP7T
+INFO (XSTRM-223): 36. Translating cellView tcb018gbwp7t/CKND0BWP7T/layout as STRUCTURE CKND0BWP7T
+INFO (XSTRM-223): 37. Translating cellView tcb018gbwp7t/BUFFD12BWP7T/layout as STRUCTURE BUFFD12BWP7T
+INFO (XSTRM-223): 38. Translating cellView tcb018gbwp7t/CKND4BWP7T/layout as STRUCTURE CKND4BWP7T
+INFO (XSTRM-223): 39. Translating cellView tcb018gbwp7t/CKND1BWP7T/layout as STRUCTURE CKND1BWP7T
+INFO (XSTRM-223): 40. Translating cellView tcb018gbwp7t/CKBD10BWP7T/layout as STRUCTURE CKBD10BWP7T
+INFO (XSTRM-223): 41. Translating cellView tcb018gbwp7t/INVD1BWP7T/layout as STRUCTURE INVD1BWP7T
+INFO (XSTRM-223): 42. Translating cellView tcb018gbwp7t/TAPCELLBWP7T/layout as STRUCTURE TAPCELLBWP7T
+INFO (XSTRM-223): 43. Translating cellView tcb018gbwp7t/CKND12BWP7T/layout as STRUCTURE CKND12BWP7T
+INFO (XSTRM-223): 44. Translating cellView tcb018gbwp7t/INVD10BWP7T/layout as STRUCTURE INVD10BWP7T
+INFO (XSTRM-223): 45. Translating cellView tcb018gbwp7t/INVD12BWP7T/layout as STRUCTURE INVD12BWP7T
+INFO (XSTRM-223): 46. Translating cellView tcb018gbwp7t/CKND10BWP7T/layout as STRUCTURE CKND10BWP7T
+INFO (XSTRM-223): 47. Translating cellView tpd018bcdnv5_mt_2_5lm/PFILLER0005/layout as STRUCTURE PFILLER0005
+INFO (XSTRM-223): 48. Translating cellView tcb018gbwp7t/MAOI222D2BWP7T/layout as STRUCTURE MAOI222D2BWP7T
+INFO (XSTRM-223): 49. Translating cellView tcb018gbwp7t/MAOI222D1BWP7T/layout as STRUCTURE MAOI222D1BWP7T
+INFO (XSTRM-223): 50. Translating cellView tcb018gbwp7t/NR2XD0BWP7T/layout as STRUCTURE NR2XD0BWP7T
+INFO (XSTRM-223): 51. Translating cellView tcb018gbwp7t/OA31D0BWP7T/layout as STRUCTURE OA31D0BWP7T
+INFO (XSTRM-223): 52. Translating cellView tcb018gbwp7t/OR2D4BWP7T/layout as STRUCTURE OR2D4BWP7T
+INFO (XSTRM-223): 53. Translating cellView tcb018gbwp7t/AO211D0BWP7T/layout as STRUCTURE AO211D0BWP7T
+INFO (XSTRM-223): 54. Translating cellView tcb018gbwp7t/OA21D1BWP7T/layout as STRUCTURE OA21D1BWP7T
+INFO (XSTRM-223): 55. Translating cellView tcb018gbwp7t/OR4D1BWP7T/layout as STRUCTURE OR4D1BWP7T
+INFO (XSTRM-223): 56. Translating cellView tcb018gbwp7t/OAI31D1BWP7T/layout as STRUCTURE OAI31D1BWP7T
+INFO (XSTRM-223): 57. Translating cellView tcb018gbwp7t/OAI21D1BWP7T/layout as STRUCTURE OAI21D1BWP7T
+INFO (XSTRM-223): 58. Translating cellView tcb018gbwp7t/AOI21D1BWP7T/layout as STRUCTURE AOI21D1BWP7T
+INFO (XSTRM-223): 59. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PFILLER01_COR/layout as STRUCTURE HBK183_PFILLER01_COR
+INFO (XSTRM-223): 60. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_OC/layout as STRUCTURE HBK183_OC
+INFO (XSTRM-223): 61. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V3X4/layout as STRUCTURE HBK183_V3X4
+INFO (XSTRM-223): 62. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V5/layout as STRUCTURE HBK183_V5
+INFO (XSTRM-223): 63. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V4X4/layout as STRUCTURE HBK183_V4X4
+INFO (XSTRM-223): 64. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V2_1/layout as STRUCTURE HBK183_V2_1
+INFO (XSTRM-223): 65. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V1_1/layout as STRUCTURE HBK183_V1_1
+INFO (XSTRM-223): 66. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_CORNER_VIA/layout as STRUCTURE HBK183_CORNER_VIA
+INFO (XSTRM-223): 67. Translating cellView tpd018bcdnv5_mt_2_5lm/PCORNER/layout as STRUCTURE PCORNER
+INFO (XSTRM-223): 68. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_M3456/layout as STRUCTURE HBK183_M3456
+INFO (XSTRM-223): 69. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_OC_1/layout as STRUCTURE HBK183_OC_1
+INFO (XSTRM-223): 70. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PO/layout as STRUCTURE HBK183_PO
+INFO (XSTRM-223): 71. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_1X1/layout as STRUCTURE HBK183_NMOS_1X1
+INFO (XSTRM-223): 72. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V1/layout as STRUCTURE HBK183_V1
+INFO (XSTRM-223): 73. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYN_VDDLINE_S/layout as STRUCTURE HBK183_DYN_VDDLINE_S
+INFO (XSTRM-223): 74. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYN_VSSLINE_S/layout as STRUCTURE HBK183_DYN_VSSLINE_S
+INFO (XSTRM-223): 75. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYN_VDDPST_LINE_S/layout as STRUCTURE HBK183_DYN_VDDPST_LINE_S
+INFO (XSTRM-223): 76. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYN_VSSPST_LINE_S/layout as STRUCTURE HBK183_DYN_VSSPST_LINE_S
+INFO (XSTRM-223): 77. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PAD_LINE_VDD1DYN_S/layout as STRUCTURE HBK183_PAD_LINE_VDD1DYN_S
+INFO (XSTRM-223): 78. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PDIODE_BASE_S/layout as STRUCTURE HBK183_PDIODE_BASE_S
+INFO (XSTRM-223): 79. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W15_L6D3_DYN/layout as STRUCTURE HBK183_NMOS_W15_L6D3_DYN
+INFO (XSTRM-223): 80. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_RES_03_DYN/layout as STRUCTURE HBK183_RES_03_DYN
+INFO (XSTRM-223): 81. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYN_N22/layout as STRUCTURE HBK183_DYN_N22
+INFO (XSTRM-223): 82. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_PVDD1CDG_DYN_S/layout as STRUCTURE HBK183_POSTDRV_PVDD1CDG_DYN_S
+INFO (XSTRM-223): 83. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_GR_VDD1DYN_S/layout as STRUCTURE HBK183_PREDRV_GR_VDD1DYN_S
+INFO (XSTRM-223): 84. Translating cellView tsmc18/M1_POLY1/layout as STRUCTURE M1_POLY1_CDNS_675956130820
+INFO (XSTRM-223): 85. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W26_L03_DYN_S/layout as STRUCTURE HBK183_NMOS_W26_L03_DYN_S
+INFO (XSTRM-223): 86. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_VDD1CDG_DYN_S/layout as STRUCTURE HBK183_PREDRV_VDD1CDG_DYN_S
+INFO (XSTRM-223): 87. Translating cellView tpd018bcdnv5_mt_2_5lm/PVDD1CDG/layout as STRUCTURE PVDD1CDG
+INFO (XSTRM-223): 88. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYNVDD2_LINE_VSS_S/layout as STRUCTURE HBK183_DYNVDD2_LINE_VSS_S
+INFO (XSTRM-223): 89. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYNVDD2_LINE_VSSPST_S/layout as STRUCTURE HBK183_DYNVDD2_LINE_VSSPST_S
+INFO (XSTRM-223): 90. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PAD_LINE_VSS3DYN_S/layout as STRUCTURE HBK183_PAD_LINE_VSS3DYN_S
+INFO (XSTRM-223): 91. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_GR_VDD2DYN_S/layout as STRUCTURE HBK183_POSTDRV_GR_VDD2DYN_S
+INFO (XSTRM-223): 92. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_5X2_S/layout as STRUCTURE HBK183_NMOS_5X2_S
+INFO (XSTRM-223): 93. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_RES_8X024_DYN_S/layout as STRUCTURE HBK183_RES_8X024_DYN_S
+INFO (XSTRM-223): 94. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W26_L06_DYN_VDD2_S/layout as STRUCTURE HBK183_NMOS_W26_L06_DYN_VDD2_S
+INFO (XSTRM-223): 95. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PO_1/layout as STRUCTURE HBK183_PO_1
+INFO (XSTRM-223): 96. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W15_L6D3_DYN_2/layout as STRUCTURE HBK183_NMOS_W15_L6D3_DYN_2
+INFO (XSTRM-223): 97. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_PVSS3CDG_S/layout as STRUCTURE HBK183_POSTDRV_PVSS3CDG_S
+INFO (XSTRM-223): 98. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_GR_VSS3DYN_S/layout as STRUCTURE HBK183_PREDRV_GR_VSS3DYN_S
+INFO (XSTRM-223): 99. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_VSS3CDG_S/layout as STRUCTURE HBK183_PREDRV_VSS3CDG_S
+INFO (XSTRM-223): 100. Translating cellView tpd018bcdnv5_mt_2_5lm/PVSS3CDG/layout as STRUCTURE PVSS3CDG
+INFO (XSTRM-223): 101. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYNVDD2_LINE_VDD_S/layout as STRUCTURE HBK183_DYNVDD2_LINE_VDD_S
+INFO (XSTRM-223): 102. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_DYNVDD2_LINE_VDDPST/layout as STRUCTURE HBK183_DYNVDD2_LINE_VDDPST
+INFO (XSTRM-223): 103. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PAD_LINE_VDD2DYN_S/layout as STRUCTURE HBK183_PAD_LINE_VDD2DYN_S
+INFO (XSTRM-223): 104. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_PVDD2CDG_DYN_S/layout as STRUCTURE HBK183_POSTDRV_PVDD2CDG_DYN_S
+INFO (XSTRM-223): 105. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_GR_VDD2DYN_S/layout as STRUCTURE HBK183_PREDRV_GR_VDD2DYN_S
+INFO (XSTRM-223): 106. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV_VDD2CDG_DYN_S/layout as STRUCTURE HBK183_PREDRV_VDD2CDG_DYN_S
+INFO (XSTRM-223): 107. Translating cellView tpd018bcdnv5_mt_2_5lm/PVDD2CDG/layout as STRUCTURE PVDD2CDG
+INFO (XSTRM-223): 108. Translating cellView tcb018gbwp7t/DFQD1BWP7T/layout as STRUCTURE DFQD1BWP7T
+INFO (XSTRM-223): 109. Translating cellView tcb018gbwp7t/ND2D2BWP7T/layout as STRUCTURE ND2D2BWP7T
+INFO (XSTRM-223): 110. Translating cellView tcb018gbwp7t/ND2D1P5BWP7T/layout as STRUCTURE ND2D1P5BWP7T
+INFO (XSTRM-223): 111. Translating cellView tcb018gbwp7t/DFQD2BWP7T/layout as STRUCTURE DFQD2BWP7T
+INFO (XSTRM-223): 112. Translating cellView tcb018gbwp7t/AOI21D0BWP7T/layout as STRUCTURE AOI21D0BWP7T
+INFO (XSTRM-223): 113. Translating cellView tcb018gbwp7t/BUFFD0BWP7T/layout as STRUCTURE BUFFD0BWP7T
+INFO (XSTRM-223): 114. Translating cellView tcb018gbwp7t/INR2XD4BWP7T/layout as STRUCTURE INR2XD4BWP7T
+INFO (XSTRM-223): 115. Translating cellView tcb018gbwp7t/AOI21D2BWP7T/layout as STRUCTURE AOI21D2BWP7T
+INFO (XSTRM-223): 116. Translating cellView tcb018gbwp7t/INR2XD0BWP7T/layout as STRUCTURE INR2XD0BWP7T
+INFO (XSTRM-223): 117. Translating cellView tcb018gbwp7t/MOAI22D0BWP7T/layout as STRUCTURE MOAI22D0BWP7T
+INFO (XSTRM-223): 118. Translating cellView tcb018gbwp7t/ND2D3BWP7T/layout as STRUCTURE ND2D3BWP7T
+INFO (XSTRM-223): 119. Translating cellView tcb018gbwp7t/ND3D1BWP7T/layout as STRUCTURE ND3D1BWP7T
+INFO (XSTRM-223): 120. Translating cellView tcb018gbwp7t/INVD1P5BWP7T/layout as STRUCTURE INVD1P5BWP7T
+INFO (XSTRM-223): 121. Translating cellView tcb018gbwp7t/CKBD12BWP7T/layout as STRUCTURE CKBD12BWP7T
+INFO (XSTRM-223): 122. Translating cellView tcb018gbwp7t/OAI211D1BWP7T/layout as STRUCTURE OAI211D1BWP7T
+INFO (XSTRM-223): 123. Translating cellView tcb018gbwp7t/ND2D4BWP7T/layout as STRUCTURE ND2D4BWP7T
+INFO (XSTRM-223): 124. Translating cellView tcb018gbwp7t/AN3D4BWP7T/layout as STRUCTURE AN3D4BWP7T
+INFO (XSTRM-223): 125. Translating cellView tcb018gbwp7t/OAI21D0BWP7T/layout as STRUCTURE OAI21D0BWP7T
+INFO (XSTRM-223): 126. Translating cellView tcb018gbwp7t/NR3D1BWP7T/layout as STRUCTURE NR3D1BWP7T
+INFO (XSTRM-223): 127. Translating cellView tcb018gbwp7t/NR2XD1BWP7T/layout as STRUCTURE NR2XD1BWP7T
+INFO (XSTRM-223): 128. Translating cellView tcb018gbwp7t/NR2D3BWP7T/layout as STRUCTURE NR2D3BWP7T
+INFO (XSTRM-223): 129. Translating cellView tcb018gbwp7t/NR3D3BWP7T/layout as STRUCTURE NR3D3BWP7T
+INFO (XSTRM-223): 130. Translating cellView tcb018gbwp7t/NR4D1BWP7T/layout as STRUCTURE NR4D1BWP7T
+INFO (XSTRM-223): 131. Translating cellView tcb018gbwp7t/NR4D3BWP7T/layout as STRUCTURE NR4D3BWP7T
+INFO (XSTRM-223): 132. Translating cellView tcb018gbwp7t/NR4D4BWP7T/layout as STRUCTURE NR4D4BWP7T
+INFO (XSTRM-223): 133. Translating cellView tcb018gbwp7t/IAO21D2BWP7T/layout as STRUCTURE IAO21D2BWP7T
+INFO (XSTRM-223): 134. Translating cellView tcb018gbwp7t/OAI21D2BWP7T/layout as STRUCTURE OAI21D2BWP7T
+INFO (XSTRM-223): 135. Translating cellView tcb018gbwp7t/CKND2D3BWP7T/layout as STRUCTURE CKND2D3BWP7T
+INFO (XSTRM-223): 136. Translating cellView tcb018gbwp7t/INR2XD2BWP7T/layout as STRUCTURE INR2XD2BWP7T
+INFO (XSTRM-223): 137. Translating cellView tcb018gbwp7t/CKND2D2BWP7T/layout as STRUCTURE CKND2D2BWP7T
+INFO (XSTRM-223): 138. Translating cellView tcb018gbwp7t/IAO21D1BWP7T/layout as STRUCTURE IAO21D1BWP7T
+INFO (XSTRM-223): 139. Translating cellView tcb018gbwp7t/NR3D2BWP7T/layout as STRUCTURE NR3D2BWP7T
+INFO (XSTRM-223): 140. Translating cellView tcb018gbwp7t/NR2XD3BWP7T/layout as STRUCTURE NR2XD3BWP7T
+INFO (XSTRM-223): 141. Translating cellView tcb018gbwp7t/IAO21D0BWP7T/layout as STRUCTURE IAO21D0BWP7T
+INFO (XSTRM-223): 142. Translating cellView tcb018gbwp7t/DFQD0BWP7T/layout as STRUCTURE DFQD0BWP7T
+INFO (XSTRM-223): 143. Translating cellView tcb018gbwp7t/AOI22D0BWP7T/layout as STRUCTURE AOI22D0BWP7T
+INFO (XSTRM-223): 144. Translating cellView tcb018gbwp7t/OAI22D1BWP7T/layout as STRUCTURE OAI22D1BWP7T
+INFO (XSTRM-223): 145. Translating cellView tcb018gbwp7t/AOI221D1BWP7T/layout as STRUCTURE AOI221D1BWP7T
+INFO (XSTRM-223): 146. Translating cellView tcb018gbwp7t/AOI221D2BWP7T/layout as STRUCTURE AOI221D2BWP7T
+INFO (XSTRM-223): 147. Translating cellView tcb018gbwp7t/NR2D1BWP7T/layout as STRUCTURE NR2D1BWP7T
+INFO (XSTRM-223): 148. Translating cellView tcb018gbwp7t/NR2D1P5BWP7T/layout as STRUCTURE NR2D1P5BWP7T
+INFO (XSTRM-223): 149. Translating cellView tcb018gbwp7t/NR3D4BWP7T/layout as STRUCTURE NR3D4BWP7T
+INFO (XSTRM-223): 150. Translating cellView tcb018gbwp7t/AOI22D1BWP7T/layout as STRUCTURE AOI22D1BWP7T
+INFO (XSTRM-223): 151. Translating cellView tcb018gbwp7t/OAI22D2BWP7T/layout as STRUCTURE OAI22D2BWP7T
+INFO (XSTRM-223): 152. Translating cellView tcb018gbwp7t/MOAI22D1BWP7T/layout as STRUCTURE MOAI22D1BWP7T
+INFO (XSTRM-223): 153. Translating cellView tcb018gbwp7t/TIELBWP7T/layout as STRUCTURE TIELBWP7T
+INFO (XSTRM-223): 154. Translating cellView tcb018gbwp7t/TIEHBWP7T/layout as STRUCTURE TIEHBWP7T
+INFO (XSTRM-223): 155. Translating cellView tcb018gbwp7t/ND2D1BWP7T/layout as STRUCTURE ND2D1BWP7T
+INFO (XSTRM-223): 156. Translating cellView tcb018gbwp7t/OA32D0BWP7T/layout as STRUCTURE OA32D0BWP7T
+INFO (XSTRM-223): 157. Translating cellView tcb018gbwp7t/IND3D0BWP7T/layout as STRUCTURE IND3D0BWP7T
+INFO (XSTRM-223): 158. Translating cellView tcb018gbwp7t/MAOI22D0BWP7T/layout as STRUCTURE MAOI22D0BWP7T
+INFO (XSTRM-223): 159. Translating cellView tcb018gbwp7t/CKND2D1BWP7T/layout as STRUCTURE CKND2D1BWP7T
+INFO (XSTRM-223): 160. Translating cellView tcb018gbwp7t/FA1D0BWP7T/layout as STRUCTURE FA1D0BWP7T
+INFO (XSTRM-223): 161. Translating cellView tcb018gbwp7t/XOR4D0BWP7T/layout as STRUCTURE XOR4D0BWP7T
+INFO (XSTRM-223): 162. Translating cellView tcb018gbwp7t/XNR4D0BWP7T/layout as STRUCTURE XNR4D0BWP7T
+INFO (XSTRM-223): 163. Translating cellView tcb018gbwp7t/AOI31D1BWP7T/layout as STRUCTURE AOI31D1BWP7T
+INFO (XSTRM-223): 164. Translating cellView tcb018gbwp7t/AN3D1BWP7T/layout as STRUCTURE AN3D1BWP7T
+INFO (XSTRM-223): 165. Translating cellView tcb018gbwp7t/ND3D0BWP7T/layout as STRUCTURE ND3D0BWP7T
+INFO (XSTRM-223): 166. Translating cellView tcb018gbwp7t/AOI211D1BWP7T/layout as STRUCTURE AOI211D1BWP7T
+INFO (XSTRM-223): 167. Translating cellView tcb018gbwp7t/OA211D0BWP7T/layout as STRUCTURE OA211D0BWP7T
+INFO (XSTRM-223): 168. Translating cellView tcb018gbwp7t/OAI211D0BWP7T/layout as STRUCTURE OAI211D0BWP7T
+INFO (XSTRM-223): 169. Translating cellView tcb018gbwp7t/OA21D0BWP7T/layout as STRUCTURE OA21D0BWP7T
+INFO (XSTRM-223): 170. Translating cellView tcb018gbwp7t/AOI31D0BWP7T/layout as STRUCTURE AOI31D0BWP7T
+INFO (XSTRM-223): 171. Translating cellView tcb018gbwp7t/OAI22D0BWP7T/layout as STRUCTURE OAI22D0BWP7T
+INFO (XSTRM-223): 172. Translating cellView tcb018gbwp7t/AN2D1BWP7T/layout as STRUCTURE AN2D1BWP7T
+INFO (XSTRM-223): 173. Translating cellView tcb018gbwp7t/AO22D0BWP7T/layout as STRUCTURE AO22D0BWP7T
+INFO (XSTRM-223): 174. Translating cellView tcb018gbwp7t/IOA21D0BWP7T/layout as STRUCTURE IOA21D0BWP7T
+INFO (XSTRM-223): 175. Translating cellView tcb018gbwp7t/XNR3D0BWP7T/layout as STRUCTURE XNR3D0BWP7T
+INFO (XSTRM-223): 176. Translating cellView tcb018gbwp7t/XOR3D0BWP7T/layout as STRUCTURE XOR3D0BWP7T
+INFO (XSTRM-223): 177. Translating cellView tcb018gbwp7t/NR2D0BWP7T/layout as STRUCTURE NR2D0BWP7T
+INFO (XSTRM-223): 178. Translating cellView tcb018gbwp7t/XOR3D1BWP7T/layout as STRUCTURE XOR3D1BWP7T
+INFO (XSTRM-223): 179. Translating cellView tcb018gbwp7t/CKAN2D0BWP7T/layout as STRUCTURE CKAN2D0BWP7T
+INFO (XSTRM-223): 180. Translating cellView tcb018gbwp7t/IOA22D2BWP7T/layout as STRUCTURE IOA22D2BWP7T
+INFO (XSTRM-223): 181. Translating cellView tcb018gbwp7t/IAO22D2BWP7T/layout as STRUCTURE IAO22D2BWP7T
+INFO (XSTRM-223): 182. Translating cellView tcb018gbwp7t/AOI211XD0BWP7T/layout as STRUCTURE AOI211XD0BWP7T
+INFO (XSTRM-223): 183. Translating cellView tcb018gbwp7t/IOA22D1BWP7T/layout as STRUCTURE IOA22D1BWP7T
+INFO (XSTRM-223): 184. Translating cellView tcb018gbwp7t/AOI211XD1BWP7T/layout as STRUCTURE AOI211XD1BWP7T
+INFO (XSTRM-223): 185. Translating cellView tcb018gbwp7t/MAOI22D1BWP7T/layout as STRUCTURE MAOI22D1BWP7T
+INFO (XSTRM-223): 186. Translating cellView tcb018gbwp7t/NR2XD4BWP7T/layout as STRUCTURE NR2XD4BWP7T
+INFO (XSTRM-223): 187. Translating cellView tcb018gbwp7t/AOI22D2BWP7T/layout as STRUCTURE AOI22D2BWP7T
+INFO (XSTRM-223): 188. Translating cellView tcb018gbwp7t/ND2D0BWP7T/layout as STRUCTURE ND2D0BWP7T
+INFO (XSTRM-223): 189. Translating cellView tsmc18/VIA1p/layout as STRUCTURE VIA1p_CDNS_675956130821
+INFO (XSTRM-223): 190. Translating cellView tsmc18/M1_POLY1/layout as STRUCTURE M1_POLY1_CDNS_675956130822
+INFO (XSTRM-223): 191. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W3_L06/layout as STRUCTURE HBK183_NMOS_W3_L06
+INFO (XSTRM-223): 192. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W2_L06/layout as STRUCTURE HBK183_NMOS_W2_L06
+INFO (XSTRM-223): 193. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W5_L06/layout as STRUCTURE HBK183_PMOS_W5_L06
+INFO (XSTRM-223): 194. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W45_L06/layout as STRUCTURE HBK183_PMOS_W45_L06
+INFO (XSTRM-223): 195. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W15_L06_1/layout as STRUCTURE HBK183_PMOS_W15_L06_1
+INFO (XSTRM-223): 196. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_SCH_CELL/layout as STRUCTURE HBK183_SCH_CELL
+INFO (XSTRM-223): 197. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PAD_LINE_S/layout as STRUCTURE HBK183_PAD_LINE_S
+INFO (XSTRM-223): 198. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTGR_RES/layout as STRUCTURE HBK183_POSTGR_RES
+INFO (XSTRM-223): 199. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W21_L075_S/layout as STRUCTURE HBK183_PMOS_W21_L075_S
+INFO (XSTRM-223): 200. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W26_L075_S/layout as STRUCTURE HBK183_NMOS_W26_L075_S
+INFO (XSTRM-223): 201. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_BASE_S/layout as STRUCTURE HBK183_POSTDRV_BASE_S
+INFO (XSTRM-223): 202. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POSTDRV_PDUW0208SCDG_S/layout as STRUCTURE HBK183_POSTDRV_PDUW0208SCDG_S
+INFO (XSTRM-223): 203. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W2_L06_1/layout as STRUCTURE HBK183_PMOS_W2_L06_1
+INFO (XSTRM-223): 204. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_COMM_N_1/layout as STRUCTURE HBK183_COMM_N_1
+INFO (XSTRM-223): 205. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W1_L06/layout as STRUCTURE HBK183_PMOS_W1_L06
+INFO (XSTRM-223): 206. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W5_L06/layout as STRUCTURE HBK183_NMOS_W5_L06
+INFO (XSTRM-223): 207. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W1_L027/layout as STRUCTURE HBK183_NMOS_W1_L027
+INFO (XSTRM-223): 208. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W25_L027/layout as STRUCTURE HBK183_PMOS_W25_L027
+INFO (XSTRM-223): 209. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V4/layout as STRUCTURE HBK183_V4
+INFO (XSTRM-223): 210. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_V3/layout as STRUCTURE HBK183_V3
+INFO (XSTRM-223): 211. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PIN/layout as STRUCTURE HBK183_PIN
+INFO (XSTRM-223): 212. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W4_L06/layout as STRUCTURE HBK183_PMOS_W4_L06
+INFO (XSTRM-223): 213. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W75_L06/layout as STRUCTURE HBK183_NMOS_W75_L06
+INFO (XSTRM-223): 214. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NAND/layout as STRUCTURE HBK183_NAND
+INFO (XSTRM-223): 215. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W5_L06_1/layout as STRUCTURE HBK183_NMOS_W5_L06_1
+INFO (XSTRM-223): 216. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W1_L06/layout as STRUCTURE HBK183_NMOS_W1_L06
+INFO (XSTRM-223): 217. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W75_L06/layout as STRUCTURE HBK183_PMOS_W75_L06
+INFO (XSTRM-223): 218. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W4_L06_1/layout as STRUCTURE HBK183_PMOS_W4_L06_1
+INFO (XSTRM-223): 219. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POC_MOS/layout as STRUCTURE HBK183_POC_MOS
+INFO (XSTRM-223): 220. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W2_L027/layout as STRUCTURE HBK183_NMOS_W2_L027
+INFO (XSTRM-223): 221. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W2_L06/layout as STRUCTURE HBK183_PMOS_W2_L06
+INFO (XSTRM-223): 222. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W7_L06/layout as STRUCTURE HBK183_NMOS_W7_L06
+INFO (XSTRM-223): 223. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W2_L06_2/layout as STRUCTURE HBK183_NMOS_W2_L06_2
+INFO (XSTRM-223): 224. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_POC_MOS_1/layout as STRUCTURE HBK183_POC_MOS_1
+INFO (XSTRM-223): 225. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W3_L06_1/layout as STRUCTURE HBK183_PMOS_W3_L06_1
+INFO (XSTRM-223): 226. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W6_L06/layout as STRUCTURE HBK183_NMOS_W6_L06
+INFO (XSTRM-223): 227. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W55_L06/layout as STRUCTURE HBK183_NMOS_W55_L06
+INFO (XSTRM-223): 228. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W2_L06_1/layout as STRUCTURE HBK183_NMOS_W2_L06_1
+INFO (XSTRM-223): 229. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_W5_L05/layout as STRUCTURE HBK183_PMOS_W5_L05
+INFO (XSTRM-223): 230. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W5_L056_1/layout as STRUCTURE HBK183_NMOS_W5_L056_1
+INFO (XSTRM-223): 231. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PREDRV/layout as STRUCTURE HBK183_PREDRV
+INFO (XSTRM-223): 232. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_NMOS_W06_L6/layout as STRUCTURE HBK183_NMOS_W06_L6
+INFO (XSTRM-223): 233. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PUCELL_N/layout as STRUCTURE HBK183_PUCELL_N
+INFO (XSTRM-223): 234. Translating cellView tpd018bcdnv5_mt_2_5lm/PDDW0208SCDG/layout as STRUCTURE PDDW0208SCDG
+INFO (XSTRM-223): 235. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PMOS_WD75_L16/layout as STRUCTURE HBK183_PMOS_WD75_L16
+INFO (XSTRM-223): 236. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_PUCELL_P/layout as STRUCTURE HBK183_PUCELL_P
+INFO (XSTRM-223): 237. Translating cellView tpd018bcdnv5_mt_2_5lm/PDUW0208SCDG/layout as STRUCTURE PDUW0208SCDG
+INFO (XSTRM-223): 238. Translating cellView tpd018bcdnv5_mt_2_5lm/HBK183_BUF_CELL/layout as STRUCTURE HBK183_BUF_CELL
+INFO (XSTRM-223): 239. Translating cellView tpd018bcdnv5_mt_2_5lm/PDDW0208CDG/layout as STRUCTURE PDDW0208CDG
+INFO (XSTRM-223): 240. Translating cellView systolic_array/$$VIA23_520_520_1_2/layout as STRUCTURE $$VIA23_520_520_1_2
+INFO (XSTRM-223): 241. Translating cellView systolic_array/$$VIA12H_520_520_2_1/layout as STRUCTURE $$VIA12H_520_520_2_1
+INFO (XSTRM-223): 242. Translating cellView systolic_array/$$VIA12_520_520_2_1/layout as STRUCTURE $$VIA12_520_520_2_1
+INFO (XSTRM-223): 243. Translating cellView systolic_array/$$VIA12H_520_520_1_2/layout as STRUCTURE $$VIA12H_520_520_1_2
+INFO (XSTRM-223): 244. Translating cellView systolic_array/$$VIA23_520_520_2_1/layout as STRUCTURE $$VIA23_520_520_2_1
+INFO (XSTRM-223): 245. Translating cellView systolic_array/$$VIA12_520_520_1_2/layout as STRUCTURE $$VIA12_520_520_1_2
+INFO (XSTRM-223): 246. Translating cellView systolic_array/$$VIA34_520_520_2_1/layout as STRUCTURE $$VIA34_520_520_2_1
+INFO (XSTRM-223): 247. Translating cellView systolic_array/$$VIA34_520_520_1_2/layout as STRUCTURE $$VIA34_520_520_1_2
+INFO (XSTRM-223): 248. Translating cellView systolic_array/$$VIA34_520_520_1_60/layout as STRUCTURE $$VIA34_520_520_1_60
+INFO (XSTRM-223): 249. Translating cellView systolic_array/$$VIA34_520_520_60_1/layout as STRUCTURE $$VIA34_520_520_60_1
+INFO (XSTRM-223): 250. Translating cellView systolic_array/$$VIA34_520_520_58_1/layout as STRUCTURE $$VIA34_520_520_58_1
+INFO (XSTRM-223): 251. Translating cellView systolic_array/$$VIA23_520_520_1_60/layout as STRUCTURE $$VIA23_520_520_1_60
+INFO (XSTRM-223): 252. Translating cellView systolic_array/$$VIA23_520_520_1_58/layout as STRUCTURE $$VIA23_520_520_1_58
+INFO (XSTRM-223): 253. Translating cellView systolic_array/$$VIA23_520_520_60_1/layout as STRUCTURE $$VIA23_520_520_60_1
+INFO (XSTRM-223): 254. Translating cellView systolic_array/$$VIA23_520_520_58_1/layout as STRUCTURE $$VIA23_520_520_58_1
+INFO (XSTRM-223): 255. Translating cellView systolic_array/$$VIA12_520_520_1_58/layout as STRUCTURE $$VIA12_520_520_1_58
+INFO (XSTRM-223): 256. Translating cellView systolic_array/$$VIA12_520_520_58_1/layout as STRUCTURE $$VIA12_520_520_58_1
+INFO (XSTRM-223): 257. Translating cellView systolic_array/$$VIA12_520_520_21_1/layout as STRUCTURE $$VIA12_520_520_21_1
+INFO (XSTRM-223): 258. Translating cellView systolic_array/$$VIA12_520_520_4_1/layout as STRUCTURE $$VIA12_520_520_4_1
+INFO (XSTRM-223): 259. Translating cellView systolic_array/$$VIA45_710_710_15_43/layout as STRUCTURE $$VIA45_710_710_15_43
+INFO (XSTRM-223): 260. Translating cellView systolic_array/$$VIA45_710_710_1_43/layout as STRUCTURE $$VIA45_710_710_1_43
+INFO (XSTRM-223): 261. Translating cellView systolic_array/$$VIA34_520_520_60_21/layout as STRUCTURE $$VIA34_520_520_60_21
+INFO (XSTRM-223): 262. Translating cellView systolic_array/$$VIA34_520_520_21_58/layout as STRUCTURE $$VIA34_520_520_21_58
+INFO (XSTRM-223): 263. Translating cellView systolic_array/$$VIA34_520_520_21_13/layout as STRUCTURE $$VIA34_520_520_21_13
+INFO (XSTRM-223): 264. Translating cellView systolic_array/$$VIA34_520_520_21_12/layout as STRUCTURE $$VIA34_520_520_21_12
+INFO (XSTRM-223): 265. Translating cellView systolic_array/$$VIA34_520_520_58_21/layout as STRUCTURE $$VIA34_520_520_58_21
+INFO (XSTRM-223): 266. Translating cellView systolic_array/$$VIA23_520_520_4_1/layout as STRUCTURE $$VIA23_520_520_4_1
+INFO (XSTRM-223): 267. Translating cellView systolic_array/$$VIA23_520_520_21_1/layout as STRUCTURE $$VIA23_520_520_21_1
+INFO (XSTRM-223): 268. Translating cellView systolic_array/$$VIA34_520_520_21_1/layout as STRUCTURE $$VIA34_520_520_21_1
+INFO (XSTRM-223): 269. Translating cellView systolic_array/$$VIA34_520_520_4_1/layout as STRUCTURE $$VIA34_520_520_4_1
+INFO (XSTRM-223): 270. Translating cellView systolic_array/$$VIA34_520_520_21_21/layout as STRUCTURE $$VIA34_520_520_21_21
+INFO (XSTRM-223): 271. Translating cellView systolic_array/$$VIA34_520_520_4_21/layout as STRUCTURE $$VIA34_520_520_4_21
+INFO (XSTRM-223): 272. Translating cellView systolic_array/$$VIA23/layout as STRUCTURE $$VIA23
+INFO (XSTRM-223): 273. Translating cellView systolic_array/$$VIA12V/layout as STRUCTURE $$VIA12V
+INFO (XSTRM-223): 274. Translating cellView systolic_array/$$VIA12/layout as STRUCTURE $$VIA12
+INFO (XSTRM-223): 275. Translating cellView systolic_array/$$VIA34/layout as STRUCTURE $$VIA34
+INFO (XSTRM-223): 276. Translating cellView Newton_Layout/tsmc_c018_seal_ring_edge_1p5m/layout as STRUCTURE tsmc_c018_seal_ring_edge_1p5m
+INFO (XSTRM-180): You have not used the objectMap option. The design has instance(s) of at least one of following OpenAccess objects: oaBlockage, oaBoundary, oaRow, and oaMarker. Any information about these objects will not be translated into the generated stream file. Use the objectMap option to translate/preserve these objects using XStream. For details on the objectMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+INFO (XSTRM-223): 277. Translating cellView Newton_Layout/tsmc_c018_sealring_corner_1p5m/layout as STRUCTURE tsmc_c018_sealring_corner_1p5m
+INFO (XSTRM-223): 278. Translating cellView tpb018v_cup_5lm/HBJ711_CUP_V5_U/layout as STRUCTURE HBJ711_CUP_V5_U
+INFO (XSTRM-223): 279. Translating cellView tpb018v_cup_5lm/HBJ711_CUP_V5_ARRAY_U/layout as STRUCTURE HBJ711_CUP_V5_ARRAY_U
+INFO (XSTRM-223): 280. Translating cellView tpb018v_cup_5lm/HBJ711_CUP_V5_PAD_U/layout as STRUCTURE HBJ711_CUP_V5_PAD_U
+INFO (XSTRM-223): 281. Translating cellView tpb018v_cup_5lm/HBJ711_CUP_V5_ARRAY1_U/layout as STRUCTURE HBJ711_CUP_V5_ARRAY1_U
+INFO (XSTRM-223): 282. Translating cellView tpb018v_cup_5lm/HBJ711_V4X4_1_U/layout as STRUCTURE HBJ711_V4X4_1_U
+INFO (XSTRM-223): 283. Translating cellView tpb018v_cup_5lm/PAD70LU_TRL/layout as STRUCTURE PAD70LU_TRL
+INFO (XSTRM-223): 284. Translating cellView systolic_array/systolic_array/layout as STRUCTURE systolic_array
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (115770, 389985). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (779230, 389985). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 779240). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 779240). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 115770). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 115770). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (779280, 389985). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (778315, 430015). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (779250, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (779250, 470820). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (120680, 389985). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (115770, 430015). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (115790, 470820). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (115790, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 779190). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 779190). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (470955, 779160). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (509315, 779160). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 120430). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 120430). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (509315, 115790). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (470955, 115790). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (120660, 470820). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (120660, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (769700, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (769700, 470820). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 779240). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 779240). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (470955, 779210). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (509315, 779210). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (430115, 120480). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (390085, 120480). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (509315, 120510). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (470955, 120510). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (130160, 470820). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (130160, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (769700, 509180). This path will be written as a boundary record in the GDS file.
+INFO (XSTRM-236): A path with a rounded extension, an acute angle or a length segment less than half width is encountered at (769700, 470820). This path will be written as a boundary record in the GDS file.
+
+Summary of Objects Translated:
+	Scalar Instances:                       58707
+	Array Instances:                        881
+	Polygons:                               1655
+	Paths:                                  57130
+	Rectangles:                             11471
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           162
+	Custom Vias:                            0
+	CdsGen Vias:                            0
+	Pathsegs:                               0
+	Text:                                   3236
+	TextDisplay:                            0
+	Cells:                                  284
+
+Elapsed Time: 1.8s   User Time: 0.9s   CPU Time: 0.3s   Peak VM: 110584KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '0' warning(s) found.

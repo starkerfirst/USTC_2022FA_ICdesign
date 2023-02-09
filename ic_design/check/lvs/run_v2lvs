@@ -1,0 +1,2 @@
+v2lvs -a \<\> -s0 VSS -s1 VDD -addpin VDD -addpin VSS -lsp tcb018gbwp7t_270a.spi -lsp tpd018bcdnv5_3.spi -o systolic_array.source.sp -v systolic_array.output.pg.lvs.v 
+

@@ -1,0 +1,12 @@
+# Automagically generated file: Please do not edit!
+lvs_ExtfVersion 3
+lvs_ExtRunTimes 1675956134 1675956159
+lvs_ExtOutFile RUNDIR /bks2/PB20000328/ic_design/check/lvs/run
+lvs_ExtOutFile RULES_FILE /bks2/PB20000328/ic_design/check/lvs/run/_calibre.lvs_
+lvs_ExtInfoExtSummary {0 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoErcSummary {10 123 489 0 0 0 0 0 0 0 0}
+lvs_ExtInfoDfmSummary {0}
+lvs_ExtOutFile LAYOUT_NETLIST /bks2/PB20000328/ic_design/check/lvs/run/systolic_array.sp
+lvs_ExtOutFile EXTRACTION_REPORT systolic_array.lvs.report.ext
+lvs_ExtOutFile ERC_DATABASE systolic_array.erc.results
+lvs_ExtOutFile ERC_SUMMARY systolic_array.erc.summary

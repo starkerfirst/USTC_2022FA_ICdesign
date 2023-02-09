@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:02:21 2023
+****************************************
+
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 0/25/125
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   p_shift_out[4]              0.500          1.421         -0.921  (VIOLATED)
+       PORT :  p_shift_out[4]    0.500        1.421         -0.921  (VIOLATED)
+   p_shift_out[1]              0.500          1.421         -0.921  (VIOLATED)
+       PORT :  p_shift_out[1]    0.500        1.421         -0.921  (VIOLATED)
+   p_shift_out[6]              0.500          1.421         -0.921  (VIOLATED)
+       PORT :  p_shift_out[6]    0.500        1.421         -0.921  (VIOLATED)
+   p_shift_out[0]              0.500          1.421         -0.921  (VIOLATED)
+       PORT :  p_shift_out[0]    0.500        1.421         -0.921  (VIOLATED)
+   p_shift_out[2]              0.500          1.421         -0.921  (VIOLATED)
+       PORT :  p_shift_out[2]    0.500        1.421         -0.921  (VIOLATED)
+   ack_p                       0.500          1.421         -0.921  (VIOLATED)
+       PORT :  ack_p           0.500          1.421         -0.921  (VIOLATED)
+   p_shift_out[5]              0.500          1.420         -0.920  (VIOLATED)
+       PORT :  p_shift_out[5]    0.500        1.420         -0.920  (VIOLATED)
+   p_shift_out[3]              0.500          1.420         -0.920  (VIOLATED)
+       PORT :  p_shift_out[3]    0.500        1.420         -0.920  (VIOLATED)
+   p_shift_out[7]              0.500          1.419         -0.919  (VIOLATED)
+       PORT :  p_shift_out[7]    0.500        1.419         -0.919  (VIOLATED)
+   n3638                       0.500          0.548         -0.048  (VIOLATED)
+       PIN :   icc_route_opt1446/I    0.500    0.548        -0.048  (VIOLATED)
+       PIN :   U4335/ZN        0.500          0.548         -0.048  (VIOLATED)
+   SA_ctrl_state_load_AB       0.500          0.521         -0.021  (VIOLATED)
+       PIN :   U3492/A2        0.500          0.521         -0.021  (VIOLATED)
+       PIN :   U3529/I         0.500          0.521         -0.021  (VIOLATED)
+       PIN :   SA_ctrl_state_load_AB_reg/Q    0.500    0.521   -0.021 (VIOLATED)
+   n2293                       0.500          0.511         -0.011  (VIOLATED)
+       PIN :   U2712/A         0.500          0.511         -0.011  (VIOLATED)
+       PIN :   U2689/ZN        0.500          0.511         -0.011  (VIOLATED)
+   n4749                       0.500          0.503         -0.003  (VIOLATED)
+       PIN :   U3422/B1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U3371/B         0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1686/B1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1806/B1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U3453/A1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1718/A1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1759/B         0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1885/B         0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1837/A1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1909/B         0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1922/A2        0.500          0.503         -0.003  (VIOLATED)
+       PIN :   U1936/B         0.500          0.503         -0.003  (VIOLATED)
+       PIN :   U1953/A2        0.500          0.503         -0.003  (VIOLATED)
+       PIN :   icc_place1694/ZN    0.500      0.501         -0.001  (VIOLATED)
+   n3843                       0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1787/A1        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1786/A3        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U1669/B2        0.500          0.502         -0.002  (VIOLATED)
+       PIN :   U2252/ZN        0.500          0.502         -0.002  (VIOLATED)
+   n2097                       0.500          0.501         -0.001  (VIOLATED)
+       PIN :   U2611/B1        0.500          0.500         -0.000  (VIOLATED)
+       PIN :   U2530/B1        0.500          0.500         -0.000  (VIOLATED)
+       PIN :   U2652/B1        0.500          0.501         -0.001  (VIOLATED)
+       PIN :   U2511/B1        0.500          0.501         -0.001  (VIOLATED)
+       PIN :   U2521/B1        0.500          0.501         -0.001  (VIOLATED)
+       PIN :   U2543/B1        0.500          0.500         -0.000  (VIOLATED)
+       PIN :   U2589/B1        0.500          0.500         -0.000  (VIOLATED)
+       PIN :   U2558/B1        0.500          0.500         -0.000  (VIOLATED)
+       PIN :   U2573/B1        0.500          0.501         -0.001  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      15                -8.368  
+
+1

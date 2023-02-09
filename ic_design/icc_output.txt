@@ -1,0 +1,1026 @@
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_icc_prefs.tcl
+icc_shell> source script/icc_setup.tcl
+Error: could not open script file "script/icc_setup.tcl" (CMD-015)
+icc_shell> open_mw_lib $MW_DESIGN_LIBRARY
+Error: can't read "MW_DESIGN_LIBRARY": no such variable
+        Use error_info for more info. (CMD-013)
+icc_shell> import_designs -format ddc $ICC_IN_DDC_FILE
+Error: can't read "ICC_IN_DDC_FILE": no such variable
+        Use error_info for more info. (CMD-013)
+icc_shell> cd apr/
+icc_shell> source script/icc_setup.tcl
+-----------------------------------------------------------------------
+RM-Info: Running script /bks2/PB20000328/ic_design_2/apr/script/icc_setup.tcl
+
+-----------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design_2/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          "SA"
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*] [glob ../tech/*]"
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db tpd018bcdnv5wc.db"
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db tpd018bcdnv5wc.db   tpd018bcdnv5bc.db"
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t tpd018bcdnv5 tpb018v"
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+set MAX_ROUTING_LAYER           "METAL4"
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design_2/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+Loading db file '/bks2/PB20000328/ic_design_2/apr/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/bks2/PB20000328/ic_design_2/apr/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design_2/apr/tech/lib/tpd018bcdnv5wc.db'
+Loading db file '/bks2/PB20000328/ic_design_2/apr/tech/lib/tpd018bcdnv5bc.db'
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB20000328/ic_design_2/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB20000328/ic_design_2/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+-------------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+RM-Info: Completed script /bks2/PB20000328/ic_design_2/apr/script/icc_setup.tcl
+
+-----------------------------------------------------------------------
+icc_shell> open_mw_lib $MW_DESIGN_LIBRARY
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA45 (260, 260)
+        Upper Layer     METAL5 (90, 90)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA12 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL1 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA23 (260, 260)  |     VIA12 (260, 260)
+        Lower Layer     METAL2 (60, 10)   |     METAL1 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA34 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL3 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL4 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+        Main Library (systolic_array_APR) |     Reference Library (tcb018gbwp7t)
+        Cut Layer       VIA45 (360, 360)  |     VIA34 (260, 260)
+        Lower Layer     METAL4 (60, 10)   |     METAL3 (60, 10)
+        Upper Layer     METAL5 (90, 90)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpd018bcdnv5)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+        5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL1 (5, 60)    |     METAL1 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Upper Layer     METAL2 (10, 60)   |     METAL2 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA23 (260, 260)
+        Lower Layer     METAL1 (60, 10)   |     METAL2 (60, 10)
+        Upper Layer     METAL2 (60, 10)   |     METAL3 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA12 (260, 260)  |     VIA34 (260, 260)
+        Lower Layer     METAL1 (10, 60)   |     METAL3 (60, 10)
+        Upper Layer     METAL2 (10, 60)   |     METAL4 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA23 (260, 260)  |     VIA45 (260, 260)
+        Lower Layer     METAL2 (10, 60)   |     METAL4 (60, 10)
+        Upper Layer     METAL3 (60, 10)   |     METAL5 (60, 10)  (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+        Main Library (systolic_array_APR) |     Reference Library (tpb018v)
+        Cut Layer       VIA34 (260, 260)  |     VIA56 (360, 360)
+        Lower Layer     METAL3 (60, 10)   |     METAL5 (60, 10)
+        Upper Layer     METAL4 (10, 60)   |     METAL6 (90, 90)  (MWLIBP-324)
+{systolic_array_APR}
+icc_shell> import_designs -format ddc $ICC_IN_DDC_FILE
+Warning: Unit conflict found: Milkyway technology file power unit is mW; main library power unit is nW. (IFS-007)
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/standard.sldb'
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v. (PSYN-878)
+  Loading link library 'tcb018gbwp7twc_ccs'
+  Loading link library 'tpd018bcdnv5wc'
+  Loading link library 'gtech'
+Reading ddc file '/bks2/PB20000328/ic_design_2/syn/result/systolic_array.mapped.ddc'.
+Loaded 1 design.
+Current design is 'systolic_array'.
+Current design is 'systolic_array'.
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  systolic_array              /bks2/PB20000328/ic_design_2/syn/result/systolic_array.mapped.ddc
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design_2/apr/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design_2/apr/tech/lib/tpd018bcdnv5wc.db
+
+Info: Creating auto CEL.
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+Information: Saved design named systolic_array. (UIG-5)
+1
+icc_shell> open_mw_cel outputs_icc
+Warning: Unit conflict found: Milkyway technology file power unit is mW; main library power unit is nW. (IFS-007)
+Information: Opened "outputs_icc.CEL;2" from "/bks2/PB20000328/ic_design_2/milkyway/systolic_array_APR" library. (MWUI-068)
+{outputs_icc}
+icc_shell> report_design
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v. (PSYN-878)
+Information: Loading local_link_library attribute {tcb018gbwp7twc_ccs.db, tpd018bcdnv5wc.db}. (MWDC-290)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  systolic_array              outputs_icc.CEL
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design_2/apr/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design_2/apr/tech/lib/tpd018bcdnv5wc.db
+
+# GUI Debug: Building dc from empty. -- Time: 995ms
+Warning: Cell 'u_pad_data_out_8' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_7' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_6' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_5' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_4' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_3' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_2' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_1' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_0' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_in_8' is being marked as "dont_touch" because it has 
+        a fixed_placement attribute. (PSYN-040)
+Note - message 'PSYN-040' limit (10) exceeded.  Remainder will be suppressed.
+Warning: The trip points for the library named tpd018bcdnv5wc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Warning: The trip points for the library named tpd018bcdnv5bc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Information: Updating design information... (UID-85)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.57V) above low
+                                   0.35 (0.57V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Input delay ('rise') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+ 
+****************************************
+Report : design
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Wed Feb  8 21:33:03 2023
+****************************************
+
+Design allows ideal nets on clock nets.
+Design allows ideal nets on constant nets.
+
+Library(s) Used:
+
+    tcb018gbwp7twc_ccs (File: /bks2/PB20000328/ic_design_2/apr/tech/lib/tcb018gbwp7twc_ccs.db)
+    tpd018bcdnv5wc (File: /bks2/PB20000328/ic_design_2/apr/tech/lib/tpd018bcdnv5wc.db)
+
+Local Link Library:
+
+    {tcb018gbwp7twc_ccs.db, tpd018bcdnv5wc.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : WCCOM
+    Library : tcb018gbwp7twc_ccs
+    Process :   1.00
+    Temperature : 125.00
+    Voltage :   1.62
+    Interconnect Model : balanced_tree
+
+Min Operating Conditions:
+
+
+    Operating Condition Name : BCCOM
+    Library : tcb018gbwp7tbc_ccs
+    Process :   1.00
+    Temperature :   0.00
+    Voltage :   1.98
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    No wire loading used.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    DesignWare
+
+Design Parameters:
+
+    None specified.
+1
+icc_shell> report_design -physical
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+ 
+****************************************
+Report : design
+        -physical
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Wed Feb  8 21:33:11 2023
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Wed Feb  8 21:33:11 2023
+Machine Host Name: c01n10
+Working Directory: /bks2/PB20000328/ic_design_2/apr
+Library Name:      systolic_array_APR
+Cell Name:         outputs_icc.CEL;2
+Design Statistics:
+    Number of Module Cells:        12477
+    Number of Pins:                49808
+    Number of IO Pad Cells:        32
+    Number of IO Pins:             20
+    Number of Nets:                4363
+    Average Pins Per Net (Signal): 3.15581
+
+Chip Utilization:
+    Total Std Cell Area:           85812.56
+    Total Blockage Area:           11559.92
+    Total Pad Cell Area:           374800.00
+    Core Size:     width 590.24, height 588.00; area 347061.12
+    Pad Core Size: width 660.24, height 660.00; area 435758.40
+    Chip Size:     width 900.24, height 900.00; area 810216.00
+    Std cells utilization:         25.58% 
+    Cell/Core Ratio:               24.73%
+    Cell/Chip Ratio:               56.85%
+    Number of Cell Rows:            150
+
+Master Instantiation:
+        MasterName      Type    InstCount
+        =================================
+        TAPCELLBWP7T    STD     2250
+        FILL1BWP7T      STD     1737
+        FILL2BWP7T      STD     1671
+        DCAP4BWP7T      STD     1527
+        DCAP8BWP7T      STD     1436
+        DCAP16BWP7T     STD     1373
+        DCAPBWP7T       STD     1010
+        DFQD0BWP7T      STD     628
+        DCAP32BWP7T     STD     558
+        NR2D1BWP7T      STD     490
+        FILL4BWP7T      STD     457
+        OAI21D0BWP7T    STD     434
+        FILL8BWP7T      STD     428
+        FILL16BWP7T     STD     415
+        AOI22D0BWP7T    STD     388
+        FILL32BWP7T     STD     313
+        FA1D0BWP7T      STD     285
+        DCAP64BWP7T     STD     281
+        ND2D1BWP7T      STD     237
+        DFQD1BWP7T      STD     145
+        FILL64BWP7T     STD     142
+        INVD0BWP7T      STD     137
+        INVD1BWP7T      STD     116
+        AN2D1BWP7T      STD     88
+        CKBD1BWP7T      STD     79
+        MAOI22D0BWP7T   STD     68
+        INVD2BWP7T      STD     51
+        ND3D0BWP7T      STD     45
+        MOAI22D0BWP7T   STD     42
+        XOR4D0BWP7T     STD     40
+        XNR4D0BWP7T     STD     36
+        AOI21D1BWP7T    STD     36
+        BUFFD1P5BWP7T   STD     32
+        NR3D1BWP7T      STD     31
+        AN3D1BWP7T      STD     29
+        AOI21D0BWP7T    STD     26
+        ND2D1P5BWP7T    STD     26
+        MAOI222D1BWP7T  STD     26
+        XNR3D0BWP7T     STD     24
+        CKND1BWP7T      STD     24
+        IAO21D0BWP7T    STD     23
+        AO22D0BWP7T     STD     21
+        IOA21D0BWP7T    STD     19
+        OA21D0BWP7T     STD     18
+        BUFFD3BWP7T     STD     17
+        OAI31D1BWP7T    STD     15
+        NR2D0BWP7T      STD     15
+        NR3D0BWP7T      STD     14
+        ND2D2BWP7T      STD     13
+        XOR3D0BWP7T     STD     12
+        CKND2D2BWP7T    STD     12
+        DFQD2BWP7T      STD     11
+        OAI21D1BWP7T    STD     11
+        BUFFD5BWP7T     STD     10
+        MAOI222D2BWP7T  STD     10
+        AOI22D1BWP7T    STD     10
+        AOI211D1BWP7T   STD     9
+        NR2XD0BWP7T     STD     9
+        OAI22D1BWP7T    STD     9
+        OAI31D2BWP7T    STD     8
+        INVD3BWP7T      STD     8
+        MOAI22D1BWP7T   STD     8
+        NR2XD1BWP7T     STD     7
+        OA31D0BWP7T     STD     7
+        INR2XD2BWP7T    STD     7
+        OAI211D1BWP7T   STD     7
+        AOI22D2BWP7T    STD     7
+        NR2D1P5BWP7T    STD     6
+        CKND2BWP7T      STD     6
+        IOA22D2BWP7T    STD     6
+        INVD1P5BWP7T    STD     6
+        IAO21D1BWP7T    STD     6
+        AOI21D2BWP7T    STD     5
+        OAI21D2BWP7T    STD     5
+        BUFFD2BWP7T     STD     5
+        OAI211D0BWP7T   STD     4
+        CKND0BWP7T      STD     4
+        NR2D2BWP7T      STD     4
+        BUFFD4BWP7T     STD     4
+        BUFFD0BWP7T     STD     4
+        CKND10BWP7T     STD     4
+        CKND12BWP7T     STD     4
+        OA32D0BWP7T     STD     3
+        INVD2P5BWP7T    STD     3
+        BUFFD1BWP7T     STD     3
+        NR4D4BWP7T      STD     3
+        NR2XD3BWP7T     STD     3
+        NR3D3BWP7T      STD     3
+        BUFFD8BWP7T     STD     3
+        CKND8BWP7T      STD     3
+        BUFFD12BWP7T    STD     3
+        FA1D1BWP7T      STD     3
+        IAO22D2BWP7T    STD     3
+        OAI22D0BWP7T    STD     2
+        IAO21D2BWP7T    STD     2
+        NR4D1BWP7T      STD     2
+        AO211D0BWP7T    STD     2
+        AOI211XD0BWP7T  STD     2
+        CKBD0BWP7T      STD     2
+        INVD5BWP7T      STD     2
+        INR2XD4BWP7T    STD     2
+        AOI221D1BWP7T   STD     2
+        OAI31D0BWP7T    STD     1
+        IND3D0BWP7T     STD     1
+        TIEHBWP7T       STD     1
+        TIELBWP7T       STD     1
+        OA211D0BWP7T    STD     1
+        AOI31D0BWP7T    STD     1
+        OA21D1BWP7T     STD     1
+        CKBD3BWP7T      STD     1
+        NR2XD2BWP7T     STD     1
+        ND2D3BWP7T      STD     1
+        ND2D4BWP7T      STD     1
+        AOI211D2BWP7T   STD     1
+        ND3D2BWP7T      STD     1
+        NR3D2BWP7T      STD     1
+        AO21D2BWP7T     STD     1
+        BUFFD10BWP7T    STD     1
+        AOI31D1BWP7T    STD     1
+        CKND3BWP7T      STD     1
+        NR2XD4BWP7T     STD     1
+        IOA22D0BWP7T    STD     1
+        INVD6BWP7T      STD     1
+        CKND2D3BWP7T    STD     1
+        DEL01BWP7T      STD     1
+        CKBD12BWP7T     STD     1
+        INVD12BWP7T     STD     1
+        INVD10BWP7T     STD     1
+        IND2D2BWP7T     STD     1
+        AN3D4BWP7T      STD     1
+        CKAN2D2BWP7T    STD     1
+        OA21D2BWP7T     STD     1
+        ND3D3BWP7T      STD     1
+        NR3D4BWP7T      STD     1
+        IAO22D1BWP7T    STD     1
+        IOA22D1BWP7T    STD     1
+        ND2D2P5BWP7T    STD     1
+        ND2D5BWP7T      STD     1
+        ND2D0BWP7T      STD     1
+        CKBD4BWP7T      STD     1
+        PFILLER0005     IO      96
+        PDDW0208CDG     IO      18
+        PVSS3CDG        IO      4
+        PVDD1CDG        IO      4
+        PVDD2CDG        IO      4
+        PDUW0208SCDG    IO      1
+        PDDW0208SCDG    IO      1
+        PCORNER         CORNER  4
+        =================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+    layer METAL1, dir Hor, min width = 0.23, min space = 0.23 pitch = 0.56
+    layer METAL2, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL3, dir Hor, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL4, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL5, dir Hor, min width = 0.44, min space = 0.46 pitch = 0.90
+     
+    Average gCell capacity  1.24         on layer (1)    METAL1
+    Average gCell capacity  3.55         on layer (2)    METAL2
+    Average gCell capacity  3.29         on layer (3)    METAL3
+    Average gCell capacity  6.30         on layer (4)    METAL4
+    Average gCell capacity  4.33         on layer (5)    METAL5
+     
+    Initial. Both Dirs: Overflow =     2 Max = 1 GRCs =     2 (0.00%)
+    Initial. H routing: Overflow =     2 Max = 1 (GRCs =  2) GRCs =     2 (0.00%)
+    Initial. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    phase1. Both Dirs: Overflow =     2 Max = 1 GRCs =     2 (0.00%)
+    phase1. H routing: Overflow =     2 Max = 1 (GRCs =  2) GRCs =     2 (0.00%)
+    phase1. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    phase2. Both Dirs: Overflow =     2 Max = 1 GRCs =     2 (0.00%)
+    phase2. H routing: Overflow =     2 Max = 1 (GRCs =  2) GRCs =     2 (0.00%)
+    phase2. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    Total Wire Length = 10.90
+    Layer METAL1 wire length = 0.00
+    Layer METAL2 wire length = 3.72
+    Layer METAL3 wire length = 7.18
+    Layer METAL4 wire length = 0.00
+    Layer METAL5 wire length = 0.00
+    Total Number of Contacts = 15
+    Via VIA12 count = 10
+    Via VIA23 count = 5
+    Via VIA34 count = 0
+    Via VIA45 count = 0
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2549
+
+Track Assignment Information:
+    Number of wires with overlap after iteration 0 = 86 of 129
+
+    Number of wires with overlap after iteration 1 = 64 of 95
+
+    Total METAL1 wire length: 26.2
+    Total METAL2 wire length: 30.9
+    Total METAL3 wire length: 26.1
+    Total METAL4 wire length: 0.0
+    Total METAL5 wire length: 0.0
+    Total wire length: 83.1
+
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2581
+
+Detailed Routing Information:
+    
+
+    ---------- Detail route ----------
+
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 2 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      2
+        Same net spacing : 2
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 2: DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+        @@@@ Total number of instance ports with antenna violations =   0
+     
+    Elapsed real time: 0:00:05
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:04 total = 0:00:04
+    Total Proc Memory(MB): 2549
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:05 CPU = 0:00:04
+     
+    DR finished with 0 open nets, of which 0 are frozen
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    Total number of nets = 4363
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:01
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2549
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:06 CPU = 0:00:04
+    
+
+    ---------- Eco detail route ----------
+
+     
+    Iteration 0: DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      1
+        @@@@ Total number of instance ports with antenna violations =   0
+     
+    Iteration 1: DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+        @@@@ Total number of instance ports with antenna violations =   0
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 1: DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+        @@@@ Total number of instance ports with antenna violations =   0
+     
+    Elapsed real time: 0:00:04
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:03 total = 0:00:03
+    Total Proc Memory(MB): 2581
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:10 CPU = 0:00:07
+     
+    ECO Route finished with 0 open nets, of which 0 are frozen
+    ECO Route finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    Total number of nets = 4363
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2581
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:10 CPU = 0:00:07
+    
+
+    ---------- Eco detail route ----------
+
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 1: DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+        @@@@ Total number of instance ports with antenna violations =   0
+     
+    Elapsed real time: 0:00:03
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:03 total = 0:00:03
+    Total Proc Memory(MB): 2581
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:13 CPU = 0:00:10
+     
+    ECO Route finished with 0 open nets, of which 0 are frozen
+    ECO Route finished with 0 violations
+     
+    DRC-SUMMARY:
+        @@@@@@@ TOTAL VIOLATIONS =      0
+    Total number of nets = 4363
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2581
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:13 CPU = 0:00:10
+     
+    Total Wire Length =                    286408 micron
+    Total Number of Contacts =             32380
+    Total Number of Wires =                48465
+    Total Number of PtConns =              9259
+    Total Number of Routed Wires =       48465
+    Total Routed Wire Length =           284148 micron
+    Total Number of Routed Contacts =       32380
+        Layer          METAL1 :      11110 micron
+        Layer          METAL2 :     113997 micron
+        Layer          METAL3 :     129400 micron
+        Layer          METAL4 :      31901 micron
+        Layer          METAL5 :          0 micron
+        Via             VIA34 :          4
+        Via         VIA34_2x1 :       1794
+        Via    VIA34(rot)_2x1 :          6
+        Via         VIA34_1x2 :        191
+        Via             VIA23 :        321
+        Via         VIA23_2x1 :       3336
+        Via    VIA23(rot)_1x2 :         17
+        Via    VIA23(rot)_2x1 :          5
+        Via         VIA23_1x2 :      11691
+        Via             VIA12 :        211
+        Via        VIA12(rot) :          5
+        Via            VIA12V :        285
+        Via       VIA12V(rot) :          1
+        Via         VIA12_2x1 :       2421
+        Via    VIA12(rot)_1x2 :         30
+        Via    VIA12(rot)_2x1 :         32
+        Via         VIA12_1x2 :        967
+        Via   VIA12H(rot)_1x2 :       8211
+        Via        VIA12H_2x1 :        383
+        Via        VIA12H_1x2 :         31
+        Via   VIA12H(rot)_2x1 :       2438
+     
+    Redundant via conversion report:
+    --------------------------------
+
+      Total optimized via conversion rate = 97.45% (31553 / 32380 vias)
+     
+        Layer VIA12      = 96.66% (14513  / 15015   vias)
+            Weight 1     = 96.66% (14513   vias)
+            Un-optimized =  3.34% (502     vias)
+        Layer VIA23      = 97.91% (15049  / 15370   vias)
+            Weight 1     = 97.91% (15049   vias)
+            Un-optimized =  2.09% (321     vias)
+        Layer VIA34      = 99.80% (1991   / 1995    vias)
+            Weight 1     = 99.80% (1991    vias)
+            Un-optimized =  0.20% (4       vias)
+     
+      Total double via conversion rate    = 97.45% (31553 / 32380 vias)
+     
+        Layer VIA12      = 96.66% (14513  / 15015   vias)
+        Layer VIA23      = 97.91% (15049  / 15370   vias)
+        Layer VIA34      = 99.80% (1991   / 1995    vias)
+     
+      The optimized via conversion rate based on total routed via count = 97.45% (31553 / 32380 vias)
+     
+        Layer VIA12      = 96.66% (14513  / 15015   vias)
+            Weight 1     = 96.66% (14513   vias)
+            Un-optimized =  3.34% (502     vias)
+        Layer VIA23      = 97.91% (15049  / 15370   vias)
+            Weight 1     = 97.91% (15049   vias)
+            Un-optimized =  2.09% (321     vias)
+        Layer VIA34      = 99.80% (1991   / 1995    vias)
+            Weight 1     = 99.80% (1991    vias)
+            Un-optimized =  0.20% (4       vias)
+     
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+    metal3 Wire Length(count):               2460.08(4)
+    metal4 Wire Length(count):               2450.88(4)
+  ==============================================
+    Total Wire Length(count):                4910.96(8)
+    Number of via3 Contacts:              8
+  ==============================================
+    Total Number of Contacts:        8
+
+Stripe Wiring Statistics:
+    metal4 Wire Length(count):              16164.72(26)
+  ==============================================
+    Total Wire Length(count):               16164.72(26)
+    Number of via3 Contacts:             52
+  ==============================================
+    Total Number of Contacts:       52
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+    metal1 Wire Length(count):              94469.83(151)
+  ==============================================
+    Total Wire Length(count):               94469.83(151)
+    Number of via1 Contacts:           2265
+    Number of via2 Contacts:           2265
+    Number of via3 Contacts:           2259
+  ==============================================
+    Total Number of Contacts:     6789
+
+Signal Wiring Statistics:
+    metal1 Wire Length(count):              11140.58(3639)
+    metal2 Wire Length(count):             114010.34(30740)
+    metal3 Wire Length(count):             129400.19(21611)
+    metal4 Wire Length(count):              31900.78(1806)
+  ==============================================
+    Total Wire Length(count):              286451.88(57796)
+
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+        via1           VIA12(2)               216              1.44
+        via1          VIA12V(4)               286               1.9
+        via1_1x2      VIA12H(3)              2469              16.4
+        via1_1x2       VIA12(2)               999              6.65
+        via1_2x1      VIA12H(3)              8594              57.2
+        via1_2x1       VIA12(2)              2451              16.3
+ Default via for layer via1:                   3.34%
+ Yield-optmized via for layer via1:            96.7%
+
+        via2           VIA23(5)               321              2.09
+        via2_1x2       VIA23(5)             11696              76.1
+        via2_2x1       VIA23(5)              3353              21.8
+ Default via for layer via2:                   2.09%
+ Yield-optmized via for layer via2:            97.9%
+
+        via3           VIA34(6)                 4             0.201
+        via3_1x2       VIA34(6)               197              9.87
+        via3_2x1       VIA34(6)              1794              89.9
+ Default via for layer via3:                   0.201%
+ Yield-optmized via for layer via3:            99.8%
+
+
+ Double Via rate for all layers:           97.4%
+  ==============================================
+    Total Number of Contacts:    32380
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+    metal1         11034.30 ( 7.81%)           106.28 ( 0.07%)
+    metal2          1093.32 ( 0.77%)        112917.02 (77.82%)
+    metal3        129173.24 (91.39%)           226.96 ( 0.16%)
+    metal4            44.05 ( 0.03%)         31856.72 (21.95%)
+  ==============================================================
+    Total         141344.90                 145106.98
+1
+icc_shell> start_gui
+Information: Visibility is turned ON for cells and cell contents because the task is set to Block Implementation (GUI-026)
+Preparing data for query................... 
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -start RulerTool
+icc_shell> verify_lvs
+
+-- LVS START : --
+Total area error in layer 0 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 1 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 2 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 3 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 4 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 5 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 6 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 7 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 8 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 9 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 10 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 11 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 12 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 13 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 14 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+Total area error in layer 15 is 0.  Elapsed =    0:00:01, CPU =    0:00:00
+ERROR : IN-OUT PortInst u_pad_vdd2_0 VDDPST doesn't connect to any net.
+
+ERROR : IN-OUT PortInst u_pad_vdd2_1 VDDPST doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_4 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_5 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_6 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_7 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_8 C doesn't connect to any net.
+
+ERROR : IN-OUT PortInst u_pad_vdd2_2 VDDPST doesn't connect to any net.
+
+ERROR : IN-OUT PortInst u_pad_vdd2_3 VDDPST doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_3 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_2 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_1 C doesn't connect to any net.
+
+ERROR : OUTPUT PortInst u_pad_data_out_0 C doesn't connect to any net.
+
+ERROR : IN-OUT PortInst u_pad_vdd1_2 VDD(74872) in net VDD(123164) is floating.
+
+ERROR : IN-OUT PortInst u_pad_vdd1_3 VDD(74875) in net VDD(123164) is floating.
+
+** Total Floating ports are 15.
+** Total Floating Nets are 0.
+** Total SHORT Nets are 0.
+ERROR : Logical Net VDD is open.
+        Node 4368 is in the region ((0,143),(900,755)).
+        Node 14 is in the region ((455,780),(525,900)).
+        Node 15 is in the region ((455,0),(525,120)).
+        Total seperated nodes are 3.
+        Potential connection region ((454, 119), (526, 781)).
+** This OPEN is caused by PIN. Please check with FLOATING PIN option.
+** Total OPEN Nets are 1.
+** Total Electrical Equivalent Error are 0.
+** Total Must Joint Error are 0.
+
+-- LVS END : --
+Elapsed =    0:00:01, CPU =    0:00:00
+Update error cell ...
+1
+icc_shell> 
+Information: Opened "outputs_icc_lvs.err;1" from "/bks2/PB20000328/ic_design_2/milkyway/systolic_array_APR" library. (MWUI-068)
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {780.505 696.490} -scale 0.0575
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {780.910 696.260} -scale 0.0575
+icc_shell> gui_remove_all_rulers -window [gui_get_current_window -types Layout -mru];  gui_remove_all_rulers -window global
+1
+icc_shell> gui_remove_all_rulers -window [gui_get_current_window -types Layout -mru];  gui_remove_all_rulers -window global
+1
+icc_shell> gui_remove_all_rulers -window [gui_get_current_window -types Layout -mru];  gui_remove_all_rulers -window global
+1
+icc_shell> gui_remove_all_rulers -window [gui_get_current_window -types Layout -mru];  gui_remove_all_rulers -window global
+1
+icc_shell> gui_remove_all_rulers -window [gui_get_current_window -types Layout -mru];  gui_remove_all_rulers -window global
+1
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {794.515 449.085} -scale 0.4606
+icc_shell> gui_remove_all_rulers -window Layout.1
+1
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {459.210 131.735} -scale 0.4606
+icc_shell> gui_remove_all_rulers -window Layout.1
+1
+icc_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -apply
+icc_shell> exit
+
+Memory usage for main task 884 Mbytes.
+Memory usage for this session 884 Mbytes.
+CPU usage for this session 55 seconds ( 0.02 hours ).
+
+Thank you...
+

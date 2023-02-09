@@ -1,0 +1,3278 @@
+
+                                IC Compiler (TM)
+                              IC Compiler-PC (TM)
+                              IC Compiler-XP (TM)
+                              IC Compiler-DP (TM)
+                              IC Compiler-AG (TM)
+
+              Version L-2016.03-SP5-3 for linux64 - Jun 12, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_icc_prefs.tcl
+#-----------------------------------------------------------------------------
+# clock_opt_cts_icc.tcl:
+#     Clock tree synthesis and optimization.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/clock_opt_cts_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Source the setup script.
+source -echo ./script/icc_setup.tcl 
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/icc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Source the common variables.
+source -echo ./script/common_setup.tcl 
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          ""
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*] [glob ../tech/*]"
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db tpd018bcdnv5wc.db"
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db tpd018bcdnv5wc.db   tpd018bcdnv5bc.db"
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t tpd018bcdnv5 tpb018v"
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+set MAX_ROUTING_LAYER           "METAL4"
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Flow Variables
+#-----------------------------------------------------------------------------
+# VERILOG | DDC | MW
+# Type of starting point.
+# VERILOG - specify a valid $ICC_IN_VERILOG_NETLIST_FILE
+# DDC     - specify a valid $ICC_IN_DDC_FILE 
+# MW      - specify a valid $ICC_INPUT_CEL
+set ICC_INIT_DESIGN_INPUT           "DDC"
+# TRUE | FALSE
+# TRUE - Enable power optimization (-power option) for the core commands such
+#        as place_opt, clock_opt, route_opt, and focal_opt.
+#        If $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT below is also specified, 
+#        leakage power optimization is focused on lvt cell reduction;
+#        otherwise focused on leakage power reduction.
+set POWER_OPTIMIZATION              FALSE
+# TRUE | FALSE
+# TRUE - Enable low power placement for place_opt.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_PLACE_LOW_POWER_PLACEMENT   FALSE
+# Script for customized set_multi_vth_constraints constraints.
+# Effective only when $POWER_OPTIMIZATION is set to TRUE.
+# Specify to make leakage power optimization focused on LVT cell reduction.
+# Refer to rm_icc_scripts/multi_vth_constraint.example as an example.
+set ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT  ""
+# TRUE | FALSE
+# TRUE - Enable scan reordering flow and add -optimize_dft option to place_opt
+#        and clock_opt commands. Require a valid $ICC_IN_SCAN_DEF_FILE.
+set DFT                             FALSE
+# TRUE | FALSE
+# TRUE - TIE-CELLS will be used during optimizations instead of TIE-nets.
+set ICC_TIE_CELL_FLOW               FALSE
+# TRUE | FALSE
+# TRUE - Enable redundant via insertion.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ICC_DBL_VIA                     TRUE
+# TRUE | FALSE
+# TRUE - Enable antenna fixing.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ICC_FIX_ANTENNA                 TRUE
+# TRUE | FALSE
+# TRUE - Enable standard cells filler insertion.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ADD_FILLER_CELL                 TRUE
+# TRUE | FALSE
+# TRUE - Create block abstraction and FRAM view (at block level).
+set ICC_CREATE_MODEL                FALSE
+# TRUE | FALSE
+# TRUE - Enable detail route wire spreading.
+set ICC_REDUCE_CRITICAL_AREA        TRUE
+# NONE | ICC | ICV
+# NONE - Real metal fill.
+# ICC  - Use insert_metal_filler for technology nodes 65nm and above.
+# ICV  - Use signoff_metal_fill for technology nodes 45nm and below.
+set ADD_METAL_FILL                  "NONE"
+# OFF | LOW | MED
+# OFF - No reporting is done.
+# LOW - report_qor/report_constraints/report_power are skipped, additionally,
+#       report_timing is skipped in clock_opt_cts.
+set ICC_REPORTING_EFFORT            "MED"
+# TRUE | FALSE
+# TRUE - Perform check_physical_design.
+set ICC_SANITY_CHECK                TRUE
+# TRUE | FALSE
+# TRUE - Perform checkpoint strategy for optimization commands.
+#        Ensure there is enough disk space before enabling this feature.
+#        Refer to the set_checkpoint_strategy man page for details.
+set ICC_ENABLE_CHECKPOINT           FALSE
+# TRUE | FALSE
+# TRUE - Enable the postroute design closure flow after initial routing.
+#        This will run two additional route_opt -incremental commands in
+#        route_opt_icc.tcl.
+set IMPROVED_DESIGN_CLOSURE_FLOW    FALSE
+#-----------------------------------------------------------------------------
+# General Variables
+#-----------------------------------------------------------------------------
+# Directory definitions.
+set REPORT_DIR                      "report"
+set RESULT_DIR                      "result"
+set SOURCE_DIR                      $RESULT_DIR
+# Starting CEL for flow with a Milkyway CEL input, which can be the final CEL
+# from Design Compiler Topographical.
+set ICC_INPUT_CEL                   "${DESIGN_NAME}_DCT"
+# List of metals in the design to be used for partial/complete pnet options.
+set PNET_METAL_LIST                 "METAL3 METAL4"
+set PNET_METAL_LIST_COMPLETE        "METAL3 METAL4"
+# Script with library modifications for dont_use.
+# Default to $LIBRARY_DONT_USE_FILE in common_setup.tcl.
+set ICC_IN_DONT_USE_FILE            "$LIBRARY_DONT_USE_FILE"
+# Prefer cells for fixing hold violations.
+# Syntax : library/cell_name
+# Example: slow/DLY1X1 slow/DLY1X4
+set ICC_FIX_HOLD_PREFER_CELLS       ""
+# max_area value used during area optimization.
+set ICC_MAX_AREA                    ""
+# FALSE | TRUE
+# FALSE - Create a Milkyway design library with the default layer mode that
+#         supports user defined and routing layers on layers 1-187 in the
+#         technology file.
+# TRUE  - Create a library in the extended layer mode that supports from
+#         layers 1-4000 in the technology file. 
+set MW_EXTENDED_LAYER_MODE          FALSE
+# Area critical range used during area optimization in
+# place_opt, post-CTS optimization, and route_opt, respectively.
+set AREA_CRITICAL_RANGE_PRE_CTS     ""
+set AREA_CRITICAL_RANGE_POST_CTS    ""
+set AREA_CRITICAL_RANGE_POST_RT     ""
+# Power critical range used during area optimization in
+# place_opt, post-CTS optimization, and route_opt, respectively.
+set POWER_CRITICAL_RANGE_PRE_CTS    ""
+set POWER_CRITICAL_RANGE_POST_CTS   ""
+set POWER_CRITICAL_RANGE_POST_RT    ""
+# Number of CPUs for distributed processing.
+# Specify a number greater than 1 to enable it for classic router based
+# route_opt and insert_redundant_via commands.
+set ICC_NUM_CPUS                    1
+# Number of cores on the local host for multicore support.
+# Specify a number greater than 1 to enable it for the core commands.
+set ICC_NUM_CORES                   1
+# low | medium | high
+# Effort level for place_opt command.
+set PLACE_OPT_EFFORT                "medium"
+# TRUE | FALSE
+# TRUE - Enable timing, power and area tradeoff optimization for place_opt command.
+#        It works for medium or high effort place_opt with -power option.
+set PLACE_OPT_TRADEOFF_TIMING_FOR_POWER_AREA    FALSE
+# low | medium | high
+# Effort level for route_opt command.
+set ROUTE_OPT_EFFORT                "medium"
+# TRUE | FALSE
+# TRUE - Enable congestion removal during place_opt command (place_opt_icc step)
+#        and clock_opt -only_psyn command (clock_opt_psyn_icc step).
+set PLACE_OPT_CONGESTION_DRIVEN     TRUE
+# TRUE | FALSE
+# Control whether layer optimization is performed during place_opt
+# by set_place_opt_strategy -layer_optimization.
+set PLACE_OPT_LAYER_OPTIMIZATION    "TRUE"
+# MEDIUM | HIGH
+# Control the layer optimization effort during place_opt.
+set PLACE_OPT_LAYER_OPTIMIZATION_EFFORT "MEDIUM"
+# FALSE | TRUE
+# Control whether track RC based optimization is performed during place_opt.
+# The RC models are generated from the current scenario so set the most
+# critical senario as the current scenario before running place_opt.
+set PLACE_OPT_CONSIDER_ROUTING      "FALSE"
+# NONE | MEDIUM | HIGH
+# MEDIUM/HIGH - Improve total power (leakage + dynamic).
+# A realistic SAIF will be needed to get accurate power savings.
+# For MCMM design an active scenario with dynamic_power, leakage_power,
+# and setup enabled is necessary for total power optimization.
+# Apply to place_opt -power, psynopt -power, and psynopt -only_power.
+set ICC_TOTAL_POWER_STRATEGY_EFFORT NONE
+# FALSE | TRUE
+# FALSE - Default.
+# TRUE  - Enable the high resistance optimization for route_opt and focal_opt.
+# This feature may see increased effect on 20nm and below designs. 
+set ICC_HIGH_RESISTANCE_OPTIMIZATION    "FALSE"
+# MEDIUM | HIGH
+# Control the effort of preroute optimization to explore TNS improvements.
+# Affect place_opt, clock_opt -only_psyn, psynopt, and preroute_focal_opt.
+# MEDIUM - Default.
+# HIGH   - Preroute optimzation will spend longer looking for TNS improvements.
+set ICC_TNS_EFFORT_PREROUTE         "MEDIUM"
+# MEDIUM | HIGH
+# Control the effort of postroute optimization to explore TNS improvements.
+# MEDIUM - Default.
+# HIGH   - Postroute optimzation will spend longer looking for TNS improvements.
+# Affect route_opt and focal_opt.
+set ICC_TNS_EFFORT_POSTROUTE        "MEDIUM"
+# TRUE | FALSE
+# TRUE - Perform layer optimization (preroute_focal_opt -layer_optimization) 
+#        on existing buffer trees after place_opt command (place_opt_icc step).
+set PLACE_OPT_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION      FALSE 
+# TRUE | FALSE
+# TRUE - Perform layer optimization (preroute_focal_opt -layer_optimization)
+#        on existing buffer trees after clock_opt -only_psyn command (clock_opt_psyn_icc step).
+set CLOCK_OPT_PSYN_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION FALSE 
+# TRUE | FALSE
+# TRUE - Perform optimization with automatic routing rules (preroute_focal_opt -auto_routing_rule) 
+#        on existing buffer trees after clock_opt -only_psyn command (clock_opt_psyn_icc step)
+set CLOCK_OPT_PSYN_PREROUTE_FOCALOPT_AUTO_NDR           FALSE
+# TRUE | FALSE
+# TRUE - Create a global route congestion map snapshot in PNG format at the end of route_icc step.
+set ICC_CREATE_GR_PNG               FALSE
+# TRUE | FALSE
+# TRUE - write_verilog in outputs_icc.tcl will write out module definitions for soft macros.
+set ICC_WRITE_FULL_CHIP_VERILOG     FALSE
+# Net and port names for power and ground.
+if {![info exists MW_POWER_NET  ]} {set MW_POWER_NET   "VDD"}
+if {![info exists MW_POWER_PORT ]} {set MW_POWER_PORT  "VDD"}
+if {![info exists MW_GROUND_NET ]} {set MW_GROUND_NET  "VSS"} 
+if {![info exists MW_GROUND_PORT]} {set MW_GROUND_PORT "VSS"}
+#-----------------------------------------------------------------------------
+# Cellname Variables
+#-----------------------------------------------------------------------------
+set ICC_FLOORPLAN_CEL                       "init_design_icc"
+set ICC_PLACE_OPT_CEL                       "place_opt_icc"
+set ICC_CLOCK_OPT_CTS_CEL                   "clock_opt_cts_icc"
+set ICC_CLOCK_OPT_PSYN_CEL                  "clock_opt_psyn_icc"
+set ICC_CLOCK_OPT_ROUTE_CEL                 "clock_opt_route_icc"
+set ICC_ROUTE_CEL                           "route_icc"
+set ICC_ROUTE_OPT_CEL                       "route_opt_icc"
+set ICC_CHIP_FINISH_CEL                     "chip_finish_icc"
+set ICC_METAL_FILL_CEL                      "metal_fill_icc"
+set ICC_ECO_STARTING_CEL                    $ICC_METAL_FILL_CEL
+set ICC_ECO_CEL                             "eco_icc"
+set ICC_FOCAL_OPT_STARTING_CEL              $ICC_CHIP_FINISH_CEL
+set ICC_FOCAL_OPT_CEL                       "focal_opt_icc"
+set ICC_OUTPUTS_CEL                         "outputs_icc"
+set ICC_FLOORPLAN_ODL_CEL                   "init_design_odl"
+set ICC_DP_CREATE_PLANGROUPS_CEL            "create_plangroups_dp"
+set ICC_DP_CREATE_ODL_CEL                   "create_odl_dp"
+set ICC_DP_ROUTEABILITY_ON_PLANGROUPS_CEL   "routeability_on_plangroups_dp"
+set ICC_DP_PIN_ASSIGNMENT_BUDGETING_CEL     "pin_assignment_budgeting_dp"
+set ICC_DP_COMMIT_CEL                       "commit_dp"
+#-----------------------------------------------------------------------------
+# Customized Constraint Script for Core Commands (Optional)
+#-----------------------------------------------------------------------------
+# Optional Tcl files.
+# If specified, they will be sourced in the scripts. Review scripts for exact
+# location where they are sourced to avoid overlap with existing constraints.
+set CUSTOM_INIT_DESIGN_PRE_SCRIPT           ""
+set CUSTOM_PLACE_OPT_PRE_SCRIPT             ""
+set CUSTOM_PLACE_OPT_POST_SCRIPT            ""
+set CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT         ""
+set CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT        ""
+set CUSTOM_CLOCK_OPT_PSYN_PRE_SCRIPT        ""
+set CUSTOM_CLOCK_OPT_PSYN_POST_SCRIPT       ""
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_SCRIPT       ""
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_CTO_SCRIPT   ""
+set CUSTOM_CLOCK_OPT_ROUTE_POST_CTO_SCRIPT  ""
+set CUSTOM_ROUTE_PRE_SCRIPT                 ""
+set CUSTOM_ROUTE_POST_SCRIPT                ""
+set CUSTOM_ROUTE_OPT_PRE_SCRIPT             ""
+set CUSTOM_ROUTE_OPT_POST_SCRIPT            ""
+set CUSTOM_FOCAL_OPT_PRE_SCRIPT             ""
+set CUSTOM_FOCAL_OPT_POST_SCRIPT            ""
+set CUSTOM_CHIP_FINISH_POST_SCRIPT          ""
+#-----------------------------------------------------------------------------
+# Floorplan Input Variables                    
+#-----------------------------------------------------------------------------
+# DEF | FP_FILE | USER_FILE | CREATE | SKIP
+# DEF       - Read $ICC_IN_DEF_FILE
+# FP_FILE   - Read $ICC_IN_FLOORPLAN_FILE
+# USER_FILE - Source $ICC_IN_FLOORPLAN_USER_FILE
+# CREATE    - Use create_floorplan command
+# SKIP      - Skip floorplanning section
+set ICC_FLOORPLAN_INPUT                         "CREATE"
+# Complete floorplan file in DEF format.
+set ICC_IN_DEF_FILE                             ""
+# Complete floorplan file generated by write_floorplan.
+set ICC_IN_FLOORPLAN_FILE                       ""
+# Complete floorplan file generated by user. This file will simply be sourced.
+set ICC_IN_FLOORPLAN_USER_FILE                  ""
+# I/O constraint file generated by write_pin_pad_physical_constraints which
+# contains pin or pad information, applied prior to create_floorplan command.
+set ICC_IN_PIN_PAD_PHYSICAL_CONSTRAINTS_FILE    "pin_pad_physical_constraints.tcl"
+# File including physical-only cell creation commands to be sourced.
+# e.g. create_cell {vdd1left vdd1right vdd1top vdd1bottom} pvdi
+set ICC_IN_PHYSICAL_ONLY_CELLS_CREATION_FILE    "physical_only_cells_creation.tcl"
+# File including physical-only cell connection commands to be sourced.
+# e.g. derive_pg_connection #          -power_net  $MW_POWER_NET #          -power_pin  $MW_POWER_PORT #          -ground_net $MW_GROUND_NET #          -ground_pin $MW_GROUND_PORT #          -cells      {vdd1left vdd1right vdd1top vdd1bottom}
+set ICC_IN_PHYSICAL_ONLY_CELLS_CONNECTION_FILE  ""
+# Script to add incremental floorplan constraints which will be sourced
+# after read_def, read_floorplan, or floorplan creation.
+set ICC_PHYSICAL_CONSTRAINTS_FILE               "physical_constraints.tcl"
+# Script for customized derive_pg_connection commands which replaces the
+# default derive_pg_connection commands in the scripts.
+set CUSTOM_CONNECT_PG_NETS_SCRIPT               ""
+# Space separated list of pad filler cells.
+set PAD_FILLER_CELL                             "PFILLER20                                                  PFILLER10                                                  PFILLER5                                                  PFILLER1                                                  PFILLER05                                                  PFILLER0005"
+#-----------------------------------------------------------------------------
+# Timing Variables
+#-----------------------------------------------------------------------------
+# TRUE | FALSE
+# FALSE - The derating is assumed to be set in the SDC.
+set ICC_APPLY_RM_DERATING               TRUE
+# Late/early derating factor, used for both data and clock.
+set ICC_LATE_DERATING_FACTOR            1.01
+set ICC_EARLY_DERATING_FACTOR           0.99
+# TRUE | FALSE
+# TRUE - User uncertainty will be replaced by $ICC_UNCERTAINTY_PRECTS/POSTCTS.
+set ICC_APPLY_RM_UNCERTAINTY_PRECTS     FALSE
+set ICC_APPLY_RM_UNCERTAINTY_POSTCTS    FALSE
+# Pre-CTS uncertainty file used during place_opt.
+set ICC_UNCERTAINTY_PRECTS_FILE         ""
+# Post-CTS uncertainty file used during post-CTS optimization and route_opt.
+set ICC_UNCERTAINTY_POSTCTS_FILE        ""
+# max_transition value set on the design.
+set ICC_MAX_TRANSITION                  ""
+# critical_range set on the design, default = 50% of each clock period.
+set ICC_CRITICAL_RANGE                  ""
+# max_fanout value set on the design.
+set ICC_MAX_FANOUT                      ""
+# HIGH | HYBRID | MEDIUM | LOW
+# Postroute delay calculation effort.
+# MEDIUM - Default. A combination of Arnoldi and Elmore.
+# HIGH   - Full Arnoldi postroute delay calculation. 
+# HYBRID - A combination of AWE and Arnoldi for faster runtime with comparable
+#          accuracy to full Arnoldi.
+# LOW    - AWE only.
+set ICC_ARNOLDI_EFFORT                  "MEDIUM"
+# HIGH | MEDIUM | LOW | NONE
+# By default preroute delay calculation uses Elmore.
+# Setting this variable to HIGH, MEDIUM, or LOW will enable AWE for preroute
+# delay calculation at different effort levels.
+set ICC_PREROUTE_AWE_EFFORT             "NONE"
+# File containing advanced on-chip variation (OCV) derate factor tables written
+# out by PrimeTime's write_binary_aocvm command.
+# If specified, it will be read right before clock_opt -only_psyn command at
+# clock_opt_psyn_icc step and AOCV analysis will be enabled.
+# In the Concurrent Clock and Data flow it will be read before any clock_opt
+# command is called at the clock_opt_ccd step.
+set ICC_IN_AOCV_TABLE_FILE_MAX          ""
+set ICC_IN_AOCV_TABLE_FILE_MIN          ""
+set ICC_IN_AOCV_TABLE_FILE              $ICC_IN_AOCV_TABLE_FILE_MAX
+#-----------------------------------------------------------------------------
+# Clock Tree Synthesis (CTS) Variables
+#-----------------------------------------------------------------------------
+# Clock nondefault routing rule name defined, e.g., in common_cts_settings_icc.tcl.
+# It will be associated with set_clock_tree_options -routing_rule. 
+# If $ICC_CTS_RULE_NAME is set to iccrm_clock_double_spacing, double spacings
+# will be applied to all layers.
+set ICC_CTS_RULE_NAME                   "iccrm_clock_double_spacing"
+# Clock tree layers, usually M3 and above, e.g. "M3 M4 M5".
+set ICC_CTS_LAYER_LIST                  "METAL3 METAL4"
+# Cells for CTS, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_LIST                    ""
+# Cells for CTS delay insertion, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_DEL_INS_ONLY            ""
+# Cells for CTS sizing only, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_SIZING_ONLY             ""
+# Clock shielding rule name.
+# Require $ICC_CTS_SHIELD_SPACINGS, $ICC_CTS_SHIELD_WIDTHS to be also specified.
+set ICC_CTS_SHIELD_RULE_NAME            ""
+# Clock shielding spacing associated with shielding rule.
+# A list of layer name and spacing pairs.
+set ICC_CTS_SHIELD_SPACINGS             ""
+# Clock shielding width associated with shielding rule.
+# A list of layer name and width pairs.
+set ICC_CTS_SHIELD_WIDTHS               ""
+# A subset of clock names to apply the clock shielding rule: $ICC_CTS_SHIELD_RULE_NAME;
+# Optional. If not specified, $ICC_CTS_SHIELD_RULE_NAME will be applied to all clocks.
+set ICC_CTS_SHIELD_CLK_NAMES            ""
+# TRUE | FALSE
+# TRUE - Enable -inter_clock_balance for "clock_opt -only_cts" at clock_opt_cts_icc task.
+#        Specify $ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE to set the options.
+set ICC_CTS_INTERCLOCK_BALANCING        FALSE
+# File containing set_inter_clock_delay_options commands. Optional.
+set ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE  ""
+# TRUE | FALSE
+# TRUE - Perform clock latency update post CTS.
+set ICC_CTS_UPDATE_LATENCY              FALSE
+# File specifying the latency adjustment options. Optional.
+set ICC_CTS_LATENCY_OPTIONS_FILE        ""
+# TRUE | FALSE
+# TRUE - Enable low power placement for CTS.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_LOW_POWER_PLACEMENT         FALSE
+# TRUE | FALSE
+# TRUE - Enable clock gate merging for CTS for power reduction.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_MERGE            FALSE
+# TRUE | FALSE
+# TRUE - Enable clock gate splitting for CTS for reducing enable pin violations.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_SPLIT            FALSE
+# TRUE | FALSE
+# TRUE - Insert XOR self-gating logic during clock tree synthesis before clock
+#        tree construction. An optional gate-level SAIF file ($ICC_IN_SAIF_FILE)
+#        is recommended in order to provide clock activity information.
+set ICC_CTS_SELF_GATING                 FALSE
+# Gate-level SAIF file for low power placement ($ICC_CTS_LOW_POWER_PLACEMENT)
+# and self-gating ($ICC_CTS_SELF_GATING). Optional.
+set ICC_IN_SAIF_FILE                    "$DESIGN_NAME.saif" ;
+# Instance name in the SAIF file containing switching activity.
+set ICC_SAIF_INSTANCE_NAME              $DESIGN_NAME
+# TRUE | FALSE
+# TRUE - Perform postroute clock tree optimization after clock routing at
+#        clock_opt_route_icc step.
+set ICC_POST_CLOCK_ROUTE_CTO            FALSE
+#-----------------------------------------------------------------------------
+# Routing and Chipfinishing Variables
+#-----------------------------------------------------------------------------
+# End cap cells.
+# Horizontal/vertical CAP CELL library cells for the Well Proximity Effect.
+set ICC_H_CAP_CEL                       ""
+set ICC_V_CAP_CEL                       ""
+# Well tap cell.
+set ICC_TAP_CEL                         "TAPCELLBWP7T"
+# Redundant via insertion (ICC_DBL_VIA) options.
+#
+# LOW | MED | HIGH
+# MED  - Enable concurrent soft-rule redundant via insertion.
+# HIGH - Run another redundant via, timing driven, after chipfinishing.
+set ICC_DBL_VIA_FLOW_EFFORT             LOW
+#
+# Script to define the redundant via definitions.
+set ICC_CUSTOM_DBL_VIA_DEFINE_SCRIPT    ""
+#
+# TRUE | FALSE
+# TRUE  - Enable automatic redundant via insertion after detail route change
+#         of "route_opt -initial".
+# FALSE - Run insert_zrt_redundant_vias after "route_opt -initial".
+set ICC_DBL_VIA_DURING_INITIAL_ROUTING  TRUE
+# Antenna fixing (ICC_FIX_ANTENNA) options.
+#
+# Antenna rule file.
+set ANTENNA_RULES_FILE                  "antennaRule_018_5lm.tcl"
+#
+# TRUE | FALSE
+# Control variable to allow diodes to be inserted both by the 
+# insert_port_protection_diodes command as well as the router.
+set ICC_USE_DIODES                      TRUE
+#
+# Diode name list separated by spaces.
+set ICC_ROUTING_DIODES                  "ANTENNABWP7T"
+#
+# Diode name for insert_port_protection_diodes.
+# Format = library_name/diode_name
+set ICC_PORT_PROTECTION_DIODE           ""
+#
+# List of ports to be excluded by insert_port_protection_diodes.
+set ICC_PORT_PROTECTION_DIODE_EXCLUDE_PORTS ""
+# Filler cell insertion (ADD_FILLER_CELL) options.
+#
+# Space separated list of filler cells with metals.
+set FILLER_CELL_METAL           "DCAP64BWP7T                                  DCAP32BWP7T                                  DCAP16BWP7T                                  DCAP8BWP7T                                  DCAP4BWP7T                                  DCAPBWP7T"
+#
+# Space separated list of filler cells without metals.
+set FILLER_CELL                 "FILL64BWP7T                                  FILL32BWP7T                                  FILL16BWP7T                                  FILL8BWP7T                                  FILL4BWP7T                                  FILL2BWP7T                                  FILL1BWP7T"
+# Signal EM options.
+#
+# TRUE | FALSE
+# TRUE - Enable signal EM fixing. Uncomment the section and follow instruction
+#        in chip_finish_icc.tcl.
+set ICC_FIX_SIGNAL_EM           FALSE
+#
+# The TLU+ file with the advanced signal EM constraints in it to be read by
+# read_signal_em_constraints. This may be the same as the standard TLU+ files.
+set ICC_TLUPLUS_SIGNAL_EM_FILE  ""
+#
+# The ITF file with the advanced signal EM constraints in it to be read by
+# read_signal_em_constraints -itf_em command in chip_finish_icc.tcl.
+set ICC_ITF_SIGNAL_EM_FILE      ""
+#-----------------------------------------------------------------------------
+# Emulation TLU+ Files
+#-----------------------------------------------------------------------------
+# Note: emulated metal fill may not correlate well with real metal fill,
+# especially for advanced technology nodes. Use it for reference only.
+# Max/min emulation TLU+ files.
+set TLUPLUS_MAX_EMULATION_FILE  ""
+set TLUPLUS_MIN_EMULATION_FILE  ""
+#-----------------------------------------------------------------------------
+# check_signoff_correlation Variables
+#-----------------------------------------------------------------------------
+# PrimeTime bin directory.
+set PT_DIR                      ""
+# Optional file in case PrimeTime has a different SDC that what is available
+# in the IC Compiler database.
+set PT_SDC_FILE                 ""
+# StarRC bin directory.
+set STARRC_DIR                  ""
+# Max/min NXTGRD files.
+set STARRC_MAX_NXTGRD           ""
+set STARRC_MIN_NXTGRD           ""
+# NXTGRD mapping file, defaults to TLUPlus mapping file, but could be different.
+set STARRC_MAP_FILE             "$TLUPLUS_MAP_FILE"
+# File to be sourced to run at check_signoff_correlation end of route_opt_icc step.
+# Example: rm_icc_scripts/signoff_opt_check_correlation_postroute_icc.example.tcl
+set ICC_SIGNOFF_OPT_CHECK_CORRELATION_POSTROUTE_SCRIPT  ""
+#-----------------------------------------------------------------------------
+# Metal fill and Signoff DRC Variables
+#-----------------------------------------------------------------------------
+# For IC Validator metal Fill:
+# Ensure environment variable PRIMEYIELD_HOME_DIR is set and that IC Validator
+# is included in the same path where the IC Compiler shell is executed from.
+#
+# For IC Validator DRC:
+# Ensure environment variable ICV_HOME_DIR is set and that IC Validator is
+# included in the same path where the IC Compiler shell is executed from.
+# IC Validator runset for signoff_metal_fill command.
+set SIGNOFF_FILL_RUNSET             ""
+#
+# IC Validator runset for signoff_drc command.
+set SIGNOFF_DRC_RUNSET              ""
+#
+# IC Validator mapping file for signoff_metal_fill and signoff_drc commands.
+set SIGNOFF_MAPFILE                 "gdsout.map"
+#
+# NONE | AUTO_ECO
+# Determine whether signoff_drc will run in the Auto ECO flow mode.
+set ICC_ECO_SIGNOFF_DRC_MODE        "NONE"
+# Options for signoff_metal_fill command using ICV engine in metal_fill_icc.tcl.
+#
+# TRUE | FALSE
+# TRUE - Enable timing driven for IC Validator metal fill.
+set SIGNOFF_METAL_FILL_TIMING_DRIVEN    TRUE
+#
+# Setup slack threshold for timing driven ICV metal fill.
+# Also used by wire_spreading/widening in chip_finish_icc.tcl.
+# Data type: float, default: 0.1.
+set TIMING_PRESERVE_SLACK_SETUP     "0.1"
+#
+# Hold slack threshold for wire_spreading/widening in chip_finish_icc.tcl.
+# Data type: float, default: 0.
+set TIMING_PRESERVE_SLACK_HOLD      "0"
+# Options for insert_metal_fill command using ICC engine in metal_fill_icc.tcl.
+#
+# Space amount used during the IC Compiler insert_metal_fill command.
+set ICC_METAL_FILL_SPACE            2
+#
+# Enable timing driven metal fill for the IC Compiler insert_metal_fill command.
+set ICC_METAL_FILL_TIMING_DRIVEN    TRUE
+#-----------------------------------------------------------------------------
+# focal_opt Variables
+#-----------------------------------------------------------------------------
+# <filename> | all | <blank>
+# <filename> - Fix violations from a file.
+# all        - Fix all hold/setup/DRC-net/DRC-pin violations.
+# <blank>    - Skip.
+set ICC_FOCAL_OPT_HOLD_VIOLS        "all"
+set ICC_FOCAL_OPT_SETUP_VIOLS       ""
+set ICC_FOCAL_OPT_DRC_NET_VIOLS     "all"
+set ICC_FOCAL_OPT_DRC_PIN_VIOLS     ""
+# <filenam>e | <blank>
+# <filenam>e - Fix crosstalk violations from a file.
+# <blank>    - Skip.
+set ICC_FOCAL_OPT_XTALK_VIOLS       ""
+#-----------------------------------------------------------------------------
+# ECO Flow Variables
+#-----------------------------------------------------------------------------
+# NONE | UNCONSTRAINED | FREEZE_SILICON
+# UNCONSTRAINED  - No spare cell insertion. Cells can be added (pre tapeout).
+# FREEZE_SILICON - Spare cell insertion/freeze silicon ECO.
+set ICC_ECO_FLOW                "NONE"
+# Tcl script to insert the spare cells, e.g.,
+# insert_spare_cells -lib_cell {INV8 DFF1} -cell_name spares -num_instances 300
+set ICC_SPARE_CELL_FILE         ""
+# Verilog netlist or Tcl file containing ECO changes.
+# Specify the file name and type of file using $ICC_ECO_FLOW_TYPE.
+set ICC_ECO_FILE                ""
+# verilog | pt_drc_setup_fixing_tcl | pt_hold_fixing_tcl | pt_minimum_physical_impact
+# Specify type of ECO file for UNCONSTRAINED ICC_ECO_FLOW. Depending on the value
+# specified, the commands used to read ECO file and place ECO cells vary.
+# verilog                    - A functional ECO file for $ICC_ECO_FILE.
+# pt_drc_setup_fixing_tcl    - A change file generated by PT fix_eco_drc or fix_eco_timing -setup commands.
+# pt_hold_fixing_tcl         - A change file generated by PT fix_eco_timing -hold command.
+# pt_minimum_physical_impact - A change file generated by PT fix_eco_timing or fix_eco_leakage command.
+set ICC_ECO_FLOW_TYPE           "verilog"
+# early_stage | signoff_stage
+# Only ICV is supported.
+# early stage   - Use ICV DRC based metal fill trimming (faster).
+# signoff_stage - Perform complete ICV metal fill purge, ADR and metal fill insertion.
+set ICC_ECO_METAL_FILL_MODE     "early_stage"
+# FALSE | TRUE
+# Specifies whether the automatic ECO will be used for ECO metal fill operations. 
+# Effect both early_stage and signoff_stage of $ICC_ECO_METAL_FILL_MODE.
+set ICC_ECO_AUTO_ECO_METAL_FILL "FALSE"
+#-----------------------------------------------------------------------------
+# ICC Design Planning RM Variables (Common Variables with Hierarchical RM)
+#-----------------------------------------------------------------------------
+# TRUE | FALSE
+# TRUE - Generate additional reports before placement.
+set ICC_DP_VERBOSE_REPORTING    FALSE
+# 
+# Threshold to set nets with fanout larger than it as ideal nets.
+# Data type: integer.
+set ICC_DP_SET_HFNS_AS_IDEAL_THRESHOLD  ""
+# 
+# TRUE | FALSE
+# TRUE - Set mixed clock/signal paths as ideal nets.
+set ICC_DP_SET_MIXED_AS_IDEAL   TRUE
+# <blank> | skip | <a_list_of_macros>
+# <blank>            - Unfix all macros.
+# skip               - Skip fix.
+# <a_list_of_macros> - Fix specified macros before placement.
+set ICC_DP_FIX_MACRO_LIST       ""
+#
+# Put set_keepout_margin and fp_set_macro_placement_constraint in this file.
+set CUSTOM_ICC_DP_PLACE_CONSTRAINT_SCRIPT   ""
+# 
+# File to perform customized preroute_standard_cell commands.
+set CUSTOM_ICC_DP_PREROUTE_STD_CELL_SCRIPT  "custom_icc_dp_preroute_std_cell.tcl"
+# PNS and PNA control variables.
+#
+# File to add PNS constraints which is loaded before running PNS.
+set CUSTOM_ICC_DP_PNS_CONSTRAINT_SCRIPT     ""
+# 
+# Target nets for PNS.
+# Syntax: "power_net ground_net" 
+set PNS_POWER_NETS                          "${MW_POWER_NET} ${MW_GROUND_NET}"
+#
+# Unit: mW, default: 1000.
+set PNS_POWER_BUDGET                        1000
+#
+# Unit: V, default: 1.5.
+set PNS_VOLTAGE_SUPPLY                      1.8
+#
+# Specify the metal layer to use as virtual rail.
+set PNS_VIRTUAL_RAIL_LAYER                  ""
+#
+# Output directory for PNS and PNA output files.
+set PNS_OUTPUT_DIR                          "./$RESULT_DIR/pna_output"
+#
+# Set the wire extraction temperature for PNA. Optional.
+# Data type: float.
+set PNA_EXTRACTION_TEMPERATURE              ""
+#
+# min | max
+# Set the parasitic corner for RC extraction for PNA. Optional.
+set PNA_EXTRACTION_CORNER                   ""
+#-----------------------------------------------------------------------------
+# ICC Hierarchical RM Variables
+#-----------------------------------------------------------------------------
+# Full module names from which plan groups will be created.
+# Format: space deliminated list: "top/A top/B top/C".
+# Default to $HIERARCHICAL_CELLS from common_setup.tcl if using DCT.
+set ICC_DP_PLAN_GROUPS                      "$HIERARCHICAL_CELLS"
+# Floorplan file containing plan group creation and location which should be
+# the output of write_floorplan.
+set ICC_DP_PLANGROUP_FILE                   ""
+# TRUE | FALSE
+# TRUE - Allow feedthrough creation during pin assignment.
+set ICC_DP_ALLOW_FEEDTHROUGH                FALSE
+# Customized PNS/PNA script, replacing PNS/PNA section in scripts.
+# For template based PNS, $CUSTOM_ICC_DP_PNS_SCRIPT is required.
+set CUSTOM_ICC_DP_PNS_SCRIPT                "custom_icc_dp_pns.tcl"
+set CUSTOM_ICC_DP_PNA_SCRIPT                ""
+# DFT-aware hierarchical design planning variables.
+#
+# TRUE | FALSE
+# TRUE - Enable DFT-aware hierarchical design planning flow.
+#        Require $ICC_IN_FULL_CHIP_SCANDEF_FILE.
+set ICC_DP_DFT_FLOW                         FALSE
+# 
+# Full-chip SCANDEF file for DFT-aware hierarchical design planning flow
+# (see $ICC_DP_DFT_FLOW).
+# Used only in hierarchical design planning phase; not used or needed for
+# block level implementations and top level assembly.
+set ICC_IN_FULL_CHIP_SCANDEF_FILE           "$DESIGN_NAME.mapped.expanded.scandef"
+# Budgeting SDC output directory.
+# Default: "./sdc".
+set BUDGETING_SDC_OUTPUT_DIR                "./$RESULT_DIR/sdc"
+# ODL flow variables.
+# 
+# Map file for the blocks and the SDC file for each block.
+set ICC_DP_ODL_BLOCK_SDC_MAP_FILE           ""
+# 
+# lsf | grd | samehost | <list_of_hosts>
+# Control the set_host_options value for create_on_demand_netlist.
+# lsf/grd         - Need also specify $ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS.
+# <list_of_hosts> - Need also specify $ICC_DP_ODL_HOST_OPTION_HOSTS_LIST.
+set ICC_DP_ODL_HOST_OPTION                  ""
+# 
+# Control the value of -submit_option option for set_host_options for
+# create_on_demand_netlist command. 
+# If $ICC_DP_ODL_HOST_OPTION is set to lsf, then lsf specific submit options
+# should be specified, for example, 
+# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS   {}
+# 
+# List of hosts on which to perform create_on_demand_netlist.
+set ICC_DP_ODL_HOST_OPTION_HOSTS_LIST       ""
+# TIO and block abstraction variables.
+#
+# List of all the block abstractions used in the design.
+# If left empty, the list will be auto set to include all soft macros in the
+# design if following HRM step-by-step.
+set ICC_BLOCK_ABSTRACTIONS_LIST             ""
+# 
+# List of names of block abstractions that are to be optimized by transparent
+# interface optimization (TIO) at route_opt_icc.
+# Can be changed to a subset of block abstractions before route_opt_icc starts.
+set ICC_TIO_BLOCK_LIST                      $ICC_BLOCK_ABSTRACTIONS_LIST
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize interface logic.
+set ICC_TIO_OPTIMIZE_BLOCK_INTERFACE        TRUE 
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize inside MIM blocks, only when opening MIM blocks for TIO.
+set ICC_TIO_OPTIMIZE_MIM_BLOCK_INTERFACE    FALSE
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize shared logic.
+#        Require $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE to be also enabled.
+set ICC_TIO_OPTIMIZE_SHARED_LOGIC           FALSE
+# 
+# Script for block abstraction setup, useful for variable settings during block update.
+# To be used during set_top_implementation_options -block_update_setup_script 
+# $ICC_TIO_BLOCK_UPDATE_SETUP_SCRIPT. The file name should not include relative paths.
+set ICC_TIO_BLOCK_UPDATE_SETUP_SCRIPT       ""   
+#
+# lsf | grd | samehost | <list_of_hosts>
+# Controls the set_host_options value for TIO.
+# lsf/grd         - Need also specify $ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS.
+# <list_of_hosts> - Need also specify $ICC_TIO_HOST_OPTION_HOSTS_LIST.
+# Note: If $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE is set to TRUE and
+#       $ICC_TIO_BLOCK_LIST is not empty, which are both default for HRM,
+#       you should also specify a valid value for $ICC_TIO_HOST_OPTION.
+set ICC_TIO_HOST_OPTION                     ""
+# 
+# Control the value of -submit_option option for set_host_options for TIO.
+# If $ICC_TIO_HOST_OPTION is set to lsf, then lsf specific submit options
+# should be specified and vice versa, for example, 
+# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS      {}
+# 
+# List of hosts on which to perform automatic block update during TIO.
+set ICC_TIO_HOST_OPTION_HOSTS_LIST          ""
+# 
+# TRUE | FALSE
+# TRUE - Write out an ECO file to TIO_eco_changes directory for TIO.
+set ICC_TIO_WRITE_ECO_FILE                  FALSE
+# default | block | top
+# block/top - Disable tasks such as Milkyway design library creation, importing
+#             of black boxes, scenario creation, voltage area creation, and power
+#             switch creation, etc in init_design_icc.tcl which should have been
+#             completed during design planning phase and should be skipped during
+#             block and top level implementation phases.
+# top       - Enable TIO at route_opt_icc task.
+# If following ICC HRM step-by-step, do not change this. It will be automatically
+# set to block or top for block or top level designs, respectively.
+set ICC_IMPLEMENTATION_PHASE                default
+# List containing paths to all block libraries, which will be added as reference
+# libraries of the top level library.
+# If following ICC HRM step-by-step, need not change this. It will be automatically
+# set to include all block libraries in the design for top level implementation.
+set MW_SOFT_MACRO_LIBS                      ""
+#-----------------------------------------------------------------------------
+# ICC Design Planning RM (Flat) Variables
+#-----------------------------------------------------------------------------
+# Explore mode: flow control variables.
+#
+# TRUE | FALSE
+# Turn on exploration mode.
+set ICC_DP_EXPLORE_MODE                 FALSE
+#
+# default | placement_only | no_pns_pna | no_ipo
+# default        - place -> PNS/PNA -> in-place optimization -> final groute,
+#                  snapshot, QoR, timing, and outputs.
+# placement_only - Skip PNS/PNA and in-place optimization from default.
+# no_pns_pna     - Skip PNA/PNS from default.
+# no_ipo         - Skip in-place optimization from default.
+set ICC_DP_EXPLORE_STYLE                default
+#
+# TRUE | FALSE
+# TRUE - Save three additional CEL after placement, in-place optimization,
+#        and PNS in explore mode (more disk space).
+set ICC_DP_EXPLORE_SAVE_CEL_EACH_STEP   FALSE
+#
+# TRUE | FALSE
+# TRUE - Generate QoR snapshot and timing report after each step (longer run time).
+set ICC_DP_EXPLORE_REPORTING_EACH_STEP  FALSE
+# 
+# TRUE | FALSE
+# TRUE - Use global route.
+set ICC_DP_EXPLORE_USE_GLOBAL_ROUTE     FALSE
+# 
+# TRUE | FALSE
+# TRUE - Save two additional CEL after global route:
+#        one after placement and one at the end.
+set ICC_DP_EXPLORE_SAVE_CEL_AFTER_GROUTE    TRUE
+# 
+# Script to be loaded to create customized PG straps after placement in
+# explore mode. Valid only if ICC_DP_EXPLORE_STYLE is placement_only or
+# no_pns_pna.
+set ICC_DP_EXPLORE_CUSTOM_PG_SCRIPT     ""
+# Explore mode: additional PNS control variables.
+#
+# Unit: mV. Tool default is 10% of $PNS_POWER_BUDGET.
+set PNS_TARGET_VOLTAGE_DROP             250
+#
+# TRUE | FALSE
+# Specify if the design is block or top level.
+# It turns on correspondant options in PNS and PNA.
+set PNS_BLOCK_MODE                      TRUE  
+#
+# Specify cell masters for power pads, e.g. "pv0i.FRAM pv0a.FRAM".
+# Only for top level design with power pads.
+set PNS_PAD_MASTERS                     ""
+#
+# Specify the file with a list of power pad instances.
+# Only for top level design with power pads.
+set PNS_PAD_INSTANCE_FILE               ""
+#
+# Specify the file with a list of power pad masters.
+# Only for top level design with power pads.
+set PNS_PAD_MASTER_FILE                 ""
+#
+# Provide only one of the above three PNS_PAD_* variables.
+#-----------------------------------------------------------------------------
+# No Need to Change the Following if DCRM Is Used prior to ICC RM
+#-----------------------------------------------------------------------------
+# File name definitions.
+set ICC_IN_VERILOG_NETLIST_FILE "$DESIGN_NAME.mapped.v"
+set ICC_IN_SDC_FILE             "$DESIGN_NAME.mapped.sdc"
+set ICC_IN_DDC_FILE             "$DESIGN_NAME.mapped.ddc"
+set ICC_IN_UPF_FILE             "$DESIGN_NAME.mapped.upf"
+set ICC_IN_SCAN_DEF_FILE        "$DESIGN_NAME.mapped.scandef"
+set MW_DESIGN_LIBRARY           "../milkyway/${DESIGN_NAME}_APR"
+# Milkyway design library if you want reference methodology to copy it as
+# $MW_DESIGN_LIBRARY. Only apply if $ICC_INIT_DESIGN_INPUT is set to "MW".
+set COPY_FROM_MW_DESIGN_LIBRARY "${DESIGN_NAME}_LIB"
+# Directory definitions.
+set REPORT_DIR_INIT_DESIGN                      $REPORT_DIR
+set REPORT_DIR_PLACE_OPT                        $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_CTS                    $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_PSYN                   $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_ROUTE                  $REPORT_DIR
+set REPORT_DIR_ROUTE                            $REPORT_DIR
+set REPORT_DIR_ROUTE_OPT                        $REPORT_DIR
+set REPORT_DIR_CHIP_FINISH                      $REPORT_DIR
+set REPORT_DIR_ECO                              $REPORT_DIR
+set REPORT_DIR_FOCAL_OPT                        $REPORT_DIR
+set REPORT_DIR_SIGNOFF_OPT                      $REPORT_DIR
+set REPORT_DIR_METAL_FILL                       $REPORT_DIR
+set REPORT_DIR_DP                               $REPORT_DIR
+set REPORT_DIR_DP_CREATE_PLANGROUPS             $REPORT_DIR
+set REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS    $REPORT_DIR
+set REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING      $REPORT_DIR
+set REPORT_DIR_DP_COMMIT                        $REPORT_DIR
+set REPORT_DIR_DP_PREPARE_BLOCK                 $REPORT_DIR
+set REPORT_DIR_FORMALITY                        $REPORT_DIR
+if {![file exists $REPORT_DIR_INIT_DESIGN                  ]} {file mkdir $REPORT_DIR_INIT_DESIGN                  }
+if {![file exists $REPORT_DIR_PLACE_OPT                    ]} {file mkdir $REPORT_DIR_PLACE_OPT                    }
+if {![file exists $REPORT_DIR_CLOCK_OPT_CTS                ]} {file mkdir $REPORT_DIR_CLOCK_OPT_CTS                }
+if {![file exists $REPORT_DIR_CLOCK_OPT_PSYN               ]} {file mkdir $REPORT_DIR_CLOCK_OPT_PSYN               }
+if {![file exists $REPORT_DIR_CLOCK_OPT_ROUTE              ]} {file mkdir $REPORT_DIR_CLOCK_OPT_ROUTE              }
+if {![file exists $REPORT_DIR_ROUTE                        ]} {file mkdir $REPORT_DIR_ROUTE                        }
+if {![file exists $REPORT_DIR_ROUTE_OPT                    ]} {file mkdir $REPORT_DIR_ROUTE_OPT                    }
+if {![file exists $REPORT_DIR_CHIP_FINISH                  ]} {file mkdir $REPORT_DIR_CHIP_FINISH                  }
+if {![file exists $REPORT_DIR_ECO                          ]} {file mkdir $REPORT_DIR_ECO                          }
+if {![file exists $REPORT_DIR_FOCAL_OPT                    ]} {file mkdir $REPORT_DIR_FOCAL_OPT                    }
+if {![file exists $REPORT_DIR_SIGNOFF_OPT                  ]} {file mkdir $REPORT_DIR_SIGNOFF_OPT                  }
+if {![file exists $REPORT_DIR_METAL_FILL                   ]} {file mkdir $REPORT_DIR_METAL_FILL                   }
+if {![file exists $REPORT_DIR_DP                           ]} {file mkdir $REPORT_DIR_DP                           }
+if {![file exists $REPORT_DIR_DP_CREATE_PLANGROUPS         ]} {file mkdir $REPORT_DIR_DP_CREATE_PLANGROUPS         }
+if {![file exists $REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS]} {file mkdir $REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS}
+if {![file exists $REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING  ]} {file mkdir $REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING  }
+if {![file exists $REPORT_DIR_DP_COMMIT                    ]} {file mkdir $REPORT_DIR_DP_COMMIT                    }
+if {![file exists $REPORT_DIR_DP_PREPARE_BLOCK             ]} {file mkdir $REPORT_DIR_DP_PREPARE_BLOCK             }
+if {![file exists $REPORT_DIR_FORMALITY                    ]} {file mkdir $REPORT_DIR_FORMALITY                    }
+# Logical libraries.
+set_app_var search_path  ". ./script ./$RESULT_DIR ../syn/result $ADDITIONAL_SEARCH_PATH $search_path"
+if {$synopsys_program_name != "mvrc" || $synopsys_program_name != "vsi" || $synopsys_program_name != "vcst"} {
+    set_app_var target_library  "$TARGET_LIBRARY_FILES"
+    set_app_var link_library    "* $TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+    } else {
+    set_app_var link_library    "$TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+    }
+if {![file exists $RESULT_DIR]} {file mkdir $RESULT_DIR}
+if {![file exists $REPORT_DIR]} {file mkdir $REPORT_DIR}
+if {$synopsys_program_name == "icc_shell"} {
+    # Min/Max library relationships.
+    # For "set_operating_conditions -analysis_type on_chip_variation", it is not
+    # recommended if only -max is specified. Only use it if both -max and -min of
+    # set_operating_conditions are specified and point to two different libraries
+    # and are characterized to model OCV effects of the same corner.
+    if {$MIN_LIBRARY_FILES != "" } {
+        foreach {max_library min_library} $MIN_LIBRARY_FILES {
+            set_min_library $max_library -min_version $min_library
+            }
+        }
+
+    # Reference libraries.
+    if { ![file exists [which $MW_REFERENCE_CONTROL_FILE]]} {
+        if {[file exists $MW_DESIGN_LIBRARY/lib]} {
+            set_mw_lib_reference $MW_DESIGN_LIBRARY                 -mw_reference_library "$MW_REFERENCE_LIB_DIRS $MW_SOFT_MACRO_LIBS"
+            }
+        }
+
+    ## Some power domains are not used, e.g. PD4.
+    if {![info exists PD4]} {set PD4 ""}
+
+    # Avoid too many messages.
+    set_message_info -id PSYN-040 -limit 10     ;# Dont_touch for fixed cells.
+    set_message_info -id PSYN-087 -limit 10     ;# Port inherits its location from pad pin.
+    set_message_info -id LINT-8   -limit 10     ;# Input port is unloaded.
+
+    set_app_var check_error_list "$check_error_list LINK-5 PSYN-375"
+    }
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5wc.db'
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5bc.db'
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+-------------------------------------------------------------------------
+
+if {$synopsys_program_name == "fm_shell"} {
+    set_app_var sh_new_variable_message false
+    } 
+# TRUE | FALSE
+# TRUE - Enable any derates specified on library cells with the set_timing_derate
+#        command or AOCV data to be saved to the Milkyway database.
+# set_app_var timing_save_library_derate true
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/icc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+open_mw_lib $MW_DESIGN_LIBRARY
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA45 (260, 260)
+	Upper Layer     METAL5 (90, 90)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA12 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL1 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL6 (90, 90)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA23 (260, 260)  |	VIA12 (260, 260)
+	Lower Layer     METAL2 (60, 10)   |	METAL1 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA34 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL3 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL4 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA34 (260, 260)
+	Lower Layer     METAL4 (60, 10)   |	METAL3 (60, 10)
+	Upper Layer     METAL5 (90, 90)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Upper Layer     METAL1 (5, 60)    |	METAL1 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Upper Layer     METAL2 (10, 60)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA12 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL1 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA12 (260, 260)  |	VIA34 (260, 260)
+	Lower Layer     METAL1 (10, 60)   |	METAL3 (60, 10)
+	Upper Layer     METAL2 (10, 60)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA23 (260, 260)  |	VIA45 (260, 260)
+	Lower Layer     METAL2 (10, 60)   |	METAL4 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA34 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL3 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL4 (10, 60)   |	METAL6 (90, 90)	 (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Upper Layer     METAL1 (5, 60)    |	METAL1 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Upper Layer     METAL2 (10, 60)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA12 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL1 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA12 (260, 260)  |	VIA34 (260, 260)
+	Lower Layer     METAL1 (10, 60)   |	METAL3 (60, 10)
+	Upper Layer     METAL2 (10, 60)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA23 (260, 260)  |	VIA45 (260, 260)
+	Lower Layer     METAL2 (10, 60)   |	METAL4 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA34 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL3 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL4 (10, 60)   |	METAL6 (90, 90)	 (MWLIBP-324)
+{systolic_array_APR}
+redirect /dev/null "remove_mw_cel -version_kept 0 ${ICC_CLOCK_OPT_CTS_CEL}" 
+copy_mw_cel -from $ICC_PLACE_OPT_CEL -to $ICC_CLOCK_OPT_CTS_CEL
+1
+open_mw_cel $ICC_CLOCK_OPT_CTS_CEL
+Warning: Unit conflict found: Milkyway technology file power unit is mW; main library power unit is nW. (IFS-007)
+Information: Opened "clock_opt_cts_icc.CEL;1" from "/bks2/PB20000328/ic_design/milkyway/systolic_array_APR" library. (MWUI-068)
+{clock_opt_cts_icc}
+source -echo common_optimization_settings_icc.tcl
+#-----------------------------------------------------------------------------
+# common_optimization_settings_icc.tcl:
+#     Optimization common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_optimization_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# To display verbose messages during DRC fixing, setup fixing, hold fixing,
+# multiple-port-net fixing and tie-off optimization in preroute stage, set the
+# following before place_opt :
+#     Off (default)        : set_app_var preroute_opt_verbose 0  
+#     General      	       : set_app_var preroute_opt_verbose 1  
+#     DRC                  : set_app_var preroute_opt_verbose 2 
+#     Hold                 : set_app_var preroute_opt_verbose 4  
+#     General + DRC + hold : set_app_var preroute_opt_verbose 7
+#     Tie-off              : set_app_var preroute_opt_verbose 8  
+#     Multiple port nets   : set_app_var preroute_opt_verbose 16 
+#     Setup                : set_app_var preroute_opt_verbose 32
+#
+# The messages can also be saved to the file propt_verbose.log for the setup
+# and DRC messages only. 
+#     Setup & DRC          : set_app_var preroute_opt_verbose 162 ;# 128+32+2
+# Default settings for set_delay_calculation_options are:
+# -preroute elmore -routed_clock arnoldi -postroute arnoldi
+# Default setting for preroute delay calculation is Elmore.
+# To use AWE delay calculation, set the ICC_PREROUTE_AWE_EFFORT variable.
+switch $ICC_PREROUTE_AWE_EFFORT {
+    HIGH    {set_delay_calculation_options -preroute awe -awe_effort high  }
+    MEDIUM  {set_delay_calculation_options -preroute awe -awe_effort medium}
+    LOW     {set_delay_calculation_options -preroute awe -awe_effort low   }
+    default {set_delay_calculation_options -preroute elmore                }
+    }
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/standard.sldb'
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v. (PSYN-878)
+Information: Loading local_link_library attribute {tcb018gbwp7twc_ccs.db, tpd018bcdnv5wc.db}. (MWDC-290)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  systolic_array              clock_opt_cts_icc.CEL
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5wc.db
+
+# GUI Debug: Building dc from empty. -- Time: 2sec 327ms
+# Default setting for postroute delay calculation is Arnoldi medium effort.
+# To change the effort level, set the ICC_ARNOLDI_EFFORT variable.
+switch $ICC_ARNOLDI_EFFORT {
+    HIGH    {set_delay_calculation_options -postroute arnoldi -arnoldi_effort high  }
+    HYBRID  {set_delay_calculation_options -postroute arnoldi -arnoldi_effort hybrid}
+    MEDIUM  {set_delay_calculation_options -postroute arnoldi -arnoldi_effort medium}
+    LOW     {set_delay_calculation_options -postroute arnoldi -arnoldi_effort low   }
+    default {set_delay_calculation_options -postroute arnoldi -arnoldi_effort medium}
+    }
+# Save the library cell derate settings to the design.
+# set_app_var timing_save_library_derate true
+# General optimizations.
+set_host_options -max_cores $ICC_NUM_CORES
+set_app_var timing_enable_multiple_clocks_per_reg true 
+set_fix_multiple_port_nets -all -buffer_constants -exclude_clock_network 
+if {$ICC_TIE_CELL_FLOW} {
+    set_auto_disable_drc_nets -constant false
+    } else {
+    set_auto_disable_drc_nets -constant true
+    }
+# Specify whether to use the enhanced capacitance modeling information in the
+# library description of a pin. Also only needed for OCV.
+# set_app_var timing_use_enhanced_capacitance_modeling true 
+# PT default - libraries with capacitance ranges.
+# Set dont_use cells.
+# e.g. big drivers (EM issues), very weak drivers, delay cells, clock cells.
+if {[file exists [which $ICC_IN_DONT_USE_FILE]]} { 
+    source -echo $ICC_IN_DONT_USE_FILE 
+    }
+# Fix hard macro locations.
+if {[all_macro_cells] != ""} { 
+    set_attribute [all_macro_cells] is_fixed true 
+    }
+# Set the buffering strategy for optimization.
+# IC Compiler default is -effort none (the command is not enabled).
+# If the command is used without -effort option, then -effort medium is used.
+# Use the command with -effort high typically results in better reduction in
+# buffer/inverter counts.
+# The command only works with preroute optimization, place_opt and clock_opt.
+# set_buffer_opt_strategy -effort high
+# Set
+if {$ICC_MAX_AREA != ""} {set_max_area $ICC_MAX_AREA}
+# Set area critical range.
+# Typical value: 10 percent of critical clock period
+if {$AREA_CRITICAL_RANGE_PRE_CTS != ""} {set_app_var physopt_area_critical_range $AREA_CRITICAL_RANGE_PRE_CTS} 
+# Set power critical range.
+# Typical value: 9 percent of critical clock period
+if {$POWER_CRITICAL_RANGE_PRE_CTS != ""} {set_app_var physopt_power_critical_range $POWER_CRITICAL_RANGE_PRE_CTS} 
+# Script for customized set_multi_vth_constraints constraints.
+# Effective only when $POWER_OPTIMIZATION is set to TRUE.
+# Specify to make leakage power optimization focused on LVT cell reduction.
+# Refer to rm_icc_scripts/multi_vth_constraint.example as an example.
+if {[file exists [which $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT]]} { 
+    source -echo  $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT 
+    }
+# There is a cell attribute "optimization_stage" that indicates at what stage
+# of optimization a cell was inserted. This allows for better tracking and
+# investigation of a design after optimization. The stage can be queried with
+# "get_attribute cellName optimization_stage" or with a command to report a
+# summary of tracked cells.
+#
+# e.g.
+# report_optimization_created_cells 
+# get_cells -hierarchical -filter "optimization_stage == hfs"
+# get_flat_cells -filter "optimization_stage == setup"
+#
+# These are the following stages that can be found on cells after optimization:
+#     setup            - cell created at setup optimization stage
+#     drc              - cell created at DRC fixing stage
+#     hold             - cell created at hold optimization stage
+#     hfs              - cell created at HFS fixing stage
+#     tie_optimization - cell created at tie-optimization stage 
+#     port_fixing      - cell created at multi-port-net fixing or port isolation stage
+#
+# This feature works with the following optimization commands:
+# place_opt, psynopt, clock_opt, route_opt, focal_opt, preroute_focal_opt,
+# place_opt_feasibility, clock_opt_feasibility.
+# End of common optimization session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_optimization_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo common_placement_settings_icc.tcl
+#-----------------------------------------------------------------------------
+# common_placement_settings_icc.tcl:
+#     Placement common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_placement_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Set min/max routing Layers.
+if {$MAX_ROUTING_LAYER != ""} {set_ignored_layers -max_routing_layer $MAX_ROUTING_LAYER}
+Warning: The design has already been assigned layer constraints and we will overwrite the constraints. (RT-064)
+if {$MIN_ROUTING_LAYER != ""} {set_ignored_layers -min_routing_layer $MIN_ROUTING_LAYER}
+Warning: The design has already been assigned layer constraints and we will overwrite the constraints. (RT-064)
+# Set pnet options to control cell placement around P/G straps.
+if {$PNET_METAL_LIST != "" || $PNET_METAL_LIST_COMPLETE != ""} {
+    remove_pnet_options
+
+    if {$PNET_METAL_LIST != "" } {
+  	    set_pnet_options -partial $PNET_METAL_LIST -see_object {all_types} 
+        }
+    if {$PNET_METAL_LIST_COMPLETE != ""} {
+  	    set_pnet_options -complete $PNET_METAL_LIST_COMPLETE -see_object {all_types}
+        }
+
+    report_pnet_options
+    }
+ 
+****************************************
+  Report : pnet options
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Thu Feb  9 14:57:18 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete      ---         ---       via additive      ---
+METAL4     complete      ---         ---       via additive      ---
+METAL5     none          ---         ---       via additive      ---
+
+Route types considered:
+           pg ring, pg strap, pg macro io pin connection, clock ring
+           clock strap, bus, path, user signal, rectangle, contact array
+
+--------------------------------------------------------------------
+# It is recommended to use the tool's default setting.
+# In case it needs to be changed (e.g. for low utlization designs), use the
+# command below:
+# set_congestion_options -max_util 0.85
+# Use this variable to force placement in place_opt, psynopt & refine_placement
+# to leave existing cells on soft blockage. This allows the placer to move
+# cells out of soft blockage to maintain density, but does not sweep everything
+# out, as is done by default.
+# set_app_var placer_enable_enhanced_soft_blockages true
+# Uncomment the variable below to control the coarse placement's treatment of
+# channel areas.
+# The variable is false by default but can also be set to auto or true. 
+# When set to auto, ICC will reduce the max cell density only if it detect
+# substantial channel area in the design.
+# When set to true, ICC will reduce the max cell density in channel areas.
+# set_app_var placer_channel_detect_mode auto 
+# For 20nm and below, to enable Zroute global router for DPT requirement
+# regardless of congestion, please set the following: 
+# set_app_var placer_congestion_effort    medium  ;#force Zroute GR for congestion if on 
+# set_app_var placer_show_zroutegr_output true    ;#force Zroute GR info to place_opt log
+# Accept recovery and removal arcs specified in the technology library.
+set_app_var enable_recovery_removal_arcs true
+# This variable will add a soft constraint during placement to reduce the pin
+# density to below the specified value. Need to determine the appropriate
+# value of MAX_PINS_PER_SQUARE_MICRON for the design.
+# set_app_var placer_max_pins_per_square_micron $MAX_PINS_PER_SQUARE_MICRON
+# End of placement common session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_placement_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo common_cts_settings_icc.tcl
+#-----------------------------------------------------------------------------
+# common_cts_settings_icc.tcl:
+#     CTS common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_cts_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Clock Tree References
+#-----------------------------------------------------------------------------
+# Choose balanced buffers and inverters for best results.
+# Avoid low strengths for initial CTS (bad CTS).
+# Avoid high strengths for signal EM problems.
+# Each of the following list take a space separated list of buffers/cells,
+# e.g."buf1 inv1 inv2".
+# Note: References are cumulative.
+if {$ICC_CTS_REF_LIST != "" || $ICC_CTS_REF_SIZING_ONLY != "" || $ICC_CTS_REF_DEL_INS_ONLY != ""} {reset_clock_tree_references}
+if {$ICC_CTS_REF_LIST         != ""} {set_clock_tree_references -references $ICC_CTS_REF_LIST}
+if {$ICC_CTS_REF_DEL_INS_ONLY != ""} {set_clock_tree_references -delay_insertion_only -references $ICC_CTS_REF_DEL_INS_ONLY}
+if {$ICC_CTS_REF_SIZING_ONLY  != ""} {set_clock_tree_references -sizing_only -references $ICC_CTS_REF_SIZING_ONLY}
+#-----------------------------------------------------------------------------
+# Clock NDR
+#-----------------------------------------------------------------------------
+# Define clock NDR prior to CTS such that CTS can predict its effects.
+# Avoid setting NDR rules on metal 1 to avoid pin access issues on buffers and
+# gates in clock trees.
+# Please refer to Create NDR Example 1, 2, and 3 below, specify your NDR name
+# as $ICC_CTS_RULE_NAME in icc_setup.tcl and define it here.
+# Create NDR Example 1: define double spacing NDR (ICC-RM default).
+# Automatically create a double spacing NDR if ICC_CTS_RULE_NAME is set to
+# iccrm_clock_double_spacing.
+if {$ICC_CTS_RULE_NAME == "iccrm_clock_double_spacing"} {
+    redirect -var x {report_routing_rules $ICC_CTS_RULE_NAME}
+    if {[regexp "Info: No nondrule" $x]} {
+        define_routing_rule $ICC_CTS_RULE_NAME -default_reference_rule -multiplier_spacing 2
+        # add -multiplier_width 2 for double width
+        } 
+    }
+# Create NDR Example 2: define NDR spacings and widths.
+# define_routing_rule $ICC_CTS_RULE_NAME #     -default_reference_rule #     -spacings                  "my_clock_ndr_metal_layer_and_spacing" #     -widths                    "my_clock_ndr_metal_layer_and_width" #     -spacing_length_thresholds <use 3-5x metal layer pitch>
+# Create NDR Example 3: define double via NDR with Zroute.
+# Zroute will insert double via during clock nets routing.
+# If there is no via defined with -via_cuts, for that layer Zroute will use
+# default via with single cut.
+# If classic router is used, R & NR syntax do not apply and will be ignored.
+# To use 1x2 via34 via-array, and allow rotation and swapping of the via-array:
+# define_routing_rule $ICC_CTS_RULE_NAME #     -default_reference_rule \    
+#     -via_cuts {{via34 1x2 NR} {via34 2x1 R} {via34 2x1 NR} {via34 1x2 R}}
+if {$ICC_CTS_RULE_NAME != ""} {
+    redirect -var x {report_routing_rules $ICC_CTS_RULE_NAME}
+    if {![regexp "Info: No nondrule" $x]} {
+        report_routing_rules $ICC_CTS_RULE_NAME
+        # Apply rule to all but leaf nets.
+        set_clock_tree_options -routing_rule $ICC_CTS_RULE_NAME -use_default_routing_for_sinks 1
+        }
+    }
+================================================================================
+
+Nondefault routing rule name ( iccrm_clock_double_spacing ):
+================================================================================
+
+   Layers:
+   ----------------------------------------------------------------------------
+   layer     width     spacing   Extension      shield_width   shield_spacing
+   ----------------------------------------------------------------------------
+   METAL1    230       460       DEFAULT        N/A            N/A
+   METAL2    280       560       DEFAULT        N/A            N/A
+   METAL3    280       560       DEFAULT        N/A            N/A
+   METAL4    280       560       DEFAULT        N/A            N/A
+   METAL5    440       920       DEFAULT        N/A            N/A
+
+   Spacing weights:
+   ----------------------------------------------------------------------------
+   layer     spacing   weight    spc_len_thresh
+   ----------------------------------------------------------------------------
+   METAL1    460       1.00      0
+   METAL2    560       1.00      0
+   METAL3    560       1.00      0
+   METAL4    560       1.00      0
+   METAL5    920       1.00      0
+
+   Vias:
+
+   Same net spacing:
+   ----------------------------------------------------------------------------
+   layer1    layer2    spacing   is_stack
+   ----------------------------------------------------------------------------
+
+Info: Total 1 nondrules are reported
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+Setting global CTS options...
+#-----------------------------------------------------------------------------
+# Clock Shielding NDR
+#-----------------------------------------------------------------------------
+# Define clock shielding NDR.
+if {$ICC_CTS_SHIELD_RULE_NAME != ""} {
+    redirect -var x {report_routing_rules $ICC_CTS_SHIELD_RULE_NAME}
+    if {[regexp "Info: No nondrule" $x]} {
+        define_routing_rule $ICC_CTS_SHIELD_RULE_NAME             -default_reference_rule             -shield_spacings    "$ICC_CTS_SHIELD_SPACINGS"             -shield_widths      "$ICC_CTS_SHIELD_WIDTHS"
+        report_routing_rule $ICC_CTS_SHIELD_RULE_NAME
+        }
+    if {![regexp "Info: No nondrule" $x] && $ICC_CTS_SHIELD_CLK_NAMES != ""} {
+        set_clock_tree_options -routing_rule $ICC_CTS_SHIELD_RULE_NAME -clock_trees $ICC_CTS_SHIELD_CLK_NAMES -use_default_routing_for_sinks 1
+        }     else {
+        set_clock_tree_options -routing_rule $ICC_CTS_SHIELD_RULE_NAME -use_default_routing_for_sinks 1
+        }
+    }
+# Typically route clocks on metal3 and above.
+if {$ICC_CTS_LAYER_LIST != ""} {set_clock_tree_options -layer_list $ICC_CTS_LAYER_LIST}
+Setting global CTS options...
+# Use following commands to further specify CTS constraints and options: 
+# set_clock_tree_options -max_tran    value -clock_trees [list of clocks]
+# set_clock_tree_options -max_cap     value -clock_trees [list of clocks]
+# set_clock_tree_options -target_skew value -clock_trees [list of clocks]
+# Note: It's not recommended to change -max_fanout unless necessary as doing
+# so may degrade QoR easily.
+# Use the following command to enable the advanced DRC fixing during CTS/CTO.
+# set_clock_tree_options -advanced_drc_fixing true  
+# End of CTS optimization session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_cts_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+set_app_var cts_instance_name_prefix CTS
+CTS
+#-----------------------------------------------------------------------------
+# Relative Placement (RP)
+#-----------------------------------------------------------------------------
+# Ensure that the RP cells are not changed during clock_opt.
+# set_rp_group_options [all_rp_groups] -cts_option fixed_placement
+# set_rp_group_options [all_rp_groups] -cts_option size_only
+#-----------------------------------------------------------------------------
+# Clock Tree Synthesis
+#-----------------------------------------------------------------------------
+# set_delay_calculation_options -routed_clock arnoldi
+if {$ICC_SANITY_CHECK} {
+    check_physical_design -stage pre_clock_opt -no_display -output $REPORT_DIR_CLOCK_OPT_CTS/check_physical_design.pre_clock_opt 
+    }
+Warning: Directory report/check_physical_design.pre_clock_opt is available, will output result to report/check_physical_design.pre_clock_opt.22
+Information: Disabling timing checks inside check_ilm 
+Information: Disabling timing checks inside check_block_abstraction 
+Warning: Cell 'u_pad_data_out_8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_7' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_6' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_5' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_4' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_3' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_2' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_1' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_0' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_in_8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Note - message 'PSYN-040' limit (10) exceeded.  Remainder will be suppressed.
+checking tluplus...
+CPD_Runtime: ::check_tlu_plus_files CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking physical objects...
+CPD_Runtime: ::get_placement_area CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: report_routing_metal_info CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_track_and_unit CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_layer_direction CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_physical_only_ports CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking database...
+CPD_Runtime: ::check_database CPU:          1 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: report_taint -dump_errors CPU:          0 s (  0.00 hr) MEM 881 Mb
+Information: Disabling check_timing in check_physical_design
+checking HFN/ideal/dont_touch nets...
+CPD_Runtime: check_for_HFN_ideal CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_for_dont_touch_net_with_drc_violation CPU:          0 s (  0.00 hr) MEM 881 Mb
+Information: Disabling timing checks inside check_block_abstraction
+CPD_Runtime: check_block_abstraction -stage pre_clock_opt CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking placement constraints...
+CPD_Runtime: check_placement_utilization_violation CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_legality_violation CPU:          2 s (  0.00 hr) MEM 881 Mb
+checking for unconnected tie pins...
+CPD_Runtime: cpd_check_tie_connection CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking for too many Restricted cells...
+CPD_Runtime: cpd_check_cells_restrictions CPU:          0 s (  0.00 hr) MEM 881 Mb
+CPD_Runtime: check_unplaced_cells CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking clock trees...
+CPD_Runtime: check_clock_tree CPU:          0 s (  0.00 hr) MEM 881 Mb
+checking clock routing rules...
+CPD_Runtime: check_net_routing_rules CPU:          0 s (  0.00 hr) MEM 881 Mb
+Number of Undocumented Errors: 0
+**************************************************
+Report : check_physical_design
+Stage  : pre_clock_opt
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 14:57:21 2023
+**************************************************
+Total messages: 0 errors, 53 warnings
+
+-----------------------------------------
+Warning Summary for check_physical_design
+-----------------------------------------
+
+  ---------------------------------------------------------------------------
+  ID		Occurrences	Title
+  ---------------------------------------------------------------------------
+  PSYN-523	42		Geometries are not integer multiple of width or...
+  ---------------------------------------------------------------------------
+
+-----------------------------------------------
+Other Warning Summary for check_physical_design
+-----------------------------------------------
+
+  ---------------------------------------------------------------------------
+  ID		Occurrences	Title
+  ---------------------------------------------------------------------------
+  OPT-1022	9		IO pad '%s' is unusable: unknown logic function. 
+  TIM-164	2		The trip points for the library named %s differ...
+  ---------------------------------------------------------------------------
+dump check_physical_design result to file report/check_physical_design.pre_clock_opt.22/index.html
+1
+if {$ICC_ENABLE_CHECKPOINT} {
+    echo "RM-Info: Please ensure there's enough disk space before enabling the set_checkpoint_strategy feature."
+    set_checkpoint_strategy -enable -overwrite
+    # The -overwrite option is used by default. Remove it if needed.
+    }
+# A SAIF file is optional for low power placement and self-gating.
+if {$POWER_OPTIMIZATION && $ICC_CTS_LOW_POWER_PLACEMENT || $ICC_CTS_SELF_GATING} {
+    if {[file exists [which $ICC_IN_SAIF_FILE]]} {
+        read_saif -input $ICC_IN_SAIF_FILE -instance_name $ICC_SAIF_INSTANCE_NAME
+        }
+    }
+if {$POWER_OPTIMIZATION && $ICC_CTS_LOW_POWER_PLACEMENT} {set_optimize_pre_cts_power_options -low_power_placement true}
+if {$POWER_OPTIMIZATION && $ICC_CTS_CLOCK_GATE_MERGE   } {set_optimize_pre_cts_power_options -merge_clock_gates true}
+# Gate splitting to avoid timing violations on enable pins of ICGs.
+if {$POWER_OPTIMIZATION && $ICC_CTS_CLOCK_GATE_SPLIT   } {set_optimize_pre_cts_power_options -split_clock_gates true}
+if {[file exists [which $CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT]]} {
+    echo "RM-Info: Sourcing [which $CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT]"
+    source $CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT
+    }
+set clock_opt_cts_cmd "clock_opt -only_cts -no_clock_route"
+clock_opt -only_cts -no_clock_route
+if {!$DFT && [get_scan_chain] == 0} {lappend clock_opt_cts_cmd -continue_on_missing_scandef}
+clock_opt -only_cts -no_clock_route -continue_on_missing_scandef
+if {$POWER_OPTIMIZATION} {
+    if {$ICC_CTS_LOW_POWER_PLACEMENT || $ICC_CTS_CLOCK_GATE_MERGE || $ICC_CTS_CLOCK_GATE_SPLIT} {lappend clock_opt_cts_cmd -power}
+    }
+if {$ICC_CTS_INTERCLOCK_BALANCING && [file exists [which $ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE]]} {lappend clock_opt_cts_cmd -inter_clock_balance}
+if {$ICC_CTS_UPDATE_LATENCY} {lappend clock_opt_cts_cmd -update_clock_latency}
+if {$ICC_CTS_SELF_GATING}    {lappend clock_opt_cts_cmd -insert_self_gating}
+echo $clock_opt_cts_cmd
+clock_opt -only_cts -no_clock_route -continue_on_missing_scandef
+eval $clock_opt_cts_cmd
+
+The options for clock_opt:
+--------------------------
+COPT:  Clock Tree Synthesis                 : Yes
+COPT:  Post CTS Optimization                : No
+COPT:  Concurrent Clock/Data Optimization   : No
+COPT:  Operation Condition                  : max
+COPT:  Balance Inter Clock Delay            : No
+COPT:  Route Clock Nets                     : No
+COPT:  Update Clock Latency                 : No
+COPT:  Optimize Power                       : No
+---------------------------------------------------
+
+Executing ICC clock_opt...
+medium
+*
+Building clock tree...
+Operating Condition is max
+Information: There is no scenario with cts_mode set to true, CTS will use old cts_scenario flow. (CTS-1115)
+CTS Operating Condition(s): MAX(Worst) 
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+  Loading design 'systolic_array'
+
+
+Information: Setting a dont_touch attribute on net 'clk_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'en_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'ack_p' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: The design has 2250 physical cells. (PSYN-105)
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+Setting the GR Options
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.0002 0.0002 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00043 0.0003 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00028 0.00028 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.1e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00039 0.00027 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00035 0.00024 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+LR: Layer METAL3: Average tracks per gcell 7.0, utilization 0.50
+LR: Layer METAL4: Average tracks per gcell 7.0, utilization 0.04
+LR: Clock routing service standing by
+Using cts integrated global router
+CTS: Blockage Aware Algorithm
+Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain clk_p
+CTS: Prepare sources for clock domain clk_p
+clean drc fixing cell first...
+In all, 0 drc fixing cell(s) are cleaned
+In all, 0 drc fixing cell(s) beyond exception pins are cleaned
+
+CTS: Prepare sources for clock domain clk_p
+CTS: Prepare sources for clock domain clk_p
+Warning: Net clk_p is an Ideal Net, Removing the attribute. (CTS-260)
+Warning: Net clk is an Ideal Net, Removing the attribute. (CTS-260)
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning DEL02BWP7T because drive of 0.137657 is less than 0.207992.
+    Pruning BUFFD0BWP7T because drive of 0.149951 is less than 0.207992.
+    Pruning CKBD0BWP7T because drive of 0.189215 is less than 0.207992.
+    Pruning DEL015BWP7T because drive of 0.198248 is less than 0.207992.
+    Pruning DEL2BWP7T because of a gain of 51.66.
+    Pruning DEL4BWP7T because of a gain of 91.6.
+    Pruning DEL1BWP7T because of a gain of 29.11.
+    Pruning DEL3BWP7T because of a gain of 73.34.
+    Pruning CKBD1BWP7T because it is (w/ power-considered) inferior to BUFFD1BWP7T.
+    Pruning DEL0BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning DEL01BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning BUFFD1P5BWP7T because it is (w/ power-considered) inferior to CKBD2BWP7T.
+    Pruning BUFFD2P5BWP7T because it is inferior (w/ power-considered) to CKBD3BWP7T.
+    Pruning BUFFD3BWP7T because it is (w/ power-considered) inferior to CKBD4BWP7T.
+    Pruning BUFFD5BWP7T because it is inferior (w/ power-considered) to CKBD6BWP7T.
+    Pruning BUFFD6BWP7T because it is inferior (w/ power-considered) to CKBD8BWP7T.
+    Pruning BUFFD8BWP7T because it is inferior (w/ power-considered) to CKBD10BWP7T.
+    Pruning BUFFD10BWP7T because it is inferior (w/ power-considered) to CKBD12BWP7T.
+    Final pruned buffer set (11 buffers):
+	BUFFD1BWP7T
+	CKBD2BWP7T
+	BUFFD2BWP7T
+	CKBD3BWP7T
+	CKBD4BWP7T
+	BUFFD4BWP7T
+	CKBD6BWP7T
+	CKBD8BWP7T
+	CKBD10BWP7T
+	CKBD12BWP7T
+	BUFFD12BWP7T
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning INVD0BWP7T because drive of 0.139295 is less than 0.207992.
+    Pruning CKND0BWP7T because drive of 0.172999 is less than 0.207992.
+    Pruning INVD1P5BWP7T because it is inferior (w/ power-considered) to CKND2BWP7T.
+    Pruning INVD3BWP7T because it is inferior (w/ power-considered) to CKND4BWP7T.
+    Pruning INVD6BWP7T because it is inferior (w/ power-considered) to CKND8BWP7T.
+    Pruning INVD8BWP7T because it is inferior (w/ power-considered) to CKND10BWP7T.
+    Final pruned buffer set (15 buffers):
+	CKND1BWP7T
+	INVD1BWP7T
+	CKND2BWP7T
+	INVD2BWP7T
+	CKND3BWP7T
+	INVD2P5BWP7T
+	CKND4BWP7T
+	INVD4BWP7T
+	CKND6BWP7T
+	INVD5BWP7T
+	CKND8BWP7T
+	CKND10BWP7T
+	CKND12BWP7T
+	INVD10BWP7T
+	INVD12BWP7T
+CTS: BA: Net 'clk'
+CTS: BA: Root net includes 1 sinks.
+CTS: BA: Max delay at toplevel pins = 0.000000
+CTS: BA: Max skew at toplevel pins = 0.000000
+
+CTS: Starting clock tree synthesis ...
+CTS:   Conditions       = worst(1)
+CTS: Global design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]     GUI = worst[0.500 0.500]     SDC = worst[0.500 0.500]
+CTS:   leaf max trans   = worst[0.500 0.500]     GUI = worst[0.500 0.500]     SDC = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]     GUI = worst[0.600 0.600]     SDC = undefined/ignored
+CTS:   max fanout       = 2000                   GUI = 2000                   SDC = undefined/ignored
+CTS: Global timing/clock tree constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+CTS: Design infomation
+CTS:  total gate levels = 2
+CTS: Root clock net clk_p
+CTS:  clock gate levels = 2
+CTS:    clock sink pins = 784
+CTS:    level  2: gates = 1
+CTS:    level  1: gates = 1
+CTS: Buffer/Inverter list for CTS for clock net clk_p:
+CTS:   BUFFD12BWP7T
+CTS:   CKBD12BWP7T
+CTS:   CKND12BWP7T
+CTS:   INVD12BWP7T
+CTS:   BUFFD10BWP7T
+CTS:   CKND10BWP7T
+CTS: Buffer/Inverter list for DelayInsertion for clock net clk_p:
+CTS:   CKND12BWP7T
+CTS:   INVD12BWP7T
+CTS:   CKND10BWP7T
+CTS:   INVD10BWP7T
+CTS:   CKND8BWP7T
+CTS:   INVD8BWP7T
+CTS:   BUFFD12BWP7T
+CTS:   CKBD12BWP7T
+CTS:   BUFFD10BWP7T
+CTS:   CKBD10BWP7T
+CTS:   CKND6BWP7T
+CTS:   INVD6BWP7T
+CTS:   BUFFD8BWP7T
+CTS:   INVD5BWP7T
+CTS:   CKBD8BWP7T
+CTS:   BUFFD6BWP7T
+CTS:   CKBD6BWP7T
+CTS:   BUFFD5BWP7T
+CTS:   CKND4BWP7T
+CTS:   INVD4BWP7T
+CTS:   BUFFD4BWP7T
+CTS:   CKBD4BWP7T
+CTS:   INVD3BWP7T
+CTS:   CKND3BWP7T
+CTS:   CKBD3BWP7T
+CTS:   BUFFD3BWP7T
+CTS:   INVD2P5BWP7T
+CTS:   BUFFD2P5BWP7T
+CTS:   CKND0BWP7T
+CTS:   CKND2BWP7T
+CTS:   INVD2BWP7T
+CTS:   CKBD0BWP7T
+CTS:   BUFFD2BWP7T
+CTS:   CKBD2BWP7T
+CTS:   INVD1P5BWP7T
+CTS:   BUFFD1P5BWP7T
+CTS:   CKND1BWP7T
+CTS:   INVD1BWP7T
+CTS:   INVD0BWP7T
+CTS:   DEL01BWP7T
+CTS:   DEL015BWP7T
+CTS:   DEL02BWP7T
+CTS:   BUFFD0BWP7T
+CTS:   BUFFD1BWP7T
+CTS:   CKBD1BWP7T
+CTS:   DEL0BWP7T
+CTS:   DEL1BWP7T
+CTS:   DEL2BWP7T
+CTS:   DEL3BWP7T
+CTS:   DEL4BWP7T
+Information: Removing clock transition on clock clk_p ... (CTS-103)
+Information: Removing clock transition on clock clk_p ... (CTS-103)
+
+CTS: gate level 2 clock tree synthesis
+CTS:          clock net = clk
+CTS:        driving pin = u_pad_clk/C
+CTS: gate level 2 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 2 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   levels per net   = 400
+CTS: nominal transition = 0.14439
+
+CTS: gate level 1 clock tree synthesis
+CTS:          clock net = clk_p
+CTS:        driving pin = clk_p
+CTS: gate level 1 design rule constraints [rise fall]
+CTS:   max transition   = worst[0.500 0.500]
+CTS:   leaf max transition = worst[0.500 0.500]
+CTS:   max capacitance  = worst[0.600 0.600]
+CTS:   max fanout       = 2000
+CTS: gate level 1 timing constraints
+CTS:   clock skew       = worst[0.000]
+CTS:   insertion delay  = worst[0.000]
+CTS:   levels per net   = 400
+Information: no clock tree synthesis on don't touch net clk_p. (CTS-614)
+
+CTS: Clock tree synthesis completed successfully
+CTS:   CPU time:     1 seconds
+CTS: Reporting clock tree violations ...
+CTS:   Global design rules:
+CTS:     maximum transition delay [rise,fall] = [0.5,0.5]
+CTS:     maximum capacitance = 0.6
+CTS:     maximum fanout = 2000
+CTS:     maximum buffer levels per net = 400
+CTS:  
+CTS: Summary of clock tree violations: 
+CTS:  Total number of transition violations  = 0 
+CTS:  Total number of capacitance violations = 0 
+CTS: ------------------------------------------------
+CTS: Clock Tree Synthesis Summary
+CTS: ------------------------------------------------
+CTS:       1 clock domain synthesized
+CTS:       2 gated clock nets synthesized
+CTS:       1 buffer trees inserted
+CTS:      14 buffers used (total size = 425.869)
+CTS:      16 clock nets total capacitance = worst[7.306 7.306]
+CTS: ------------------------------------------------
+CTS: Clock-by-Clock Summary
+CTS: ------------------------------------------------
+CTS: Root clock net clk_p
+CTS:       2 gated clock nets synthesized
+CTS:       1 buffer trees inserted
+CTS:      14 buffers used (total size = 425.869)
+CTS:      16 clock nets total capacitance = worst[7.306 7.306]
+
+CTS: ==================================================
+CTS:   Elapsed time: 0 seconds
+CTS:   CPU time:     1 seconds on c01n10
+CTS: ==================================================
+CTS: Reporting clock tree violations ...
+CTS:   Global design rules:
+CTS:     maximum transition delay [rise,fall] = [0.5,0.5]
+CTS:     maximum capacitance = 0.6
+CTS:     maximum fanout = 2000
+CTS:     maximum buffer levels per net = 400
+CTS:  
+CTS: Summary of clock tree violations: 
+CTS:  Total number of transition violations  = 0 
+CTS:  Total number of capacitance violations = 0 
+CTS: ==================================================
+CTS: Start DRC fixing beyond exceptions
+CTS: Blockage Aware Algorithm
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain clk_p
+CTS: Prepare sources for clock domain clk_p
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning DEL02BWP7T because drive of 0.137657 is less than 0.207992.
+    Pruning BUFFD0BWP7T because drive of 0.149951 is less than 0.207992.
+    Pruning CKBD0BWP7T because drive of 0.189215 is less than 0.207992.
+    Pruning DEL015BWP7T because drive of 0.198248 is less than 0.207992.
+    Pruning DEL2BWP7T because of a gain of 51.66.
+    Pruning DEL4BWP7T because of a gain of 91.6.
+    Pruning DEL1BWP7T because of a gain of 29.11.
+    Pruning DEL3BWP7T because of a gain of 73.34.
+    Pruning CKBD1BWP7T because it is (w/ power-considered) inferior to BUFFD1BWP7T.
+    Pruning DEL0BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning DEL01BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning BUFFD1P5BWP7T because it is (w/ power-considered) inferior to CKBD2BWP7T.
+    Pruning BUFFD2P5BWP7T because it is inferior (w/ power-considered) to CKBD3BWP7T.
+    Pruning BUFFD3BWP7T because it is (w/ power-considered) inferior to CKBD4BWP7T.
+    Pruning BUFFD5BWP7T because it is inferior (w/ power-considered) to CKBD6BWP7T.
+    Pruning BUFFD6BWP7T because it is inferior (w/ power-considered) to CKBD8BWP7T.
+    Pruning BUFFD8BWP7T because it is inferior (w/ power-considered) to CKBD10BWP7T.
+    Pruning BUFFD10BWP7T because it is inferior (w/ power-considered) to CKBD12BWP7T.
+    Final pruned buffer set (11 buffers):
+	BUFFD1BWP7T
+	CKBD2BWP7T
+	BUFFD2BWP7T
+	CKBD3BWP7T
+	CKBD4BWP7T
+	BUFFD4BWP7T
+	CKBD6BWP7T
+	CKBD8BWP7T
+	CKBD10BWP7T
+	CKBD12BWP7T
+	BUFFD12BWP7T
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning INVD0BWP7T because drive of 0.139295 is less than 0.207992.
+    Pruning CKND0BWP7T because drive of 0.172999 is less than 0.207992.
+    Pruning INVD1P5BWP7T because it is inferior (w/ power-considered) to CKND2BWP7T.
+    Pruning INVD3BWP7T because it is inferior (w/ power-considered) to CKND4BWP7T.
+    Pruning INVD6BWP7T because it is inferior (w/ power-considered) to CKND8BWP7T.
+    Pruning INVD8BWP7T because it is inferior (w/ power-considered) to CKND10BWP7T.
+    Final pruned buffer set (15 buffers):
+	CKND1BWP7T
+	INVD1BWP7T
+	CKND2BWP7T
+	INVD2BWP7T
+	CKND3BWP7T
+	INVD2P5BWP7T
+	CKND4BWP7T
+	INVD4BWP7T
+	CKND6BWP7T
+	INVD5BWP7T
+	CKND8BWP7T
+	CKND10BWP7T
+	CKND12BWP7T
+	INVD10BWP7T
+	INVD12BWP7T
+CTS: Prepare sources for clock domain clk_p
+
+CTS: ==================================================
+CTS: DRC fixing beyond exceptions completed successfully
+CTS:   Elapsed time: 0 seconds
+CTS:   CPU time:     0 seconds on c01n10
+CTS: ==================================================
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.0002 0.0002 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00043 0.0003 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00035 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00028 0.00028 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.1e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00039 0.00027 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00023 0.00023 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00035 0.00024 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+ CTS Successful 
+Optimizing clock tree...
+Operating Condition is max
+No valid clocks specified, all clocks will be optimized
+CTS: CTS Operating Condition(s): MAX(Worst) 
+Clock name : clk_p 
+enable delay detour in ctdn
+Information: Design is global routed.
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+ Cannot find specified mesh net 
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+CTS: Top-Level OCV Path Sharing not effective when timing derating is too low
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+CTS: Region Aware Algorithm is automatically turned off when design has no region or only has one region.
+CTS: Prepare sources for clock domain clk_p
+CTS: Prepare sources for clock domain clk_p
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning DEL02BWP7T because drive of 0.137657 is less than 0.207992.
+    Pruning BUFFD0BWP7T because drive of 0.149951 is less than 0.207992.
+    Pruning CKBD0BWP7T because drive of 0.189215 is less than 0.207992.
+    Pruning DEL015BWP7T because drive of 0.198248 is less than 0.207992.
+    Pruning DEL2BWP7T because of a gain of 51.66.
+    Pruning DEL4BWP7T because of a gain of 91.6.
+    Pruning DEL1BWP7T because of a gain of 29.11.
+    Pruning DEL3BWP7T because of a gain of 73.34.
+    Pruning CKBD1BWP7T because it is (w/ power-considered) inferior to BUFFD1BWP7T.
+    Pruning DEL0BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning DEL01BWP7T because it is inferior (w/ power-considered) to BUFFD1BWP7T.
+    Pruning BUFFD1P5BWP7T because it is (w/ power-considered) inferior to CKBD2BWP7T.
+    Pruning BUFFD2P5BWP7T because it is inferior (w/ power-considered) to CKBD3BWP7T.
+    Pruning BUFFD3BWP7T because it is (w/ power-considered) inferior to CKBD4BWP7T.
+    Pruning BUFFD5BWP7T because it is inferior (w/ power-considered) to CKBD6BWP7T.
+    Pruning BUFFD6BWP7T because it is inferior (w/ power-considered) to CKBD8BWP7T.
+    Pruning BUFFD8BWP7T because it is inferior (w/ power-considered) to CKBD10BWP7T.
+    Pruning BUFFD10BWP7T because it is inferior (w/ power-considered) to CKBD12BWP7T.
+    Final pruned buffer set (11 buffers):
+	BUFFD1BWP7T
+	CKBD2BWP7T
+	BUFFD2BWP7T
+	CKBD3BWP7T
+	CKBD4BWP7T
+	BUFFD4BWP7T
+	CKBD6BWP7T
+	CKBD8BWP7T
+	CKBD10BWP7T
+	CKBD12BWP7T
+	BUFFD12BWP7T
+
+Pruning library cells (r/f, pwr)
+    Min drive = 0.207992.
+    Pruning INVD0BWP7T because drive of 0.139295 is less than 0.207992.
+    Pruning CKND0BWP7T because drive of 0.172999 is less than 0.207992.
+    Pruning INVD1P5BWP7T because it is inferior (w/ power-considered) to CKND2BWP7T.
+    Pruning INVD3BWP7T because it is inferior (w/ power-considered) to CKND4BWP7T.
+    Pruning INVD6BWP7T because it is inferior (w/ power-considered) to CKND8BWP7T.
+    Pruning INVD8BWP7T because it is inferior (w/ power-considered) to CKND10BWP7T.
+    Final pruned buffer set (15 buffers):
+	CKND1BWP7T
+	INVD1BWP7T
+	CKND2BWP7T
+	INVD2BWP7T
+	CKND3BWP7T
+	INVD2P5BWP7T
+	CKND4BWP7T
+	INVD4BWP7T
+	CKND6BWP7T
+	INVD5BWP7T
+	CKND8BWP7T
+	CKND10BWP7T
+	CKND12BWP7T
+	INVD10BWP7T
+	INVD12BWP7T
+CTO-ID:    
+Choosing the following cells for CTO Delay Insertion and ICDB: 
+CTO-  :     BUFFD0BWP7T, 
+CTO-  :     BUFFD10BWP7T, 
+CTO-  :     BUFFD12BWP7T, 
+CTO-  :     BUFFD1BWP7T, 
+CTO-  :     BUFFD1P5BWP7T, 
+CTO-  :     BUFFD2BWP7T, 
+CTO-  :     BUFFD2P5BWP7T, 
+CTO-  :     BUFFD3BWP7T, 
+CTO-  :     BUFFD4BWP7T, 
+CTO-  :     BUFFD5BWP7T, 
+CTO-  :     BUFFD6BWP7T, 
+CTO-  :     BUFFD8BWP7T, 
+CTO-  :     CKBD0BWP7T, 
+CTO-  :     CKBD10BWP7T, 
+CTO-  :     CKBD12BWP7T, 
+CTO-  :     CKBD1BWP7T, 
+CTO-  :     CKBD2BWP7T, 
+CTO-  :     CKBD3BWP7T, 
+CTO-  :     CKBD4BWP7T, 
+CTO-  :     CKBD6BWP7T, 
+CTO-  :     CKBD8BWP7T, 
+CTO-  :     CKND0BWP7T, 
+CTO-  :     CKND10BWP7T, 
+CTO-  :     CKND12BWP7T, 
+CTO-  :     CKND1BWP7T, 
+CTO-  :     CKND2BWP7T, 
+CTO-  :     CKND3BWP7T, 
+CTO-  :     CKND4BWP7T, 
+CTO-  :     CKND6BWP7T, 
+CTO-  :     CKND8BWP7T, 
+CTO-  :     DEL015BWP7T, 
+CTO-  :     DEL01BWP7T, 
+CTO-  :     DEL02BWP7T, 
+CTO-  :     DEL0BWP7T, 
+CTO-  :     DEL1BWP7T, 
+CTO-  :     DEL2BWP7T, 
+CTO-  :     DEL3BWP7T, 
+CTO-  :     DEL4BWP7T, 
+CTO-  :     INVD0BWP7T, 
+CTO-  :     INVD10BWP7T, 
+CTO-  :     INVD12BWP7T, 
+CTO-  :     INVD1BWP7T, 
+CTO-  :     INVD1P5BWP7T, 
+CTO-  :     INVD2BWP7T, 
+CTO-  :     INVD2P5BWP7T, 
+CTO-  :     INVD3BWP7T, 
+CTO-  :     INVD4BWP7T, 
+CTO-  :     INVD5BWP7T, 
+CTO-  :     INVD6BWP7T, 
+CTO-  :     INVD8BWP7T, 
+CTO-  :     
+
+Initializing multicorner optimizer...
+Using primary buffers equivalent to 'DEL015BWP7T'.
+Using primary inverters equivalent to 'INVD1BWP7T'.
+Technology-based gate delay scale factors (normalized to the highest):
+  Corner 'max': 1.000
+Technology-based wire delay scale factors (normalized to the highest):
+  Corner 'max': 1.000
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+Information: Float pin scale factor for the 'min' operating condition of scenario 'default' is set to 0.535 (CTS-375)
+Using the following scale factors for float pins:
+  Corner 'max': 1.000
+Worst clock corner:  max
+Worst RC delay corner:  max
+Using normal effort optimization
+Using pre-route mode
+Using non-mv_mode
+Target max transition = 0.288779
+Using the CTS integrated router
+
+Selecting library cells for optimization
+    Pruning weak driver DEL02BWP7T.
+    Pruning weak driver BUFFD0BWP7T.
+    Pruning weak driver CKBD0BWP7T.
+    Pruning weak driver DEL015BWP7T.
+    Pruning slow or multistage gate DEL2BWP7T.
+    Pruning slow or multistage gate DEL4BWP7T.
+    Pruning slow or multistage gate DEL1BWP7T.
+    Pruning slow or multistage gate DEL3BWP7T.
+    Final pruned buffer set (21 buffers):
+	CKBD1BWP7T
+	BUFFD1BWP7T
+	DEL0BWP7T
+	DEL01BWP7T
+	BUFFD1P5BWP7T
+	CKBD2BWP7T
+	BUFFD2BWP7T
+	CKBD3BWP7T
+	BUFFD2P5BWP7T
+	BUFFD3BWP7T
+	CKBD4BWP7T
+	BUFFD4BWP7T
+	CKBD6BWP7T
+	BUFFD5BWP7T
+	CKBD8BWP7T
+	BUFFD6BWP7T
+	CKBD10BWP7T
+	BUFFD8BWP7T
+	CKBD12BWP7T
+	BUFFD10BWP7T
+	BUFFD12BWP7T
+
+    Pruning weak driver INVD0BWP7T.
+    Pruning weak driver CKND0BWP7T.
+    Final pruned inverter set (19 inverters):
+	CKND1BWP7T
+	INVD1BWP7T
+	CKND2BWP7T
+	INVD1P5BWP7T
+	INVD2BWP7T
+	CKND3BWP7T
+	INVD2P5BWP7T
+	CKND4BWP7T
+	INVD3BWP7T
+	INVD4BWP7T
+	CKND6BWP7T
+	INVD5BWP7T
+	CKND8BWP7T
+	INVD6BWP7T
+	CKND10BWP7T
+	INVD8BWP7T
+	CKND12BWP7T
+	INVD10BWP7T
+	INVD12BWP7T
+setting ndr iccrm_clock_double_spacing to clock clk_p
+CTS: Marking Net clk_p as cts DontTouch : It is a PAD Net
+CTS: Marking Net clk_p as cts DontTouch : It is a PAD Net
+
+
+Initializing parameters for clock clk_p:
+Root pin: clk_p
+Using max_transition: 0.500 ns
+Using leaf_max_transition for clock clk_p: 0.500 ns
+Using the following target skews for global optimization:
+  Corner 'max': 0.107 ns
+Using the following target skews for incremental optimization:
+  Corner 'max': 0.000 ns
+Using the following optimization options:
+  gate sizing                   :  on
+  gate relocation               :  on
+  preserve levels               :  off
+  area recovery                 :  on
+  relax insertion delay         :  off
+  balance rc                    :  off
+Information: The -balance_rc option is set to false by default, because there are single CTS corner(s). (CTS-1121)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock clk_p : 0.500 ns
+
+
+Starting optimization for clock clk_p.
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock clk_p : 0.500 ns
+
+******************************************
+* Preoptimization report (clock 'clk_p') *
+******************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.062 0.000 0.062)
+    Estimated Insertion Delay (r/f/b) = (2.350  -inf 2.350)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.023 0.000 0.023)
+    Estimated Insertion Delay (r/f/b) = (0.099  -inf 0.099)
+  Wire capacitance =  1.9 pf
+  Total capacitance = 7.3 pf
+  Max transition = 0.517 ns
+  Cells = 16 (area=425.868805)
+  Inverters = 14 (area=425.868805)
+  Inverter Types
+  ==============
+    CKND10BWP7T: 4
+    CKND12BWP7T: 7
+    CKND8BWP7T: 2
+    CKND3BWP7T: 1
+
+Report DRC violations for clock clk_p (initial)
+Total 0 DRC violations for clock clk_p (initial)
+ Start (2.371, 2.442), End (2.371, 2.442) 
+
+RC optimization for clock 'clk_p'
+Corner sensitivity to RC skew (normalized to the first corner):
+  Corner 'max': +0.000
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+Coarse optimization for clock 'clk_p'
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+ No back-to-back buffer chains found
+ Start (2.011, 2.054), End (2.011, 2.054) 
+
+Detailed optimization for clock 'clk_p'
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock clk_p : 0.500 ns
+Starting optimization pass for clock clk_p:
+Start path based optimization 
+ Start (1.941, 1.983), End (1.941, 1.983) 
+
+ iteration 1: (0.035776, 1.978060) [0]
+ Total 1 cells sized on clock clk_p (LP) (corner 0)
+ Start (1.941, 1.983), End (1.942, 1.978) 
+
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+ Start (1.942, 1.978), End (1.942, 1.978) 
+
+ Start (1.942, 1.978), End (1.942, 1.978) 
+
+ Start (1.942, 1.978), End (1.942, 1.978) 
+
+ Start (1.942, 1.978), End (1.942, 1.978) 
+
+ Start (1.942, 1.978), End (1.942, 1.978) 
+
+ iteration 2: (0.032281, 1.980955) [0]
+ iteration 3: (0.030297, 1.983088) [0]
+ iteration 4: (0.029472, 1.983075) [0]
+ Total 3 cells sized on clock clk_p (SP) (corner 0)
+ Start (1.942, 1.978), End (1.954, 1.983) 
+
+Start area recovery: (1.953603, 1.983075)
+Using max_transition 0.500 ns
+Using leaf_max_transition for clock clk_p : 0.500 ns
+Switch to low metal layer for clock 'clk_p':
+
+ Total 10 out of 15 nets switched to low metal layer for clock 'clk_p' with largest cap change 0.00 percent
+Switch metal layer for area recovery: (1.953556, 1.983018)
+ Start (1.954, 1.983), End (1.954, 1.983) 
+
+Buffer removal for area recovery: (1.953556, 1.983018)
+Area recovery optimization for clock 'clk_p':
+12%   25%   31%   43%   50%   62%   75%   81%   93%   100%   
+Sizing for area recovery: (1.953604, 1.983075)
+
+ Total 0 buffers removed (all paths) for clock 'clk_p'
+Path buffer removal for area recovery: (1.953604, 1.983075)
+Buffer pair removal for area recovery: (1.953604, 1.983075)
+End area recovery: (1.953604, 1.983075)
+
+***************************************************
+* Multicorner optimization report (clock 'clk_p') *
+***************************************************
+  Corner 'max'
+    Estimated Skew (r/f/b) = (0.029 0.000 0.029)
+    Estimated Insertion Delay (r/f/b) = (1.983  -inf 1.983)
+  Corner 'RC-ONLY'
+    Estimated Skew (r/f/b) = (0.019 0.000 0.019)
+    Estimated Insertion Delay (r/f/b) = (0.097  -inf 0.097)
+  Wire capacitance =  1.9 pf
+  Total capacitance = 7.3 pf
+  Max transition = 0.517 ns
+  Cells = 16 (area=456.601624)
+  Inverters = 14 (area=456.601624)
+  Inverter Types
+  ==============
+    CKND10BWP7T: 2
+    CKND12BWP7T: 6
+    INVD12BWP7T: 2
+    INVD10BWP7T: 3
+    INVD4BWP7T: 1
+
+
+++ Longest path for clock clk_p in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ clk_p (port)                                   36   0    0 r ( 134    0) 
+ clk_p (port)                                  500   0    0 r ( 134    0) 
+ clk_p (net)                            1 2305                
+ u_pad_clk/PAD (PDDW0208SCDG)                  517  77   77 r ( 170    2) 
+ u_pad_clk/C (PDDW0208SCDG)                    199 1322 1399 r ( 186  119) 
+ clk (net)                              1  24                 
+ CTSCKND12BWP7T_G2B4I1/I (INVD4BWP7T)          143   1 1400 r ( 183  156) 
+ CTSCKND12BWP7T_G2B4I1/ZN (INVD4BWP7T)         113  97 1497 f ( 185  156) 
+ clk_G2B1I1 (net)                       1  84                 
+ CTSCKND3BWP7T_G2B3I1/I (CKND12BWP7T)          117  10 1507 f ( 356  317) 
+ CTSCKND3BWP7T_G2B3I1/ZN (CKND12BWP7T)         131  99 1607 r ( 353  317) 
+ clk_G2B2I1 (net)                       2 149                 
+ CTSCKND10BWP7T_G2B2I2/I (INVD12BWP7T)         135   8 1614 r ( 459  317) 
+ CTSCKND10BWP7T_G2B2I2/ZN (INVD12BWP7T)        152 114 1729 f ( 455  317) 
+ clk_G2B3I2 (net)                       6 381                 
+ CTSCKND12BWP7T_G2B1I5/I (CKND12BWP7T)         158  10 1739 f ( 462  333) 
+ CTSCKND12BWP7T_G2B1I5/ZN (CKND12BWP7T)        371 228 1967 r ( 458  333) 
+ clk_G2B4I5 (net)                      98 502                 
+ SA_core_pe_2_1_Cij_o_reg_7_/CP (DFQD0BWP7T)   381  16 1983 r ( 350  396) 
+
+
+++ Shortest path for clock clk_p in corner 'max':
+ object                               fan cap  trn inc  arr r location
+ clk_p (port)                                   36   0    0 r ( 134    0) 
+ clk_p (port)                                  500   0    0 r ( 134    0) 
+ clk_p (net)                            1 2305                
+ u_pad_clk/PAD (PDDW0208SCDG)                  517  77   77 r ( 170    2) 
+ u_pad_clk/C (PDDW0208SCDG)                    199 1322 1399 r ( 186  119) 
+ clk (net)                              1  24                 
+ CTSCKND12BWP7T_G2B4I1/I (INVD4BWP7T)          143   1 1400 r ( 183  156) 
+ CTSCKND12BWP7T_G2B4I1/ZN (INVD4BWP7T)         113  97 1497 f ( 185  156) 
+ clk_G2B1I1 (net)                       1  84                 
+ CTSCKND3BWP7T_G2B3I1/I (CKND12BWP7T)          117  10 1507 f ( 356  317) 
+ CTSCKND3BWP7T_G2B3I1/ZN (CKND12BWP7T)         131  99 1607 r ( 353  317) 
+ clk_G2B2I1 (net)                       2 149                 
+ CTSCKND10BWP7T_G2B2I2/I (INVD12BWP7T)         135   8 1614 r ( 459  317) 
+ CTSCKND10BWP7T_G2B2I2/ZN (INVD12BWP7T)        152 114 1729 f ( 455  317) 
+ clk_G2B3I2 (net)                       6 381                 
+ CTSCKND12BWP7T_G2B1I8/I (CKND12BWP7T)         159  16 1745 f ( 542  263) 
+ CTSCKND12BWP7T_G2B1I8/ZN (CKND12BWP7T)        314 202 1947 r ( 538  262) 
+ clk_G2B4I8 (net)                      79 417                 
+ SA_A_2_shift_reg_reg_0__6_/CP (DFQD0BWP7T)    317   6 1953 r ( 519  262) 
+
+
+++ Longest path for clock clk_p in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ clk_p (port)                                   36   0    0 r ( 134    0) 
+ clk_p (port)                                    0   0    0 r ( 134    0) 
+ clk_p (net)                            1 2305                
+ u_pad_clk/PAD (PDDW0208SCDG)                  169  53   53 r ( 170    2) 
+ u_pad_clk/C (PDDW0208SCDG)                      0   0   53 r ( 186  119) 
+ clk (net)                              1  24                 
+ CTSCKND12BWP7T_G2B4I1/I (INVD4BWP7T)            2   1   54 r ( 183  156) 
+ CTSCKND12BWP7T_G2B4I1/ZN (INVD4BWP7T)           0   0   54 f ( 185  156) 
+ clk_G2B1I1 (net)                       1  84                 
+ CTSCKND3BWP7T_G2B3I1/I (CKND12BWP7T)           20   8   62 f ( 356  317) 
+ CTSCKND3BWP7T_G2B3I1/ZN (CKND12BWP7T)           0   0   62 r ( 353  317) 
+ clk_G2B2I1 (net)                       2 149                 
+ CTSCKND8BWP7T_G2B2I1/I (INVD10BWP7T)           31  13   75 r ( 516  572) 
+ CTSCKND8BWP7T_G2B2I1/ZN (INVD10BWP7T)           0   0   75 f ( 519  572) 
+ clk_G2B3I1 (net)                       4 263                 
+ CTSCKND12BWP7T_G2B1I4/I (CKND12BWP7T)          27  11   86 f ( 691  482) 
+ CTSCKND12BWP7T_G2B1I4/ZN (CKND12BWP7T)          0   0   86 r ( 687  482) 
+ clk_G2B4I4 (net)                      86 459                 
+ SA_ctrl_state_compute_pump_reg_0_/CP (DFQD0BWP7T)
+                                                28  11   97 r ( 554  450) 
+
+
+++ Shortest path for clock clk_p in corner 'RC-ONLY':
+ object                               fan cap  trn inc  arr r location
+ clk_p (port)                                   36   0    0 r ( 134    0) 
+ clk_p (port)                                    0   0    0 r ( 134    0) 
+ clk_p (net)                            1 2305                
+ u_pad_clk/PAD (PDDW0208SCDG)                  169  53   53 r ( 170    2) 
+ u_pad_clk/C (PDDW0208SCDG)                      0   0   53 r ( 186  119) 
+ clk (net)                              1  24                 
+ CTSCKND12BWP7T_G2B4I1/I (INVD4BWP7T)            2   1   54 r ( 183  156) 
+ CTSCKND12BWP7T_G2B4I1/ZN (INVD4BWP7T)           0   0   54 f ( 185  156) 
+ clk_G2B1I1 (net)                       1  84                 
+ CTSCKND3BWP7T_G2B3I1/I (CKND12BWP7T)           20   8   62 f ( 356  317) 
+ CTSCKND3BWP7T_G2B3I1/ZN (CKND12BWP7T)           0   0   62 r ( 353  317) 
+ clk_G2B2I1 (net)                       2 149                 
+ CTSCKND10BWP7T_G2B2I2/I (INVD12BWP7T)          12   5   67 r ( 459  317) 
+ CTSCKND10BWP7T_G2B2I2/ZN (INVD12BWP7T)          0   0   67 f ( 455  317) 
+ clk_G2B3I2 (net)                       6 381                 
+ CTSCKND12BWP7T_G2B1I5/I (CKND12BWP7T)          16   7   74 f ( 462  333) 
+ CTSCKND12BWP7T_G2B1I5/ZN (CKND12BWP7T)          0   0   74 r ( 458  333) 
+ clk_G2B4I5 (net)                      98 502                 
+ SA_A_1_shift_reg_reg_0__0_/CP (DFQD0BWP7T)     10   4   78 r ( 461  325) 
+
+Report DRC violations for clock clk_p (final)
+Total 0 DRC violations for clock clk_p (final)
+
+  Legalizing Placement
+  --------------------
+
+[begin initializing data for legality checker]
+
+Initializing Data Structure ...
+INFO: legalizer_via_spacing_check_mode 0
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    Top most routable layer is set to be metal4
+    This is considered as a 4-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 150 horizontal rows
+    5028 pre-routes for placement blockage/checking
+    5179 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+... design style 0
+... number of base array 1 0
+INFO:... use original rows...
+INFO: 2220 pre-routes used for checking; 4228 redundant shapes removed
+[end initializing data for legality checker]
+ 
+****************************************
+  Report : Chip Summary
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Thu Feb  9 14:57:26 2023
+****************************************
+Std cell utilization: 27.65%  (38486/(158100-18900))
+(Non-fixed + Fixed)
+Std cell utilization: 28.49%  (38278/(158100-23758))
+(Non-fixed only)
+Chip area:            158100   sites, bbox (155.00 155.00 745.24 743.00) um
+Std cell area:        38486    sites, (non-fixed:38278  fixed:208)
+                      4001     cells, (non-fixed:3987   fixed:14)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  18900    sites, (excluding fixed std cells)
+                      23758    sites, (include fixed std cells & chimney area)
+                      23100    sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       105 
+Avg. std cell width:  5.21 um 
+Site array:           unit     (width: 0.56 um, height: 3.92 um, rows: 150)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Thu Feb  9 14:57:26 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete    0.00        0.00        via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+METAL5     none          ---         ---       via additive      ---
+Legalizing 9 illegal cells...
+Starting legalizer.
+Warning: There is high fragmentation caused by many blockages or fixed cells.
+	The median subrow width (space between blockages) is 64 sites
+	and the median cell width is 19 sites. This makes it difficult for
+	the legalizer to pack in the cells and can result in high
+	displacements and long runtimes. (PSYN-1012)
+Please look for the GIF files that are written out at the end of
+	legalization to see the impact of the fragmentation.
+Initial legalization:  10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0 sec)
+Optimizations pass 1: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.0 sec)
+Optimizations pass 2: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.0 sec)
+Optimizations pass 3: 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% (0.0 sec)
+Writing GIF plot to file './legalizer_debug_plots/systolic_array.151-0001-max_displacements.gif'.
+Writing GIF plot to file './legalizer_debug_plots/systolic_array.151-0002-colored_displacements.gif'.
+Legalization complete (1 total sec)
+ 
+****************************************
+  Report : Legalize Displacement
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Thu Feb  9 14:57:27 2023
+****************************************
+
+avg cell displacement:    3.060 um ( 0.78 row height)
+max cell displacement:    4.077 um ( 1.04 row height)
+std deviation:            1.281 um ( 0.33 row height)
+number of cell moved:        10 cells (out of 3987 cells)
+
+Total 0 cells has large displacement (e.g. > 11.760 um or 3 row height)
+
+...100%
+
+  Placement Legalization Complete
+  -------------------------------
+
+Information: Updating database...
+Unsetting the GR Options
+LR: 2 out of 15 clock nets rerouted
+LR: Clock routing service terminated
+Invalidate design extracted status
+Optimize clock tree Successful...
+clock_opt completed Successfully
+1
+if {[file exists [which $CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT]]} {
+    echo "RM-Info: Sourcing [which $CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT]"
+    source $CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT
+    }
+if {$ICC_ENABLE_CHECKPOINT} {set_checkpoint_strategy -disable}
+if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+#-----------------------------------------------------------------------------
+# Additional Features to the clock_opt Command
+#-----------------------------------------------------------------------------
+# Do interclock delay balancing.
+# set_inter_clock_delay_options -balance_group "Clk1 Clk2"
+# clock_opt -inter_clock_balance
+# Update the IO latency before starting the post CTS optimization.
+# set_latency_adjustment_options -from_clock ... -to_clock ... -latency ...
+# clock_opt -update_clock_latency -no_clock_route
+# Check whether the clock nets got the NDR.
+# report_net_routing_rules [get_nets -hier *]
+#-----------------------------------------------------------------------------
+# Connect P/G
+#-----------------------------------------------------------------------------
+# Connect power & ground for non-MV and MV-mode.
+if {[file exists [which $CUSTOM_CONNECT_PG_NETS_SCRIPT]]} {
+    echo "RM-Info: Sourcing [which $CUSTOM_CONNECT_PG_NETS_SCRIPT]"
+    source -echo $CUSTOM_CONNECT_PG_NETS_SCRIPT
+    } else {
+    derive_pg_connection         -power_net      $MW_POWER_NET         -power_pin      $MW_POWER_PORT         -ground_net     $MW_GROUND_NET         -ground_pin     $MW_GROUND_PORT 
+    if {!$ICC_TIE_CELL_FLOW} {
+        derive_pg_connection -power_net $MW_POWER_NET -ground_net $MW_GROUND_NET -tie
+        }
+    }
+Information: connected 14 power ports and 14 ground ports
+reconnected total 0 tie highs and 0 tie lows
+1
+if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+source -echo common_post_cts_timing_settings.tcl
+#-----------------------------------------------------------------------------
+# common_post_cts_timing_settings.tcl:
+#     Post-CTS timing common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_post_cts_timing_settings.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Enable CRPR - CRPR is usually used with timing derate (bc_wc) and with OCV.
+set_app_var timing_remove_clock_reconvergence_pessimism true 
+# Case analysis is not propagated across the sequential cells.
+# set_app_var case_analysis_sequential_propagation never
+if {[file exists [which $ICC_IN_AOCV_TABLE_FILE]]} {
+    # Allow the library cell derate settings to be saved with the design.
+    set_app_var timing_save_library_derate true
+    }
+# Set area critical range.
+# Typical value: 5 percent of critical clock period.
+if {$AREA_CRITICAL_RANGE_POST_CTS != ""} {set_app_var physopt_area_critical_range $AREA_CRITICAL_RANGE_POST_CTS}
+# Set power critical range.
+# Typical value: 5 percent of critical clock period.
+if {$POWER_CRITICAL_RANGE_POST_CTS != ""} {set_app_var physopt_power_critical_range $POWER_CRITICAL_RANGE_POST_CTS}
+# Hold fixing cells.
+if {$ICC_FIX_HOLD_PREFER_CELLS != ""} {
+    remove_attribute [get_lib_cells $ICC_FIX_HOLD_PREFER_CELLS] dont_touch
+    set_prefer -min [get_lib_cells $ICC_FIX_HOLD_PREFER_CELLS]
+    set_fix_hold_options -preferred_buffer
+    report_fix_hold_options
+    # Optionally add -effort high to reduce hold buffer count and improve min
+    # delay fixing QoR.
+    }
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_post_cts_timing_settings.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Remove ideal networks.
+remove_ideal_network [all_fanout -flat -clock_tree]
+Information: Updating graph... (UID-83)
+1
+# Set fix hold.
+set_fix_hold [all_clocks]
+1
+# Uncertainties.
+if {$ICC_APPLY_RM_UNCERTAINTY_POSTCTS && [file exists [which $ICC_UNCERTAINTY_POSTCTS_FILE]]} {
+    echo "RM-Info: Sourcing the post-cts uncertainty file: $ICC_UNCERTAINTY_POSTCTS_FILE"
+    source -echo $ICC_UNCERTAINTY_POSTCTS_FILE 
+    }
+#-----------------------------------------------------------------------------
+# Saving the Cell and Snapshot Creation
+#-----------------------------------------------------------------------------
+save_mw_cel -as $ICC_CLOCK_OPT_CTS_CEL
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+Information: Saved design named clock_opt_cts_icc. (UIG-5)
+1
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    redirect -tee -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.clock_tree   {report_clock_tree -nosplit -summary}
+    redirect      -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.clock_timing {report_clock_timing -nosplit -type skew}
+    }
+
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+  Loading design 'systolic_array'
+
+
+Information: Setting a dont_touch attribute on net 'clk_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'en_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'ack_p' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: The design has 2250 physical cells. (PSYN-105)
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+4046/4320 nets are routed
+Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is global route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Memory usage for extraction task 285 Mbytes -- main task 905 Mbytes.
+Warning: Net 'n4373' is not fully connected and will be estimated. (RCEX-060)
+Warning: Net 'n3404' is not fully connected and will be estimated. (RCEX-060)
+Warning: Net 'n3303' is not fully connected and will be estimated. (RCEX-060)
+Warning: Net 'n3242' is not fully connected and will be estimated. (RCEX-060)
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRVirtualC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 0/25/125. (RCEX-043)
+Information: Coupling capacitances are lumped to ground. (RCEX-044)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+Information: Input delay ('rise') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Using CCS timing info. (TIM-025)
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 14:57:31 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk_p                784       14        15        0.0272    1.9713      0            456.6016
+1
+if {$ICC_REPORTING_EFFORT == "MED"} {
+    redirect -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.max.tim {report_timing -nosplit -capacitance -transition_time -input_pins -nets -delay max} 
+    redirect -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.min.tim {report_timing -nosplit -capacitance -transition_time -input_pins -nets -delay min} 
+    }
+if {$ICC_REPORTING_EFFORT == "MED"} {
+    redirect -tee -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.qor {report_qor}
+    redirect -tee -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.qor -append {report_qor -summary}
+    redirect      -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.con {report_constraints}
+    }
+ 
+****************************************
+Report : qor
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 14:57:32 2023
+****************************************
+
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:              11.00
+  Critical Path Length:          5.83
+  Critical Path Slack:          23.57
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:               9.00
+  Critical Path Length:          8.15
+  Critical Path Slack:          17.37
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_p'
+  -----------------------------------
+  Levels of Logic:              16.00
+  Critical Path Length:          6.97
+  Critical Path Slack:          32.48
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               4021
+  Buf/Inv Cell Count:             496
+  Buf Cell Count:                 123
+  Inv Cell Count:                 373
+  CT Buf/Inv Cell Count:           14
+  Combinational Cell Count:      3237
+  Sequential Cell Count:          784
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    51745.254402
+  Noncombinational Area: 32739.213760
+  Buf/Inv Area:           4486.988741
+  Total Buffer Area:          1519.08
+  Total Inverter Area:        2967.91
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  Net XLength        :      847740.12
+  Net YLength        :      960246.00
+  -----------------------------------
+  Cell Area:             84484.468163
+  Design Area:           84484.468163
+  Net Length        :      1807986.12
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          4320
+  Nets With Violations:           370
+  Max Trans Violations:           346
+  Max Cap Violations:               1
+  Max Fanout Violations:           24
+  -----------------------------------
+
+
+  Hostname: c01n10
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:               12.82
+  -----------------------------------------
+  Overall Compile Time:               28.37
+  Overall Compile Wall Clock Time:    29.54
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  Nets with DRC Violations: 370
+  Total moveable cell area: 84027.9
+  Total fixed cell area: 192456.6
+  Total physical cell area: 276484.5
+  Core area: (155000 155000 745240 743000)
+
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+1
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    redirect -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.placement_utilization.rpt {report_placement_utilization -verbose}
+    create_qor_snapshot -clock_tree -name $ICC_CLOCK_OPT_CTS_CEL
+    redirect -file $REPORT_DIR_CLOCK_OPT_CTS/$ICC_CLOCK_OPT_CTS_CEL.qor_snapshot.rpt {report_qor_snapshot -no_display}
+    }
+Information: Timer is not in zero interconnect delay mode. (TIM-176)
+***********************************************
+Report          : create_qor_snapshot (clock_opt_cts_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 14:57:33 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  17.367 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                346  
+Number of max cap violations:                    1  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84484
+Cell count:                                   4021
+Buf/inv cell count:                            496
+Std cell utilization:                       27.65%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       905
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.027/1.971      14     40.0000 
+--------------------------------------------------
+Worst Skew                 0.027 
+Worst Delay                1.971 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+Snapshot (clock_opt_cts_icc) is created and stored under "/bks2/PB20000328/ic_design/apr/snapshot" directory
+# Categorized Timing Report (CTR).
+# Use CTR in the interactive mode to view the results of create_qor_snapshot.
+# Recommended to be used with GUI opened.
+# query_qor_snapshot -display (or GUI: Timing -> Query QoR Snapshot)
+#
+# query_qor_snapshot condenses the timing report into a cross-referencing
+# table for quick analysis. It can be used to highlight violating paths and
+# metric in the layout window and timing reports. CTR also provides special
+# options to focus on top-level and hierarchical timing issues. When dealing
+# with dirty designs, increasing the number violations per path to 20-30 when
+# generating a snapshot can help finding more issues after each run
+# (create_qor_snapshot -max_paths 20).
+# Specify -type min for hold time violations. 
+close_mw_lib
+Removing physical design 'systolic_array'
+1
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/clock_opt_cts_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+exit
+
+Memory usage for main task 933 Mbytes.
+Memory usage for this session 933 Mbytes.
+CPU usage for this session 46 seconds ( 0.01 hours ).
+
+Thank you...
+Exit IC Compiler!

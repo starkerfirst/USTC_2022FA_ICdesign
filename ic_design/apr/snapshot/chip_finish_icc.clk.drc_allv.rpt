@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:04:32 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+------------------------------------------------------
+DRC violations on clock tree
+Clock Tree Name                   : clk_p
+Clock Root Pin                    : clk_p
+------------------------------------------------------
+Number of MaxTran Violators       : 0
+Number of MaxCap Violators        : 0
+Number of MaxFanout Violators     : 0
+
+1

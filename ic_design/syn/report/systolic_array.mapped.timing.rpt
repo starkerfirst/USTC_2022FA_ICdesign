@@ -1,0 +1,196 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+Design : systolic_array
+Version: L-2016.03-SP5
+Date   : Thu Feb  9 12:11:30 2023
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: WCCOM   Library: tcb018gbwp7twc_ccs
+Wire Load Model Mode: Inactive.
+
+  Startpoint: rstn_p (input port clocked by clk_p)
+  Endpoint: SA_A_2_shift_reg_reg_0__2_
+            (rising edge-triggered flip-flop clocked by clk_p)
+  Path Group: REGIN
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  input external delay                                             12.00      12.00 f
+  rstn_p (in)                                             0.00      0.00      12.00 f    i 
+  rstn_p (net)                                  1                   0.00      12.00 f
+  u_pad_rst_n/PAD (PDUW0208SCDG)                          0.00      0.04 *    12.04 f
+  u_pad_rst_n/C (PDUW0208SCDG)                            0.44      1.49      13.53 f
+  rstn (net)                                    7                   0.00      13.53 f
+  U2995/ZN (CKND0BWP7T)                                   0.80      0.60 *    14.12 r
+  n3743 (net)                                  10                   0.00      14.12 r
+  U2985/ZN (AOI21D2BWP7T)                                 0.39      0.33 *    14.45 f
+  n3658 (net)                                  13                   0.00      14.45 f
+  U4839/Z (DEL1BWP7T)                                     0.29      1.14 *    15.59 f
+  n4277 (net)                                   4                   0.00      15.59 f
+  U4335/ZN (OAI31D0BWP7T)                                 0.57      0.25 *    15.85 r
+  n3638 (net)                                   1                   0.00      15.85 r
+  U4832/Z (DEL1BWP7T)                                     0.48      1.21 *    17.06 r
+  n4270 (net)                                   7                   0.00      17.06 r
+  U4341/ZN (INR2D1BWP7T)                                  1.12      0.80 *    17.86 r
+  n3588 (net)                                  16                   0.00      17.86 r
+  U4347/ZN (MAOI22D0BWP7T)                                0.43      0.46 *    18.32 r
+  n736 (net)                                    1                   0.00      18.32 r
+  SA_A_2_shift_reg_reg_0__2_/D (DFQD0BWP7T)               0.43      0.00 *    18.32 r
+  data arrival time                                                           18.32
+
+  clock clk_p (rise edge)                                          40.00      40.00
+  clock network delay (ideal)                                       0.00      40.00
+  clock uncertainty                                                -0.50      39.50
+  SA_A_2_shift_reg_reg_0__2_/CP (DFQD0BWP7T)                        0.00      39.50 r
+  library setup time                                               -0.12      39.38
+  data required time                                                          39.38
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                          39.38
+  data arrival time                                                          -18.32
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                 21.06
+
+
+  Startpoint: SA_ctrl_state_overall_reg_0_
+              (rising edge-triggered flip-flop clocked by clk_p)
+  Endpoint: p_shift_out[2]
+            (output port clocked by clk_p)
+  Path Group: REGOUT
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  SA_ctrl_state_overall_reg_0_/CP (DFQD0BWP7T)            0.00      0.00       0.00 r
+  SA_ctrl_state_overall_reg_0_/Q (DFQD0BWP7T)             0.23      0.40       0.40 r
+  SA_ctrl_state_overall[0] (net)                2                   0.00       0.40 r
+  U2999/ZN (CKND0BWP7T)                                   0.58      0.42 *     0.82 f
+  n3915 (net)                                  10                   0.00       0.82 f
+  U1426/ZN (NR2D1BWP7T)                                   0.50      0.41 *     1.23 r
+  ack (net)                                     3                   0.00       1.23 r
+  U3254/ZN (INVD0BWP7T)                                   0.27      0.24 *     1.48 f
+  n3944 (net)                                   4                   0.00       1.48 f
+  U1433/ZN (NR3D0BWP7T)                                   2.42      1.48 *     2.96 r
+  n3088 (net)                                  11                   0.00       2.96 r
+  U1443/ZN (AOI22D0BWP7T)                                 0.64      0.47 *     3.43 f
+  n1097 (net)                                   1                   0.00       3.43 f
+  U1445/ZN (ND2D1BWP7T)                                   0.43      0.40 *     3.83 r
+  shift_out[2] (net)                            1                   0.00       3.83 r
+  u_pad_data_out_2/PAD (PDDW0208CDG)                      1.37      4.01 *     7.85 r
+  p_shift_out[2] (net)                          1                   0.00       7.85 r
+  p_shift_out[2] (out)                                    1.37      0.03 *     7.87 r
+  data arrival time                                                            7.87
+
+  clock clk_p (rise edge)                                          40.00      40.00
+  clock network delay (ideal)                                       0.00      40.00
+  clock uncertainty                                                -0.50      39.50
+  output external delay                                           -12.00      27.50
+  data required time                                                          27.50
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                          27.50
+  data arrival time                                                           -7.87
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                 19.63
+
+
+  Startpoint: SA_B_1_shift_reg_reg_6__1_
+              (rising edge-triggered flip-flop clocked by clk_p)
+  Endpoint: SA_core_pe_0_1_Cij_o_reg_7_
+            (rising edge-triggered flip-flop clocked by clk_p)
+  Path Group: clk_p
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk_p (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  SA_B_1_shift_reg_reg_6__1_/CP (DFQD2BWP7T)              0.00      0.00       0.00 r
+  SA_B_1_shift_reg_reg_6__1_/Q (DFQD2BWP7T)               0.21      0.52       0.52 f
+  SA_col_1[1] (net)                             8                   0.00       0.52 f
+  U2739/ZN (INVD0BWP7T)                                   1.06      0.68 *     1.20 r
+  n3885 (net)                                   7                   0.00       1.20 r
+  U3277/ZN (NR3D0BWP7T)                                   0.33      0.28 *     1.48 f
+  n2852 (net)                                   2                   0.00       1.48 f
+  U3278/ZN (AOI21D0BWP7T)                                 0.28      0.29 *     1.77 r
+  n2846 (net)                                   1                   0.00       1.77 r
+  U4964/ZN (INVD0BWP7T)                                   0.10      0.09 *     1.86 f
+  n4419 (net)                                   1                   0.00       1.86 f
+  U4963/ZN (INVD0BWP7T)                                   0.32      0.22 *     2.09 r
+  n4418 (net)                                   2                   0.00       2.09 r
+  U2211/ZN (MAOI222D1BWP7T)                               0.22      0.21 *     2.30 f
+  n4211 (net)                                   1                   0.00       2.30 f
+  U3299/CO (FA1D0BWP7T)                                   0.15      0.59 *     2.89 f
+  n2862 (net)                                   2                   0.00       2.89 f
+  U3303/ZN (INVD0BWP7T)                                   0.14      0.12 *     3.02 r
+  n2865 (net)                                   1                   0.00       3.02 r
+  U3304/ZN (MAOI222D0BWP7T)                               0.22      0.17 *     3.19 f
+  n2866 (net)                                   1                   0.00       3.19 f
+  U3561/ZN (INVD0BWP7T)                                   0.20      0.18 *     3.37 r
+  n3981 (net)                                   1                   0.00       3.37 r
+  U3315/CO (FA1D0BWP7T)                                   0.19      0.47 *     3.84 r
+  n2887 (net)                                   2                   0.00       3.84 r
+  U3329/ZN (OAI21D0BWP7T)                                 0.16      0.15 *     3.98 f
+  n2888 (net)                                   1                   0.00       3.98 f
+  U3330/ZN (IOA21D0BWP7T)                                 0.25      0.20 *     4.18 r
+  n2936 (net)                                   1                   0.00       4.18 r
+  U3351/CO (FA1D0BWP7T)                                   0.14      0.58 *     4.76 r
+  n2937 (net)                                   1                   0.00       4.76 r
+  U3355/Z (XOR4D0BWP7T)                                   0.15      0.59 *     5.35 r
+  n2955 (net)                                   1                   0.00       5.35 r
+  U3365/ZN (XNR4D0BWP7T)                                  0.19      0.63 *     5.98 f
+  n2958 (net)                                   1                   0.00       5.98 f
+  U3366/ZN (MOAI22D0BWP7T)                                0.32      0.26 *     6.24 r
+  SA_core_pe_0_1_N17 (net)                      1                   0.00       6.24 r
+  SA_core_pe_0_1_Cij_o_reg_7_/D (DFQD0BWP7T)              0.32      0.00 *     6.24 r
+  data arrival time                                                            6.24
+
+  clock clk_p (rise edge)                                          40.00      40.00
+  clock network delay (ideal)                                       0.00      40.00
+  clock uncertainty                                                -0.50      39.50
+  SA_core_pe_0_1_Cij_o_reg_7_/CP (DFQD0BWP7T)                       0.00      39.50 r
+  library setup time                                               -0.12      39.38
+  data required time                                                          39.38
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                          39.38
+  data arrival time                                                           -6.24
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                 33.14
+
+
+1

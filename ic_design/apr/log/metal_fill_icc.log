@@ -1,0 +1,2918 @@
+
+                                IC Compiler (TM)
+                              IC Compiler-PC (TM)
+                              IC Compiler-XP (TM)
+                              IC Compiler-DP (TM)
+                              IC Compiler-AG (TM)
+
+              Version L-2016.03-SP5-3 for linux64 - Jun 12, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /bks2/PB20000328/.synopsys_icc_prefs.tcl
+#-----------------------------------------------------------------------------
+# metal_fill_icc.tcl:
+#     Metal fill.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/metal_fill_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Source the setup script.
+source -echo ./script/icc_setup.tcl 
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/icc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Source the common variables.
+source -echo ./script/common_setup.tcl 
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Common Variables
+#-----------------------------------------------------------------------------
+# Top-level design name
+set DESIGN_NAME                 "systolic_array"
+# Path prefix for library/design data
+set DESIGN_REF_DATA_PATH        ""
+#-----------------------------------------------------------------------------
+# Hierarchical Flow Design Variables
+#-----------------------------------------------------------------------------
+# Hierarchical block design names
+set HIERARCHICAL_DESIGNS        ""
+# Hierarchical block cell instance names
+set HIERARCHICAL_CELLS          ""
+#-----------------------------------------------------------------------------
+# Library Setup Variables
+#-----------------------------------------------------------------------------
+# Additional search path
+set ADDITIONAL_SEARCH_PATH      "../milkyway ../src ../syn/result ./script [glob ./tech/*] [glob ../tech/*]"
+# Target technology logical libraries
+set TARGET_LIBRARY_FILES        "tcb018gbwp7twc_ccs.db tpd018bcdnv5wc.db"
+# Extra link logical libraries
+set ADDITIONAL_LINK_LIB_FILES   ""
+# List of max min library pairs
+set MIN_LIBRARY_FILES           "tcb018gbwp7twc_ccs.db tcb018gbwp7tbc_ccs.db tpd018bcdnv5wc.db   tpd018bcdnv5bc.db"
+# Milkyway reference libraries and ICC ILMs
+set MW_REFERENCE_LIB_DIRS       "tcb018gbwp7t tpd018bcdnv5 tpb018v"
+# Reference control file to define Milkyway reference libraries
+set MW_REFERENCE_CONTROL_FILE   ""
+# Milkyway technology file
+set MW_TECH_FILE                "./tech/icc/tsmc018_5lm.tf"
+# TLU+ files
+set TLUPLUS_MAP_FILE            "star.map_5M"
+set TLUPLUS_MAX_FILE            "t018lo_1p5m_typical.tluplus"
+set TLUPLUS_MIN_FILE            "t018lo_1p5m_typical.tluplus"
+# Routing layers
+set MIN_ROUTING_LAYER           "METAL1"
+set MAX_ROUTING_LAYER           "METAL4"
+# Tcl file with library modifications for dont_use
+set LIBRARY_DONT_USE_FILE                   ""
+set LIBRARY_DONT_USE_PRE_COMPILE_LIST       ""
+set LIBRARY_DONT_USE_PRE_INCR_COMPILE_LIST  ""
+#-----------------------------------------------------------------------------
+# Multivoltage Common Variables
+#-----------------------------------------------------------------------------
+# Power domain 1: name, coordinates, and power net
+set PD1                          ""
+set VA1_COORDINATES              {}
+set MW_POWER_NET1                "VDD1"
+# Power domain 2: name, coordinates, and power net
+set PD2                          ""
+set VA2_COORDINATES              {}
+set MW_POWER_NET2                "VDD2"
+# Power domain 3: name, coordinates, and power net
+set PD3                          ""
+set VA3_COORDINATES              {}
+set MW_POWER_NET3                "VDD3"
+# Power domain 4: name, coordinates, and power net
+set PD4                          ""
+set VA4_COORDINATES              {}
+set MW_POWER_NET4                "VDD4"
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Flow Variables
+#-----------------------------------------------------------------------------
+# VERILOG | DDC | MW
+# Type of starting point.
+# VERILOG - specify a valid $ICC_IN_VERILOG_NETLIST_FILE
+# DDC     - specify a valid $ICC_IN_DDC_FILE 
+# MW      - specify a valid $ICC_INPUT_CEL
+set ICC_INIT_DESIGN_INPUT           "DDC"
+# TRUE | FALSE
+# TRUE - Enable power optimization (-power option) for the core commands such
+#        as place_opt, clock_opt, route_opt, and focal_opt.
+#        If $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT below is also specified, 
+#        leakage power optimization is focused on lvt cell reduction;
+#        otherwise focused on leakage power reduction.
+set POWER_OPTIMIZATION              FALSE
+# TRUE | FALSE
+# TRUE - Enable low power placement for place_opt.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_PLACE_LOW_POWER_PLACEMENT   FALSE
+# Script for customized set_multi_vth_constraints constraints.
+# Effective only when $POWER_OPTIMIZATION is set to TRUE.
+# Specify to make leakage power optimization focused on LVT cell reduction.
+# Refer to rm_icc_scripts/multi_vth_constraint.example as an example.
+set ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT  ""
+# TRUE | FALSE
+# TRUE - Enable scan reordering flow and add -optimize_dft option to place_opt
+#        and clock_opt commands. Require a valid $ICC_IN_SCAN_DEF_FILE.
+set DFT                             FALSE
+# TRUE | FALSE
+# TRUE - TIE-CELLS will be used during optimizations instead of TIE-nets.
+set ICC_TIE_CELL_FLOW               FALSE
+# TRUE | FALSE
+# TRUE - Enable redundant via insertion.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ICC_DBL_VIA                     TRUE
+# TRUE | FALSE
+# TRUE - Enable antenna fixing.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ICC_FIX_ANTENNA                 TRUE
+# TRUE | FALSE
+# TRUE - Enable standard cells filler insertion.
+#        More options are in "Routing and Chipfinishing Variables" section.
+set ADD_FILLER_CELL                 TRUE
+# TRUE | FALSE
+# TRUE - Create block abstraction and FRAM view (at block level).
+set ICC_CREATE_MODEL                FALSE
+# TRUE | FALSE
+# TRUE - Enable detail route wire spreading.
+set ICC_REDUCE_CRITICAL_AREA        TRUE
+# NONE | ICC | ICV
+# NONE - Real metal fill.
+# ICC  - Use insert_metal_filler for technology nodes 65nm and above.
+# ICV  - Use signoff_metal_fill for technology nodes 45nm and below.
+set ADD_METAL_FILL                  "NONE"
+# OFF | LOW | MED
+# OFF - No reporting is done.
+# LOW - report_qor/report_constraints/report_power are skipped, additionally,
+#       report_timing is skipped in clock_opt_cts.
+set ICC_REPORTING_EFFORT            "MED"
+# TRUE | FALSE
+# TRUE - Perform check_physical_design.
+set ICC_SANITY_CHECK                TRUE
+# TRUE | FALSE
+# TRUE - Perform checkpoint strategy for optimization commands.
+#        Ensure there is enough disk space before enabling this feature.
+#        Refer to the set_checkpoint_strategy man page for details.
+set ICC_ENABLE_CHECKPOINT           FALSE
+# TRUE | FALSE
+# TRUE - Enable the postroute design closure flow after initial routing.
+#        This will run two additional route_opt -incremental commands in
+#        route_opt_icc.tcl.
+set IMPROVED_DESIGN_CLOSURE_FLOW    FALSE
+#-----------------------------------------------------------------------------
+# General Variables
+#-----------------------------------------------------------------------------
+# Directory definitions.
+set REPORT_DIR                      "report"
+set RESULT_DIR                      "result"
+set SOURCE_DIR                      $RESULT_DIR
+# Starting CEL for flow with a Milkyway CEL input, which can be the final CEL
+# from Design Compiler Topographical.
+set ICC_INPUT_CEL                   "${DESIGN_NAME}_DCT"
+# List of metals in the design to be used for partial/complete pnet options.
+set PNET_METAL_LIST                 "METAL3 METAL4"
+set PNET_METAL_LIST_COMPLETE        "METAL3 METAL4"
+# Script with library modifications for dont_use.
+# Default to $LIBRARY_DONT_USE_FILE in common_setup.tcl.
+set ICC_IN_DONT_USE_FILE            "$LIBRARY_DONT_USE_FILE"
+# Prefer cells for fixing hold violations.
+# Syntax : library/cell_name
+# Example: slow/DLY1X1 slow/DLY1X4
+set ICC_FIX_HOLD_PREFER_CELLS       ""
+# max_area value used during area optimization.
+set ICC_MAX_AREA                    ""
+# FALSE | TRUE
+# FALSE - Create a Milkyway design library with the default layer mode that
+#         supports user defined and routing layers on layers 1-187 in the
+#         technology file.
+# TRUE  - Create a library in the extended layer mode that supports from
+#         layers 1-4000 in the technology file. 
+set MW_EXTENDED_LAYER_MODE          FALSE
+# Area critical range used during area optimization in
+# place_opt, post-CTS optimization, and route_opt, respectively.
+set AREA_CRITICAL_RANGE_PRE_CTS     ""
+set AREA_CRITICAL_RANGE_POST_CTS    ""
+set AREA_CRITICAL_RANGE_POST_RT     ""
+# Power critical range used during area optimization in
+# place_opt, post-CTS optimization, and route_opt, respectively.
+set POWER_CRITICAL_RANGE_PRE_CTS    ""
+set POWER_CRITICAL_RANGE_POST_CTS   ""
+set POWER_CRITICAL_RANGE_POST_RT    ""
+# Number of CPUs for distributed processing.
+# Specify a number greater than 1 to enable it for classic router based
+# route_opt and insert_redundant_via commands.
+set ICC_NUM_CPUS                    1
+# Number of cores on the local host for multicore support.
+# Specify a number greater than 1 to enable it for the core commands.
+set ICC_NUM_CORES                   1
+# low | medium | high
+# Effort level for place_opt command.
+set PLACE_OPT_EFFORT                "medium"
+# TRUE | FALSE
+# TRUE - Enable timing, power and area tradeoff optimization for place_opt command.
+#        It works for medium or high effort place_opt with -power option.
+set PLACE_OPT_TRADEOFF_TIMING_FOR_POWER_AREA    FALSE
+# low | medium | high
+# Effort level for route_opt command.
+set ROUTE_OPT_EFFORT                "medium"
+# TRUE | FALSE
+# TRUE - Enable congestion removal during place_opt command (place_opt_icc step)
+#        and clock_opt -only_psyn command (clock_opt_psyn_icc step).
+set PLACE_OPT_CONGESTION_DRIVEN     TRUE
+# TRUE | FALSE
+# Control whether layer optimization is performed during place_opt
+# by set_place_opt_strategy -layer_optimization.
+set PLACE_OPT_LAYER_OPTIMIZATION    "TRUE"
+# MEDIUM | HIGH
+# Control the layer optimization effort during place_opt.
+set PLACE_OPT_LAYER_OPTIMIZATION_EFFORT "MEDIUM"
+# FALSE | TRUE
+# Control whether track RC based optimization is performed during place_opt.
+# The RC models are generated from the current scenario so set the most
+# critical senario as the current scenario before running place_opt.
+set PLACE_OPT_CONSIDER_ROUTING      "FALSE"
+# NONE | MEDIUM | HIGH
+# MEDIUM/HIGH - Improve total power (leakage + dynamic).
+# A realistic SAIF will be needed to get accurate power savings.
+# For MCMM design an active scenario with dynamic_power, leakage_power,
+# and setup enabled is necessary for total power optimization.
+# Apply to place_opt -power, psynopt -power, and psynopt -only_power.
+set ICC_TOTAL_POWER_STRATEGY_EFFORT NONE
+# FALSE | TRUE
+# FALSE - Default.
+# TRUE  - Enable the high resistance optimization for route_opt and focal_opt.
+# This feature may see increased effect on 20nm and below designs. 
+set ICC_HIGH_RESISTANCE_OPTIMIZATION    "FALSE"
+# MEDIUM | HIGH
+# Control the effort of preroute optimization to explore TNS improvements.
+# Affect place_opt, clock_opt -only_psyn, psynopt, and preroute_focal_opt.
+# MEDIUM - Default.
+# HIGH   - Preroute optimzation will spend longer looking for TNS improvements.
+set ICC_TNS_EFFORT_PREROUTE         "MEDIUM"
+# MEDIUM | HIGH
+# Control the effort of postroute optimization to explore TNS improvements.
+# MEDIUM - Default.
+# HIGH   - Postroute optimzation will spend longer looking for TNS improvements.
+# Affect route_opt and focal_opt.
+set ICC_TNS_EFFORT_POSTROUTE        "MEDIUM"
+# TRUE | FALSE
+# TRUE - Perform layer optimization (preroute_focal_opt -layer_optimization) 
+#        on existing buffer trees after place_opt command (place_opt_icc step).
+set PLACE_OPT_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION      FALSE 
+# TRUE | FALSE
+# TRUE - Perform layer optimization (preroute_focal_opt -layer_optimization)
+#        on existing buffer trees after clock_opt -only_psyn command (clock_opt_psyn_icc step).
+set CLOCK_OPT_PSYN_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION FALSE 
+# TRUE | FALSE
+# TRUE - Perform optimization with automatic routing rules (preroute_focal_opt -auto_routing_rule) 
+#        on existing buffer trees after clock_opt -only_psyn command (clock_opt_psyn_icc step)
+set CLOCK_OPT_PSYN_PREROUTE_FOCALOPT_AUTO_NDR           FALSE
+# TRUE | FALSE
+# TRUE - Create a global route congestion map snapshot in PNG format at the end of route_icc step.
+set ICC_CREATE_GR_PNG               FALSE
+# TRUE | FALSE
+# TRUE - write_verilog in outputs_icc.tcl will write out module definitions for soft macros.
+set ICC_WRITE_FULL_CHIP_VERILOG     FALSE
+# Net and port names for power and ground.
+if {![info exists MW_POWER_NET  ]} {set MW_POWER_NET   "VDD"}
+if {![info exists MW_POWER_PORT ]} {set MW_POWER_PORT  "VDD"}
+if {![info exists MW_GROUND_NET ]} {set MW_GROUND_NET  "VSS"} 
+if {![info exists MW_GROUND_PORT]} {set MW_GROUND_PORT "VSS"}
+#-----------------------------------------------------------------------------
+# Cellname Variables
+#-----------------------------------------------------------------------------
+set ICC_FLOORPLAN_CEL                       "init_design_icc"
+set ICC_PLACE_OPT_CEL                       "place_opt_icc"
+set ICC_CLOCK_OPT_CTS_CEL                   "clock_opt_cts_icc"
+set ICC_CLOCK_OPT_PSYN_CEL                  "clock_opt_psyn_icc"
+set ICC_CLOCK_OPT_ROUTE_CEL                 "clock_opt_route_icc"
+set ICC_ROUTE_CEL                           "route_icc"
+set ICC_ROUTE_OPT_CEL                       "route_opt_icc"
+set ICC_CHIP_FINISH_CEL                     "chip_finish_icc"
+set ICC_METAL_FILL_CEL                      "metal_fill_icc"
+set ICC_ECO_STARTING_CEL                    $ICC_METAL_FILL_CEL
+set ICC_ECO_CEL                             "eco_icc"
+set ICC_FOCAL_OPT_STARTING_CEL              $ICC_CHIP_FINISH_CEL
+set ICC_FOCAL_OPT_CEL                       "focal_opt_icc"
+set ICC_OUTPUTS_CEL                         "outputs_icc"
+set ICC_FLOORPLAN_ODL_CEL                   "init_design_odl"
+set ICC_DP_CREATE_PLANGROUPS_CEL            "create_plangroups_dp"
+set ICC_DP_CREATE_ODL_CEL                   "create_odl_dp"
+set ICC_DP_ROUTEABILITY_ON_PLANGROUPS_CEL   "routeability_on_plangroups_dp"
+set ICC_DP_PIN_ASSIGNMENT_BUDGETING_CEL     "pin_assignment_budgeting_dp"
+set ICC_DP_COMMIT_CEL                       "commit_dp"
+#-----------------------------------------------------------------------------
+# Customized Constraint Script for Core Commands (Optional)
+#-----------------------------------------------------------------------------
+# Optional Tcl files.
+# If specified, they will be sourced in the scripts. Review scripts for exact
+# location where they are sourced to avoid overlap with existing constraints.
+set CUSTOM_INIT_DESIGN_PRE_SCRIPT           ""
+set CUSTOM_PLACE_OPT_PRE_SCRIPT             ""
+set CUSTOM_PLACE_OPT_POST_SCRIPT            ""
+set CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT         ""
+set CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT        ""
+set CUSTOM_CLOCK_OPT_PSYN_PRE_SCRIPT        ""
+set CUSTOM_CLOCK_OPT_PSYN_POST_SCRIPT       ""
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_SCRIPT       ""
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_CTO_SCRIPT   ""
+set CUSTOM_CLOCK_OPT_ROUTE_POST_CTO_SCRIPT  ""
+set CUSTOM_ROUTE_PRE_SCRIPT                 ""
+set CUSTOM_ROUTE_POST_SCRIPT                ""
+set CUSTOM_ROUTE_OPT_PRE_SCRIPT             ""
+set CUSTOM_ROUTE_OPT_POST_SCRIPT            ""
+set CUSTOM_FOCAL_OPT_PRE_SCRIPT             ""
+set CUSTOM_FOCAL_OPT_POST_SCRIPT            ""
+set CUSTOM_CHIP_FINISH_POST_SCRIPT          ""
+#-----------------------------------------------------------------------------
+# Floorplan Input Variables                    
+#-----------------------------------------------------------------------------
+# DEF | FP_FILE | USER_FILE | CREATE | SKIP
+# DEF       - Read $ICC_IN_DEF_FILE
+# FP_FILE   - Read $ICC_IN_FLOORPLAN_FILE
+# USER_FILE - Source $ICC_IN_FLOORPLAN_USER_FILE
+# CREATE    - Use create_floorplan command
+# SKIP      - Skip floorplanning section
+set ICC_FLOORPLAN_INPUT                         "CREATE"
+# Complete floorplan file in DEF format.
+set ICC_IN_DEF_FILE                             ""
+# Complete floorplan file generated by write_floorplan.
+set ICC_IN_FLOORPLAN_FILE                       ""
+# Complete floorplan file generated by user. This file will simply be sourced.
+set ICC_IN_FLOORPLAN_USER_FILE                  ""
+# I/O constraint file generated by write_pin_pad_physical_constraints which
+# contains pin or pad information, applied prior to create_floorplan command.
+set ICC_IN_PIN_PAD_PHYSICAL_CONSTRAINTS_FILE    "pin_pad_physical_constraints.tcl"
+# File including physical-only cell creation commands to be sourced.
+# e.g. create_cell {vdd1left vdd1right vdd1top vdd1bottom} pvdi
+set ICC_IN_PHYSICAL_ONLY_CELLS_CREATION_FILE    "physical_only_cells_creation.tcl"
+# File including physical-only cell connection commands to be sourced.
+# e.g. derive_pg_connection #          -power_net  $MW_POWER_NET #          -power_pin  $MW_POWER_PORT #          -ground_net $MW_GROUND_NET #          -ground_pin $MW_GROUND_PORT #          -cells      {vdd1left vdd1right vdd1top vdd1bottom}
+set ICC_IN_PHYSICAL_ONLY_CELLS_CONNECTION_FILE  ""
+# Script to add incremental floorplan constraints which will be sourced
+# after read_def, read_floorplan, or floorplan creation.
+set ICC_PHYSICAL_CONSTRAINTS_FILE               "physical_constraints.tcl"
+# Script for customized derive_pg_connection commands which replaces the
+# default derive_pg_connection commands in the scripts.
+set CUSTOM_CONNECT_PG_NETS_SCRIPT               ""
+# Space separated list of pad filler cells.
+set PAD_FILLER_CELL                             "PFILLER20                                                  PFILLER10                                                  PFILLER5                                                  PFILLER1                                                  PFILLER05                                                  PFILLER0005"
+#-----------------------------------------------------------------------------
+# Timing Variables
+#-----------------------------------------------------------------------------
+# TRUE | FALSE
+# FALSE - The derating is assumed to be set in the SDC.
+set ICC_APPLY_RM_DERATING               TRUE
+# Late/early derating factor, used for both data and clock.
+set ICC_LATE_DERATING_FACTOR            1.01
+set ICC_EARLY_DERATING_FACTOR           0.99
+# TRUE | FALSE
+# TRUE - User uncertainty will be replaced by $ICC_UNCERTAINTY_PRECTS/POSTCTS.
+set ICC_APPLY_RM_UNCERTAINTY_PRECTS     FALSE
+set ICC_APPLY_RM_UNCERTAINTY_POSTCTS    FALSE
+# Pre-CTS uncertainty file used during place_opt.
+set ICC_UNCERTAINTY_PRECTS_FILE         ""
+# Post-CTS uncertainty file used during post-CTS optimization and route_opt.
+set ICC_UNCERTAINTY_POSTCTS_FILE        ""
+# max_transition value set on the design.
+set ICC_MAX_TRANSITION                  ""
+# critical_range set on the design, default = 50% of each clock period.
+set ICC_CRITICAL_RANGE                  ""
+# max_fanout value set on the design.
+set ICC_MAX_FANOUT                      ""
+# HIGH | HYBRID | MEDIUM | LOW
+# Postroute delay calculation effort.
+# MEDIUM - Default. A combination of Arnoldi and Elmore.
+# HIGH   - Full Arnoldi postroute delay calculation. 
+# HYBRID - A combination of AWE and Arnoldi for faster runtime with comparable
+#          accuracy to full Arnoldi.
+# LOW    - AWE only.
+set ICC_ARNOLDI_EFFORT                  "MEDIUM"
+# HIGH | MEDIUM | LOW | NONE
+# By default preroute delay calculation uses Elmore.
+# Setting this variable to HIGH, MEDIUM, or LOW will enable AWE for preroute
+# delay calculation at different effort levels.
+set ICC_PREROUTE_AWE_EFFORT             "NONE"
+# File containing advanced on-chip variation (OCV) derate factor tables written
+# out by PrimeTime's write_binary_aocvm command.
+# If specified, it will be read right before clock_opt -only_psyn command at
+# clock_opt_psyn_icc step and AOCV analysis will be enabled.
+# In the Concurrent Clock and Data flow it will be read before any clock_opt
+# command is called at the clock_opt_ccd step.
+set ICC_IN_AOCV_TABLE_FILE_MAX          ""
+set ICC_IN_AOCV_TABLE_FILE_MIN          ""
+set ICC_IN_AOCV_TABLE_FILE              $ICC_IN_AOCV_TABLE_FILE_MAX
+#-----------------------------------------------------------------------------
+# Clock Tree Synthesis (CTS) Variables
+#-----------------------------------------------------------------------------
+# Clock nondefault routing rule name defined, e.g., in common_cts_settings_icc.tcl.
+# It will be associated with set_clock_tree_options -routing_rule. 
+# If $ICC_CTS_RULE_NAME is set to iccrm_clock_double_spacing, double spacings
+# will be applied to all layers.
+set ICC_CTS_RULE_NAME                   "iccrm_clock_double_spacing"
+# Clock tree layers, usually M3 and above, e.g. "M3 M4 M5".
+set ICC_CTS_LAYER_LIST                  "METAL3 METAL4"
+# Cells for CTS, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_LIST                    ""
+# Cells for CTS delay insertion, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_DEL_INS_ONLY            ""
+# Cells for CTS sizing only, a space-deliminated list: cell1 cell2.
+set ICC_CTS_REF_SIZING_ONLY             ""
+# Clock shielding rule name.
+# Require $ICC_CTS_SHIELD_SPACINGS, $ICC_CTS_SHIELD_WIDTHS to be also specified.
+set ICC_CTS_SHIELD_RULE_NAME            ""
+# Clock shielding spacing associated with shielding rule.
+# A list of layer name and spacing pairs.
+set ICC_CTS_SHIELD_SPACINGS             ""
+# Clock shielding width associated with shielding rule.
+# A list of layer name and width pairs.
+set ICC_CTS_SHIELD_WIDTHS               ""
+# A subset of clock names to apply the clock shielding rule: $ICC_CTS_SHIELD_RULE_NAME;
+# Optional. If not specified, $ICC_CTS_SHIELD_RULE_NAME will be applied to all clocks.
+set ICC_CTS_SHIELD_CLK_NAMES            ""
+# TRUE | FALSE
+# TRUE - Enable -inter_clock_balance for "clock_opt -only_cts" at clock_opt_cts_icc task.
+#        Specify $ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE to set the options.
+set ICC_CTS_INTERCLOCK_BALANCING        FALSE
+# File containing set_inter_clock_delay_options commands. Optional.
+set ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE  ""
+# TRUE | FALSE
+# TRUE - Perform clock latency update post CTS.
+set ICC_CTS_UPDATE_LATENCY              FALSE
+# File specifying the latency adjustment options. Optional.
+set ICC_CTS_LATENCY_OPTIONS_FILE        ""
+# TRUE | FALSE
+# TRUE - Enable low power placement for CTS.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_LOW_POWER_PLACEMENT         FALSE
+# TRUE | FALSE
+# TRUE - Enable clock gate merging for CTS for power reduction.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_MERGE            FALSE
+# TRUE | FALSE
+# TRUE - Enable clock gate splitting for CTS for reducing enable pin violations.
+#        Require $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_SPLIT            FALSE
+# TRUE | FALSE
+# TRUE - Insert XOR self-gating logic during clock tree synthesis before clock
+#        tree construction. An optional gate-level SAIF file ($ICC_IN_SAIF_FILE)
+#        is recommended in order to provide clock activity information.
+set ICC_CTS_SELF_GATING                 FALSE
+# Gate-level SAIF file for low power placement ($ICC_CTS_LOW_POWER_PLACEMENT)
+# and self-gating ($ICC_CTS_SELF_GATING). Optional.
+set ICC_IN_SAIF_FILE                    "$DESIGN_NAME.saif" ;
+# Instance name in the SAIF file containing switching activity.
+set ICC_SAIF_INSTANCE_NAME              $DESIGN_NAME
+# TRUE | FALSE
+# TRUE - Perform postroute clock tree optimization after clock routing at
+#        clock_opt_route_icc step.
+set ICC_POST_CLOCK_ROUTE_CTO            FALSE
+#-----------------------------------------------------------------------------
+# Routing and Chipfinishing Variables
+#-----------------------------------------------------------------------------
+# End cap cells.
+# Horizontal/vertical CAP CELL library cells for the Well Proximity Effect.
+set ICC_H_CAP_CEL                       ""
+set ICC_V_CAP_CEL                       ""
+# Well tap cell.
+set ICC_TAP_CEL                         "TAPCELLBWP7T"
+# Redundant via insertion (ICC_DBL_VIA) options.
+#
+# LOW | MED | HIGH
+# MED  - Enable concurrent soft-rule redundant via insertion.
+# HIGH - Run another redundant via, timing driven, after chipfinishing.
+set ICC_DBL_VIA_FLOW_EFFORT             LOW
+#
+# Script to define the redundant via definitions.
+set ICC_CUSTOM_DBL_VIA_DEFINE_SCRIPT    ""
+#
+# TRUE | FALSE
+# TRUE  - Enable automatic redundant via insertion after detail route change
+#         of "route_opt -initial".
+# FALSE - Run insert_zrt_redundant_vias after "route_opt -initial".
+set ICC_DBL_VIA_DURING_INITIAL_ROUTING  TRUE
+# Antenna fixing (ICC_FIX_ANTENNA) options.
+#
+# Antenna rule file.
+set ANTENNA_RULES_FILE                  "antennaRule_018_5lm.tcl"
+#
+# TRUE | FALSE
+# Control variable to allow diodes to be inserted both by the 
+# insert_port_protection_diodes command as well as the router.
+set ICC_USE_DIODES                      TRUE
+#
+# Diode name list separated by spaces.
+set ICC_ROUTING_DIODES                  "ANTENNABWP7T"
+#
+# Diode name for insert_port_protection_diodes.
+# Format = library_name/diode_name
+set ICC_PORT_PROTECTION_DIODE           ""
+#
+# List of ports to be excluded by insert_port_protection_diodes.
+set ICC_PORT_PROTECTION_DIODE_EXCLUDE_PORTS ""
+# Filler cell insertion (ADD_FILLER_CELL) options.
+#
+# Space separated list of filler cells with metals.
+set FILLER_CELL_METAL           "DCAP64BWP7T                                  DCAP32BWP7T                                  DCAP16BWP7T                                  DCAP8BWP7T                                  DCAP4BWP7T                                  DCAPBWP7T"
+#
+# Space separated list of filler cells without metals.
+set FILLER_CELL                 "FILL64BWP7T                                  FILL32BWP7T                                  FILL16BWP7T                                  FILL8BWP7T                                  FILL4BWP7T                                  FILL2BWP7T                                  FILL1BWP7T"
+# Signal EM options.
+#
+# TRUE | FALSE
+# TRUE - Enable signal EM fixing. Uncomment the section and follow instruction
+#        in chip_finish_icc.tcl.
+set ICC_FIX_SIGNAL_EM           FALSE
+#
+# The TLU+ file with the advanced signal EM constraints in it to be read by
+# read_signal_em_constraints. This may be the same as the standard TLU+ files.
+set ICC_TLUPLUS_SIGNAL_EM_FILE  ""
+#
+# The ITF file with the advanced signal EM constraints in it to be read by
+# read_signal_em_constraints -itf_em command in chip_finish_icc.tcl.
+set ICC_ITF_SIGNAL_EM_FILE      ""
+#-----------------------------------------------------------------------------
+# Emulation TLU+ Files
+#-----------------------------------------------------------------------------
+# Note: emulated metal fill may not correlate well with real metal fill,
+# especially for advanced technology nodes. Use it for reference only.
+# Max/min emulation TLU+ files.
+set TLUPLUS_MAX_EMULATION_FILE  ""
+set TLUPLUS_MIN_EMULATION_FILE  ""
+#-----------------------------------------------------------------------------
+# check_signoff_correlation Variables
+#-----------------------------------------------------------------------------
+# PrimeTime bin directory.
+set PT_DIR                      ""
+# Optional file in case PrimeTime has a different SDC that what is available
+# in the IC Compiler database.
+set PT_SDC_FILE                 ""
+# StarRC bin directory.
+set STARRC_DIR                  ""
+# Max/min NXTGRD files.
+set STARRC_MAX_NXTGRD           ""
+set STARRC_MIN_NXTGRD           ""
+# NXTGRD mapping file, defaults to TLUPlus mapping file, but could be different.
+set STARRC_MAP_FILE             "$TLUPLUS_MAP_FILE"
+# File to be sourced to run at check_signoff_correlation end of route_opt_icc step.
+# Example: rm_icc_scripts/signoff_opt_check_correlation_postroute_icc.example.tcl
+set ICC_SIGNOFF_OPT_CHECK_CORRELATION_POSTROUTE_SCRIPT  ""
+#-----------------------------------------------------------------------------
+# Metal fill and Signoff DRC Variables
+#-----------------------------------------------------------------------------
+# For IC Validator metal Fill:
+# Ensure environment variable PRIMEYIELD_HOME_DIR is set and that IC Validator
+# is included in the same path where the IC Compiler shell is executed from.
+#
+# For IC Validator DRC:
+# Ensure environment variable ICV_HOME_DIR is set and that IC Validator is
+# included in the same path where the IC Compiler shell is executed from.
+# IC Validator runset for signoff_metal_fill command.
+set SIGNOFF_FILL_RUNSET             ""
+#
+# IC Validator runset for signoff_drc command.
+set SIGNOFF_DRC_RUNSET              ""
+#
+# IC Validator mapping file for signoff_metal_fill and signoff_drc commands.
+set SIGNOFF_MAPFILE                 "gdsout.map"
+#
+# NONE | AUTO_ECO
+# Determine whether signoff_drc will run in the Auto ECO flow mode.
+set ICC_ECO_SIGNOFF_DRC_MODE        "NONE"
+# Options for signoff_metal_fill command using ICV engine in metal_fill_icc.tcl.
+#
+# TRUE | FALSE
+# TRUE - Enable timing driven for IC Validator metal fill.
+set SIGNOFF_METAL_FILL_TIMING_DRIVEN    TRUE
+#
+# Setup slack threshold for timing driven ICV metal fill.
+# Also used by wire_spreading/widening in chip_finish_icc.tcl.
+# Data type: float, default: 0.1.
+set TIMING_PRESERVE_SLACK_SETUP     "0.1"
+#
+# Hold slack threshold for wire_spreading/widening in chip_finish_icc.tcl.
+# Data type: float, default: 0.
+set TIMING_PRESERVE_SLACK_HOLD      "0"
+# Options for insert_metal_fill command using ICC engine in metal_fill_icc.tcl.
+#
+# Space amount used during the IC Compiler insert_metal_fill command.
+set ICC_METAL_FILL_SPACE            2
+#
+# Enable timing driven metal fill for the IC Compiler insert_metal_fill command.
+set ICC_METAL_FILL_TIMING_DRIVEN    TRUE
+#-----------------------------------------------------------------------------
+# focal_opt Variables
+#-----------------------------------------------------------------------------
+# <filename> | all | <blank>
+# <filename> - Fix violations from a file.
+# all        - Fix all hold/setup/DRC-net/DRC-pin violations.
+# <blank>    - Skip.
+set ICC_FOCAL_OPT_HOLD_VIOLS        "all"
+set ICC_FOCAL_OPT_SETUP_VIOLS       ""
+set ICC_FOCAL_OPT_DRC_NET_VIOLS     "all"
+set ICC_FOCAL_OPT_DRC_PIN_VIOLS     ""
+# <filenam>e | <blank>
+# <filenam>e - Fix crosstalk violations from a file.
+# <blank>    - Skip.
+set ICC_FOCAL_OPT_XTALK_VIOLS       ""
+#-----------------------------------------------------------------------------
+# ECO Flow Variables
+#-----------------------------------------------------------------------------
+# NONE | UNCONSTRAINED | FREEZE_SILICON
+# UNCONSTRAINED  - No spare cell insertion. Cells can be added (pre tapeout).
+# FREEZE_SILICON - Spare cell insertion/freeze silicon ECO.
+set ICC_ECO_FLOW                "NONE"
+# Tcl script to insert the spare cells, e.g.,
+# insert_spare_cells -lib_cell {INV8 DFF1} -cell_name spares -num_instances 300
+set ICC_SPARE_CELL_FILE         ""
+# Verilog netlist or Tcl file containing ECO changes.
+# Specify the file name and type of file using $ICC_ECO_FLOW_TYPE.
+set ICC_ECO_FILE                ""
+# verilog | pt_drc_setup_fixing_tcl | pt_hold_fixing_tcl | pt_minimum_physical_impact
+# Specify type of ECO file for UNCONSTRAINED ICC_ECO_FLOW. Depending on the value
+# specified, the commands used to read ECO file and place ECO cells vary.
+# verilog                    - A functional ECO file for $ICC_ECO_FILE.
+# pt_drc_setup_fixing_tcl    - A change file generated by PT fix_eco_drc or fix_eco_timing -setup commands.
+# pt_hold_fixing_tcl         - A change file generated by PT fix_eco_timing -hold command.
+# pt_minimum_physical_impact - A change file generated by PT fix_eco_timing or fix_eco_leakage command.
+set ICC_ECO_FLOW_TYPE           "verilog"
+# early_stage | signoff_stage
+# Only ICV is supported.
+# early stage   - Use ICV DRC based metal fill trimming (faster).
+# signoff_stage - Perform complete ICV metal fill purge, ADR and metal fill insertion.
+set ICC_ECO_METAL_FILL_MODE     "early_stage"
+# FALSE | TRUE
+# Specifies whether the automatic ECO will be used for ECO metal fill operations. 
+# Effect both early_stage and signoff_stage of $ICC_ECO_METAL_FILL_MODE.
+set ICC_ECO_AUTO_ECO_METAL_FILL "FALSE"
+#-----------------------------------------------------------------------------
+# ICC Design Planning RM Variables (Common Variables with Hierarchical RM)
+#-----------------------------------------------------------------------------
+# TRUE | FALSE
+# TRUE - Generate additional reports before placement.
+set ICC_DP_VERBOSE_REPORTING    FALSE
+# 
+# Threshold to set nets with fanout larger than it as ideal nets.
+# Data type: integer.
+set ICC_DP_SET_HFNS_AS_IDEAL_THRESHOLD  ""
+# 
+# TRUE | FALSE
+# TRUE - Set mixed clock/signal paths as ideal nets.
+set ICC_DP_SET_MIXED_AS_IDEAL   TRUE
+# <blank> | skip | <a_list_of_macros>
+# <blank>            - Unfix all macros.
+# skip               - Skip fix.
+# <a_list_of_macros> - Fix specified macros before placement.
+set ICC_DP_FIX_MACRO_LIST       ""
+#
+# Put set_keepout_margin and fp_set_macro_placement_constraint in this file.
+set CUSTOM_ICC_DP_PLACE_CONSTRAINT_SCRIPT   ""
+# 
+# File to perform customized preroute_standard_cell commands.
+set CUSTOM_ICC_DP_PREROUTE_STD_CELL_SCRIPT  "custom_icc_dp_preroute_std_cell.tcl"
+# PNS and PNA control variables.
+#
+# File to add PNS constraints which is loaded before running PNS.
+set CUSTOM_ICC_DP_PNS_CONSTRAINT_SCRIPT     ""
+# 
+# Target nets for PNS.
+# Syntax: "power_net ground_net" 
+set PNS_POWER_NETS                          "${MW_POWER_NET} ${MW_GROUND_NET}"
+#
+# Unit: mW, default: 1000.
+set PNS_POWER_BUDGET                        1000
+#
+# Unit: V, default: 1.5.
+set PNS_VOLTAGE_SUPPLY                      1.8
+#
+# Specify the metal layer to use as virtual rail.
+set PNS_VIRTUAL_RAIL_LAYER                  ""
+#
+# Output directory for PNS and PNA output files.
+set PNS_OUTPUT_DIR                          "./$RESULT_DIR/pna_output"
+#
+# Set the wire extraction temperature for PNA. Optional.
+# Data type: float.
+set PNA_EXTRACTION_TEMPERATURE              ""
+#
+# min | max
+# Set the parasitic corner for RC extraction for PNA. Optional.
+set PNA_EXTRACTION_CORNER                   ""
+#-----------------------------------------------------------------------------
+# ICC Hierarchical RM Variables
+#-----------------------------------------------------------------------------
+# Full module names from which plan groups will be created.
+# Format: space deliminated list: "top/A top/B top/C".
+# Default to $HIERARCHICAL_CELLS from common_setup.tcl if using DCT.
+set ICC_DP_PLAN_GROUPS                      "$HIERARCHICAL_CELLS"
+# Floorplan file containing plan group creation and location which should be
+# the output of write_floorplan.
+set ICC_DP_PLANGROUP_FILE                   ""
+# TRUE | FALSE
+# TRUE - Allow feedthrough creation during pin assignment.
+set ICC_DP_ALLOW_FEEDTHROUGH                FALSE
+# Customized PNS/PNA script, replacing PNS/PNA section in scripts.
+# For template based PNS, $CUSTOM_ICC_DP_PNS_SCRIPT is required.
+set CUSTOM_ICC_DP_PNS_SCRIPT                "custom_icc_dp_pns.tcl"
+set CUSTOM_ICC_DP_PNA_SCRIPT                ""
+# DFT-aware hierarchical design planning variables.
+#
+# TRUE | FALSE
+# TRUE - Enable DFT-aware hierarchical design planning flow.
+#        Require $ICC_IN_FULL_CHIP_SCANDEF_FILE.
+set ICC_DP_DFT_FLOW                         FALSE
+# 
+# Full-chip SCANDEF file for DFT-aware hierarchical design planning flow
+# (see $ICC_DP_DFT_FLOW).
+# Used only in hierarchical design planning phase; not used or needed for
+# block level implementations and top level assembly.
+set ICC_IN_FULL_CHIP_SCANDEF_FILE           "$DESIGN_NAME.mapped.expanded.scandef"
+# Budgeting SDC output directory.
+# Default: "./sdc".
+set BUDGETING_SDC_OUTPUT_DIR                "./$RESULT_DIR/sdc"
+# ODL flow variables.
+# 
+# Map file for the blocks and the SDC file for each block.
+set ICC_DP_ODL_BLOCK_SDC_MAP_FILE           ""
+# 
+# lsf | grd | samehost | <list_of_hosts>
+# Control the set_host_options value for create_on_demand_netlist.
+# lsf/grd         - Need also specify $ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS.
+# <list_of_hosts> - Need also specify $ICC_DP_ODL_HOST_OPTION_HOSTS_LIST.
+set ICC_DP_ODL_HOST_OPTION                  ""
+# 
+# Control the value of -submit_option option for set_host_options for
+# create_on_demand_netlist command. 
+# If $ICC_DP_ODL_HOST_OPTION is set to lsf, then lsf specific submit options
+# should be specified, for example, 
+# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS   {}
+# 
+# List of hosts on which to perform create_on_demand_netlist.
+set ICC_DP_ODL_HOST_OPTION_HOSTS_LIST       ""
+# TIO and block abstraction variables.
+#
+# List of all the block abstractions used in the design.
+# If left empty, the list will be auto set to include all soft macros in the
+# design if following HRM step-by-step.
+set ICC_BLOCK_ABSTRACTIONS_LIST             ""
+# 
+# List of names of block abstractions that are to be optimized by transparent
+# interface optimization (TIO) at route_opt_icc.
+# Can be changed to a subset of block abstractions before route_opt_icc starts.
+set ICC_TIO_BLOCK_LIST                      $ICC_BLOCK_ABSTRACTIONS_LIST
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize interface logic.
+set ICC_TIO_OPTIMIZE_BLOCK_INTERFACE        TRUE 
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize inside MIM blocks, only when opening MIM blocks for TIO.
+set ICC_TIO_OPTIMIZE_MIM_BLOCK_INTERFACE    FALSE
+# 
+# TRUE | FALSE
+# TRUE - TIO optimize shared logic.
+#        Require $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE to be also enabled.
+set ICC_TIO_OPTIMIZE_SHARED_LOGIC           FALSE
+# 
+# Script for block abstraction setup, useful for variable settings during block update.
+# To be used during set_top_implementation_options -block_update_setup_script 
+# $ICC_TIO_BLOCK_UPDATE_SETUP_SCRIPT. The file name should not include relative paths.
+set ICC_TIO_BLOCK_UPDATE_SETUP_SCRIPT       ""   
+#
+# lsf | grd | samehost | <list_of_hosts>
+# Controls the set_host_options value for TIO.
+# lsf/grd         - Need also specify $ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS.
+# <list_of_hosts> - Need also specify $ICC_TIO_HOST_OPTION_HOSTS_LIST.
+# Note: If $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE is set to TRUE and
+#       $ICC_TIO_BLOCK_LIST is not empty, which are both default for HRM,
+#       you should also specify a valid value for $ICC_TIO_HOST_OPTION.
+set ICC_TIO_HOST_OPTION                     ""
+# 
+# Control the value of -submit_option option for set_host_options for TIO.
+# If $ICC_TIO_HOST_OPTION is set to lsf, then lsf specific submit options
+# should be specified and vice versa, for example, 
+# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS      {}
+# 
+# List of hosts on which to perform automatic block update during TIO.
+set ICC_TIO_HOST_OPTION_HOSTS_LIST          ""
+# 
+# TRUE | FALSE
+# TRUE - Write out an ECO file to TIO_eco_changes directory for TIO.
+set ICC_TIO_WRITE_ECO_FILE                  FALSE
+# default | block | top
+# block/top - Disable tasks such as Milkyway design library creation, importing
+#             of black boxes, scenario creation, voltage area creation, and power
+#             switch creation, etc in init_design_icc.tcl which should have been
+#             completed during design planning phase and should be skipped during
+#             block and top level implementation phases.
+# top       - Enable TIO at route_opt_icc task.
+# If following ICC HRM step-by-step, do not change this. It will be automatically
+# set to block or top for block or top level designs, respectively.
+set ICC_IMPLEMENTATION_PHASE                default
+# List containing paths to all block libraries, which will be added as reference
+# libraries of the top level library.
+# If following ICC HRM step-by-step, need not change this. It will be automatically
+# set to include all block libraries in the design for top level implementation.
+set MW_SOFT_MACRO_LIBS                      ""
+#-----------------------------------------------------------------------------
+# ICC Design Planning RM (Flat) Variables
+#-----------------------------------------------------------------------------
+# Explore mode: flow control variables.
+#
+# TRUE | FALSE
+# Turn on exploration mode.
+set ICC_DP_EXPLORE_MODE                 FALSE
+#
+# default | placement_only | no_pns_pna | no_ipo
+# default        - place -> PNS/PNA -> in-place optimization -> final groute,
+#                  snapshot, QoR, timing, and outputs.
+# placement_only - Skip PNS/PNA and in-place optimization from default.
+# no_pns_pna     - Skip PNA/PNS from default.
+# no_ipo         - Skip in-place optimization from default.
+set ICC_DP_EXPLORE_STYLE                default
+#
+# TRUE | FALSE
+# TRUE - Save three additional CEL after placement, in-place optimization,
+#        and PNS in explore mode (more disk space).
+set ICC_DP_EXPLORE_SAVE_CEL_EACH_STEP   FALSE
+#
+# TRUE | FALSE
+# TRUE - Generate QoR snapshot and timing report after each step (longer run time).
+set ICC_DP_EXPLORE_REPORTING_EACH_STEP  FALSE
+# 
+# TRUE | FALSE
+# TRUE - Use global route.
+set ICC_DP_EXPLORE_USE_GLOBAL_ROUTE     FALSE
+# 
+# TRUE | FALSE
+# TRUE - Save two additional CEL after global route:
+#        one after placement and one at the end.
+set ICC_DP_EXPLORE_SAVE_CEL_AFTER_GROUTE    TRUE
+# 
+# Script to be loaded to create customized PG straps after placement in
+# explore mode. Valid only if ICC_DP_EXPLORE_STYLE is placement_only or
+# no_pns_pna.
+set ICC_DP_EXPLORE_CUSTOM_PG_SCRIPT     ""
+# Explore mode: additional PNS control variables.
+#
+# Unit: mV. Tool default is 10% of $PNS_POWER_BUDGET.
+set PNS_TARGET_VOLTAGE_DROP             250
+#
+# TRUE | FALSE
+# Specify if the design is block or top level.
+# It turns on correspondant options in PNS and PNA.
+set PNS_BLOCK_MODE                      TRUE  
+#
+# Specify cell masters for power pads, e.g. "pv0i.FRAM pv0a.FRAM".
+# Only for top level design with power pads.
+set PNS_PAD_MASTERS                     ""
+#
+# Specify the file with a list of power pad instances.
+# Only for top level design with power pads.
+set PNS_PAD_INSTANCE_FILE               ""
+#
+# Specify the file with a list of power pad masters.
+# Only for top level design with power pads.
+set PNS_PAD_MASTER_FILE                 ""
+#
+# Provide only one of the above three PNS_PAD_* variables.
+#-----------------------------------------------------------------------------
+# No Need to Change the Following if DCRM Is Used prior to ICC RM
+#-----------------------------------------------------------------------------
+# File name definitions.
+set ICC_IN_VERILOG_NETLIST_FILE "$DESIGN_NAME.mapped.v"
+set ICC_IN_SDC_FILE             "$DESIGN_NAME.mapped.sdc"
+set ICC_IN_DDC_FILE             "$DESIGN_NAME.mapped.ddc"
+set ICC_IN_UPF_FILE             "$DESIGN_NAME.mapped.upf"
+set ICC_IN_SCAN_DEF_FILE        "$DESIGN_NAME.mapped.scandef"
+set MW_DESIGN_LIBRARY           "../milkyway/${DESIGN_NAME}_APR"
+# Milkyway design library if you want reference methodology to copy it as
+# $MW_DESIGN_LIBRARY. Only apply if $ICC_INIT_DESIGN_INPUT is set to "MW".
+set COPY_FROM_MW_DESIGN_LIBRARY "${DESIGN_NAME}_LIB"
+# Directory definitions.
+set REPORT_DIR_INIT_DESIGN                      $REPORT_DIR
+set REPORT_DIR_PLACE_OPT                        $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_CTS                    $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_PSYN                   $REPORT_DIR
+set REPORT_DIR_CLOCK_OPT_ROUTE                  $REPORT_DIR
+set REPORT_DIR_ROUTE                            $REPORT_DIR
+set REPORT_DIR_ROUTE_OPT                        $REPORT_DIR
+set REPORT_DIR_CHIP_FINISH                      $REPORT_DIR
+set REPORT_DIR_ECO                              $REPORT_DIR
+set REPORT_DIR_FOCAL_OPT                        $REPORT_DIR
+set REPORT_DIR_SIGNOFF_OPT                      $REPORT_DIR
+set REPORT_DIR_METAL_FILL                       $REPORT_DIR
+set REPORT_DIR_DP                               $REPORT_DIR
+set REPORT_DIR_DP_CREATE_PLANGROUPS             $REPORT_DIR
+set REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS    $REPORT_DIR
+set REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING      $REPORT_DIR
+set REPORT_DIR_DP_COMMIT                        $REPORT_DIR
+set REPORT_DIR_DP_PREPARE_BLOCK                 $REPORT_DIR
+set REPORT_DIR_FORMALITY                        $REPORT_DIR
+if {![file exists $REPORT_DIR_INIT_DESIGN                  ]} {file mkdir $REPORT_DIR_INIT_DESIGN                  }
+if {![file exists $REPORT_DIR_PLACE_OPT                    ]} {file mkdir $REPORT_DIR_PLACE_OPT                    }
+if {![file exists $REPORT_DIR_CLOCK_OPT_CTS                ]} {file mkdir $REPORT_DIR_CLOCK_OPT_CTS                }
+if {![file exists $REPORT_DIR_CLOCK_OPT_PSYN               ]} {file mkdir $REPORT_DIR_CLOCK_OPT_PSYN               }
+if {![file exists $REPORT_DIR_CLOCK_OPT_ROUTE              ]} {file mkdir $REPORT_DIR_CLOCK_OPT_ROUTE              }
+if {![file exists $REPORT_DIR_ROUTE                        ]} {file mkdir $REPORT_DIR_ROUTE                        }
+if {![file exists $REPORT_DIR_ROUTE_OPT                    ]} {file mkdir $REPORT_DIR_ROUTE_OPT                    }
+if {![file exists $REPORT_DIR_CHIP_FINISH                  ]} {file mkdir $REPORT_DIR_CHIP_FINISH                  }
+if {![file exists $REPORT_DIR_ECO                          ]} {file mkdir $REPORT_DIR_ECO                          }
+if {![file exists $REPORT_DIR_FOCAL_OPT                    ]} {file mkdir $REPORT_DIR_FOCAL_OPT                    }
+if {![file exists $REPORT_DIR_SIGNOFF_OPT                  ]} {file mkdir $REPORT_DIR_SIGNOFF_OPT                  }
+if {![file exists $REPORT_DIR_METAL_FILL                   ]} {file mkdir $REPORT_DIR_METAL_FILL                   }
+if {![file exists $REPORT_DIR_DP                           ]} {file mkdir $REPORT_DIR_DP                           }
+if {![file exists $REPORT_DIR_DP_CREATE_PLANGROUPS         ]} {file mkdir $REPORT_DIR_DP_CREATE_PLANGROUPS         }
+if {![file exists $REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS]} {file mkdir $REPORT_DIR_DP_ROUTEABILITY_ON_PLANGROUPS}
+if {![file exists $REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING  ]} {file mkdir $REPORT_DIR_DP_PIN_ASSIGNMENT_BUDGETING  }
+if {![file exists $REPORT_DIR_DP_COMMIT                    ]} {file mkdir $REPORT_DIR_DP_COMMIT                    }
+if {![file exists $REPORT_DIR_DP_PREPARE_BLOCK             ]} {file mkdir $REPORT_DIR_DP_PREPARE_BLOCK             }
+if {![file exists $REPORT_DIR_FORMALITY                    ]} {file mkdir $REPORT_DIR_FORMALITY                    }
+# Logical libraries.
+set_app_var search_path  ". ./script ./$RESULT_DIR ../syn/result $ADDITIONAL_SEARCH_PATH $search_path"
+if {$synopsys_program_name != "mvrc" || $synopsys_program_name != "vsi" || $synopsys_program_name != "vcst"} {
+    set_app_var target_library  "$TARGET_LIBRARY_FILES"
+    set_app_var link_library    "* $TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+    } else {
+    set_app_var link_library    "$TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+    }
+if {![file exists $RESULT_DIR]} {file mkdir $RESULT_DIR}
+if {![file exists $REPORT_DIR]} {file mkdir $REPORT_DIR}
+if {$synopsys_program_name == "icc_shell"} {
+    # Min/Max library relationships.
+    # For "set_operating_conditions -analysis_type on_chip_variation", it is not
+    # recommended if only -max is specified. Only use it if both -max and -min of
+    # set_operating_conditions are specified and point to two different libraries
+    # and are characterized to model OCV effects of the same corner.
+    if {$MIN_LIBRARY_FILES != "" } {
+        foreach {max_library min_library} $MIN_LIBRARY_FILES {
+            set_min_library $max_library -min_version $min_library
+            }
+        }
+
+    # Reference libraries.
+    if { ![file exists [which $MW_REFERENCE_CONTROL_FILE]]} {
+        if {[file exists $MW_DESIGN_LIBRARY/lib]} {
+            set_mw_lib_reference $MW_DESIGN_LIBRARY                 -mw_reference_library "$MW_REFERENCE_LIB_DIRS $MW_SOFT_MACRO_LIBS"
+            }
+        }
+
+    ## Some power domains are not used, e.g. PD4.
+    if {![info exists PD4]} {set PD4 ""}
+
+    # Avoid too many messages.
+    set_message_info -id PSYN-040 -limit 10     ;# Dont_touch for fixed cells.
+    set_message_info -id PSYN-087 -limit 10     ;# Port inherits its location from pad pin.
+    set_message_info -id LINT-8   -limit 10     ;# Input port is unloaded.
+
+    set_app_var check_error_list "$check_error_list LINK-5 PSYN-375"
+    }
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7twc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7tbc_ccs.db'
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5wc.db'
+Loading db file '/bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5bc.db'
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB20000328/ic_design/milkyway/systolic_array_APR
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+  Reference    /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+-------------------------------------------------------------------------
+
+if {$synopsys_program_name == "fm_shell"} {
+    set_app_var sh_new_variable_message false
+    } 
+# TRUE | FALSE
+# TRUE - Enable any derates specified on library cells with the set_timing_derate
+#        command or AOCV data to be saved to the Milkyway database.
+# set_app_var timing_save_library_derate true
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/icc_setup.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+open_mw_lib $MW_DESIGN_LIBRARY
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 7
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA45 (260, 260)
+	Upper Layer     METAL5 (90, 90)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 8
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA12 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL1 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL6 (90, 90)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 9
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA23 (260, 260)  |	VIA12 (260, 260)
+	Lower Layer     METAL2 (60, 10)   |	METAL1 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 10
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA34 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL3 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL4 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 11
+	Main Library (systolic_array_APR) |	Reference Library (tcb018gbwp7t)
+	Cut Layer       VIA45 (360, 360)  |	VIA34 (260, 260)
+	Lower Layer     METAL4 (60, 10)   |	METAL3 (60, 10)
+	Upper Layer     METAL5 (90, 90)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5 (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Upper Layer     METAL1 (5, 60)    |	METAL1 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Upper Layer     METAL2 (10, 60)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA12 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL1 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA12 (260, 260)  |	VIA34 (260, 260)
+	Lower Layer     METAL1 (10, 60)   |	METAL3 (60, 10)
+	Upper Layer     METAL2 (10, 60)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA23 (260, 260)  |	VIA45 (260, 260)
+	Lower Layer     METAL2 (10, 60)   |	METAL4 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+	Main Library (systolic_array_APR) |	Reference Library (tpd018bcdnv5)
+	Cut Layer       VIA34 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL3 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL4 (10, 60)   |	METAL6 (90, 90)	 (MWLIBP-324)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v (MWLIBP-300)
+Warning: Inconsistent Number Of Metal Layers:
+	5 (Main Library) <==> 6 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Data for Contact Code 1
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Upper Layer     METAL1 (5, 60)    |	METAL1 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 2
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Upper Layer     METAL2 (10, 60)   |	METAL2 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 3
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA12 (260, 260)  |	VIA23 (260, 260)
+	Lower Layer     METAL1 (60, 10)   |	METAL2 (60, 10)
+	Upper Layer     METAL2 (60, 10)   |	METAL3 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 4
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA12 (260, 260)  |	VIA34 (260, 260)
+	Lower Layer     METAL1 (10, 60)   |	METAL3 (60, 10)
+	Upper Layer     METAL2 (10, 60)   |	METAL4 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 5
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA23 (260, 260)  |	VIA45 (260, 260)
+	Lower Layer     METAL2 (10, 60)   |	METAL4 (60, 10)
+	Upper Layer     METAL3 (60, 10)   |	METAL5 (60, 10)	 (MWLIBP-324)
+Warning: Inconsistent Data for Contact Code 6
+	Main Library (systolic_array_APR) |	Reference Library (tpb018v)
+	Cut Layer       VIA34 (260, 260)  |	VIA56 (360, 360)
+	Lower Layer     METAL3 (60, 10)   |	METAL5 (60, 10)
+	Upper Layer     METAL4 (10, 60)   |	METAL6 (90, 90)	 (MWLIBP-324)
+{systolic_array_APR}
+redirect /dev/null "remove_mw_cel -version_kept 0 ${ICC_METAL_FILL_CEL}"
+copy_mw_cel -from $ICC_CHIP_FINISH_CEL -to $ICC_METAL_FILL_CEL
+1
+open_mw_cel $ICC_METAL_FILL_CEL
+Warning: Unit conflict found: Milkyway technology file power unit is mW; main library power unit is nW. (IFS-007)
+Information: Opened "metal_fill_icc.CEL;1" from "/bks2/PB20000328/ic_design/milkyway/systolic_array_APR" library. (MWUI-068)
+{metal_fill_icc}
+source -echo common_optimization_settings_icc.tcl
+#-----------------------------------------------------------------------------
+# common_optimization_settings_icc.tcl:
+#     Optimization common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_optimization_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# To display verbose messages during DRC fixing, setup fixing, hold fixing,
+# multiple-port-net fixing and tie-off optimization in preroute stage, set the
+# following before place_opt :
+#     Off (default)        : set_app_var preroute_opt_verbose 0  
+#     General      	       : set_app_var preroute_opt_verbose 1  
+#     DRC                  : set_app_var preroute_opt_verbose 2 
+#     Hold                 : set_app_var preroute_opt_verbose 4  
+#     General + DRC + hold : set_app_var preroute_opt_verbose 7
+#     Tie-off              : set_app_var preroute_opt_verbose 8  
+#     Multiple port nets   : set_app_var preroute_opt_verbose 16 
+#     Setup                : set_app_var preroute_opt_verbose 32
+#
+# The messages can also be saved to the file propt_verbose.log for the setup
+# and DRC messages only. 
+#     Setup & DRC          : set_app_var preroute_opt_verbose 162 ;# 128+32+2
+# Default settings for set_delay_calculation_options are:
+# -preroute elmore -routed_clock arnoldi -postroute arnoldi
+# Default setting for preroute delay calculation is Elmore.
+# To use AWE delay calculation, set the ICC_PREROUTE_AWE_EFFORT variable.
+switch $ICC_PREROUTE_AWE_EFFORT {
+    HIGH    {set_delay_calculation_options -preroute awe -awe_effort high  }
+    MEDIUM  {set_delay_calculation_options -preroute awe -awe_effort medium}
+    LOW     {set_delay_calculation_options -preroute awe -awe_effort low   }
+    default {set_delay_calculation_options -preroute elmore                }
+    }
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn/standard.sldb'
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v. (PSYN-878)
+Information: Loading local_link_library attribute {tcb018gbwp7twc_ccs.db, tpd018bcdnv5wc.db}. (MWDC-290)
+
+  Linking design 'systolic_array'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  systolic_array              metal_fill_icc.CEL
+  tcb018gbwp7twc_ccs (library) /bks2/PB20000328/ic_design/apr/tech/lib/tcb018gbwp7twc_ccs.db
+  tpd018bcdnv5wc (library)    /bks2/PB20000328/ic_design/apr/tech/lib/tpd018bcdnv5wc.db
+
+# GUI Debug: Building dc from empty. -- Time: 2sec 301ms
+# Default setting for postroute delay calculation is Arnoldi medium effort.
+# To change the effort level, set the ICC_ARNOLDI_EFFORT variable.
+switch $ICC_ARNOLDI_EFFORT {
+    HIGH    {set_delay_calculation_options -postroute arnoldi -arnoldi_effort high  }
+    HYBRID  {set_delay_calculation_options -postroute arnoldi -arnoldi_effort hybrid}
+    MEDIUM  {set_delay_calculation_options -postroute arnoldi -arnoldi_effort medium}
+    LOW     {set_delay_calculation_options -postroute arnoldi -arnoldi_effort low   }
+    default {set_delay_calculation_options -postroute arnoldi -arnoldi_effort medium}
+    }
+# Save the library cell derate settings to the design.
+# set_app_var timing_save_library_derate true
+# General optimizations.
+set_host_options -max_cores $ICC_NUM_CORES
+set_app_var timing_enable_multiple_clocks_per_reg true 
+set_fix_multiple_port_nets -all -buffer_constants -exclude_clock_network 
+if {$ICC_TIE_CELL_FLOW} {
+    set_auto_disable_drc_nets -constant false
+    } else {
+    set_auto_disable_drc_nets -constant true
+    }
+# Specify whether to use the enhanced capacitance modeling information in the
+# library description of a pin. Also only needed for OCV.
+# set_app_var timing_use_enhanced_capacitance_modeling true 
+# PT default - libraries with capacitance ranges.
+# Set dont_use cells.
+# e.g. big drivers (EM issues), very weak drivers, delay cells, clock cells.
+if {[file exists [which $ICC_IN_DONT_USE_FILE]]} { 
+    source -echo $ICC_IN_DONT_USE_FILE 
+    }
+# Fix hard macro locations.
+if {[all_macro_cells] != ""} { 
+    set_attribute [all_macro_cells] is_fixed true 
+    }
+# Set the buffering strategy for optimization.
+# IC Compiler default is -effort none (the command is not enabled).
+# If the command is used without -effort option, then -effort medium is used.
+# Use the command with -effort high typically results in better reduction in
+# buffer/inverter counts.
+# The command only works with preroute optimization, place_opt and clock_opt.
+# set_buffer_opt_strategy -effort high
+# Set
+if {$ICC_MAX_AREA != ""} {set_max_area $ICC_MAX_AREA}
+# Set area critical range.
+# Typical value: 10 percent of critical clock period
+if {$AREA_CRITICAL_RANGE_PRE_CTS != ""} {set_app_var physopt_area_critical_range $AREA_CRITICAL_RANGE_PRE_CTS} 
+# Set power critical range.
+# Typical value: 9 percent of critical clock period
+if {$POWER_CRITICAL_RANGE_PRE_CTS != ""} {set_app_var physopt_power_critical_range $POWER_CRITICAL_RANGE_PRE_CTS} 
+# Script for customized set_multi_vth_constraints constraints.
+# Effective only when $POWER_OPTIMIZATION is set to TRUE.
+# Specify to make leakage power optimization focused on LVT cell reduction.
+# Refer to rm_icc_scripts/multi_vth_constraint.example as an example.
+if {[file exists [which $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT]]} { 
+    source -echo  $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT 
+    }
+# There is a cell attribute "optimization_stage" that indicates at what stage
+# of optimization a cell was inserted. This allows for better tracking and
+# investigation of a design after optimization. The stage can be queried with
+# "get_attribute cellName optimization_stage" or with a command to report a
+# summary of tracked cells.
+#
+# e.g.
+# report_optimization_created_cells 
+# get_cells -hierarchical -filter "optimization_stage == hfs"
+# get_flat_cells -filter "optimization_stage == setup"
+#
+# These are the following stages that can be found on cells after optimization:
+#     setup            - cell created at setup optimization stage
+#     drc              - cell created at DRC fixing stage
+#     hold             - cell created at hold optimization stage
+#     hfs              - cell created at HFS fixing stage
+#     tie_optimization - cell created at tie-optimization stage 
+#     port_fixing      - cell created at multi-port-net fixing or port isolation stage
+#
+# This feature works with the following optimization commands:
+# place_opt, psynopt, clock_opt, route_opt, focal_opt, preroute_focal_opt,
+# place_opt_feasibility, clock_opt_feasibility.
+# End of common optimization session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_optimization_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo common_placement_settings_icc.tcl
+#-----------------------------------------------------------------------------
+# common_placement_settings_icc.tcl:
+#     Placement common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_placement_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Set min/max routing Layers.
+if {$MAX_ROUTING_LAYER != ""} {set_ignored_layers -max_routing_layer $MAX_ROUTING_LAYER}
+Warning: The design has already been assigned layer constraints and we will overwrite the constraints. (RT-064)
+if {$MIN_ROUTING_LAYER != ""} {set_ignored_layers -min_routing_layer $MIN_ROUTING_LAYER}
+Warning: The design has already been assigned layer constraints and we will overwrite the constraints. (RT-064)
+# Set pnet options to control cell placement around P/G straps.
+if {$PNET_METAL_LIST != "" || $PNET_METAL_LIST_COMPLETE != ""} {
+    remove_pnet_options
+
+    if {$PNET_METAL_LIST != "" } {
+  	    set_pnet_options -partial $PNET_METAL_LIST -see_object {all_types} 
+        }
+    if {$PNET_METAL_LIST_COMPLETE != ""} {
+  	    set_pnet_options -complete $PNET_METAL_LIST_COMPLETE -see_object {all_types}
+        }
+
+    report_pnet_options
+    }
+ 
+****************************************
+  Report : pnet options
+  Design : systolic_array
+  Version: L-2016.03-SP5-3
+  Date   : Thu Feb  9 15:05:13 2023
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     complete      ---         ---       via additive      ---
+METAL4     complete      ---         ---       via additive      ---
+METAL5     none          ---         ---       via additive      ---
+
+Route types considered:
+           pg ring, pg strap, pg macro io pin connection, clock ring
+           clock strap, bus, path, user signal, rectangle, contact array
+
+--------------------------------------------------------------------
+# It is recommended to use the tool's default setting.
+# In case it needs to be changed (e.g. for low utlization designs), use the
+# command below:
+# set_congestion_options -max_util 0.85
+# Use this variable to force placement in place_opt, psynopt & refine_placement
+# to leave existing cells on soft blockage. This allows the placer to move
+# cells out of soft blockage to maintain density, but does not sweep everything
+# out, as is done by default.
+# set_app_var placer_enable_enhanced_soft_blockages true
+# Uncomment the variable below to control the coarse placement's treatment of
+# channel areas.
+# The variable is false by default but can also be set to auto or true. 
+# When set to auto, ICC will reduce the max cell density only if it detect
+# substantial channel area in the design.
+# When set to true, ICC will reduce the max cell density in channel areas.
+# set_app_var placer_channel_detect_mode auto 
+# For 20nm and below, to enable Zroute global router for DPT requirement
+# regardless of congestion, please set the following: 
+# set_app_var placer_congestion_effort    medium  ;#force Zroute GR for congestion if on 
+# set_app_var placer_show_zroutegr_output true    ;#force Zroute GR info to place_opt log
+# Accept recovery and removal arcs specified in the technology library.
+set_app_var enable_recovery_removal_arcs true
+# This variable will add a soft constraint during placement to reduce the pin
+# density to below the specified value. Need to determine the appropriate
+# value of MAX_PINS_PER_SQUARE_MICRON for the design.
+# set_app_var placer_max_pins_per_square_micron $MAX_PINS_PER_SQUARE_MICRON
+# End of placement common session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_placement_settings_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo common_post_cts_timing_settings.tcl
+#-----------------------------------------------------------------------------
+# common_post_cts_timing_settings.tcl:
+#     Post-CTS timing common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_post_cts_timing_settings.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+# Enable CRPR - CRPR is usually used with timing derate (bc_wc) and with OCV.
+set_app_var timing_remove_clock_reconvergence_pessimism true 
+# Case analysis is not propagated across the sequential cells.
+# set_app_var case_analysis_sequential_propagation never
+if {[file exists [which $ICC_IN_AOCV_TABLE_FILE]]} {
+    # Allow the library cell derate settings to be saved with the design.
+    set_app_var timing_save_library_derate true
+    }
+# Set area critical range.
+# Typical value: 5 percent of critical clock period.
+if {$AREA_CRITICAL_RANGE_POST_CTS != ""} {set_app_var physopt_area_critical_range $AREA_CRITICAL_RANGE_POST_CTS}
+# Set power critical range.
+# Typical value: 5 percent of critical clock period.
+if {$POWER_CRITICAL_RANGE_POST_CTS != ""} {set_app_var physopt_power_critical_range $POWER_CRITICAL_RANGE_POST_CTS}
+# Hold fixing cells.
+if {$ICC_FIX_HOLD_PREFER_CELLS != ""} {
+    remove_attribute [get_lib_cells $ICC_FIX_HOLD_PREFER_CELLS] dont_touch
+    set_prefer -min [get_lib_cells $ICC_FIX_HOLD_PREFER_CELLS]
+    set_fix_hold_options -preferred_buffer
+    report_fix_hold_options
+    # Optionally add -effort high to reduce hold buffer count and improve min
+    # delay fixing QoR.
+    }
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_post_cts_timing_settings.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+source -echo common_route_si_settings_zrt_icc.tcl 
+#-----------------------------------------------------------------------------
+# common_route_si_settings_zrt_icc.tcl:
+#     Routing and SI common session options.
+#-----------------------------------------------------------------------------
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB20000328/ic_design/apr/script/common_route_si_settings_zrt_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# Timing Analysis Options
+#-----------------------------------------------------------------------------
+# By default, Xtalk Delta Delay is enabled for all flows.
+set_si_options     -delta_delay                        true     -route_xtalk_prevention             true     -route_xtalk_prevention_threshold   0.25     -analysis_effort                    medium
+Information: Existing back annotation will be deleted.   (UID-1006)
+Information: Min delta delay is on by default. (SI-140)
+# By default, "-route_xtalk_prevention true" enables xtalk prevention for
+# global route and track assignment, to disable xtalk prevention for global
+# route, uncomment the following command:
+# set_route_zrt_global_options -crosstalk_driven false
+# Enable min_delta_delay for the QoR flow.
+set_si_options -min_delta_delay true 
+#-----------------------------------------------------------------------------
+# Fix max_tran
+#-----------------------------------------------------------------------------
+# Note that route_opt will NOT fix nor report Delta Max Tran violations. Hence
+# all max_tran violations exclude the portion that is introduced by Xtalk.
+# To change this behavior, and fix max_transition violations including these
+# caused by Xtalk, use the switch -max_transition_mode in set_si_options. Keep
+# in mind that you can expect a runtime hit of up to 2x in DRC fixing during
+# route_opt.
+# set_si_options
+#     -delta_delay                        true #     -route_xtalk_prevention             true #     -route_xtalk_prevention_threshold   0.25 #  	  -analysis_effort                    medium #     -max_transition_mode                total_slew
+#-----------------------------------------------------------------------------
+# Advanced Timing Features
+#-----------------------------------------------------------------------------
+# If using CCS noise model, uncomment the following:
+set_app_var rc_noise_model_mode advanced
+# If static noise (aka glitches) needs to be reduced, please use the following
+# with additional options:
+# set_si_options #     -delta_delay                        true #     -route_xtalk_prevention             true #     -route_xtalk_prevention_threshold   0.25 #  	  -analysis_effort                    medium #     -static_noise                       true #     -static_noise_threshold_above_low   0.35 #     -static_noise_threshold_below_high  0.35
+# Enable timing windows during XDD calculation, please use:
+# set_si_options -timing_window true
+#-----------------------------------------------------------------------------
+# Zroute Options
+#-----------------------------------------------------------------------------
+# Default search and repair loop setting for route_opt -initial_route is 10. 
+# Use 40 to improve DRC convergence for aggressive range rules which are more
+# prevalent at newer technology nodes such as 28nm and below.
+# set_route_opt_strategy -search_repair_loop 40 
+# For designs with process nodes 40nm and above, it is recommended to uncomment
+# the line below to disable the check min area and length for cell pins feature
+# (default is true):
+# set_route_zrt_detail_options -check_pin_min_area_min_length false
+# Zroute global route specific options can be set by the following command:
+# set_route_zrt_global_options 
+# Zroute track assign specific options can be set by the following command:
+# set_route_zrt_track_options 
+# Zroute detail route specific options can be set by the following command:
+# set_route_zrt_detail_options
+#-----------------------------------------------------------------------------
+# route_opt and focal_opt Options
+#-----------------------------------------------------------------------------
+# Set area critical range.
+# Typical value: 3-4 percent of critical clock period.
+if {$AREA_CRITICAL_RANGE_POST_RT != ""} {set_app_var physopt_area_critical_range $AREA_CRITICAL_RANGE_POST_RT}
+# Set Power Critical Range
+# Typical value: 3-4 percent of critical clock period.
+if {$POWER_CRITICAL_RANGE_POST_RT != ""} {set_app_var physopt_power_critical_range $POWER_CRITICAL_RANGE_POST_RT}
+# Skip second report_qor in route_opt. Default is false.
+set_app_var routeopt_skip_report_qor true
+# To enable port punching mode for route_opt and focal_opt to open additional
+# bufferable area in a net that is difficult to fix with buffer insertion due
+# to a consistency mismatch between the logical and physical hierarchy.
+# Currently it works only with multi-threading. 
+# if {$ICC_NUM_CORES > 1} {set_route_opt_strategy -enable_port_punching TRUE}
+# Enable high resistance optimization during routing and postroute.
+set_optimization_strategy -high_resistance $ICC_HIGH_RESISTANCE_OPTIMIZATION
+#-----------------------------------------------------------------------------
+# route_opt Crosstalk Options
+#-----------------------------------------------------------------------------
+# Control for xtalk reduction.
+# Values shown are just examples and not recommendations.
+#
+# low|medium|high, default low.
+# set_route_opt_zrt_crosstalk_options -effort_level medium
+#
+# Default: ture.
+# set_route_opt_zrt_crosstalk_options -setup true
+#
+# Default: false.
+# set_route_opt_zrt_crosstalk_options -hold true
+#
+# Default: false.
+# Needs: set_si_options -max_transition_mode total_slew
+# set_route_opt_zrt_crosstalk_options -transition true
+#
+# Default: false.
+# Needs: set_si_options -static_noise true 
+# set_route_opt_zrt_crosstalk_options -static_noise true
+#-----------------------------------------------------------------------------
+# Redundant Via Insertion
+#-----------------------------------------------------------------------------
+if {$ICC_DBL_VIA } {
+    # Customize the following as needed. If nothing is provided, Zroute will
+    # select from those available.
+    # define_zrt_redundant_vias     #     -from_via         "<from_via_list>"     #     -to_via           "<to_via_list>"     #     -to_via_x_size    "<list_of_via_x_sizes>"     #     -to_via_y_size    "<list_of_via_y_sizes>"     #     -to_via_weights   "<list_of_via_weights>"
+    # Example:
+    # define_zrt_redundant_vias     #     -from_via         "VIA45 VIA45 VIA12A"     #     -to_via           "VIA45f VIA45 VIA12f"     #     -to_via_x_size    "1 1 1"     #     -to_via_y_size    "2 2 2"     #     -to_via_weights   "10 6 4"
+
+    # Specify a customized file.
+    if {[file exists [which $ICC_CUSTOM_DBL_VIA_DEFINE_SCRIPT]]} {
+        source -echo $ICC_CUSTOM_DBL_VIA_DEFINE_SCRIPT
+        }
+ 
+    if {$ICC_DBL_VIA_FLOW_EFFORT == "HIGH"} {
+        # set_route_zrt_common_options -eco_route_concurrent_redundant_via_mode reserve_space
+        # set_route_zrt_common_options -eco_route_concurrent_redundant_via_effort_level low
+        }
+    }
+#-----------------------------------------------------------------------------
+# Antenna Fixing
+#-----------------------------------------------------------------------------
+if {$ICC_FIX_ANTENNA } {
+  
+    if {[file exists [which $ANTENNA_RULES_FILE]]} {
+        set_route_zrt_detail_options -antenna true -default_port_external_gate_size 0.0
+        source -echo $ANTENNA_RULES_FILE
+        }     else {
+        echo "RM-Info: Antenna rules file does not exist"
+        echo "RM-Info: Turning off antenna fixing"
+        set_route_zrt_detail_options -antenna false
+        }
+    } else {
+    echo "RM-Info: Turning off antenna fixing"
+    set_route_zrt_detail_options -antenna false
+    }
+#;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#                     TSMC 018 Antenna Rule for Astro/ICC Router
+#;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#
+# DISCLAIMER
+#
+#       This script is for antenna ratio setting which can speed up antenna
+# violation fixing. The information contained herein is provided by TSMC on
+# an "AS IS" basis without any warranty, and TSMC has no obligation to support
+# or otherwise maintain the information.  TSMC disclaims any representation
+# that the information does not infringe any intellectual property rights or
+# proprietary rights of any third parties.  There are no other warranties given
+# by TSMC, whether express, implied or statutory, including, without limitation,
+# implied warranties of merchantability and fitness for a particular purpose.
+#
+#--------------------------------------------------------------------------------
+# DESIGN RULE DOCUMENT: T-018-LO-DR-001 V2.7
+#
+# Single-layer drawn ratio of a metal sidewall area to the active poly gate area
+# M1~M5 : ratio=400 
+# M1~M4 : ratio=diode_area*400+2200         if diode_area >=  0.203
+# M5    : ratio=diode_area*8000+30000       if diode_area >=  0.203
+# 
+# Single-layer drawn ratio of a via area to the active poly gate area 
+# VIA   : ratio=20 
+# VIA   : ratio=diode_area*83.33+75         if diode_area >=  0.203
+# 
+#--------------------------------------------------------------------------------
+set_parameter -name doAntennaConx -value 4
+set lib [current_mw_lib];
+remove_antenna_rules $lib
+set topMetalLayer 5;
+##### Single metal layer sidewall rea rule #####
+define_antenna_rule $lib   -mode 4   -diode_mode 4   -metal_ratio 400   -cut_ratio 0
+define_antenna_layer_rule $lib             -mode 4             -layer "METAL$topMetalLayer"             -ratio 400             -diode_ratio {0.203 0 8000 30000}
+define_antenna_layer_rule $lib             -mode 4             -layer "METAL4"             -ratio 400             -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib             -mode 4             -layer "METAL3"             -ratio 400             -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib             -mode 4             -layer "METAL2"             -ratio 400             -diode_ratio {0.203 0 400 2200}
+define_antenna_layer_rule $lib             -mode 4             -layer "METAL1"             -ratio 400             -diode_ratio {0.203 0 400 2200}
+##### Single via layer area rule #####
+define_antenna_rule $lib   -mode 1   -diode_mode 4   -metal_ratio 0   -cut_ratio 20
+define_antenna_layer_rule $lib             -mode 1             -layer "VIA12"             -ratio 20             -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib             -mode 1             -layer "VIA23"             -ratio 20             -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib             -mode 1             -layer "VIA34"             -ratio 20             -diode_ratio {0.203 0 83.33 75}
+define_antenna_layer_rule $lib             -mode 1             -layer "VIA45"             -ratio 20             -diode_ratio {0.203 0 83.33 75}
+##### Routing Option Related to Antenna Fixing #####
+set_parameter -name doAntennaConx -value 4 -module droute
+report_antenna_rules -output antenna.rule
+# End of routing and SI common session options.
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/common_route_si_settings_zrt_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+#-----------------------------------------------------------------------------
+# Real Metal Fill Extraction
+#-----------------------------------------------------------------------------
+# Can be set to FLOATING|GROUNDED when required. Default: AUTO.
+if {$ADD_METAL_FILL != "NONE"} {
+    set_extraction_options -real_metalfill_extraction FLOATING
+    if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+    }
+#-----------------------------------------------------------------------------
+# Metal Fill
+#-----------------------------------------------------------------------------
+# Note :
+# Use insert_metal_filler for technology nodes 65nm and above.
+# Use signoff_metal_fill for technology nodes 45nm and below.
+# For technology nodes 65nm and above.
+if {$ADD_METAL_FILL == "ICC"} {
+    # Timing driven metal fill.
+    if {$ICC_METAL_FILL_TIMING_DRIVEN} {
+        set_extraction_options -real_metalfill_extraction NONE
+        insert_metal_filler -routing_space $ICC_METAL_FILL_SPACE -timing_driven
+        }     else {
+        insert_metal_filler -routing_space $ICC_METAL_FILL_SPACE
+        }
+
+    set_extraction_options -real_metalfill_extraction FLOATING
+    if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+    }
+# For technology nodes 45nm and below.
+if {$ADD_METAL_FILL == "ICV" } {
+    if {[file exists [which $SIGNOFF_FILL_RUNSET]] } {
+        set_physical_signoff_options -exec_cmd icv -fill_runset [which $SIGNOFF_FILL_RUNSET]
+        }
+
+    if {$SIGNOFF_MAPFILE != ""} {set_physical_signoff_options -mapfile [which $SIGNOFF_MAPFILE]}
+
+    report_physical_signoff_options
+
+    if { !$SIGNOFF_METAL_FILL_TIMING_DRIVEN } {
+        signoff_metal_fill 
+        }     else {
+        set_extraction_options -real_metalfill_extraction FLOATING
+
+        # To help meet the required density in timing driven metal fill you
+        # can also apply the following option to signoff_metal_fill:
+        # -fix_density_errors true
+        # Need to add minimum density rules to the tech file before adding
+        # this option. Check with your foundry for the density rules. 
+        signoff_metal_fill             -timing_preserve_setup_slack_threshold  $TIMING_PRESERVE_SLACK_SETUP             -timing_preserve_hold_slack_threshold   $TIMING_PRESERVE_SLACK_HOLD             -run_dir                                $REPORT_DIR_METAL_FILL/signoff_fill_run
+        }
+
+    set_extraction_options -real_metalfill_extraction FLOATING
+    if {[check_error -verbose] != 0} {echo "RM-Error, flagging ..."}
+    }
+#-----------------------------------------------------------------------------
+# Saving the Cell and Snapshot Creation
+#-----------------------------------------------------------------------------
+save_mw_cel -as $ICC_METAL_FILL_CEL
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+Information: Saved design named metal_fill_icc. (UIG-5)
+1
+if {$ICC_REPORTING_EFFORT == "MED"} {
+    redirect -tee -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.qor {report_qor}
+    redirect -tee -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.qor -append {report_qor -summary}
+    redirect      -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.con {report_constraints}
+    }
+Warning: Cell 'u_pad_data_out_8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_7' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_6' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_5' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_4' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_3' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_2' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_1' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_out_0' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'u_pad_data_in_8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Note - message 'PSYN-040' limit (10) exceeded.  Remainder will be suppressed.
+
+Warning: The trip points for the library named tpd018bcdnv5wc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Warning: The trip points for the library named tpd018bcdnv5bc differ from those in the library named tcb018gbwp7twc_ccs. (TIM-164)
+Information: The GXOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GXNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIELBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GTIEHBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GSDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GOAI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GNR2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND3D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GND2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2ND1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GMUX2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GINVD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILLBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GFILL10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDFCNQD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAPBWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP4BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GDCAP10BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD8BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD3BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GBUFFD1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI22D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAOI21D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D2BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Information: The GAN2D1BWP7T library cell is not used during optimization because it does not have a valid physical site master. (DPI-025)
+Warning: IO pad 'PVSS3CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVSS1ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD2ANA' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1CDG' is unusable: unknown logic function.  (OPT-1022)
+Warning: IO pad 'PVDD1ANA' is unusable: unknown logic function.  (OPT-1022)
+Information: CCS Noise library has been found and will be used.
+  Loading design 'systolic_array'
+
+
+Information: Setting a dont_touch attribute on net 'clk_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'en_p' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_in[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'p_shift_out[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'ack_p' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: The design has 2250 physical cells. (PSYN-105)
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
+Information: Layer METAL5 is ignored for resistance and capacitance computation. (RCEX-019)
+
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+TLU+ File = /bks2/PB20000328/ic_design/apr/tech/tluplus/t018lo_1p5m_typical.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is detail route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Memory usage for extraction task 287 Mbytes -- main task 881 Mbytes.
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 0/25/125. (RCEX-043)
+Information: Coupling capacitances are explicitly created. (RCEX-044)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00021 0.00021 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00045 0.00031 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00037 0.00025 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00029 0.00029 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.00011 7.4e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00022 0.00022 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.00041 0.00028 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00024 0.00024 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00037 0.00025 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.007 0.0062 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.57V) above low
+                                   0.35 (0.57V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Updating design information... (UID-85)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.57V) above low
+                                   0.35 (0.57V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Input delay ('rise') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Using CCS timing info. (TIM-025)
+Information: Input delay ('rise') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk_p' will be added to the clock's propagated skew. (TIM-112)
+ 
+****************************************
+Report : qor
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:05:24 2023
+****************************************
+
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:              13.00
+  Critical Path Length:          4.82
+  Critical Path Slack:          24.60
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:               9.00
+  Critical Path Length:          6.77
+  Critical Path Slack:          18.74
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_p'
+  -----------------------------------
+  Levels of Logic:              17.00
+  Critical Path Length:          7.21
+  Critical Path Slack:          32.24
+  Critical Path Clk Period:     40.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               4067
+  Buf/Inv Cell Count:             542
+  Buf Cell Count:                 171
+  Inv Cell Count:                 371
+  CT Buf/Inv Cell Count:           14
+  Combinational Cell Count:      3283
+  Sequential Cell Count:          784
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    52899.929585
+  Noncombinational Area: 32734.823364
+  Buf/Inv Area:           5202.623932
+  Total Buffer Area:          2127.15
+  Total Inverter Area:        3075.48
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  Net XLength        :      142732.69
+  Net YLength        :      146963.38
+  -----------------------------------
+  Cell Area:             85634.752949
+  Design Area:           85634.752949
+  Net Length        :       289696.06
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          4366
+  Nets With Violations:            40
+  Max Trans Violations:            16
+  Max Cap Violations:               0
+  Max Fanout Violations:           24
+  -----------------------------------
+
+
+  Hostname: c01n10
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:               28.57
+  -----------------------------------------
+  Overall Compile Time:               44.67
+  Overall Compile Wall Clock Time:    46.24
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+  --------------------------------------------------------------------
+
+
+1
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+  Nets with DRC Violations: 40
+  Total moveable cell area: 85178.2
+  Total fixed cell area: 192456.6
+  Total physical cell area: 277634.8
+  Core area: (155000 155000 745240 743000)
+
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+1
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    redirect -tee -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.clock_tree {report_clock_tree -nosplit -summary}     ;# global skew report
+    redirect      -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.clock_timing {report_clock_timing -nosplit -type skew} ;# local skew report
+    }
+ 
+****************************************
+Report : clock tree
+Design : systolic_array
+Version: L-2016.03-SP5-3
+Date   : Thu Feb  9 15:05:24 2023
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk_p                784       14        15        0.0333    1.9670      0            456.6016
+1
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    redirect -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.max.tim {report_timing -nosplit -crosstalk_delta -capacitance -transition_time -input_pins -nets -delay max} 
+    redirect -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.min.tim {report_timing -nosplit -crosstalk_delta -capacitance -transition_time -input_pins -nets -delay min} 
+    }
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    redirect -tee -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.sum {report_design_physical -all -verbose}
+    }
+----------------------------------------
+Report  : report_design_physical
+          -all
+          -floorplan
+          -netlist
+          -route
+          -utilization
+          -design_setup
+Date    : Thu Feb  9 15:05:24 2023
+Version : L-2016.03-SP5-3
+--------------------------------------------------------------------------------
+                            DESIGN SETUP INFORMATION
+--------------------------------------------------------------------------------
+Host Name             : c01n10
+Working Directory     : /bks2/PB20000328/ic_design/apr
+Library Name          : systolic_array_APR
+Cell Name             : metal_fill_icc.CEL;1
+Library settings      :
+  Search Path      : .
+                     ./script
+                     ./result
+                     ../syn/result
+                     ../milkyway
+                     ../src
+                     ./tech/alib
+                     ./tech/icc
+                     ./tech/lib
+                     ./tech/tluplus
+                     ../tech/TSMC180BCDGEN3
+                     /soft1/synopsys/iccompiler/L-2016.03-SP5-3/libraries/syn
+                     /soft1/synopsys/iccompiler/L-2016.03-SP5-3/minpower/syn
+                     /soft1/synopsys/iccompiler/L-2016.03-SP5-3/dw/syn_ver
+                     /soft1/synopsys/iccompiler/L-2016.03-SP5-3/dw/sim_ver
+  Target Libraries : tcb018gbwp7twc_ccs.db
+                     tpd018bcdnv5wc.db
+  Link Libraries   : *
+                     tcb018gbwp7twc_ccs.db
+                     tpd018bcdnv5wc.db
+  MW Ref Libraries : /soft2/eda/tech/TSMC180BCDGEN3/library/std/tcb018gbwp7t_290a/milkyway/cell_frame/tcb018gbwp7t
+                     /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpd018bcdnv5_160c/milkyway/mt_2/5lm/cell_frame/tpd018bcdnv5
+                     /soft2/eda/tech/TSMC180BCDGEN3/library/io/tpb018v_180a/milkyway/cup/5lm/cell_frame/tpb018v
+
+Units                 :
+                   Library   Milkyway  TechFile
+    Time              ns        ns        ns
+    Capacitance       pF        pF        pF
+    Resitance         kOhm      kOhm      kOhm
+    Power             nW        -         mW
+    Current           mA        mA        mA
+    Voltage           V         V         V
+--------------------------------------------------------------------------------
+                              NETLIST INFORMATION
+--------------------------------------------------------------------------------
+
+CELL INSTANCE SECTION
+---------------------
+ Cell Instance Type       Count           Area     Sites
+TOTAL LEAF CELLS          18598      721918.72 unit:334620 
+  Standard  Cells         12894      272516.52 unit:124142 
+  Antenna Cells               0           0.00 --
+  STD Filler Cells         5572       74544.60 unit:33958 
+  Macro Cells                 0           0.00 --
+    Block                     0           0.00 --
+    HardMacros                0           0.00 --
+    SoftMacros                0           0.00 --
+    physBlackBox              0           0.00 --
+    SoftFixed IO              0           0.00 --
+  IOPad  Cells              128      307257.60 unit:144832 
+    Pad Filler Cells         96          57.60 unit:2976 
+    FC Pad                    0           0.00 --
+  Cover Cells                 0           0.00 --
+  FC Driver Cells             0           0.00 --
+  Chip Cells                  0           0.00 --
+  Tap Cells                   0           0.00 --
+  CornerPad Cells             4       67600.00 unit:31688 
+  SpecialVia Cells            0           0.00 --
+  StackVia Cells              0           0.00 --
+  Other  Cells                0           0.00 --
+
+  Spare Cells                 0           0.00 --
+  Special cells               2          13.17 unit:6 
+    Level Shifters            0           0.00 --
+    Isolation                 0           0.00 --
+    Switch                    0           0.00 --
+    AlwaysOn                  0           0.00 --
+    TieOff Cells              2          13.17 unit:6 
+
+  NORMAL CELLS             4067      277634.75 unit:127670 
+  PHYSONLY CELLS          14531      444283.97 unit:206950 
+    STD Filler Cells       5572       74544.60 unit:33958 
+    PGPin Only Cells       8959      369739.37 unit:172992 
+
+  Combinational            3263       52899.93 unit:24098 
+  Sequential                784       32734.82 unit:14912 
+  Others                     20      192000.00 unit:88660 
+
+  Buffers                   171        2127.15 unit:969 
+  Inverters                 371        3075.48 unit:1401 
+  Inverters/Buffers         542        5202.62 unit:2370 
+  Latches                     0           0.00 --
+  Flipflops                 784       32734.82 unit:14912 
+
+  DoubleHeight                0           0.00 --
+  TripleHeight                0           0.00 --
+  MoreThanTriple              0           0.00 --
+
+LogicalBlackBox cells         0           0.00 --
+
+NET INFORMATION
+---------------
+NetType        Count FloatingNets      Vias  Nets/Cells
+Signal          4350            0     29881      0.234
+Power              1            0      3660      0.000
+Ground             1            0      3708      0.000
+TieLow             0            0         0      0.000
+TieHigh            0            0         0      0.000
+Others            16            0      2562      0.001
+Total           4368            0     39811      0.235
+Feedthru           0            0         0      0.000
+
+NET FANOUT AND PINCOUNT STATISTICS
+----------------------------------
+FanOut         NetCount    NetPins        NetCount
+Less than 2        2816    Less than 2           0
+2                   795    2                  2825
+3                   296    3                   786
+4                    73    4                   296
+5                    54    5                    73
+6-10                224    6-10                273
+11-20                78    11-20                81
+21-30                 4    21-30                 6
+31-50                15    31-50                15
+51-100               11    51-100               11
+101-500               0    101-500               0
+501-1000              0    501-1000              0
+>1000                 0    >1000                 0
+
+PORT and PIN INFORMATION
+------------------------
+Type     Total    Input   Output    INOUT  3-st    Power   Ground  Uncon Pin/net Pin/STDcell
+Leaf     51475    10156     4355       32     0    18474    18470    13   11.78      3.99
+Macro        0        0        0        0     0        0        0     0    0.00      0.00
+Ports       22       11        9        2     0        1        1     2       -         -
+
+MASTER INSTANTIATION INFORMATION
+--------------------------------
+No. of Masters Used: 146
+Name                Type  InstCnt    LKgPwr  Height   Width     PinDens SiteName
+PDDW0208CDG         io_pad
+                               18    12.126  120.00   80.00      0.0007 unit
+PVDD2CDG            io_pad
+                                4    12.970  120.00   80.00      0.0001 unit
+PVSS3CDG            io_pad
+                                4    12.970  120.00   80.00      0.0001 unit
+PVDD1CDG            io_pad
+                                4   181.500  120.00   80.00      0.0001 unit
+PDUW0208SCDG        io_pad
+                                1    12.397  120.00   80.00      0.0007 unit
+PDDW0208SCDG        io_pad
+                                1    12.367  120.00   80.00      0.0007 unit
+TAPCELLBWP7T        std      2250              3.92    1.12      0.4555 unit
+DCAP8BWP7T          std      2185     0.000    3.92    4.48      0.1139 unit
+DCAP4BWP7T          std      1648     0.000    3.92    2.24      0.2278 unit
+DCAP16BWP7T         std      1085     0.000    3.92    8.96      0.0569 unit
+DCAPBWP7T           std       800     0.000    3.92    1.68      0.3037 unit
+DFQD0BWP7T          std       617     0.881    3.92   10.64      0.1199 unit
+DCAP32BWP7T         std       608     0.000    3.92   17.92      0.0285 unit
+NR2D1BWP7T          std       514     0.209    3.92    2.24      0.5694 unit
+OAI21D0BWP7T        std       434     0.153    3.92    2.80      0.5466 unit
+AOI22D0BWP7T        std       387     0.183    3.92    3.36      0.5315 unit
+FA1D0BWP7T          std       288     1.593    3.92   12.88      0.1386 unit
+DCAP64BWP7T         std       271     0.000    3.92   35.84      0.0142 unit
+ND2D1BWP7T          std       231     0.219    3.92    2.24      0.5694 unit
+DFQD1BWP7T          std       151     1.058    3.92   10.64      0.1199 unit
+INVD0BWP7T          std       131     0.115    3.92    1.68      0.6074 unit
+INVD1BWP7T          std       117     0.204    3.92    1.68      0.6074 unit
+AN2D1BWP7T          std        86     0.320    3.92    2.80      0.4555 unit
+CKBD1BWP7T          std        83     0.310    3.92    2.24      0.4555 unit
+MAOI22D0BWP7T       std        68     0.301    3.92    3.92      0.4555 unit
+INVD2BWP7T          std        63     0.405    3.92    2.24      0.4555 unit
+XOR4D0BWP7T         std        40     1.370    3.92   12.88      0.1386 unit
+ND3D0BWP7T          std        40     0.106    3.92    2.80      0.5466 unit
+MOAI22D0BWP7T       std        36     0.300    3.92    3.92      0.4555 unit
+XNR4D0BWP7T         std        36     1.370    3.92   12.88      0.1386 unit
+AOI21D0BWP7T        std        33     0.149    3.92    2.80      0.5466 unit
+ND2D1P5BWP7T        std        32     0.339    3.92    3.92      0.3254 unit
+NR3D1BWP7T          std        32     0.258    3.92    4.48      0.3417 unit
+AOI21D1BWP7T        std        31     0.262    3.92    3.36      0.4555 unit
+AN3D1BWP7T          std        28     0.297    3.92    3.36      0.4555 unit
+MAOI222D1BWP7T      std        26     0.346    3.92    4.48      0.3417 unit
+BUFFD1P5BWP7T       std        26     0.522    3.92    2.80      0.3644 unit
+XNR3D0BWP7T         std        24     1.046    3.92    9.52      0.1608 unit
+IAO21D0BWP7T        std        22     0.250    3.92    3.36      0.4555 unit
+AO22D0BWP7T         std        21     0.297    3.92    4.48      0.3986 unit
+CKND1BWP7T          std        21     0.155    3.92    1.68      0.6074 unit
+IOA21D0BWP7T        std        19     0.257    3.92    3.36      0.4555 unit
+ND2D2BWP7T          std        19     0.437    3.92    3.92      0.3254 unit
+MOAI22D1BWP7T       std        19     0.526    3.92    4.48      0.3986 unit
+OA21D0BWP7T         std        18     0.267    3.92    3.36      0.4555 unit
+OAI31D1BWP7T        std        17     0.270    3.92    3.92      0.4555 unit
+AOI22D1BWP7T        std        17     0.324    3.92    3.92      0.4555 unit
+DFQD2BWP7T          std        16     1.259    3.92   11.20      0.1139 unit
+BUFFD3BWP7T         std        15     0.813    3.92    3.92      0.2603 unit
+NR3D0BWP7T          std        13     0.134    3.92    2.80      0.5466 unit
+OAI21D1BWP7T        std        13     0.267    3.92    3.36      0.4555 unit
+OAI31D2BWP7T        std        12     0.515    3.92    6.72      0.2657 unit
+XOR3D0BWP7T         std        11     1.028    3.92    9.52      0.1608 unit
+BUFFD0BWP7T         std        10     0.230    3.92    2.24      0.4555 unit
+MAOI222D2BWP7T      std        10     0.955    3.92    7.28      0.2102 unit
+AOI211D1BWP7T       std         9     0.223    3.92    3.36      0.5315 unit
+BUFFD1BWP7T         std         9     0.319    3.92    2.24      0.4555 unit
+OAI211D0BWP7T       std         9     0.138    3.92    3.36      0.5315 unit
+NR2D0BWP7T          std         8     0.119    3.92    2.24      0.5694 unit
+INR2XD2BWP7T        std         8     0.819    3.92    6.16      0.2071 unit
+IAO21D1BWP7T        std         7     0.391    3.92    3.92      0.3905 unit
+ND3D1BWP7T          std         7     0.186    3.92    3.36      0.4555 unit
+OAI22D1BWP7T        std         7     0.318    3.92    3.92      0.4555 unit
+NR2XD0BWP7T         std         6     0.161    3.92    2.24      0.5694 unit
+BUFFD5BWP7T         std         6     1.419    3.92    6.16      0.1657 unit
+CKND12BWP7T         std         6     1.856    3.92    8.96      0.1139 unit
+CKND2D2BWP7T        std         5     0.368    3.92    3.92      0.3254 unit
+AOI21D2BWP7T        std         5     0.523    3.92    5.04      0.3037 unit
+INVD2P5BWP7T        std         5     0.522    3.92    2.80      0.3644 unit
+OAI21D2BWP7T        std         4     0.532    3.92    5.04      0.3037 unit
+INVD1P5BWP7T        std         4     0.317    3.92    2.24      0.4555 unit
+CKBD0BWP7T          std         4     0.287    3.92    2.24      0.4555 unit
+BUFFD2BWP7T         std         4     0.609    3.92    3.36      0.3037 unit
+CKND2BWP7T          std         4     0.307    3.92    2.24      0.4555 unit
+OA31D0BWP7T         std         3     0.270    3.92    4.48      0.3986 unit
+OA32D0BWP7T         std         3     0.296    3.92    5.60      0.3644 unit
+AO211D0BWP7T        std         3     0.249    3.92    3.92      0.4555 unit
+BUFFD6BWP7T         std         3     1.621    3.92    6.72      0.1518 unit
+CKND0BWP7T          std         3     0.139    3.92    1.68      0.6074 unit
+BUFFD12BWP7T        std         3     3.242    3.92   12.32      0.0828 unit
+INVD3BWP7T          std         3     0.609    3.92    3.36      0.3037 unit
+BUFFD4BWP7T         std         3     1.216    3.92    5.04      0.2025 unit
+ND2D3BWP7T          std         3     0.656    3.92    5.04      0.2531 unit
+BUFFD8BWP7T         std         3     2.230    3.92    8.96      0.1139 unit
+IOA22D2BWP7T        std         3     0.876    3.92    6.16      0.2899 unit
+INVD4BWP7T          std         3     0.810    3.92    3.92      0.2603 unit
+INVD10BWP7T         std         3     2.026    3.92    8.40      0.1215 unit
+IAO22D2BWP7T        std         3     0.836    3.92    6.16      0.2899 unit
+OAI211D1BWP7T       std         2     0.236    3.92    3.36      0.5315 unit
+IND3D0BWP7T         std         2     0.207    3.92    3.36      0.4555 unit
+OR4D1BWP7T          std         2     0.324    3.92    4.48      0.3986 unit
+ND2D4BWP7T          std         2     0.874    3.92    6.72      0.1898 unit
+NR2D1P5BWP7T        std         2     0.322    3.92    3.92      0.3254 unit
+OAI22D2BWP7T        std         2     0.633    3.92    6.72      0.2657 unit
+NR2XD3BWP7T         std         2     0.962    3.92    8.40      0.1518 unit
+CKND10BWP7T         std         2     1.547    3.92    7.28      0.1402 unit
+INVD12BWP7T         std         2     2.431    3.92    9.52      0.1072 unit
+INR2XD4BWP7T        std         2     1.654    3.92   12.88      0.0990 unit
+IAO21D2BWP7T        std         2     0.730    3.92    5.04      0.3037 unit
+NR3D3BWP7T          std         2     0.802    3.92   11.76      0.1302 unit
+OAI22D0BWP7T        std         1     0.181    3.92    3.36      0.5315 unit
+CKND2D3BWP7T        std         1     0.551    3.92    5.04      0.2531 unit
+TIEHBWP7T           std         1     0.000    3.92    1.68      0.4555 unit
+TIELBWP7T           std         1     0.000    3.92    1.68      0.4555 unit
+OA211D0BWP7T        std         1     0.249    3.92    4.48      0.3986 unit
+AOI31D0BWP7T        std         1     0.155    3.92    3.36      0.5315 unit
+CKBD10BWP7T         std         1     2.353    3.92   11.76      0.0868 unit
+OA21D1BWP7T         std         1     0.466    3.92    3.92      0.3905 unit
+INR2XD0BWP7T        std         1     0.276    3.92    2.80      0.4555 unit
+AOI31D1BWP7T        std         1     0.269    3.92    3.92      0.4555 unit
+NR4D3BWP7T          std         1     0.627    3.92   15.68      0.1139 unit
+NR4D1BWP7T          std         1     0.204    3.92    5.60      0.3189 unit
+CKND4BWP7T          std         1     0.610    3.92    3.92      0.2603 unit
+AO21D0BWP7T         std         1     0.267    3.92    3.36      0.4555 unit
+INVD8BWP7T          std         1     1.621    3.92    6.72      0.1518 unit
+CKND2D1BWP7T        std         1     0.201    3.92    2.24      0.5694 unit
+INVD5BWP7T          std         1     1.014    3.92    4.48      0.2278 unit
+NR3D2BWP7T          std         1     0.537    3.92   10.08      0.1518 unit
+AOI211XD1BWP7T      std         1     0.333    3.92    6.72      0.2657 unit
+NR2XD4BWP7T         std         1     1.272    3.92   11.20      0.1139 unit
+AOI211XD0BWP7T      std         1     0.172    3.92    3.36      0.5315 unit
+AOI22D2BWP7T        std         1     0.645    3.92    6.72      0.2657 unit
+XOR3D1BWP7T         std         1     1.294    3.92    9.52      0.1608 unit
+INVD6BWP7T          std         1     1.216    3.92    5.04      0.2025 unit
+AOI221D2BWP7T       std         1     0.578    3.92    8.96      0.2278 unit
+ND2D0BWP7T          std         1     0.124    3.92    2.24      0.5694 unit
+CKBD12BWP7T         std         1     2.671    3.92   12.32      0.0828 unit
+AN3D4BWP7T          std         1     1.131    3.92    8.40      0.1822 unit
+OR2D4BWP7T          std         1     1.163    3.92    6.72      0.1898 unit
+NR2D3BWP7T          std         1     0.627    3.92    5.04      0.2531 unit
+AOI221D1BWP7T       std         1     0.289    3.92    5.04      0.4049 unit
+NR3D4BWP7T          std         1     1.070    3.92   16.24      0.0942 unit
+NR4D4BWP7T          std         1     0.840    3.92   21.28      0.0839 unit
+NR2XD1BWP7T         std         1     0.309    3.92    3.92      0.3254 unit
+MAOI22D1BWP7T       std         1     0.532    3.92    4.48      0.3986 unit
+CKAN2D0BWP7T        std         1     0.275    3.92    2.80      0.4555 unit
+IOA22D1BWP7T        std         1     0.447    3.92    5.04      0.3543 unit
+PCORNER             corner_pad
+                                4            130.00  130.00      0.0000 unit
+FILL1BWP7T          std_filler
+                             2204              3.92    0.56      0.9111 unit
+FILL2BWP7T          std_filler
+                             1579              3.92    1.12      0.4555 unit
+FILL8BWP7T          std_filler
+                              565              3.92    4.48      0.1139 unit
+FILL4BWP7T          std_filler
+                              427              3.92    2.24      0.2278 unit
+FILL16BWP7T         std_filler
+                              376              3.92    8.96      0.0569 unit
+FILL32BWP7T         std_filler
+                              331              3.92   17.92      0.0285 unit
+FILL64BWP7T         std_filler
+                               90              3.92   35.84      0.0142 unit
+PFILLER0005         pad_filler
+                               96            120.00    0.01      0.0000 unit
+--------------------------------------------------------------------------------
+                             FLOORPLAN INFORMATION
+--------------------------------------------------------------------------------
+SITE ROW INFORMATION
+--------------------
+Site Type     Hrows     Vrows      Tiles        Width      Height   Row area
+unit            150         0     158100         0.56        3.92    347061.12
+
+CHIP AND CORE INFORMATION
+-------------------------
+               Width         Height               Area
+Core         590.240        588.000         347061.120
+Chip         900.240        900.000         810216.000
+Pad Core     660.240        660.000         435758.400
+
+ROUTE GUIDE SECTION
+-------------------
+No route guide exists
+
+VOLTAGE AREA SECTION
+--------------------
+No voltage area exists
+
+PLAN GROUP SECTION
+------------------
+No plan group exists
+
+EXCL MOVEBOUND SECTION
+----------------------
+No exclusive movebound exists
+
+HARD/SOFT MOVEBOUND SECTION
+---------------------------
+No hard/soft movebound exists
+
+GROUP BOUND SECTION
+-------------------
+No group bound exists
+
+RP GROUP SECTION
+----------------
+No rp group exists
+
+POWER DOMAIN SECTION
+--------------------
+No power domain exists
+
+LAYER SECTION
+-------------
+Name    Dir     Ign           Pitch   Spacing     Width
+METAL1  Hor     NO            0.560     0.230     0.230
+METAL2  Ver     NO            0.560     0.280     0.280
+METAL3  Hor     NO            0.560     0.280     0.280
+METAL4  Ver     NO            0.560     0.280     0.280
+METAL5  Hor     YES           0.900     0.460     0.440
+--------------------------------------------------------------------------------
+                            UTILIZATION INFORMATION
+--------------------------------------------------------------------------------
+BLOCKAGES SECTION
+-----------------
+BLK Type           Count Islands  Area(um^2)    AreaOutsideCore(um^2)
+                                                         BlockedSites            BlockedSites(unit)
+Hard Placement Blockage
+                       0       0        0.00        0.00 ---                     0
+Soft Placement Blockage
+                       0       0        0.00        0.00 ---                     ---
+Partial Placement Blockage
+                       0       0        0.00        0.00 ---                     ---
+Macro Cell             0       0        0.00        0.00 ---                     0
+Pad Cell             132       1   374857.60   374857.60 ---                     0
+Fixed Standard Cell
+                    2264      29    10335.00        0.00 unit:4708               4708
+Hard Keepout Margin Derived
+                       0       0        0.00        0.00 ---                     0
+Soft Keepout Margin Derived
+                       0       0        0.00        0.00 ---                     ---
+Complete PNet        ---     ---    42147.84        0.00 unit:23100              23100
+Partial PNet         ---     ---        0.00        0.00 ---                     ---
+Voltage Area Guardband
+                       0       0        0.00        0.00 ---                     0
+Exclusive Movebound Guardband
+                       0       0        0.00        0.00 ---                     ---
+Hard Keepout Distance Blockage
+                       0       0        0.00        0.00 ---                     0
+Chimney Area         ---     ---        0.00        0.00 unit:158                158
+
+CELL INSTANCE SECTION
+---------------------
+
+ Cell Instance Type       Count           Area
+  Placed Cells            18598      721918.72
+    Fixed Cells            2270      201878.40
+    Soft Fixed Cells          0           0.00
+  Unplaced Cells              0           0.00
+
+UTILIZATION RATIOS
+------------------
+Chip area           : 810216.00
+Core area           : 347061.12
+  SiteRow area      : 347061.12
+Pad Core area       : 435758.40
+Cell/Core Ratio     : 75.6749%
+Cell/Pad Core Ratio : 60.2715%
+Cell/Chip Ratio     : 78.6751%
+(A) Logical cell sites (non-fixed) :        38802
+(B) Logical cell sites (fixed) :          208
+(C) All blocked sites :        23766
+(D) Total core sites :       158100
+Cell Utilization(non-fixed) = 28.88% (A) / (D - C)
+                                              (38802) / (158100 - 23766)
+Cell Utilization(non-fixed + fixed) = 28.99% (A + B) / (D - (C - B))
+                                              (38802 + 208) / (158100 - (23766 - 208))
+Blockage Percentage = 15.03% (C) / (D)
+                                              (23766) / (158100)
+
+PNET OPTIONS INFORMATION
+------------------------
+Layer     Blockage MinWidth  MinHeight Via_additive    Density   DER minWidth
+                                                                            DER minHeight
+METAL1    none        ---       ---    Via additive     ---         ---        ---
+METAL2    none        ---       ---    Via additive     ---         ---        ---
+METAL3    complete    ---       ---    Via additive     ---            0.00       0.00
+METAL4    complete    ---       ---    Via additive     ---            0.00       0.00
+METAL5    none        ---       ---    Via additive     ---         ---        ---
+
+Route types considered:
+           pg ring, pg strap, pg macro io pin connection, clock ring
+           clock strap, bus, path, user signal, rectangle, contact array
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               ROUTE INFORMATION
+--------------------------------------------------------------------------------
+
+Timing/Optimization Information:
+
+Global Routing Information:
+    layer METAL1, dir Hor, min width = 0.23, min space = 0.23 pitch = 0.56
+    layer METAL2, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL3, dir Hor, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL4, dir Ver, min width = 0.28, min space = 0.28 pitch = 0.56
+    layer METAL5, dir Hor, min width = 0.44, min space = 0.46 pitch = 0.90
+     
+    Average gCell capacity  1.20	 on layer (1)	 METAL1
+    Average gCell capacity  3.51	 on layer (2)	 METAL2
+    Average gCell capacity  3.28	 on layer (3)	 METAL3
+    Average gCell capacity  6.23	 on layer (4)	 METAL4
+    Average gCell capacity  4.33	 on layer (5)	 METAL5
+     
+    Initial. Both Dirs: Overflow =     5 Max = 1 GRCs =     6 (0.01%)
+    Initial. H routing: Overflow =     4 Max = 1 (GRCs =  4) GRCs =     4 (0.01%)
+    Initial. V routing: Overflow =     1 Max = 1 (GRCs =  1) GRCs =     2 (0.00%)
+     
+    phase1. Both Dirs: Overflow =     5 Max = 1 GRCs =     6 (0.01%)
+    phase1. H routing: Overflow =     4 Max = 1 (GRCs =  4) GRCs =     4 (0.01%)
+    phase1. V routing: Overflow =     1 Max = 1 (GRCs =  1) GRCs =     2 (0.00%)
+     
+    phase2. Both Dirs: Overflow =     5 Max = 1 GRCs =     6 (0.01%)
+    phase2. H routing: Overflow =     4 Max = 1 (GRCs =  4) GRCs =     4 (0.01%)
+    phase2. V routing: Overflow =     1 Max = 1 (GRCs =  1) GRCs =     2 (0.00%)
+     
+    Total Wire Length = 10.75
+    Layer METAL1 wire length = 0.00
+    Layer METAL2 wire length = 0.00
+    Layer METAL3 wire length = 10.75
+    Layer METAL4 wire length = 0.00
+    Layer METAL5 wire length = 0.00
+    Total Number of Contacts = 20
+    Via VIA12 count = 9
+    Via VIA23 count = 11
+    Via VIA34 count = 0
+    Via VIA45 count = 0
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2506
+
+Track Assignment Information:
+    Number of wires with overlap after iteration 0 = 72 of 113
+
+    Number of wires with overlap after iteration 1 = 60 of 97
+
+    Total METAL1 wire length: 29.5
+    Total METAL2 wire length: 23.0
+    Total METAL3 wire length: 25.9
+    Total METAL4 wire length: 0.0
+    Total METAL5 wire length: 0.0
+    Total wire length: 78.5
+
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2544
+
+Detailed Routing Information:
+    
+
+    ---------- Detail route ----------
+
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 1 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+    	Same net spacing : 1
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 2: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    	@@@@ Total number of instance ports with antenna violations =	0
+     
+    Elapsed real time: 0:00:05
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:04 total = 0:00:04
+    Total Proc Memory(MB): 2503
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:05 CPU = 0:00:04
+     
+    DR finished with 0 open nets, of which 0 are frozen
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    Total number of nets = 4368
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:01
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2503
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:06 CPU = 0:00:04
+    
+
+    ---------- Eco detail route ----------
+
+     
+    Iteration 0: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+    	@@@@ Total number of instance ports with antenna violations =	0
+     
+    Iteration 1: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    	@@@@ Total number of instance ports with antenna violations =	0
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 1 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+    	Internal-only types : 1
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 1: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    	@@@@ Total number of instance ports with antenna violations =	0
+     
+    Elapsed real time: 0:00:03
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:03 total = 0:00:03
+    Total Proc Memory(MB): 2544
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:09 CPU = 0:00:07
+     
+    ECO Route finished with 0 open nets, of which 0 are frozen
+    ECO Route finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    Total number of nets = 4368
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2544
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:09 CPU = 0:00:07
+    
+
+    ---------- Eco detail route ----------
+
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    
+
+    ---------- Chip finish: insert redundant vias ----------
+
+    RedundantVia finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+     
+    Begin DRC fixing ...
+
+     
+    Iteration 1: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    	@@@@ Total number of instance ports with antenna violations =	0
+     
+    Elapsed real time: 0:00:03
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:02 total = 0:00:03
+    Total Proc Memory(MB): 2544
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:12 CPU = 0:00:10
+     
+    ECO Route finished with 0 open nets, of which 0 are frozen
+    ECO Route finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    Total number of nets = 4368
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = 0
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB): 2544
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:12 CPU = 0:00:10
+     
+    Total Wire Length =                    280158 micron
+    Total Number of Contacts =             32443
+    Total Number of Wires =                47572
+    Total Number of PtConns =              9230
+    Total Number of Routed Wires =       47572
+    Total Routed Wire Length =           277904 micron
+    Total Number of Routed Contacts =       32443
+    	Layer          METAL1 :      10329 micron
+    	Layer          METAL2 :     110951 micron
+    	Layer          METAL3 :     126959 micron
+    	Layer          METAL4 :      31920 micron
+    	Layer          METAL5 :          0 micron
+    	Via             VIA34 :          2
+    	Via         VIA34_2x1 :       1883
+    	Via    VIA34(rot)_2x1 :          6
+    	Via         VIA34_1x2 :        164
+    	Via             VIA23 :        350
+    	Via         VIA23_1x2 :      11691
+    	Via    VIA23(rot)_2x1 :          1
+    	Via    VIA23(rot)_1x2 :          4
+    	Via         VIA23_2x1 :       3390
+    	Via             VIA12 :        222
+    	Via            VIA12V :        278
+    	Via       VIA12V(rot) :          2
+    	Via   VIA12H(rot)_1x2 :       8320
+    	Via        VIA12H_2x1 :        397
+    	Via        VIA12H_1x2 :         33
+    	Via   VIA12H(rot)_2x1 :       2472
+    	Via         VIA12_2x1 :       2381
+    	Via    VIA12(rot)_1x2 :         35
+    	Via    VIA12(rot)_2x1 :         34
+    	Via         VIA12_1x2 :        778
+     
+    Redundant via conversion report:
+    --------------------------------
+
+      Total optimized via conversion rate = 97.37% (31589 / 32443 vias)
+     
+        Layer VIA12      = 96.64% (14450  / 14952   vias)
+            Weight 1     = 96.64% (14450   vias)
+            Un-optimized =  3.36% (502     vias)
+        Layer VIA23      = 97.73% (15086  / 15436   vias)
+            Weight 1     = 97.73% (15086   vias)
+            Un-optimized =  2.27% (350     vias)
+        Layer VIA34      = 99.90% (2053   / 2055    vias)
+            Weight 1     = 99.90% (2053    vias)
+            Un-optimized =  0.10% (2       vias)
+     
+      Total double via conversion rate    = 97.37% (31589 / 32443 vias)
+     
+        Layer VIA12      = 96.64% (14450  / 14952   vias)
+        Layer VIA23      = 97.73% (15086  / 15436   vias)
+        Layer VIA34      = 99.90% (2053   / 2055    vias)
+     
+      The optimized via conversion rate based on total routed via count = 97.37% (31589 / 32443 vias)
+     
+        Layer VIA12      = 96.64% (14450  / 14952   vias)
+            Weight 1     = 96.64% (14450   vias)
+            Un-optimized =  3.36% (502     vias)
+        Layer VIA23      = 97.73% (15086  / 15436   vias)
+            Weight 1     = 97.73% (15086   vias)
+            Un-optimized =  2.27% (350     vias)
+        Layer VIA34      = 99.90% (2053   / 2055    vias)
+            Weight 1     = 99.90% (2053    vias)
+            Un-optimized =  0.10% (2       vias)
+     
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+    metal3 Wire Length(count):               2460.08(4)
+    metal4 Wire Length(count):               2450.88(4)
+  ==============================================
+    Total Wire Length(count):                4910.96(8)
+    Number of via3 Contacts:              8
+  ==============================================
+    Total Number of Contacts:        8
+
+Stripe Wiring Statistics:
+    metal4 Wire Length(count):              17408.16(28)
+  ==============================================
+    Total Wire Length(count):               17408.16(28)
+    Number of via3 Contacts:             56
+  ==============================================
+    Total Number of Contacts:       56
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+    metal1 Wire Length(count):              94469.83(151)
+  ==============================================
+    Total Wire Length(count):               94469.83(151)
+    Number of via1 Contacts:           2416
+    Number of via2 Contacts:           2416
+    Number of via3 Contacts:           2410
+  ==============================================
+    Total Number of Contacts:     7242
+
+Signal Wiring Statistics:
+    metal1 Wire Length(count):              10367.36(3484)
+    metal2 Wire Length(count):             110958.43(30151)
+    metal3 Wire Length(count):             126962.26(21483)
+    metal4 Wire Length(count):              31919.97(1767)
+  ==============================================
+    Total Wire Length(count):              280208.03(56885)
+
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+        via1           VIA12(2)               222	       1.48
+        via1          VIA12V(4)               280	       1.87
+        via1_1x2       VIA12(2)               812	       5.43
+        via1_1x2      VIA12H(3)              2505	       16.8
+        via1_2x1       VIA12(2)              2416	       16.2
+        via1_2x1      VIA12H(3)              8717	       58.3
+ Default via for layer via1:                   3.36%
+ Yield-optmized via for layer via1:            96.6%
+
+        via2           VIA23(5)               350	       2.27
+        via2_2x1       VIA23(5)              3394	         22
+        via2_1x2       VIA23(5)             11692	       75.7
+ Default via for layer via2:                   2.27%
+ Yield-optmized via for layer via2:            97.7%
+
+        via3           VIA34(6)                 2	     0.0973
+        via3_1x2       VIA34(6)               170	       8.27
+        via3_2x1       VIA34(6)              1883	       91.6
+ Default via for layer via3:                   0.0973%
+ Yield-optmized via for layer via3:            99.9%
+
+
+ Double Via rate for all layers:           97.4%
+  ==============================================
+    Total Number of Contacts:    32443
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+    metal1         10232.85 ( 7.41%)           134.51 ( 0.09%)
+    metal2          1067.29 ( 0.77%)        109891.15 (77.34%)
+    metal3        126760.38 (91.78%)           201.88 ( 0.14%)
+    metal4            50.66 ( 0.04%)         31869.31 (22.43%)
+  ==============================================================
+    Total         138111.18                 142096.85
+--------------------------------------------------------------------------------
+if {$ICC_REPORTING_EFFORT != "OFF"} {
+    create_qor_snapshot -clock_tree -name $ICC_METAL_FILL_CEL
+    redirect -file $REPORT_DIR_METAL_FILL/$ICC_METAL_FILL_CEL.qor_snapshot.rpt {report_qor_snapshot -no_display}
+    }
+Information: Timer is not in zero interconnect delay mode. (TIM-176)
+***********************************************
+Report          : create_qor_snapshot (metal_fill_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 15:05:26 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.743 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                 16  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        85635
+Cell count:                                   4067
+Buf/inv cell count:                            542
+Std cell utilization:                       25.47%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       891
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.033/1.967      14     40.0000 
+--------------------------------------------------
+Worst Skew                 0.033 
+Worst Delay                1.967 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+Snapshot (metal_fill_icc) is created and stored under "/bks2/PB20000328/ic_design/apr/snapshot" directory
+close_mw_lib
+Removing physical design 'systolic_array'
+1
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB20000328/ic_design/apr/script/metal_fill_icc.tcl
+
+puts "-----------------------------------------------------------------------"
+-----------------------------------------------------------------------
+exit
+
+Memory usage for main task 922 Mbytes.
+Memory usage for this session 922 Mbytes.
+CPU usage for this session 46 seconds ( 0.01 hours ).
+
+Thank you...
+Exit IC Compiler!

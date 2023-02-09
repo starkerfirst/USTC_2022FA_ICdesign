@@ -1,0 +1,927 @@
+
+Note-[I_OPTS] Ignoring -I option
+  Ignoring -I option, using -PP option
+
+                         Chronologic VCS (TM)
+         Version H-2013.06_Full64 -- Wed Feb  8 13:59:59 2023
+               Copyright (c) 1991-2013 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file '/bks2/PB20000328/ic_design/src/lib.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/lib.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/lib.v, 2
+  Verilog compiler directive encountered "`define".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array/array.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/array.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/array.v, 2
+  Verilog compiler directive encountered "`define".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array/pe.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/pe.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/pe.v, 2
+  Verilog compiler directive encountered "`define".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array/shift_buffer.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/shift_buffer.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/shift_buffer.v, 2
+  Verilog compiler directive encountered "`define".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array/controller.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v, 2
+  Verilog compiler directive encountered "`define".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v, 3
+  Verilog compiler directive encountered "`define".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v, 4
+  Verilog compiler directive encountered "`define".
+
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array/controller.v, 5
+  Verilog compiler directive encountered "`define".
+
+Parsing design file '/bks2/PB20000328/ic_design/src/systolic_array.v'
+
+Lint-[VCDE] Compiler directive encountered
+/bks2/PB20000328/ic_design/src/systolic_array.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+Parsing design file 'io/tpd018bcdnv5.v'
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 22
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 24
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 37
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 39
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 40
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 41
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 42
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 43
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 44
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 45
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 46
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 90
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 92
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 105
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 107
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 108
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 109
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 110
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 111
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 112
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 113
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 114
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 158
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 160
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 173
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 175
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 176
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 177
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 178
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 179
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 180
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 181
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 182
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 226
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 228
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 241
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 243
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 244
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 245
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 246
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 247
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 248
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 249
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 250
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 294
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 296
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 309
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 311
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 312
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 313
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 314
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 315
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 316
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 317
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 318
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 362
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 364
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 377
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 379
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 380
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 381
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 382
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 383
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 384
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 385
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 386
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 430
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 432
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 445
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 447
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 448
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 449
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 450
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 451
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 452
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 453
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 454
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 498
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 500
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 513
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 515
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 516
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 517
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 518
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 519
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 520
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 521
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 522
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 566
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 568
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 583
+  No type is specified for wire 'PAD_i'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 583
+  No type is specified for wire 'pull_uen_temp'. Default wire type is being 
+  applied according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 587
+  No type is specified for wire 'CO'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 588
+  No type is specified for wire 'C_buf'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 589
+  No type is specified for wire 'PUEN'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 590
+  No type is specified for wire 'PU'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 591
+  No type is specified for wire 'PSB'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 592
+  No type is specified for wire 'PD'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 593
+  No type is specified for wire 'PAD_q'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 593
+  No type is specified for wire 'OEN_temp'. Default wire type is being applied
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[IWU] Implicit wire is used
+io/tpd018bcdnv5.v, 595
+  No type is specified for wire 'DS_tmp'. Default wire type is being applied 
+  according to the IEEE spec.
+  See the Verilog LRM(1364-2005), section 4.5.
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 648
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 650
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 655
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 657
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 662
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 664
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 669
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 671
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 676
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 678
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 684
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 686
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 691
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 693
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 699
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 701
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 706
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 708
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 713
+  Verilog compiler directive encountered "`endcelldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 715
+  Verilog compiler directive encountered "`celldefine".
+
+
+Lint-[VCDE] Compiler directive encountered
+io/tpd018bcdnv5.v, 728
+  Verilog compiler directive encountered "`endcelldefine".
+
+Parsing design file 'systolic_array_sim_top.v'
+
+Lint-[VCDE] Compiler directive encountered
+systolic_array_sim_top.v, 1
+  Verilog compiler directive encountered "`timescale".
+
+
+Lint-[VCDE] Compiler directive encountered
+systolic_array_sim_top.v, 2
+  Verilog compiler directive encountered "`define".
+
+
+Lint-[VCDE] Compiler directive encountered
+systolic_array_sim_top.v, 3
+  Verilog compiler directive encountered "`define".
+
+Top Level Modules:
+       mux3
+       PDDW0412CDG
+       PDDW0412SCDG
+       PDUW0208CDG
+       PDUW0412CDG
+       PDUW0412SCDG
+       PDUW0412SOPD
+       PVDD1ANA
+       PVDD1CDG
+       PVDD2ANA
+       PVDD2CDG
+       PVSS1ANA
+       PVSS1CDG
+       PVSS2ANA
+       PVSS2CDG
+       PVSS3CDG
+       PXOE2CDG
+       systolic_array_sim_top
+TimeScale is 1 ns / 1 ps
+
+Lint-[CAWM-L] Width mismatch
+/bks2/PB20000328/ic_design/src/systolic_array/systolic_array_wrapper_withctl.v, 59
+  Continuous assignment width mismatch
+  1 bits (lhs) versus 32 bits (rhs).
+  Source info: assign rstn_pe = ((((id_A == 2'b11) && (row_A == 2'b11)) || 
+  (rstn == 0)) ? 0 : 1'b1);  
+
+Starting vcs inline pass...
+23 modules and 0 UDP read.
+	However, due to incremental compilation, only 1 module needs to be compiled.
+recompiling module systolic_array_sim_top because:
+	This module or some inlined child module(s) has/have been modified.
+ld -r -o pre_vcsobj_1_1.o --whole-archive pre_vcsobj_1_1.a --no-whole-archive
+ld -r -o pre_vcsobj_1_2.o --whole-archive pre_vcsobj_1_2.a --no-whole-archive
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv     -Wl,-whole-archive    -Wl,-no-whole-archive  _vcsobj_1_1.o  5NrI_d.o 5NrIB_d.o SIM_l.o    pre_vcsobj_1_1.o pre_vcsobj_1_2.o  rmapats_mop.o rmapats.o       /soft1/synopsys/vcs/H-2013.06/amd64/lib/libzerosoft_rt_stubs.so /soft1/synopsys/vcs/H-2013.06/amd64/lib/libvirsim.so /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so /soft1/synopsys/vcs/H-2013.06/amd64/lib/libsnpsmalloc.so     /soft1/synopsys/vcs/H-2013.06/amd64/lib/libvcsnew.so /soft1/synopsys/vcs/H-2013.06/amd64/lib/libvcsucli.so /soft1/synopsys/vcs/H-2013.06/amd64/lib/libuclinative.so           /soft1/synopsys/vcs/H-2013.06/amd64/lib/vcs_save_restore_new.o -ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+CPU time: .237 seconds to compile + .026 seconds to elab + .132 seconds to link

@@ -1,0 +1,6 @@
+# CALIBRE-LVS DISCREPANCY VIEWER TCL FILE 
+# FILE: svdb/systolic_array.dv
+dv_start matched
+dv_cell {systolic_array} {systolic_array} matched
+dv_obj_count -transformed_nets {26455 26455} -transformed_inst {46937 46937} -transformed_port {23 23}
+dv_end

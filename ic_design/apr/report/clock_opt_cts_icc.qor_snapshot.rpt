@@ -1,0 +1,634 @@
+--- Snapshot Timing Progress ---
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QoR Report                                   WNS     TNS     Hold     LogicDRC     RouteDRC     Cell Cnt      Area     Buf/Inv       Util     CPU/Elps(hr)    Mem(Mb)       Host
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock_opt_psyn_icc                        18.870     0.0        0          233            0         4026     84643         501     27.97%        0.02/0.02        892     c01n10
+clock_opt_route_icc                       18.874     0.0        0          232            0         4026     84643         501     27.97%        0.01/0.01        925     c01n10
+route_icc                                 19.010     0.0        0          185            0         4026     84643         501     27.97%        0.02/0.02        927     c01n10
+route_opt_icc                             18.827     0.0        0           20            0         4056     85466         531     28.24%        0.02/0.02        944     c01n10
+chip_finish_icc                           18.674     0.0        0           29            0         4056     85475         531     24.63%        0.03/0.04        936     c01n10
+metal_fill_icc                            18.674     0.0        0           29            0         4056     85475         531     25.46%        0.01/0.01        890     c01n10
+init_design_icc                           19.549     0.0        0          261            0         4030     82950         506     23.90%        0.01/0.01        888     c01n10
+place_opt_icc                             19.446     0.0        0          348            0         4007     84028         482     27.50%        0.02/0.02        890     c01n10
+clock_opt_cts_icc                         17.367     0.0        0          347            0         4021     84484         496     27.65%        0.01/0.01        905     c01n10
+
+
+***********************************************
+Report          : create_qor_snapshot (clock_opt_psyn_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:17:09 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.870 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                233  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84643
+Cell count:                                   4026
+Buf/inv cell count:                            501
+Std cell utilization:                       27.97%
+CPU/ELAPSE(hr):                          0.02/0.02
+Mem(Mb):                                       892
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.025/2.017      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.025 
+Worst Delay                2.017 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (clock_opt_route_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:17:58 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.874 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                232  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84643
+Cell count:                                   4026
+Buf/inv cell count:                            501
+Std cell utilization:                       27.97%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       925
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.028/2.013      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.028 
+Worst Delay                2.013 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (route_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:19:12 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  19.010 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                185  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84643
+Cell count:                                   4026
+Buf/inv cell count:                            501
+Std cell utilization:                       27.97%
+CPU/ELAPSE(hr):                          0.02/0.02
+Mem(Mb):                                       927
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.025/1.986      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.025 
+Worst Delay                1.986 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (route_opt_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:20:36 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.827 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                 20  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        85466
+Cell count:                                   4056
+Buf/inv cell count:                            531
+Std cell utilization:                       28.24%
+CPU/ELAPSE(hr):                          0.02/0.02
+Mem(Mb):                                       944
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.025/1.986      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.025 
+Worst Delay                1.986 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (chip_finish_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:22:54 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.674 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                 29  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        85475
+Cell count:                                   4056
+Buf/inv cell count:                            531
+Std cell utilization:                       24.63%
+CPU/ELAPSE(hr):                          0.03/0.04
+Mem(Mb):                                       936
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.025/1.988      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.025 
+Worst Delay                1.988 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (metal_fill_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 12:23:48 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  18.674 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                 29  
+Number of max cap violations:                    0  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        85475
+Cell count:                                   4056
+Buf/inv cell count:                            531
+Std cell utilization:                       25.46%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       890
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.025/1.988      15     40.0000 
+--------------------------------------------------
+Worst Skew                 0.025 
+Worst Delay                1.988 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (init_design_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 14:54:28 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  19.549 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                260  
+Number of max cap violations:                    1  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        82950
+Cell count:                                   4030
+Buf/inv cell count:                            506
+Std cell utilization:                       23.90%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       888
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (place_opt_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 14:56:38 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  19.446 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                347  
+Number of max cap violations:                    1  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84028
+Cell count:                                   4007
+Buf/inv cell count:                            482
+Std cell utilization:                       27.50%
+CPU/ELAPSE(hr):                          0.02/0.02
+Mem(Mb):                                       890
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (clock_opt_cts_icc)
+Design          : systolic_array
+Version         : L-2016.03-SP5-3
+Date            : Thu Feb  9 14:57:33 2023
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: 1.0e-12 Farad(pF)
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB20000328/ic_design/apr/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                  17.367 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                346  
+Number of max cap violations:                    1  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        84484
+Cell count:                                   4021
+Buf/inv cell count:                            496
+Std cell utilization:                       27.65%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       905
+Host name:                                  c01n10
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk_p                0.027/1.971      14     40.0000 
+--------------------------------------------------
+Worst Skew                 0.027 
+Worst Delay                1.971 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+Snapshot report (index) is created and can be viewed using file "/bks2/PB20000328/ic_design/apr/snapshot/index.html"
+1
